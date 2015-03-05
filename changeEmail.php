@@ -29,7 +29,7 @@
 				margin-top: 7px;
 			}
 		</style>
-	</head>
+	</head> <!-- Jeremy is a broooo -->
 
 	<body>
 	<nav class="navbar navbar-default" role="navigation">
