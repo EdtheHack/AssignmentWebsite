@@ -11,8 +11,13 @@ if(isset($_POST['attemptLogin'])){
 		echo "Login details cannot be empty";
 	} else {
 		if (validateUser($email, $password) == 1){
+			
+			echo"i'm doing something i'm meant to";
+			
 			if(isset($_POST['stayLoggedIn'])){
 				$_SESSION["stayLoggedIn"] = true;
+				
+				echo"now i've done something else";
 			}
 			$_SESSION["loggedIn"] = true;
 			if ($_SESSION['suggestReset'] == true){
