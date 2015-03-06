@@ -1,6 +1,6 @@
 <?php
 
-include ("databaseValidation.php");
+include ("includes/databaseValidation.php");
 
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
