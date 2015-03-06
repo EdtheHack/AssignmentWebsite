@@ -136,8 +136,8 @@
 					<br>
 					<form role="login">
 						<div class="form-group">
-							<input type="email" name="email" class="form-control"
-								placeholder="Email"
+							<input type="text" class="form-control"
+								placeholder="Username"
 								<?php if(!empty($_POST["email"])){ echo " value='".$_POST["email"]."'"; }?>>
 								
 							<br> <input type="password" name="password" class="form-control"
