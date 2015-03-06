@@ -150,6 +150,8 @@
 							placeholder="Password"
 								<?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
 						
+							<br>
+							<p id="p1" style="float: left" ><input type="checkbox" name="stayLoggedIn"> Remember Me</p>	
 						</div>
                         <br>
 						<button type="submit" name="attemptLogin"  class="btn btn-default">
