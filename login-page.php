@@ -1,3 +1,9 @@
+<?php 	
+	if(isset($_SESSION['loggedIn']) && $_SESSION["stayLoggedIn"] == false){
+			echo "YOU'RE ALREADY LOGGED IN MATE!";
+	}
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -136,7 +142,7 @@
 					<br>
 					<form method="POST" action="">
 						<div class="form-group">
-							<input type="text" class="form-control"
+							<input type="text" name="email" class="form-control"
 								placeholder="Username"
 								<?php if(!empty($_POST["email"])){ echo " value='".$_POST["email"]."'"; }?>>
 								
