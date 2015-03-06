@@ -17,22 +17,28 @@
 	function validateUser($email, $password){
 		$con = connect();
 		
+		echo "I'm in here now";
 		
 		$email = mysqli_real_escape_string($con, $email);
 		$password = mysqli_real_escape_string($con, $password);
 		
 		$password = hash("sha256", $password);		//hash user entered password
 		
+		echo "I'm and here";
+		
 		$query = "SELECT * FROM user WHERE username = '".$email."' AND password = '".$password."';";
 		
 		$checkAttemptsQuery = "SELECT loginAttempts FROM user WHERE username = '".$email."';";
+		
+		echo "I'm even here";
 		
 		$checkBlockQuery = "SELECT blocked FROM user WHERE username = '".$email."';";
 		
 		$blockQuery = "UPDATE user									
 							SET blocked = '1'
 							WHERE username = '".$email."';"; 
-							
+
+		echo "and here";
 		$loginQuery = "UPDATE user
 				SET loginAttempts = '0', blocked = '0'
 				WHERE username = '".$email."' AND password = '".$password."';";
