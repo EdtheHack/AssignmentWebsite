@@ -131,10 +131,10 @@
 
 			<div class="col-md-9">
 				<div class="well">
-				<div class"row">
+					<divclass"row">
 					<h3>Sign in</h3>
 					<br>
-					<form role="login">
+					<form method="POST" action="">
 						<div class="form-group">
 							<input type="text" class="form-control"
 								placeholder="Username"
@@ -144,15 +144,16 @@
 							placeholder="Password"
 								<?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
 						
-						<?php 
-						include ("includes/login.php");
-						?>
 						</div>
                         <br>
 						<button type="submit" class="btn btn-default">
 							<i class="fa fa-sign-in"></i> <b> Login </b>
 						</button>
 					</form>
+					
+					<?php
+					include ("includes/login.php");
+					?>
                     </div>
                     <a href="#">Register with us </a>
 
