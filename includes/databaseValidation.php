@@ -5,7 +5,7 @@
 	ini_set('display_startup_errors',1);
 	error_reporting(-1);
 	
-	include ("../dbconn.php");
+	include ("/dbconn.php");
 	
 	$con = $db_con;
 	
