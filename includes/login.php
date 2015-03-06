@@ -31,6 +31,8 @@ if(isset($_POST['attemptLogin'])){
 				echo "<script>window.location.replace(\"http://student20261.201415.uk/i7212753WebAssignment/userDetails.php\")</script>";
 			}
 		}
+		
+		echo "does not exist";
 	}
 }
 
