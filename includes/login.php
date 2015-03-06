@@ -1,6 +1,6 @@
 <?php
 
-include ("includes/databaseValidation.php");
+include ("databaseValidation.php");
 
 
 if(isset($_POST['attemptLogin'])){
