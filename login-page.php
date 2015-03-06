@@ -146,7 +146,7 @@
 						
 						</div>
                         <br>
-						<button type="submit" class="btn btn-default">
+						<button type="submit" name="attemptLogin"  class="btn btn-default">
 							<i class="fa fa-sign-in"></i> <b> Login </b>
 						</button>
 					</form>
