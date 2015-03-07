@@ -1,12 +1,16 @@
 <?php
 	session_start();
 	
+
+	ini_set('display_errors',1);
+	ini_set('display_startup_errors',1);
+	error_reporting(-1);
+	
+	
 	function connect(){				// code reuse for cdatabase connection
-	$con = mysqli_connect('127.0.0.1', 'i7212753', '06d77cdf96b02e48d430d7c908149aef', 'i7212753');
-		if (!$con){
-			echo "Failed to connect to MySQL: " . mysqli_connect_error();
-			die(mysqli_connect_error());
-		}
+		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+		
+		$con = $db_con;
 		return $con;
 	}
 	

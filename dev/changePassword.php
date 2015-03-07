@@ -79,7 +79,7 @@
 					</div>
 					
 					<br>
-					
+					s
 					<div class="row">
 						<div class="col-xs-3 col-sm-3">
 							<p id = "p1" class="text-left"><span class="label label-default">New Password</span></p>
