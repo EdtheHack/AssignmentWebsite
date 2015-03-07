@@ -47,8 +47,15 @@
 			</form>
 			<?php include ("includes/login.php")?>
 		</div>
-	</div
-	>	
+	</div>
+	
+	<div class="col-md-9">
+		<div class="well">
+			<h3>Not registered with us? </h3>
+				<button style="float: right" type="submit" class="btn btn-default pull-right"><i class="fa fa-pencil-square-o""></i> <b> Join Us </b></button>	
+		</div>
+	</div>
+		
 </div>
 			
 			<!-- End user login, begin user registration-

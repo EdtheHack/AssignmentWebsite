@@ -2,7 +2,7 @@
 	include 'includes/databaseValidation.php';	
 	if ($_SESSION["loggedIn"] == true){
 	} else {
-		echo "<script>window.location.replace(index.php)</script>";
+		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
 	}
 ?>
 <!DOCTYPE html>
