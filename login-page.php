@@ -57,19 +57,14 @@
 			</div>             
         </div>
         <div id="sectionB" class="tab-pane fade">
-            
+            <h3>Register With Us</h3>
+					<br>
 				<form method="POST" action="">
-								<div class="row">
-									<div class="col-sm-3">
-										<p id="p1" class="text-left"><span class="label label-default">Email</span></p> 
-									</div>
-									<div class="col-sm-9">
-										<div class="center">
-											<span class="input-group"></span>
-											<input type="email" name="emailRegister" class="form-control" <?php if(!empty($_POST["emailRegister"])){ echo " value='".$_POST["emailRegister"]."'"; }?>>
-										</div>
-									</div>
-								</div>
+					<div class="form-group">
+    			        <label for="email">Email:</label>
+						<input type="email" class="form-control" id="email" placeholder="Enter email" name="emailRegister"  <?php if(!empty($_POST["emailRegister"])){ echo " value='".$_POST["emailRegister"]."'"; }?>>
+					</div>
+								
 								
 								<div class="row">
 									<div class="col-sm-3">
