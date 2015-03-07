@@ -8,11 +8,11 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a href="#" class="navbar-brand"> eShop </a>
+			<a href="index.php" class="navbar-brand"> eShop </a>
 		</div>
 		<div id="navbarCollapse" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#"><i class="fa fa-home"></i> Home </a></li>
+				<li class="active"><a href="index.php"><i class="fa fa-home"></i> Home </a></li>
 				<li><a href="#"> Products </a></li>
 			</ul>
 			<form class="navbar-form navbar-left" role="search">
@@ -41,7 +41,7 @@
 						<form method=\"POST\" action=\"\">
 						
 						<li>
-						<button type=\"submit\" name=\"logout\" class=\"btn btn-default\"><i class=\"fa fa-sign-out\"></i> <b> Logout </b></button>
+						<a href=\"#\" type=\"submit\" name=\"logout\" class=\"btn btn-default\"><i class=\"fa fa-sign-out\"></i> <b> Logout </b></a>
 						</li>";	
 						
 						
