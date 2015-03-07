@@ -1,8 +1,7 @@
 <?php
 	include 'itemFunctions.php';	
 	
-	class product{
-		
+	class product{	
 		private $name;
 		private $price;
 		private $description;
