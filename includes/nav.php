@@ -37,7 +37,7 @@
 						<li><a href=\"#\">Basket</a></li>
 						</ul></li> 
 					
-						<form method=\"POST\" action=\"\">
+						<form method=\"POST\" action=\"\" class=\"navbar-form navbar-right\">
 						
 						<li><a href=\"#\" style= type=\"submit\" name=\"logout\"><i class=\"fa fa-sign-out\"></i> <b> Logout </b></a></li>
 						</form>
