@@ -35,15 +35,13 @@
 						<li><a href=\"changePassword.php\">Change Password</a></li>
 						<li><a href=\"editDetails.php\">Change Details</a></li>
 						<li><a href=\"#\">Basket</a></li>
-						
+						</ul></li> 
 					
 						<form method=\"POST\" action=\"\">
 						
-						<li>
-						<a href=\"#\" style= type=\"submit\" name=\"logout\"><i class=\"fa fa-sign-out\"></i> <b> Logout </b></a>
-						</li>
-						
-						</ul></li> ";	
+						<li><a href=\"#\" style= type=\"submit\" name=\"logout\"><i class=\"fa fa-sign-out\"></i> <b> Logout </b></a></li>
+						</form>
+						";	
 						
 						
 						if(isset($_POST['logout'])){
