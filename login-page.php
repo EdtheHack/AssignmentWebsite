@@ -29,69 +29,170 @@
 	
 	<div class="bs-example">
     <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#sectionA">Section A</a></li>
-        <li><a data-toggle="tab" href="#sectionB">Section B</a></li>
-        <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a data-toggle="tab" href="#dropdown1">Dropdown1</a></li>
-                <li><a data-toggle="tab" href="#dropdown2">Dropdown2</a></li>
-            </ul>
-        </li>
+        <li class="active"><a data-toggle="tab" href="#sectionA">Sign In</a></li>
+        <li><a data-toggle="tab" href="#sectionB">Register With us</a></li>
     </ul>
     <div class="tab-content">
         <div id="sectionA" class="tab-pane fade in active">
-            <h3>Section A</h3>
-            <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+           <div class="well">		
+				<h3>Sign in</h3>
+					<br>
+					<form method="POST" action="">
+						<div class="form-group">
+							<input type="email" name="email" class="form-control" placeholder="Email"
+											<?php if(!empty($_POST["email"])){ echo " value='".$_POST["email"]."'"; }?>>
+											
+							<br> <input type="password" name="password" class="form-control" placeholder="Password"
+											<?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
+									
+							<br>
+								<p id="p1" style="float: left" ><input type="checkbox" name="stayLoggedIn"> Remember Me</p>		
+								<p style="float: right"> <input type="submit" name="attemptLogin" class="btn btn-default" value="Login"> <a href ="resetPassword.php"><input class="btn btn-default" value="Forgotten Password"></a></p>
+				
+						</div>
+			            <br>
+					
+					</form>
+					<?php include ("includes/login.php")?>
+			</div>             
         </div>
         <div id="sectionB" class="tab-pane fade">
-            <h3>Section B</h3>
-            <p>Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing.</p>
-        </div>
-        <div id="dropdown1" class="tab-pane fade">
-            <h3>Dropdown 1</h3>
-            <p>WInteger convallis, nulla in sollicitudin placerat, ligula enim auctor lectus, in mollis diam dolor at lorem. Sed bibendum nibh sit amet dictum feugiat. Vivamus arcu sem, cursus a feugiat ut, iaculis at erat. Donec vehicula at ligula vitae venenatis. Sed nunc nulla, vehicula non porttitor in, pharetra et dolor. Fusce nec velit velit. Pellentesque consectetur eros.</p>
-        </div>
-        <div id="dropdown2" class="tab-pane fade">
-            <h3>Dropdown 2</h3>
-            <p>Donec vel placerat quam, ut euismod risus. Sed a mi suscipit, elementum sem a, hendrerit velit. Donec at erat magna. Sed dignissim orci nec eleifend egestas. Donec eget mi consequat massa vestibulum laoreet. Mauris et ultrices nulla, malesuada volutpat ante. Fusce ut orci lorem. Donec molestie libero in tempus imperdiet. Cum sociis natoque penatibus et magnis.</p>
-        </div>
+            
+			<div class="panel panel-default" style="background-color: #AAAAAA; margin-top: 10px; margin-bottom: 10px;">
+				<div class="panel-heading" role="tab">
+					
+					<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+						<p style="text-align: center; margin-bottom: 0px; color: #333333; text-decoration: none">Register</p>
+					</a>
+					
+				</div>
+				<form method="POST" action="">
+					<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+						<div class="panel-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-3">
+										<p id="p1" class="text-left"><span class="label label-default">Email</span></p> 
+									</div>
+									<div class="col-sm-9">
+										<div class="center">
+											<span class="input-group"></span>
+											<input type="email" name="emailRegister" class="form-control" <?php if(!empty($_POST["emailRegister"])){ echo " value='".$_POST["emailRegister"]."'"; }?>>
+										</div>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-sm-3">
+										<p id = "p1" class="text-left"><span class="label label-default">Password</span></p>
+									</div>
+									<div class="col-sm-9">
+										<div class="center">
+											<span class="input-group"></span>
+											<input type="password" name="passwordRegister" class="form-control" <?php if(!empty($_POST["passwordRegister"])){ echo " value='".$_POST["passwordRegister"]."'"; }?>>
+										</div>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-sm-3">
+										<p id = "p1" class="text-left"><span class="label label-default">Retype Password</span></p>
+									</div>
+									<div class="col-sm-9">
+										<div class="center">
+											<span class="input-group"></span>
+											<input type="password" name="passwordRegisterCheck" class="form-control" <?php if(!empty($_POST["passwordRegisterCheck"])){ echo " value='".$_POST["passwordRegisterCheck"]."'"; }?>>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-sm-3">
+										<p id="p1" class="text-left"><span class="label label-default">First Name</span></p>
+									</div>
+									<div class="col-sm-9">
+										<div class="center">
+											<span class="input-group"></span>
+											<input type="text" name="firstName" class="form-control" <?php if(!empty($_POST["firstName"])){ echo " value='".$_POST["firstName"]."'"; }?>>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-sm-3">
+										<p id="p1" class="text-left"><span class="label label-default">Last Name</span></p>
+									</div>
+									<div class="col-sm-9">
+										<div class="center">
+											<span class="input-group"></span>
+											<input type="text" name="lastName" class="form-control" <?php if(!empty($_POST["lastName"])){ echo " value='".$_POST["lastName"]."'"; }?>>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-sm-3">
+										<p id="p1" class="text-left"><span class="label label-default">Address Line 1</span></p>
+									</div>
+									<div class="col-sm-9">
+										<div class="center">
+											<span class="input-group"></span>
+											<input type="text" name="addressLine1" class="form-control" <?php if(!empty($_POST["addressLine1"])){ echo " value='".$_POST["addressLine1"]."'"; }?>>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-sm-3">
+										<p id="p1" class="text-left"><span class="label label-default">Address Line 2</span></p>
+									</div>
+									<div class="col-sm-9">
+										<div class="center">
+											<span class="input-group"></span>
+											<input type="text" name="addressLine2" class="form-control" <?php if(!empty($_POST["addressLine2"])){ echo " value='".$_POST["addressLine2"]."'"; }?>>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-sm-3">
+										<p id="p1" class="text-left"><span class="label label-default">Mobile Number</span></p>
+									</div>
+									<div class="col-sm-9">
+										<div class="center">
+											<span class="input-group"></span>
+											<input type="text" name="mobileNumber" class="form-control" <?php if(!empty($_POST["mobileNumber"])){ echo " value='".$_POST["mobileNumber"]."'"; }?>>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-sm-3">
+										<p id="p1" class="text-left"><span class="label label-default">Home Number</span></p>
+									</div>
+									<div class="col-sm-9">
+										<div class="center">
+											<span class="input-group"></span>
+											<input type="text" name="homeNumber" class="form-control" <?php if(!empty($_POST["homeNumber"])){ echo " value='".$_POST["homeNumber"]."'"; }?>>
+										</div>
+									</div>
+								</div>
+								
+								<br>
+
+								<p style="text-align: center"> <input type="submit" name="attemptRegister" class="btn btn-default" value="Register"></p>
+								
+							</div>
+						</div>
+					</div>
+				</form>        </div>
     </div>
 </div>
 	
 	
 	
-		<div class="well">
-						
-		<h3>Sign in</h3>
-			<br>
-			<form method="POST" action="">
-				<div class="form-group">
-					<input type="email" name="email" class="form-control" placeholder="Email"
-									<?php if(!empty($_POST["email"])){ echo " value='".$_POST["email"]."'"; }?>>
-									
-					<br> <input type="password" name="password" class="form-control" placeholder="Password"
-									<?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
-							
-					<br>
-						<p id="p1" style="float: left" ><input type="checkbox" name="stayLoggedIn"> Remember Me</p>		
-						<p style="float: right"> <input type="submit" name="attemptLogin" class="btn btn-default" value="Login"> <a href ="resetPassword.php"><input class="btn btn-default" value="Forgotten Password"></a></p>
 		
-				</div>
-	            <br>
-			
-			</form>
-			<?php include ("includes/login.php")?>
-		</div>
 	</div>
-	
-	<div class="col-md-9">
-    	<div class="alert alert-info">
-       		 <a href="#" class="close" data-dismiss="alert">&times;</a>
-				Not registered with us? 
-				<button style="float: right" type="submit" class="btn btn-default pull-right"><i class="fa fa-pencil-square-o"></i> <b> Join Us </b></button>	
-    	</div>
-	</div>		
 </div>
 
 			
