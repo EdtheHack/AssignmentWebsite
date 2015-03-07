@@ -96,9 +96,9 @@
 							}
 							$_SESSION["loggedIn"] = true;
 							if ($_SESSION['suggestReset'] == true){
-								echo "<script>window.location.replace(suggestResetPassword.php)</script>";
+								echo "<script>window.location.replace(\"suggestResetPassword.php\")</script>";
 							} else {
-								echo "<script>window.location.replace(userDetails.php)</script>";
+								echo "<script>window.location.replace(\"userDetails.php\")</script>";
 							}							
 						}
 					}
