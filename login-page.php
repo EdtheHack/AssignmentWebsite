@@ -50,13 +50,14 @@
 	</div>
 	
 	<div class="col-md-9">
-		<div class="well">
-			<h3 style="float: left" >Not registered with us? 
-				<button style="float: right" type="submit" class="btn btn-default pull-right"><i class="fa fa-pencil-square-o""></i> <b> Join Us </b></button>	</h3>
-		</div>
-	</div>
-		
+    	<div class="alert alert-info">
+       		 <a href="#" class="close" data-dismiss="alert">&times;</a>
+				Not registered with us? 
+				<button style="float: right" type="submit" class="btn btn-default pull-right"><i class="fa fa-pencil-square-o""></i> <b> Join Us </b></button>	
+    	</div>
+	</div>		
 </div>
+
 			
 			<!-- End user login, begin user registration-
 
