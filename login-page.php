@@ -34,7 +34,7 @@
     </ul>
     <div class="tab-content">
         <div id="sectionA" class="tab-pane fade in active">
-           <div class="well">		
+           <div>		
 				<h3>Sign in</h3>
 					<br>
 					<form method="POST" action="">
@@ -59,9 +59,6 @@
         <div id="sectionB" class="tab-pane fade">
             
 				<form method="POST" action="">
-					<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-						<div class="panel-body">
-							<div class="container-fluid">
 								<div class="row">
 									<div class="col-sm-3">
 										<p id="p1" class="text-left"><span class="label label-default">Email</span></p> 
@@ -174,10 +171,9 @@
 
 								<p style="text-align: center"> <input type="submit" name="attemptRegister" class="btn btn-default" value="Register"></p>
 								
-							</div>
-						</div>
-					</div>
-				</form>        </div>
+			
+				</form>        
+			</div>
     </div>
 </div>
 	
