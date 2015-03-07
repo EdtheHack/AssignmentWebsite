@@ -1,10 +1,7 @@
 <?php
 	session_start();
 	
-	//MUST CHANGE USERNAME TO EMAIL
-	//MUST CHANGE user_id to user_id IN EVERYTHING !!!
-	
-	
+
 	ini_set('display_errors',1);
 	ini_set('display_startup_errors',1);
 	error_reporting(-1);
@@ -17,32 +14,24 @@
 		return $con;
 	}
 	
-
 	function validateUser($email, $password){
 		$con = connect();
-		
-
 		
 		$email = mysqli_real_escape_string($con, $email);
 		$password = mysqli_real_escape_string($con, $password);
 		
 		$password = hash("sha256", $password);		//hash user entered password
 		
-
-		
 		$query = "SELECT * FROM user WHERE email = '".$email."' AND password = '".$password."';";
 		
 		$checkAttemptsQuery = "SELECT loginAttempts FROM user WHERE email = '".$email."';";
-		
-
 		
 		$checkBlockQuery = "SELECT blocked FROM user WHERE email = '".$email."';";
 		
 		$blockQuery = "UPDATE user									
 							SET blocked = '1'
 							WHERE email = '".$email."';"; 
-
-	
+							
 		$loginQuery = "UPDATE user
 				SET loginAttempts = '0', blocked = '0'
 				WHERE email = '".$email."' AND password = '".$password."';";
@@ -56,7 +45,7 @@
 					if ($numRows > 0){
 					if ($result = mysqli_query($con,$loginQuery)){
 					}
-						$_SESSION["user_id"] = "$row[0]";
+						$_SESSION["userID"] = "$row[0]";
 						$_SESSION["email"] = "$row[1]";
 						$_SESSION["password"] = "$row[2]";
 						$_SESSION["firstName"] = "$row[3]";
@@ -149,12 +138,12 @@
 				
 		$query = "UPDATE user
 				SET firstName = '".$_SESSION['firstName']."', lastName = '".$_SESSION['lastName']."', addressLine1 = '".$_SESSION['addressLine1']."', addressLine2 = '".$_SESSION['addressLine2']."', mobileNo = '".$_SESSION['mobileNumber']."', homeNo = '".$_SESSION['homeNumber']."'
-				WHERE user_id = '".$_SESSION['user_id']."';";
+				WHERE userID = '".$_SESSION['userID']."';";
 				
 		if ($result = mysqli_query($con, $query)) {
 			return 1;
 		} else {
-			echo $_SESSION['user_id'];
+			echo $_SESSION['userID'];
 			return 0;
 		}
 	}
@@ -379,11 +368,11 @@
 		$password = hash("sha256", $password);
 		$passwordCheck = hash("sha256", $passwordCheck);
 				
-		$checkQuery = "SELECT * FROM user WHERE user_id = '".$_SESSION['user_id']."' AND password = '".$oldPassword."';";
+		$checkQuery = "SELECT * FROM user WHERE userID = '".$_SESSION['userID']."' AND password = '".$oldPassword."';";
 				
 		$query = "UPDATE user
 				SET password = '".$password."'
-				WHERE user_id = '".$_SESSION['user_id']."';";
+				WHERE userID = '".$_SESSION['userID']."';";
 		
 		if ($result = mysqli_query($con, $checkQuery)) {
 			$numRows = mysqli_num_rows($result);						
