@@ -7,7 +7,10 @@
 		private $description;
 		
 		public function __construct($itemNumber){
-			$this->name = getNewestItems($itemNumber);
+			echo getNewestItems($itemNumber);
+			echo getNewestItems($itemNumber)[1];
+
+			$this->name = getNewestItems($itemNumber)[1];
 			$this->price = getNewestItems($itemNumber);
 			$this->description = getNewestItems($itemNumber);
 		}
