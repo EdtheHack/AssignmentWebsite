@@ -142,8 +142,8 @@
 					<br>
 					<form method="POST" action="">
 						<div class="form-group">
-							<input type="text" name="email" class="form-control"
-								placeholder="Username"
+							<input type="email" name="email" class="form-control"
+								placeholder="Email"
 								<?php if(!empty($_POST["email"])){ echo " value='".$_POST["email"]."'"; }?>>
 								
 							<br> <input type="password" name="password" class="form-control"

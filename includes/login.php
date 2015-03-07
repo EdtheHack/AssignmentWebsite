@@ -26,9 +26,11 @@ if(isset($_POST['attemptLogin'])){
 			}
 			$_SESSION["loggedIn"] = true;
 			if ($_SESSION['suggestReset'] == true){
-				echo "<script>window.location.replace(\"http://student20261.201415.uk/i7212753WebAssignment/suggestResetPassword.php\")</script>";
+				echo "this is not how you page redirect";
+				
+				//echo "<script>window.location.replace(\"http://student20261.201415.uk/i7212753WebAssignment/suggestResetPassword.php\")</script>";
 			} else {
-				echo "<script>window.location.replace(\"http://student20261.201415.uk/i7212753WebAssignment/userDetails.php\")</script>";
+				header("/index.php");
 			}
 		}
 		
