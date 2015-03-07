@@ -1,5 +1,5 @@
 <?php
-include 'includes/databaseValidation.php';
+
 
 if(isset($_POST['attemptRegister'])){
 	$email = $_POST['emailRegister'];
