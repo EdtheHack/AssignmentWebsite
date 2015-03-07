@@ -58,14 +58,6 @@
         </div>
         <div id="sectionB" class="tab-pane fade">
             
-			<div class="panel panel-default" style="background-color: #AAAAAA; margin-top: 10px; margin-bottom: 10px;">
-				<div class="panel-heading" role="tab">
-					
-					<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-						<p style="text-align: center; margin-bottom: 0px; color: #333333; text-decoration: none">Register</p>
-					</a>
-					
-				</div>
 				<form method="POST" action="">
 					<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 						<div class="panel-body">
