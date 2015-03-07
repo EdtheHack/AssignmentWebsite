@@ -11,8 +11,8 @@
 			echo getNewestItems($itemNumber)[1];
 
 			$this->name = getNewestItems($itemNumber)[1];
-			$this->price = getNewestItems($itemNumber);
-			$this->description = getNewestItems($itemNumber);
+			$this->price = getNewestItems($itemNumber)[2];
+			$this->description = getNewestItems($itemNumber)[3];
 		}
 		
 		public function getName(){
