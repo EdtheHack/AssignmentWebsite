@@ -7,7 +7,6 @@
 		private $description;
 		
 		public function __construct($itemNumber){
-			include ("itemFunctions.php");
 			$rows = getNewestItems($itemNumber);
 			echo $rows[1];
 
