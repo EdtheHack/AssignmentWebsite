@@ -1,7 +1,3 @@
-<?php 
-
-session_start();
-?>
 <nav role="navigation" class="navbar navbar-default">
 	<div class="container">
 		<div class="navbar-header">
@@ -44,7 +40,7 @@ session_start();
 						<form method=\"POST\" action=\"\">
 						
 						<li>
-						<button type=\"submit\" name=\"logout\" ><i class=\"fa fa-sign-out\"></i> <b> Logout </b></button>
+						<a href=\"#\" type=\"submit\" name=\"logout\" ><i class=\"fa fa-sign-out\"></i> <b> Logout </b></a>
 						</li>";	
 						
 						

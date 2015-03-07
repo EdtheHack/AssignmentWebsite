@@ -13,7 +13,9 @@
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
 <body>
-	<?php include ("includes/nav.php");?>
+	<?php include ("includes/nav.php");
+	
+	session_start();?>
 	
 <div class="container">
 	<?php include ("includes/just-added.php")?>
