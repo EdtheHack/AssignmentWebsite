@@ -93,15 +93,17 @@
 						if (validateUser($email, $password) == 1){
 							if(isset($_POST['stayLoggedIn'])){
 							$_SESSION["stayLoggedIn"] = true;
+							}else{
+								$_SESSION["stayLoggedIn"] = false;
 							}
 							$_SESSION["loggedIn"] = true;
 							if ($_SESSION['suggestReset'] == true){
 								
-								echo "<script type=\"text/javascript\">document.location.href=\"{suggestResetPassword.php}\";</script>";
+								echo "<script type=\"text/javascript\">document.location.href=\"suggestResetPassword.php\";</script>";
 								//echo "<script>window.location.replace(\"suggestResetPassword.php\")</script>";
 							} else {
 								//echo "<script>window.location.replace(\"userDetails.php\")</script>";
-								echo "<script type=\"text/javascript\">document.location.href=\"{userDetails.php}\";</script>";
+								echo "<script type=\"text/javascript\">document.location.href=\"userDetails.php\";</script>";
 							}							
 						}
 					}
