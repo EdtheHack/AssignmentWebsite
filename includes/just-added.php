@@ -10,9 +10,9 @@
 			$rows = getNewestItems($itemNumber);
 			echo $rows[1];
 
-			$this->name = $rows[$itemNumber][1];
-			$this->price = $rows[$itemNumber][2];
-			$this->description = $rows[$itemNumber][3];
+			$this->name = $rows[1];
+			$this->price = $rows[2];
+			$this->description = $rows[3];
 		}
 		
 		public function getName(){
