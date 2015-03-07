@@ -20,7 +20,7 @@
 	</head>
 <body>
 	
-	<?php include ("dev/includes/nav.php"); include ("dev/includes/just-added.php")?>
+	<?php include ("includes/nav.php"); include ("includes/just-added.php")?>
 	
 <div class="col-md-9">
 	<div class="well">
@@ -46,7 +46,7 @@
 	</div>
 </div>
 					
-		<?php include ("dev/includes/login.php")?>
+		<?php include ("includes/login.php")?>
 			
 			<!-- End user login, begin user registration-
 
