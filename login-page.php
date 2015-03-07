@@ -1,4 +1,7 @@
-<?php 	
+<?php
+
+	include ("includes/databaseValidation.php");
+
 	if(isset($_SESSION['loggedIn']) && $_SESSION["stayLoggedIn"] == false){
 			echo "YOU'RE ALREADY LOGGED IN MATE!";
 	}
