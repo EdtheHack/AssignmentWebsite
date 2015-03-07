@@ -10,7 +10,7 @@
 			echo $result[$itemNumber];
 			echo $row["ROW: ".$itemNumber];
 			
-			return $result[$itemNumber];
+			return $row[$itemNumber];
 		}
 	}
 	
