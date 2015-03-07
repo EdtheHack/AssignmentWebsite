@@ -1,5 +1,5 @@
 <?php
-	include 'itemFunctions.php';	
+	include ("itemFunctions.php");	
 	
 	class product{	
 		private $name;
@@ -7,6 +7,7 @@
 		private $description;
 		
 		public function __construct($itemNumber){
+			include ("itemFunctions.php");
 			echo getNewestItems($itemNumber);
 			echo getNewestItems($itemNumber)[1];
 
