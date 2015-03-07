@@ -1,0 +1,13 @@
+<?php
+	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');	
+	
+	function getNewestItems($itemNumber){
+		$checkBlockQuery = "SELECT * FROM product ORDER BY price DESC;";
+		
+		if ($result = mysqli_query($db_con, $query)) {		//getting array of rows
+			$row = mysqli_fetch_row($result);
+			return $row[$itemNumber];
+		}
+	}
+	
+?>
