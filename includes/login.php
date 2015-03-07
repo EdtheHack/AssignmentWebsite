@@ -25,13 +25,14 @@ if(isset($_POST['attemptLogin'])){
 				echo"now i've done something else";
 			}
 			$_SESSION["loggedIn"] = true;
-			if ($_SESSION['suggestReset'] == true){
-				echo "this is not how you page redirect";
+			//if ($_SESSION['suggestReset'] == true){
+				//echo "this is not how you page redirect";
 				
 				//echo "<script>window.location.replace(\"http://student20261.201415.uk/i7212753WebAssignment/suggestResetPassword.php\")</script>";
-			} else {
+			//} else {
 				header("Location: index.php");
-			}
+				exit();
+			//}
 		}
 		
 		echo "does not exist";
