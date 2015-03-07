@@ -5,7 +5,7 @@
 		
 		private $name;
 		private $price;
-		private $description
+		private $description;
 		
 		public function __construct($itemNumber){
 			$this.name-> getNewestItems($itemNumber)[1];
