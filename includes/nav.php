@@ -1,8 +1,4 @@
-<?php 
 
-
-
-?>
 <nav role="navigation" class="navbar navbar-default">
 	<div class="container">
 		<div class="navbar-header">
@@ -29,15 +25,6 @@
 			</form>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><i class="fa fa-shopping-cart fa-1x"></i> Basket <b>0</b></a></li>
-				<li class="dropdown"><a data-toggle="dropdown"
-					class="dropdown-toggle" href="#"><i class="fa fa-wrench"></i> Your
-						Account <b class="caret"></b></a>
-					<ul role="menu" class="dropdown-menu">
-						<li><a href="#">Orders</a></li>
-						<li><a href="changePassword.php">Change Password</a></li>
-						<li><a href="editDetails.php">Change Details</a></li>
-						<li><a href="#">Basket</a></li>
-					</ul></li>
 					
 					<?php if(isset($_SESSION['loggedIn']) == true){
 						$fn = $_SESSION["firstName"];
@@ -51,7 +38,15 @@
 						<li><a href=\"#\">Basket</a></li>
 						</ul></li> 
 					
-						<li><a href=\"login-page.php\"><i class=\"fa fa-sign-in\"></i> <b> Logout </b></a></li>";	
+						<li><a action=\"POST\" name=\"logout\" type=\"submit\" href=\"login-page.php\"><i class=\"fa fa-sign-in\"></i> <b> Logout </b></a></li>";	
+						
+						
+						if(isset($_POST['logout'])){
+							$_SESSION["loggedIn"] = false;
+							unset($_SESSION);
+							session_destroy();
+							echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
+						}
 					}else{
 						echo"<li><a href=\"login-page.php\"><i class=\"fa fa-sign-in\"></i> <b> Login </b></a></li>";
 						
