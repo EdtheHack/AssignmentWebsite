@@ -22,19 +22,19 @@
 		
 		$password = hash("sha256", $password);		//hash user entered password
 		
-		$query = "SELECT * FROM user WHERE username = '".$email."' AND password = '".$password."';";
+		$query = "SELECT * FROM user WHERE email = '".$email."' AND password = '".$password."';";
 		
-		$checkAttemptsQuery = "SELECT loginAttempts FROM user WHERE username = '".$email."';";
+		$checkAttemptsQuery = "SELECT loginAttempts FROM user WHERE email = '".$email."';";
 		
-		$checkBlockQuery = "SELECT blocked FROM user WHERE username = '".$email."';";
+		$checkBlockQuery = "SELECT blocked FROM user WHERE email = '".$email."';";
 		
 		$blockQuery = "UPDATE user									
 							SET blocked = '1'
-							WHERE username = '".$email."';"; 
+							WHERE email = '".$email."';"; 
 							
 		$loginQuery = "UPDATE user
 				SET loginAttempts = '0', blocked = '0'
-				WHERE username = '".$email."' AND password = '".$password."';";
+				WHERE email = '".$email."' AND password = '".$password."';";
 		
 		if ($result = mysqli_query($con,$query)) {		//check if user and password match
 			$numRows = mysqli_num_rows($result);	
@@ -56,7 +56,7 @@
 						$_SESSION["homeNumber"] = "$row[8]";
 						return 1;
 					} else {
-						if (checkEmail($email) == 1){											//check if username exists but wrong password entered
+						if (checkEmail($email) == 1){											//check if email exists but wrong password entered
 							if ($result = mysqli_query($con, $checkAttemptsQuery)) {			//check how many times user has previously tried
 								$row = mysqli_fetch_row($result);								
 								if ($row[0] < 4){
@@ -64,7 +64,7 @@
 									
 									$addAttemptQuery = "UPDATE user									
 									SET loginAttempts = '".$attempt."'
-									WHERE username = '".$email."';";  								//query only works when placed here
+									WHERE email = '".$email."';";  								//query only works when placed here
 							
 									if ($result = mysqli_query($con, $addAttemptQuery)) {		//add a failed attempt
 										echo (5 - $attempt)." login attempts left.";
@@ -92,7 +92,7 @@
 	function createUser(){
 		$con = connect();
 				
-		$query = "INSERT INTO user (username, password, firstName, lastName, addressLine1, addressLine2, mobileNo, homeNo)
+		$query = "INSERT INTO user (email, password, firstName, lastName, addressLine1, addressLine2, mobileNo, homeNo)
 		VALUES ('".$_SESSION['email']."', '".$_SESSION['password']."', '".$_SESSION['firstName']."', '".$_SESSION['lastName']."', '".$_SESSION['addressLine1']."', '".$_SESSION['addressLine2']."', '".$_SESSION['mobileNumber']."', '".$_SESSION['homeNumber']."');";
 				
 		if ($result = mysqli_query($con, $query)) {
@@ -154,7 +154,7 @@
 		$_SESSION["email"] = mysqli_real_escape_string($con, "$email");
 		$_SESSION["password"] = mysqli_real_escape_string($con, "$password");
 		
-		$query = "SELECT * FROM user WHERE username = '".$_SESSION['email']."';";
+		$query = "SELECT * FROM user WHERE email = '".$_SESSION['email']."';";
 		
 		if ($result=mysqli_query($con,$query)) {
 			$numRows = mysqli_num_rows($result);						
@@ -290,7 +290,7 @@
 		$con = connect();
 		$email = mysqli_real_escape_string($con, $email);
 	
-		$query = "SELECT * FROM user WHERE username = '".$email."';";
+		$query = "SELECT * FROM user WHERE email = '".$email."';";
 		
 		if ($result=mysqli_query($con,$query)) {
 			$numRows = mysqli_num_rows($result);						
@@ -310,8 +310,8 @@
 		$password = hash("sha256", $password);
 		
 		$query = "UPDATE user
-				SET username = '".$newEmail."'
-				WHERE username = '".$oldEmail."';";
+				SET email = '".$newEmail."'
+				WHERE email = '".$oldEmail."';";
 				
 		if ($password == $_SESSION['password']){							//check current password is the same
 			if ($oldEmail == $_SESSION['email']){							//check entered email matches current email
@@ -347,7 +347,7 @@
 		
 		$query = "UPDATE user
 				SET password = '".$password."', loginAttempts = '0', blocked = '0'
-				WHERE username = '".$email."';";
+				WHERE email = '".$email."';";
 		
 		if ($result = mysqli_query($con, $query)) {
 			$_SESSION["suggestReset"] = true;
