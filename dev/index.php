@@ -19,34 +19,35 @@
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
 <body>
-	
+
+<div class="container">
 	<?php include ("includes/nav.php"); include ("includes/just-added.php")?>
-	
-<div class="col-md-9">
-	<div class="well">
-					
-	<h3>Sign in</h3>
-		<br>
-		<form method="POST" action="">
-			<div class="form-group">
-				<input type="email" name="email" class="form-control" placeholder="Email"
-								<?php if(!empty($_POST["email"])){ echo " value='".$_POST["email"]."'"; }?>>
-								
-				<br> <input type="password" name="password" class="form-control" placeholder="Password"
-								<?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
-						
-				<br>
-					<p id="p1" style="float: left" ><input type="checkbox" name="stayLoggedIn"> Remember Me</p>		
-					<p style="float: right"> <input type="submit" name="attemptLogin" class="btn btn-default" value="Login"> <a href ="resetPassword.php"><input class="btn btn-default" value="Forgotten Password"></a></p>
-	
-			</div>
-            <br>
 		
-		</form>
-	</div>
+	<div class="col-md-9">
+		<div class="well">
+						
+		<h3>Sign in</h3>
+			<br>
+			<form method="POST" action="">
+				<div class="form-group">
+					<input type="email" name="email" class="form-control" placeholder="Email"
+									<?php if(!empty($_POST["email"])){ echo " value='".$_POST["email"]."'"; }?>>
+									
+					<br> <input type="password" name="password" class="form-control" placeholder="Password"
+									<?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
+							
+					<br>
+						<p id="p1" style="float: left" ><input type="checkbox" name="stayLoggedIn"> Remember Me</p>		
+						<p style="float: right"> <input type="submit" name="attemptLogin" class="btn btn-default" value="Login"> <a href ="resetPassword.php"><input class="btn btn-default" value="Forgotten Password"></a></p>
+		
+				</div>
+	            <br>
+			
+			</form>
+			<?php include ("includes/login.php")?>
+		</div>
+	</div>	
 </div>
-					
-		<?php include ("includes/login.php")?>
 			
 			<!-- End user login, begin user registration-
 
