@@ -2,115 +2,53 @@
 	include 'includes/databaseValidation.php';	
 	
 	if(isset($_SESSION['loggedIn']) && $_SESSION["stayLoggedIn"] == true){
-			echo "<script>window.location.replace(userDetails.php)</script>";
+			echo "<script type=\"text/javascript\">document.location.href=\"userDetails.php\";</script>";
 	}
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<title> Login Or Register </title>
-		<!-- Bootstrap CSS -->
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-		
-		<style>
-			p#p1 {
-				margin-top: 5px;
-			}
-			
-			div#d1 {
-				background-color: #BBBBBB;
-				margin-left: auto;
-				margin-right: auto;
-				width: 500px;
-			}
-		</style>
+		<title>Home - Web Programming Assignment 2</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
-
-	<body>
-	<nav class="navbar navbar-default" role="navigation">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="nav navbar-text">
-				<b> i7212753 Web Assignment </b>
-			</div>
-			<ul class="nav navbar-text">
-				<li class="active">Login or Register</li>
-			</ul>
-		</div>
-	</nav>
+<body>
 	
-	<h1 class ="text-center"> Login Or Register </h1>
+	<?php include ("dev/includes/nav.php"); include ("dev/includes/just-added.php")?>
 	
-	<br>
-		
-	<div id="d1" class="panel panel-default">
-		<div style="padding-top: 24px" class="panel-body">
-			<form method="POST" action="">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-xs-2 col-sm-2">
-							<p id="p1" class="text-left"><span class="label label-default">Email</span></p>
-						</div>
-						<div class="col-xs-10 col-sm-10">
-							<div class="center">
-								<span class="input-group"></span>
-								<input type="email" name="email" class="form-control" placeholder="Email" <?php if(!empty($_POST["email"])){ echo " value='".$_POST["email"]."'"; }?>>
-							</div>
-						</div>
-					</div>
+<div class="col-md-9">
+	<div class="well">
 					
-					<br>
-					
-					<div class="row">
-						<div class="col-xs-2 col-sm-2">
-							<p id = "p1" class="text-left"><span class="label label-default">Password</span></p>
-						</div>
-						<div class="col-xs-10 col-sm-10">
-							<div class="center">
-								<span class="input-group"></span>
-								<input type="password" name="password" class="form-control" placeholder="Password" <?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
-							</div>
-						</div>
-					</div>
-					
-					<br>
-					
-					<p id="p1" style="float: left" ><input type="checkbox" name="stayLoggedIn"> Remember Me</p>		
-					<p style="float: right"> <input type="submit" name="attemptLogin" class="btn btn-default" value="Login"> <a href ="http://student20261.201415.uk/i7212753WebAssignment/resetPassword.php"><input class="btn btn-default" value="Forgotten Password"></a></p>
-				</div>
-			</form>
-			
-			
-			<?php 
-				if(isset($_POST['attemptLogin'])){
-					$email = $_POST['email'];
-					$password = $_POST['password'];
-					$stayLoggedIn = $_POST['stayLoggedIn'];
-					if ($password == null || $email == null){		
-						 echo "Login details cannot be empty";
-					} else {
-						if (validateUser($email, $password) == 1){
-							if(isset($_POST['stayLoggedIn'])){
-							$_SESSION["stayLoggedIn"] = true;
-							}else{
-								$_SESSION["stayLoggedIn"] = false;
-							}
-							$_SESSION["loggedIn"] = true;
-							if ($_SESSION['suggestReset'] == true){
+	<h3>Sign in</h3>
+		<br>
+		<form method="POST" action="">
+			<div class="form-group">
+				<input type="email" name="email" class="form-control" placeholder="Email"
+								<?php if(!empty($_POST["email"])){ echo " value='".$_POST["email"]."'"; }?>>
 								
-								echo "<script type=\"text/javascript\">document.location.href=\"suggestResetPassword.php\";</script>";
-								//echo "<script>window.location.replace(\"suggestResetPassword.php\")</script>";
-							} else {
-								//echo "<script>window.location.replace(\"userDetails.php\")</script>";
-								echo "<script type=\"text/javascript\">document.location.href=\"userDetails.php\";</script>";
-							}							
-						}
-					}
-				}
-			?>
+				<br> <input type="password" name="password" class="form-control" placeholder="Password"
+								<?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
+						
+				<br>
+					<p id="p1" style="float: left" ><input type="checkbox" name="stayLoggedIn"> Remember Me</p>		
+					<p style="float: right"> <input type="submit" name="attemptLogin" class="btn btn-default" value="Login"> <a href ="resetPassword.php"><input class="btn btn-default" value="Forgotten Password"></a></p>
+	
+			</div>
+            <br>
+		
+		</form>
+	</div>
+</div>
+					
+		<?php include ("dev/includes/login.php")?>
 			
-			<!-- End user login, begin user registration-->
+			<!-- End user login, begin user registration-
 
 			<div class="panel panel-default" style="background-color: #AAAAAA; margin-top: 10px; margin-bottom: 10px;">
 				<div class="panel-heading" role="tab">
@@ -275,7 +213,7 @@
 		</div>
 	</div>
 	
-	<!-- Bootstrap -->
+	 Bootstrap -->
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
