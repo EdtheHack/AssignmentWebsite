@@ -8,12 +8,12 @@
 		
 		public function __construct($itemNumber){
 			include ("itemFunctions.php");
-			echo getNewestItems($itemNumber);
-			echo getNewestItems($itemNumber)[1];
+			$rows = getNewestItems($itemNumber);
+			echo $rows[1];
 
-			$this->name = getNewestItems($itemNumber)[1];
-			$this->price = getNewestItems($itemNumber)[2];
-			$this->description = getNewestItems($itemNumber)[3];
+			$this->name = $rows[$itemNumber][1];
+			$this->price = $rows[$itemNumber][2];
+			$this->description = $rows[$itemNumber][3];
 		}
 		
 		public function getName(){
