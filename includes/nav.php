@@ -38,7 +38,11 @@
 						<li><a href=\"#\">Basket</a></li>
 						</ul></li> 
 					
-						<li><a action=\"POST\" name=\"logout\" type=\"submit\" href=\"login-page.php\"><i class=\"fa fa-sign-in\"></i> <b> Logout </b></a></li>";	
+						<form method=\"POST\" action=\"\">
+						
+						<li>
+						<input type=\"submit\" name=\"logout\" class=\"btn btn-default fa fa-sign-in\" value=\"logout\">
+						</li>";	
 						
 						
 						if(isset($_POST['logout'])){
