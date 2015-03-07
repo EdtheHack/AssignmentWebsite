@@ -137,7 +137,7 @@
 
 			<div class="col-md-9">
 				<div class="well">
-					<divclass"row">
+					
 					<h3>Sign in</h3>
 					<br>
 					<form method="POST" action="">
@@ -151,7 +151,9 @@
 								<?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
 						
 							<br>
-							<p><input type="checkbox" name="stayLoggedIn"> Remember Me</p>	
+								<p id="p1" style="float: left" ><input type="checkbox" name="stayLoggedIn"> Remember Me</p>		
+								<p style="float: right"> <input type="submit" name="attemptLogin" class="btn btn-default" value="Login"> <a href ="resetPassword.php"><input class="btn btn-default" value="Forgotten Password"></a></p>
+	
 						</div>
                         <br>
 						<button type="submit" name="attemptLogin"  class="btn btn-default">
@@ -163,7 +165,7 @@
 					include ("includes/login.php");
 					?>
                     </div>
-                    <a href="#">Register with us </a>
+                   
 
 				</div>
 			</div>
