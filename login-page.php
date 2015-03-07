@@ -2,8 +2,8 @@
 
 	include ("includes/databaseValidation.php");
 
-	if(isset($_SESSION['loggedIn']) && $_SESSION["stayLoggedIn"] == false){
-			echo "YOU'RE ALREADY LOGGED IN MATE!";
+	if(isset($_SESSION['loggedIn']) && $_SESSION["stayLoggedIn"] == true){
+			echo "<script>window.location.replace(index.php)</script>";
 	}
 ?>
 
