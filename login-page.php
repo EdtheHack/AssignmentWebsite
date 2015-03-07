@@ -64,109 +64,41 @@
     			        <label for="email">Email:</label>
 						<input type="email" class="form-control" id="email" placeholder="Enter email" name="emailRegister"  <?php if(!empty($_POST["emailRegister"])){ echo " value='".$_POST["emailRegister"]."'"; }?>>
 					</div>
+					<div class="form-group">
+    			        <label for="email">Password:</label>		
+						<input type="password" name="passwordRegister" class="form-control" <?php if(!empty($_POST["passwordRegister"])){ echo " value='".$_POST["passwordRegister"]."'"; }?>>
+					</div>
+					<div class="form-group">
+    			        <label for="email">Retype Password:</label>			
+    			        <input type="password" name="passwordRegisterCheck" class="form-control" <?php if(!empty($_POST["passwordRegisterCheck"])){ echo " value='".$_POST["passwordRegisterCheck"]."'"; }?>>
+					</div>
+					<div class="form-group">
+    			        <label for="email">First Name:</label>			
+						<input type="text" name="firstName" class="form-control" <?php if(!empty($_POST["firstName"])){ echo " value='".$_POST["firstName"]."'"; }?>>
+					</div>
+					<div class="form-group">
+    			        <label for="email">Last Name:</label>			
+						<input type="text" name="lastName" class="form-control" <?php if(!empty($_POST["lastName"])){ echo " value='".$_POST["lastName"]."'"; }?>>
+					</div>
+					<div class="form-group">
+    			        <label for="email">Address Line 1:</label>	
+						<input type="text" name="addressLine1" class="form-control" <?php if(!empty($_POST["addressLine1"])){ echo " value='".$_POST["addressLine1"]."'"; }?>>
+					</div>
+					<div class="form-group">
+    			        <label for="email">Address Line 2:</label>	
+						<input type="text" name="addressLine2" class="form-control" <?php if(!empty($_POST["addressLine2"])){ echo " value='".$_POST["addressLine2"]."'"; }?>>
+					</div>
+					<div class="form-group">
+    			        <label for="email">Mobile Number:</label>	
+						<input type="text" name="mobileNumber" class="form-control" <?php if(!empty($_POST["mobileNumber"])){ echo " value='".$_POST["mobileNumber"]."'"; }?>>
+					</div>
+					<div class="form-group">
+    			        <label for="email">Home Number:</label>	
+						<input type="text" name="homeNumber" class="form-control" <?php if(!empty($_POST["homeNumber"])){ echo " value='".$_POST["homeNumber"]."'"; }?>>
+					</div>
 								
-								
-								<div class="row">
-									<div class="col-sm-3">
-										<p id = "p1" class="text-left"><span class="label label-default">Password</span></p>
-									</div>
-									<div class="col-sm-9">
-										<div class="center">
-											<span class="input-group"></span>
-											<input type="password" name="passwordRegister" class="form-control" <?php if(!empty($_POST["passwordRegister"])){ echo " value='".$_POST["passwordRegister"]."'"; }?>>
-										</div>
-									</div>
-								</div>
-								
-								<div class="row">
-									<div class="col-sm-3">
-										<p id = "p1" class="text-left"><span class="label label-default">Retype Password</span></p>
-									</div>
-									<div class="col-sm-9">
-										<div class="center">
-											<span class="input-group"></span>
-											<input type="password" name="passwordRegisterCheck" class="form-control" <?php if(!empty($_POST["passwordRegisterCheck"])){ echo " value='".$_POST["passwordRegisterCheck"]."'"; }?>>
-										</div>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col-sm-3">
-										<p id="p1" class="text-left"><span class="label label-default">First Name</span></p>
-									</div>
-									<div class="col-sm-9">
-										<div class="center">
-											<span class="input-group"></span>
-											<input type="text" name="firstName" class="form-control" <?php if(!empty($_POST["firstName"])){ echo " value='".$_POST["firstName"]."'"; }?>>
-										</div>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col-sm-3">
-										<p id="p1" class="text-left"><span class="label label-default">Last Name</span></p>
-									</div>
-									<div class="col-sm-9">
-										<div class="center">
-											<span class="input-group"></span>
-											<input type="text" name="lastName" class="form-control" <?php if(!empty($_POST["lastName"])){ echo " value='".$_POST["lastName"]."'"; }?>>
-										</div>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col-sm-3">
-										<p id="p1" class="text-left"><span class="label label-default">Address Line 1</span></p>
-									</div>
-									<div class="col-sm-9">
-										<div class="center">
-											<span class="input-group"></span>
-											<input type="text" name="addressLine1" class="form-control" <?php if(!empty($_POST["addressLine1"])){ echo " value='".$_POST["addressLine1"]."'"; }?>>
-										</div>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col-sm-3">
-										<p id="p1" class="text-left"><span class="label label-default">Address Line 2</span></p>
-									</div>
-									<div class="col-sm-9">
-										<div class="center">
-											<span class="input-group"></span>
-											<input type="text" name="addressLine2" class="form-control" <?php if(!empty($_POST["addressLine2"])){ echo " value='".$_POST["addressLine2"]."'"; }?>>
-										</div>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col-sm-3">
-										<p id="p1" class="text-left"><span class="label label-default">Mobile Number</span></p>
-									</div>
-									<div class="col-sm-9">
-										<div class="center">
-											<span class="input-group"></span>
-											<input type="text" name="mobileNumber" class="form-control" <?php if(!empty($_POST["mobileNumber"])){ echo " value='".$_POST["mobileNumber"]."'"; }?>>
-										</div>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col-sm-3">
-										<p id="p1" class="text-left"><span class="label label-default">Home Number</span></p>
-									</div>
-									<div class="col-sm-9">
-										<div class="center">
-											<span class="input-group"></span>
-											<input type="text" name="homeNumber" class="form-control" <?php if(!empty($_POST["homeNumber"])){ echo " value='".$_POST["homeNumber"]."'"; }?>>
-										</div>
-									</div>
-								</div>
-								
-								<br>
-
-								<p style="text-align: center"> <input type="submit" name="attemptRegister" class="btn btn-default" value="Register"></p>
-								
-			
+					<br>
+					<p style="text-align: center"> <input type="submit" name="attemptRegister" class="btn btn-default" value="Register"></p>
 				</form>        
 			</div>
     </div>
