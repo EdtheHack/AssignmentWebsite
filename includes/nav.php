@@ -41,7 +41,7 @@
 						<form method=\"POST\" action=\"\">
 						
 						<li>
-						<input type=\"submit\" name=\"logout\" class=\"btn btn-default fa fa-sign-in\" value=\"logout\">
+						<input type=\"submit\" name=\"logout\" class=\"btn btn-default \" value=\"logout\">
 						</li>";	
 						
 						
