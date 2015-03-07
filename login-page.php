@@ -66,35 +66,35 @@
 					</div>
 					<div class="form-group">
     			        <label for="email">Password:</label>		
-						<input type="password" name="passwordRegister" class="form-control" <?php if(!empty($_POST["passwordRegister"])){ echo " value='".$_POST["passwordRegister"]."'"; }?>>
+						<input type="password" name="passwordRegister" placeholder="Enter Password" class="form-control" <?php if(!empty($_POST["passwordRegister"])){ echo " value='".$_POST["passwordRegister"]."'"; }?>>
 					</div>
 					<div class="form-group">
     			        <label for="email">Retype Password:</label>			
-    			        <input type="password" name="passwordRegisterCheck" class="form-control" <?php if(!empty($_POST["passwordRegisterCheck"])){ echo " value='".$_POST["passwordRegisterCheck"]."'"; }?>>
+    			        <input type="password" name="passwordRegisterCheck" placeholder="Re-Enter Password" class="form-control" <?php if(!empty($_POST["passwordRegisterCheck"])){ echo " value='".$_POST["passwordRegisterCheck"]."'"; }?>>
 					</div>
 					<div class="form-group">
     			        <label for="email">First Name:</label>			
-						<input type="text" name="firstName" class="form-control" <?php if(!empty($_POST["firstName"])){ echo " value='".$_POST["firstName"]."'"; }?>>
+						<input type="text" name="firstName" class="form-control" placeholder="Enter First Name" <?php if(!empty($_POST["firstName"])){ echo " value='".$_POST["firstName"]."'"; }?>>
 					</div>
 					<div class="form-group">
     			        <label for="email">Last Name:</label>			
-						<input type="text" name="lastName" class="form-control" <?php if(!empty($_POST["lastName"])){ echo " value='".$_POST["lastName"]."'"; }?>>
+						<input type="text" name="lastName" class="form-control" placeholder="Enter Last Name" <?php if(!empty($_POST["lastName"])){ echo " value='".$_POST["lastName"]."'"; }?>>
 					</div>
 					<div class="form-group">
     			        <label for="email">Address Line 1:</label>	
-						<input type="text" name="addressLine1" class="form-control" <?php if(!empty($_POST["addressLine1"])){ echo " value='".$_POST["addressLine1"]."'"; }?>>
+						<input type="text" name="addressLine1" class="form-control" placeholder="Enter Address Line 1" <?php if(!empty($_POST["addressLine1"])){ echo " value='".$_POST["addressLine1"]."'"; }?>>
 					</div>
 					<div class="form-group">
     			        <label for="email">Address Line 2:</label>	
-						<input type="text" name="addressLine2" class="form-control" <?php if(!empty($_POST["addressLine2"])){ echo " value='".$_POST["addressLine2"]."'"; }?>>
+						<input type="text" name="addressLine2" class="form-control" placeholder="Enter Address Line 2" <?php if(!empty($_POST["addressLine2"])){ echo " value='".$_POST["addressLine2"]."'"; }?>>
 					</div>
 					<div class="form-group">
     			        <label for="email">Mobile Number:</label>	
-						<input type="text" name="mobileNumber" class="form-control" <?php if(!empty($_POST["mobileNumber"])){ echo " value='".$_POST["mobileNumber"]."'"; }?>>
+						<input type="text" name="mobileNumber" class="form-control" placeholder="Enter Mobile Number " <?php if(!empty($_POST["mobileNumber"])){ echo " value='".$_POST["mobileNumber"]."'"; }?>>
 					</div>
 					<div class="form-group">
     			        <label for="email">Home Number:</label>	
-						<input type="text" name="homeNumber" class="form-control" <?php if(!empty($_POST["homeNumber"])){ echo " value='".$_POST["homeNumber"]."'"; }?>>
+						<input type="text" name="homeNumber" class="form-control" placeholder="Enter Home Number "  <?php if(!empty($_POST["homeNumber"])){ echo " value='".$_POST["homeNumber"]."'"; }?>>
 					</div>
 								
 					<br>
