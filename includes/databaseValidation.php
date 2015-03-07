@@ -52,15 +52,15 @@
 					if ($numRows > 0){
 					if ($result = mysqli_query($con,$loginQuery)){
 					}
-						$_SESSION["userID"] = "$row[0]";
-						$_SESSION["email"] = "$row[1]";
-						$_SESSION["password"] = "$row[2]";
-						$_SESSION["firstName"] = "$row[3]";
-						$_SESSION["lastName"] = "$row[4]";
-						$_SESSION["addressLine1"] = "$row[5]";
-						$_SESSION["addressLine2"] = "$row[6]";
-						$_SESSION["mobileNumber"] = "$row[7]";
-						$_SESSION["homeNumber"] = "$row[8]";
+						//$_SESSION["userID"] = "$row[0]";
+						//$_SESSION["email"] = "$row[1]";
+						//$_SESSION["password"] = "$row[2]";
+						//$_SESSION["firstName"] = "$row[3]";
+						//$_SESSION["lastName"] = "$row[4]";
+						//$_SESSION["addressLine1"] = "$row[5]";
+						//$_SESSION["addressLine2"] = "$row[6]";
+						//$_SESSION["mobileNumber"] = "$row[7]";
+						//$_SESSION["homeNumber"] = "$row[8]";
 						return 1;
 					} else {
 						if (checkEmail($email) == 1){											//check if username exists but wrong password entered
