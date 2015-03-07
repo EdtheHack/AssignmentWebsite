@@ -51,8 +51,8 @@
 	
 	<div class="col-md-9">
 		<div class="well">
-			<h3 style="float: left" >Not registered with us? </h3>
-				<button style="float: right" type="submit" class="btn btn-default pull-right"><i class="fa fa-pencil-square-o""></i> <b> Join Us </b></button>	
+			<h3 style="float: left" >Not registered with us? 
+				<button style="float: right" type="submit" class="btn btn-default pull-right"><i class="fa fa-pencil-square-o""></i> <b> Join Us </b></button>	</h3>
 		</div>
 	</div>
 		
