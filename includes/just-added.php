@@ -8,7 +8,7 @@
 		
 		public function __construct($itemNumber){
 			$rows = getNewestItems($itemNumber);
-			echo $rows[1];
+			echo $rows;
 
 			$this->name = $rows[1];
 			$this->price = $rows[2];
