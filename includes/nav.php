@@ -1,4 +1,8 @@
+<?php 
 
+
+
+?>
 <nav role="navigation" class="navbar navbar-default">
 	<div class="container">
 		<div class="navbar-header">
@@ -34,8 +38,27 @@
 						<li><a href="editDetails.php">Change Details</a></li>
 						<li><a href="#">Basket</a></li>
 					</ul></li>
-				<li><a href="login-page.php"><i class="fa fa-sign-in"></i> <b> Login
-					</b></a></li>
+					
+					<?php if(isset($_SESSION['loggedIn']) == true){
+						$fn = $_SESSION["firstName"];
+						echo"<li class=\"dropdown\"><a data-toggle=\"dropdown\"
+						class=\"dropdown-toggle\" href=\"#\"><i class=\"fa fa-wrench\"></i> " .$fn ."'s
+						 Account <b class=\"caret\"></b></a>
+						<ul role=\"menu\" class=\"dropdown-menu\">
+						<li><a href=\"#\">Orders</a></li>
+						<li><a href=\"changePassword.php\">Change Password</a></li>
+						<li><a href=\"editDetails.php\">Change Details</a></li>
+						<li><a href=\"#\">Basket</a></li>
+						</ul></li> 
+					
+						<li><a href=\"login-page.php\"><i class=\"fa fa-sign-in\"></i> <b> Logout </b></a></li>";	
+					}else{
+						echo"<li><a href=\"login-page.php\"><i class=\"fa fa-sign-in\"></i> <b> Login </b></a></li>";
+						
+					}
+					
+					?>
+				
 			</ul>
 		</div>
 	</div>
