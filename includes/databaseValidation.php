@@ -58,7 +58,7 @@
 					}
 						$_SESSION["user_id"] = "$row[0]";
 						$_SESSION["email"] = "$row[1]";
-						//THIS R NAUGHTY you should not session a password  $_SESSION["password"] = "$row[2]";
+						$_SESSION["password"] = "$row[2]";
 						$_SESSION["firstName"] = "$row[3]";
 						$_SESSION["lastName"] = "$row[4]";
 						$_SESSION["addressLine1"] = "$row[5]";
