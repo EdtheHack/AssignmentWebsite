@@ -25,11 +25,12 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><i class="fa fa-shopping-cart fa-1x"></i> Basket <b>0</b></a></li>
 					
-					<?php if(isset($_SESSION['loggedIn']) == true){
+					<?php if(isset($_SESSION['loggedIn']) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
 						$fn = $_SESSION["firstName"];
 						
+						//PHP INJECT HTML TO THE PAGE
 						echo"<li class=\"dropdown\"><a data-toggle=\"dropdown\"
-						class=\"dropdown-toggle\" href=\"#\"><i class=\"fa fa-wrench\"></i> " .$fn ."'s
+						class=\"dropdown-toggle\" href=\"#\"><i class=\"fa fa-wrench\"></i> " .$fn ."'s   
 						 Account <b class=\"caret\"></b></a>
 						<ul role=\"menu\" class=\"dropdown-menu\">
 						<li><a href=\"#\">Orders</a></li>
@@ -39,19 +40,17 @@
 						</ul></li> 
 					
 						
-						<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"?logout\" ><i class=\"fa fa-sign-out\"></i> <b> Logout </b></a></li></ul>
-				
-						";	
+						<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"?logout\" ><i class=\"fa fa-sign-out\"></i> <b> Logout </b></a></li></ul>";	
 						
 						
 						if(isset($_GET['logout'])){
 							$_SESSION["loggedIn"] = false;
 							unset($_SESSION);
 							session_destroy();
-							echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
+							echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>"; //dirty stinking refresh 
 						}
 					}else{
-						echo"<li><a href=\"login-page.php\"><i class=\"fa fa-sign-in\"></i> <b> Login </b></a></li>";
+						echo"<li><a href=\"login-page.php\"><i class=\"fa fa-sign-in\"></i> <b> Login </b></a></li>"; //if a user is not logged in show the login button
 						
 					}
 					

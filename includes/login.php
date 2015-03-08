@@ -19,7 +19,7 @@ if(isset($_POST['attemptLogin'])){
 				echo "<script type=\"text/javascript\">document.location.href=\"suggestResetPassword.php\";</script>";
 
 			} else {
-				echo "<script type=\"text/javascript\">document.location.href=\"userDetails.php\";</script>";
+				echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
 			}
 		}
 	}
