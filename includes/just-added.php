@@ -56,7 +56,7 @@
 	}
 	
 	if(isset($_POST['viewProduct'])){
-		echo "<script>window.location.replace(viewProduct.php)</script>";
+		echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
 	}
 ?>
 
