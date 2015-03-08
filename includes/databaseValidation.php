@@ -322,19 +322,34 @@
 							echo "Email changed successfully";
 							return 1;
 						} else {
-							echo "Problem changing email";
+							echo "<div class=\"alert alert-error\">
+					   				<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   				<strong>Error!</strong> Problem setting your email, contact admin!
+								</div>";
 						}
 					} else {
-						echo "New email already exists";
+						echo "<div class=\"alert alert-error\">
+					   				<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   				<strong>Error!</strong> That email already exists with us!
+								</div>";
 					}
 				} else {
-					echo "New email must not be null";
+					echo "<div class=\"alert alert-error\">
+					   				<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   				<strong>Error!</strong> You must enter a new email!
+								</div>";
 				}
 			} else {
-				echo "Old email incorrect";
+				echo "<div class=\"alert alert-error\">
+					<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					<strong>Error!</strong> Email entered does not match!
+				</div>";
 			}
 		} else {
-			echo "Password is incorrect";
+				echo "<div class=\"alert alert-error\">
+					<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					<strong>Error!</strong> Incorrect password!
+				</div>";
 		}
 		return 0;
 	}
@@ -351,9 +366,15 @@
 		
 		if ($result = mysqli_query($con, $query)) {
 			$_SESSION["suggestReset"] = true;
-			echo "Password reset successfully -";
+			echo "<div class=\"alert alert-sucess\">
+					<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					<strong>Sucess!</strong> Password has been reset!
+				</div>";
 		} else {
-			echo "Problem resetting password -";
+			echo "<div class=\"alert alert-error\">
+					<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					<strong>Error!</strong> Problem resetting password!
+				</div>";
 		}
 	}
 	
@@ -381,15 +402,24 @@
 					if ($result = mysqli_query($con, $query)) {
 						return 1;
 					} else {
-						echo "Problem setting new password";
+						echo "<div class=\"alert alert-error\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Problem setting your new password, contact admin!
+						</div>";
 						return 0;
 					}
 				} else {
-					echo "New passwords don't match";
+					echo "<div class=\"alert alert-error\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> New passwords don't match!
+						</div>";
 					return 0;
 				}
 			} else {
-				echo "Old password incorrect";
+					echo "<div class=\"alert alert-error\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Incorrect old password!
+						</div>";
 				return 0;
 			}
 		} 

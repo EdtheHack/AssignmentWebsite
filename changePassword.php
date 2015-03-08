@@ -60,7 +60,10 @@
 					    		</div>";
 						} 	
 					} else {
-						echo "Passwords can not be null";
+							echo "<div class=\"alert alert-error\">
+					        		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					        		<strong>Error!</strong> You must enter your password!
+					    		</div>";
 					}
 				}
 				
