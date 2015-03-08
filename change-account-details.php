@@ -72,14 +72,42 @@ if ($_SESSION["loggedIn"] == true){
 									<input type="email" name="newEmail" class="form-control" placeholder="New Email" <?php if(!empty($_POST["newEmail"])){ echo " value='".$_POST["newEmail"]."'"; }?>>
 								</div>
 								<br>
-									<input type="submit" name="back" class="btn btn-default" value="Back"> <input type="submit" name="changeEmail" class="btn btn-default" value="Save">
+									 <input type="submit" name="changeEmail" class="btn btn-default" value="Save"><input style="float: right;" type="submit" name="back" class="btn btn-default" value="Cancel"> 
 							</form>	
 							<br>
 		        		</div>
 		        		<div id="sectionC" class="tab-pane fade">
-		        			why am i here 
+		        			<form method="POST" action="">
+								<div class="form-group">
+									<label for="firstname">First Name:</label>
+									<input type="text" name="firstName" class="form-control" placeholder="Enter First Name" value="<?php echo $_SESSION['firstName'] ?>">
+								</div>
+								<div class="form-group">
+									<label for="lastname">Last Name:</label>
+									<input type="text" name="lastName" class="form-control" placeholder="Enter Last Name" value="<?php echo $_SESSION['lastName'] ?>">
+								</div>
+								<div class="form-group">
+									<label for="addr1">Address Line 1:</label>
+									<input type="text" name="addressLine1" class="form-control" placeholder="Enter Address Line 1" value="<?php echo $_SESSION['addressLine1'] ?>">
+								</div>
+								<div class="form-group">
+									<label for="addr2">Address Line 2:</label>
+									<input type="text" name="addressLine2" class="form-control" placeholder="Enter Address Line 2" value="<?php echo $_SESSION['addressLine2'] ?>">
+								</div>
+								<div class="form-group">
+									<label for="no1">Mobile Number:</label>
+									<input type="text" name="mobileNumber" class="form-control" placeholder="Enter Mobile Number" value="<?php echo $_SESSION['mobileNumber'] ?>">
+								</div>
+								<div class="form-group">
+									<label for="no2">Home Number:</label>
+									<input type="text" name="homeNumber" class="form-control" placeholder="Enter Home Number" value="<?php echo $_SESSION['homeNumber'] ?>">
+								</div>
+								
+								<input type="submit" name="changeDetails" class="btn btn-default" value="Save"><input style="float: right;" type="submit" name="back" class="btn btn-default" value="Cancel"> 
+							</form>
+	
 		        		</div>
-		        		</div>
+		        	</div>
 		        		
 		        		<?php 
 		        		include ("includes/account-details.php");

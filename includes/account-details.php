@@ -40,6 +40,22 @@ if (isset ($_POST['changeEmail'])) {
 	}
 }
 
+if (isset ($_POST['saveDetails'])) {
+	$firstName = $_POST['firstName'];
+	$lastName = $_POST['lastName'];
+	$addressLine1 = $_POST['addressLine1'];
+	$addressLine2 = $_POST['addressLine2'];
+	$mobileNumber = $_POST['mobileNumber'];
+	$homeNumber = $_POST['homeNumber'];
+	if (updateUser($firstName, $lastName, $addressLine1, $addressLine2, $mobileNumber, $homeNumber) == 1) {
+		echo "<script>window.location.replace(userDetails.php)</script>";
+	} else {
+		echo "There was a problem updating information";
+	}
+}
+
+
+
 if (isset ($_POST['back'])) {
 	echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
 }
