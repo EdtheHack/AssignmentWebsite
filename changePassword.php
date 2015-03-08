@@ -37,13 +37,13 @@
 				<input type="password" name="password" class="form-control" placeholder="Enter new password" <?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
 			</div>
 			<div class="form-group">
-		     	<label for="email">New Password :</label>
+		     	<label for="email">Confirm New Password :</label>
 				<input type="password" name="passwordCheck" class="form-control" placeholder="Confirm new password"  <?php if(!empty($_POST["passwordCheck"])){ echo " value='".$_POST["passwordCheck"]."'"; }?>>
 			</div>
 				
 				<br>
 				
-				<p style="text-align: center"> <input type="submit" name="back" class="btn btn-default" value="Back"> <input type="submit" name="saveDetails" class="btn btn-default" value="Save"></p>
+				<input type="submit" name="back" class="btn btn-default" value="Cancel"> <input type="submit" name="saveDetails" class="btn btn-default" value="Save">
 		</form>	
 			<?php
 				if (isset ($_POST['saveDetails'])) {
@@ -53,7 +53,10 @@
 					
 					if ($password != null || $passwordCheck != null){
 						if (updatePassword($oldPassword, $password, $passwordCheck) == 1) {
-							echo "<script>window.location.replace(userDetails.php)</script>";
+							echo "<div class=\"alert alert-success\">
+					        		<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					        		<strong>Success!</strong> Your account email address has been changed!
+					    		</div>";
 						} 	
 					} else {
 						echo "Passwords can not be null";
@@ -61,7 +64,7 @@
 				}
 				
 				if (isset ($_POST['back'])) {
-						echo "<script>window.location.replace(editDetails.php)</script>";		
+						echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";		
 				}
 			?>
 		</div>

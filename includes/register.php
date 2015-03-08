@@ -17,7 +17,7 @@ if(isset($_POST['attemptRegister'])){
 			if (createUser() == 1){
 				if (validateUser($email, $password) == 1){
 					$_SESSION["loggedIn"] = true;
-					echo "<script>window.location.replace(\"http://student20261.201415.uk/i7212753WebAssignment/userDetails.php\")</script>";
+					echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
 				} else {
 					echo "problem registering";
 				}
