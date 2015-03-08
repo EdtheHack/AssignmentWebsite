@@ -107,6 +107,19 @@
 				</div>
 				<div id="sectionC" class="tab-pane fade">
 					<h3>Password Reset</h3>
+					
+						<form method="POST" action="">
+							<div class="form-group">
+		    			        <label for="email">Please eneter your account Email:</label>
+								<input type="email" name="email" class="form-control" placeholder="Email">
+							</div>
+							<br>
+							<input type="submit" name="sendMail" class="btn btn-default" value="Get New Password">
+						</form>
+						<?php 
+							include ("includes/reset-password.php");
+						?>
+					
 				</div>
     		</div>
 		</div>
