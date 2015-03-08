@@ -8,7 +8,6 @@
 		
 		public function __construct($itemNumber){
 			$row = getNewestItems($itemNumber);
-			echo $row[1];
 
 			$this->name = $row[1];
 			$this->price = $row[2];
@@ -67,11 +66,11 @@
 			<div class="thumbnail">
 				<img src="http://placehold.it/320x150" alt="">
 				<div class="caption">
-					<h4 class="pull-right">PRICE</h4>
+					<h4 class="pull-right"><?php echo $product2->getPrice();?></h4>
 					<h4>
-						<a href="#">Product</a>
+						<a href="#"><?php echo $product2->getName();?></a>
 					</h4>
-					<p>DESCRIPTION</p>
+					<p><?php echo $product2->getDescription();?></p>
 				</div>
 				<div>
 					<button type="submit" class="btn btn-default">
@@ -88,11 +87,11 @@
 			<div class="thumbnail">
 				<img src="http://placehold.it/320x150" alt="">
 				<div class="caption">
-					<h4 class="pull-right">PRICE</h4>
+					<h4 class="pull-right"><?php echo $product3->getPrice();?></h4>
 					<h4>
-						<a href="#">Product</a>
+						<a href="#"><?php echo $product3->getName();?></a>
 					</h4>
-					<p>DESCRIPTION</p>
+					<p><?php echo $product3->getDescription();?></p>
 				</div>
 				<div>
 					<button type="submit" class="btn btn-default">
