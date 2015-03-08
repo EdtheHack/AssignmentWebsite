@@ -85,11 +85,17 @@
 								}
 							} 
 						} else {
-							echo "Email not found";
+										echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Email not found.
+						</div>";
 						}
 					}
 				} else {
-					echo "Account blocked - Please reset password.";
+								echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Account blocked. Please reset password.
+						</div>";
 				}
 			}
 		} 
@@ -180,10 +186,16 @@
 		}
 		
 		if ($_SESSION['email'] == null){
-			echo "please set an email";
+						echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Please set an email.
+						</div>";
 			return 0;
 		} else if (strlen($_SESSION['email']) <= 3){
-			echo "email must be longer than 3 characters";
+						echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Email must be longer than 3 characters.
+						</div>";
 			return 0;
 		} else if (strlen($_SESSION['email']) > 50) {
 			echo "<div class=\"alert alert-danger\">
@@ -305,7 +317,10 @@
 			$_SESSION["postcode"] = mysqli_escape_string ($con, $postcode);
 			return 1;
 		} else {
-			echo "Postcode  must be longer than 2 characters";
+			echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Postcode must be longer than 2 characters.
+						</div>";
 			return 0;
 		}
 	}
@@ -373,7 +388,10 @@
 					if (checkEmail($newEmail) == 0){						//check if email exists
 						if ($result = mysqli_query($con, $query)) {			//if query executes
 							$_SESSION['email'] = $newEmail;
-							echo "Email changed successfully";
+							echo "<div class=\"alert alert-success\">
+					   				<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   				<strong>Thankyou!</strong> Email changed successfully.
+								</div>";
 							return 1;
 						} else {
 							echo "<div class=\"alert alert-danger\">
