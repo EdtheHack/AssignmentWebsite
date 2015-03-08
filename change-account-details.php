@@ -43,14 +43,14 @@ if ($_SESSION["loggedIn"] == true){
 										<br>
 										<div class="form-group">
 									     	<label for="email">New Password :</label>
-											<input type="password" name="password" class="form-control" placeholder="Enter new password" <?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
+											<input type="password" name="newPassword" class="form-control" placeholder="Enter new password" <?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
 										</div>
 										<div class="form-group">
 									     	<label for="email">Confirm New Password :</label>
-											<input type="password" name="passwordCheck" class="form-control" placeholder="Confirm new password"  <?php if(!empty($_POST["passwordCheck"])){ echo " value='".$_POST["passwordCheck"]."'"; }?>>
+											<input type="password" name="newPasswordCheck" class="form-control" placeholder="Confirm new password"  <?php if(!empty($_POST["passwordCheck"])){ echo " value='".$_POST["passwordCheck"]."'"; }?>>
 										</div>
 										<br>
-										<input type="submit" name="saveDetails" class="btn btn-default" value="Save"> <input style="float: right;" type="submit" name="back" class="btn btn-default" value="Cancel"> 
+										<input type="submit" name="changePassword" class="btn btn-default" value="Save"> <input style="float: right;" type="submit" name="back" class="btn btn-default" value="Cancel"> 
 									</form>	
 									<br>
 									
@@ -73,7 +73,7 @@ if ($_SESSION["loggedIn"] == true){
 											<input type="email" name="newEmail" class="form-control" placeholder="New Email" <?php if(!empty($_POST["newEmail"])){ echo " value='".$_POST["newEmail"]."'"; }?>>
 										</div>
 											<br>
-											<input type="submit" name="back" class="btn btn-default" value="Back"> <input type="submit" name="saveDetails" class="btn btn-default" value="Save">
+											<input type="submit" name="back" class="btn btn-default" value="Back"> <input type="submit" name="changeEmail" class="btn btn-default" value="Save">
 										</form>	
 										<br>
 		        		</div>
@@ -82,6 +82,10 @@ if ($_SESSION["loggedIn"] == true){
 		        		<div id="sectionC" class="tab-pane fade in active">
 		        		</div>
 		        		</div>
+		        		
+		        		<?php 
+		        		include ("includes/account-details.php");
+		        		?>
 		     </div>
 		</div>
 </div>
