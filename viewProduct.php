@@ -14,7 +14,7 @@
 	<?php
 		include ("includes/nav.php");
 		
-		$product = unserialize ($_POST['serializedProduct']);
+		$product = unserialize($_POST['serializedProduct']);
 	?>
 	
 	<div class="container">
