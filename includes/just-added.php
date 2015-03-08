@@ -35,9 +35,9 @@
 		<h3>Just added</h3>
 		
 		<?php
-		$product1 = new product(1);
-		$product2 = new product(2);
-		$product3 = new product(3);
+		$product1 = new product(0);
+		$product2 = new product(1);
+		$product3 = new product(2);
 		?>
 		
 		<div class="row">
