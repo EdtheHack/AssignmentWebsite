@@ -77,8 +77,6 @@ if ($_SESSION["loggedIn"] == true){
 										</form>	
 										<br>
 		        		</div>
-		        		</div>
-		        		<div class="tab-content">
 		        		<div id="sectionC" class="tab-pane fade in active">
 		        		</div>
 		        		</div>
