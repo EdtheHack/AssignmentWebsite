@@ -70,7 +70,7 @@
 									if ($result = mysqli_query($con, $addAttemptQuery)) {		//add a failed attempt
 										echo "<div class=\"alert alert-danger\">
 					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					   		<strong>Error!</strong>" (5 - $attempt)." login attempts left.
+					   		<strong>Error!</strong>" .(5 - $attempt)." login attempts left.
 						</div>";
 										return 0;
 									}
