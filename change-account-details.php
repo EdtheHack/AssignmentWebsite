@@ -97,8 +97,8 @@ if ($_SESSION["loggedIn"] == true){
 									<input type="text" name="addressLine2" class="form-control" placeholder="Enter Address Line 2" value="<?php echo $_SESSION['addressLine2'] ?>">
 								</div>
 								<div class="form-group">
-									<label for="addr2">Postcode:</label>
-									<input type="text" name="addressLine2" class="form-control" placeholder="Enter Address Line 2" value="<?php echo $_SESSION['postcode'] ?>">
+									<label for="pcode">Postcode:</label>
+									<input type="text" name="postcode" class="form-control" placeholder="Enter Postcode" value="<?php echo $_SESSION['postcode'] ?>">
 								</div>
 								<div class="form-group">
 									<label for="no1">Mobile Number:</label>
