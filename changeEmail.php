@@ -24,6 +24,9 @@
 	<?php include ("includes/just-added.php")?>
 	
 	<div class="col-md-9">
+	
+	<h3>Change your email address</h3>
+		<br>
 		<form method="POST" action="">
 			<div class="form-group">
 		     	<label for="email">Confirm Password:</label>

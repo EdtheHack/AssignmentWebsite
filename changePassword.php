@@ -23,6 +23,8 @@
 <div class="container">
 	<?php include ("includes/just-added.php")?>
 	
+	<h3>Change your email address</h3>
+	<br>
 	<div class="col-md-9">
 		<form method="POST" action="">
 			<div class="form-group">
@@ -36,7 +38,7 @@
 			</div>
 			<div class="form-group">
 		     	<label for="email">New Password :</label>
-				<input type="password" name="passwordCheck" class="form-control" <?php if(!empty($_POST["passwordCheck"])){ echo " value='".$_POST["passwordCheck"]."'"; }?>>
+				<input type="password" name="passwordCheck" class="form-control" placeholder="Confirm new password"  <?php if(!empty($_POST["passwordCheck"])){ echo " value='".$_POST["passwordCheck"]."'"; }?>>
 			</div>
 				
 				<br>
