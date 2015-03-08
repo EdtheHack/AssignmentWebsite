@@ -1,3 +1,8 @@
+<?php
+	include ("includes/product.php");
+	$product = unserialize($_SESSION["serializedProduct"]);
+	echo $product." <- product";
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -13,10 +18,6 @@
 <body>
 	<?php
 		include ("includes/nav.php");
-		include ("includes/product.php");
-		
-		$product = unserialize($_SESSION["serializedProduct"]);
-		echo $product;
 	?>
 	
 	<div class="container">
