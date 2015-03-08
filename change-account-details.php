@@ -55,8 +55,6 @@ if ($_SESSION["loggedIn"] == true){
 									<br>
 									
 							</div>             
-		        		</div>
-		        		<div class="tab-content">
 		        		<div id="sectionB" class="tab-pane fade in active">
 		        				<h3>Change your email address</h3>
 								<br>
