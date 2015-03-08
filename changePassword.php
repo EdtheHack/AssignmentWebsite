@@ -6,97 +6,43 @@
 	}
 ?>
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 	<head>
-		<title> Change Password </title>
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-		
-		<style>
-			p#p1 {
-				margin-top: 5px;
-				margin-left: 5px;
-			}
-			
-			div#d1 {
-				background-color: #BBBBBB;
-				margin-left: auto;
-				margin-right: auto;
-				width: 500px;
-			}
-			
-			div#d2 {
-				margin-top: 7px;
-			}
-		</style>
+		<title>Home - Web Programming Assignment 2</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
-
-	<body>
-	<nav class="navbar navbar-default" role="navigation">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="nav navbar-text">
-				<b> i7212753 Web Assignment </b>
+<body>
+	<?php include ("includes/nav.php");?>
+	
+<div class="container">
+	<?php include ("includes/just-added.php")?>
+	
+	<div class="col-md-9">
+		<form method="POST" action="">
+			<div class="form-group">
+		     	<label for="email">Old Password :</label>
+				<input type="password" name="oldPassword" class="form-control" placeholder="Enter old password" <?php if(!empty($_POST["oldPassword"])){ echo " value='".$_POST["oldPassword"]."'"; }?>>
+			</div>			
+			<br>
+			<div class="form-group">
+		     	<label for="email">New Password :</label>
+				<input type="password" name="password" class="form-control" placeholder="Enter new password" <?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
 			</div>
-			<ul class="nav navbar-text">
-				<li class="active">Change Password</li>
-			</ul>
-		</div>
-	</nav>
-	
-	<h1 class ="text-center"> Change Password </h1>
-	
-	<br>
-	
-	<div id="d1" class="panel panel-default">
-		<div style="padding-top: 24px" class="panel-body">
-			<form method="POST" action="">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-xs-3 col-sm-3">
-							<p id = "p1" class="text-left"><span class="label label-default">Old Password</span></p>
-						</div>
-						<div class="col-xs-9 col-sm-9">
-							<div class="center">
-								<span class="input-group"></span>
-								<input type="password" name="oldPassword" class="form-control" <?php if(!empty($_POST["oldPassword"])){ echo " value='".$_POST["oldPassword"]."'"; }?>>
-							</div>
-						</div>
-					</div>
-					
-					<br>
-					
-					<div class="row">
-						<div class="col-xs-3 col-sm-3">
-							<p id = "p1" class="text-left"><span class="label label-default">New Password</span></p>
-						</div>
-						<div class="col-xs-9 col-sm-9">
-							<div class="center">
-								<span class="input-group"></span>
-								<input type="password" name="password" class="form-control" <?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
-							</div>
-						</div>
-					</div>
-					
-					<br>
-					s
-					<div class="row">
-						<div class="col-xs-3 col-sm-3">
-							<p id = "p1" class="text-left"><span class="label label-default">New Password</span></p>
-						</div>
-						<div class="col-xs-9 col-sm-9">
-							<div class="center">
-								<span class="input-group"></span>
-								<input type="password" name="passwordCheck" class="form-control" <?php if(!empty($_POST["passwordCheck"])){ echo " value='".$_POST["passwordCheck"]."'"; }?>>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div class="form-group">
+		     	<label for="email">New Password :</label>
+				<input type="password" name="passwordCheck" class="form-control" <?php if(!empty($_POST["passwordCheck"])){ echo " value='".$_POST["passwordCheck"]."'"; }?>>
+			</div>
 				
 				<br>
 				
 				<p style="text-align: center"> <input type="submit" name="back" class="btn btn-default" value="Back"> <input type="submit" name="saveDetails" class="btn btn-default" value="Save"></p>
-			</form>	
+		</form>	
 			<?php
 				if (isset ($_POST['saveDetails'])) {
 					$oldPassword = $_POST['oldPassword'];
