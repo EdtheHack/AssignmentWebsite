@@ -1,4 +1,8 @@
 <?php
+
+include 'includes/databaseValidation.php';
+require 'PHPMailer/PHPMailerAutoload.php';
+
 if(isset($_POST['sendMail'])){
 	$email = $_POST['email'];
 	$characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*_";
@@ -28,7 +32,5 @@ if(isset($_POST['sendMail'])){
 		echo "Email can not be null";
 	}
 }
-if(isset($_POST['back'])){
-	echo "<script>window.location.replace(index.php)</script>";
-}
+
 ?>
