@@ -27,6 +27,7 @@
 					
 					<?php if(isset($_SESSION['loggedIn']) == true){
 						$fn = $_SESSION["firstName"];
+						
 						echo"<li class=\"dropdown\"><a data-toggle=\"dropdown\"
 						class=\"dropdown-toggle\" href=\"#\"><i class=\"fa fa-wrench\"></i> " .$fn ."'s
 						 Account <b class=\"caret\"></b></a>
@@ -38,13 +39,13 @@
 						</ul></li> 
 					
 						<form method=\"POST\" action=\"\">
-							<ul class=\"nav navbar-nav navbar-right\"><li><button type=\"submit\" name=\"logout\"><i class=\"fa fa-sign-out\"></i> <b> Logout </b></button></li>
+							<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"?logout\" ><i class=\"fa fa-sign-out\"></i> <b> Logout </b></a></li>
 							</ul>
 						</form>
 						";	
 						
 						
-						if(isset($_POST['logout'])){
+						if(isset($_GET['logout'])){
 							$_SESSION["loggedIn"] = false;
 							unset($_SESSION);
 							session_destroy();
