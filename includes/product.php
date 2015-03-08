@@ -53,5 +53,9 @@
 				echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
 			}
 		}
+		
+		public function __sleep() {
+			return array('serializedProduct');
+		}
 	}
 	?>

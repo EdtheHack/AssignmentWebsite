@@ -1,6 +1,6 @@
 <?php
 	include ("includes/product.php");
-	$product = unserialize($_SESSION["serializedProduct"]);
+	$product = unserialize($_SESSION['serializedProduct']);
 	echo $product." <- product";
 ?>
 <!DOCTYPE html>
