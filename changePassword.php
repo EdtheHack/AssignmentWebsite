@@ -46,6 +46,18 @@
 				
 				<input type="submit" name="saveDetails" class="btn btn-default" value="Save"> <input style="float: right;" type="submit" name="back" class="btn btn-default" value="Cancel"> 
 		</form>	
+		<br>
+		
+
+    <div class="alert alert-error">
+
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+
+        <strong>Error!</strong> A problem has been occurred while submitting your data.
+
+    </div>
+
+		
 			<?php
 				if (isset ($_POST['saveDetails'])) {
 					$oldPassword = $_POST['oldPassword'];
