@@ -58,7 +58,7 @@
 					    		</div>";
 						} 	
 					} else {
-						echo "<div class=\"alert alert-error\">
+						echo "<div class=\"alert alert-danger\">
 					        		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
 					        		<strong>Error!</strong> You must enter your password!
 					    		</div>";
