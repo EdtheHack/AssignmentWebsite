@@ -38,7 +38,7 @@
 						</ul></li> 
 					
 						<form method=\"POST\" action=\"\">
-							<ul class=\"nav navbar-nav navbar-right\"><li><input type=\"submit\" name=\"logout\"><i class=\"fa fa-sign-out\"></i> <b> Logout </b></input></li>
+							<ul class=\"nav navbar-nav navbar-right\"><li><button type=\"submit\" name=\"logout\"><i class=\"fa fa-sign-out\"></i> <b> Logout </b></button></li>
 							</ul>
 						</form>
 						";	
