@@ -26,7 +26,6 @@
 		
 	
 	<div class="col-md-9">
-	
 		<div class="bs-example">
 		    <ul class="nav nav-tabs">
 		        <li class="active"><a data-toggle="tab" href="#sectionA">Sign In</a></li>
@@ -48,7 +47,7 @@
 											
 									<br>
 										<p id="p1" style="float: left" ><input type="checkbox" name="stayLoggedIn"> Remember Me</p>		
-										<p style="float: right"> <input type="submit" name="attemptLogin" class="btn btn-default" value="Login"> <a data-toggle="tab" href="#sectionC" ><input class="btn btn-default" value="Forgotten Password"></a></p>
+										<p style="float: right"> <input type="submit" name="attemptLogin" class="btn btn-default" value="Login"> <a data-toggle="tab" href="#sectionC" id="btn-next" ><input class="btn btn-default" value="Forgotten Password"></a></p>
 						
 								</div>
 					            <br>
