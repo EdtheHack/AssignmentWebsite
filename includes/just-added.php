@@ -33,11 +33,11 @@
 			<div class=\"thumbnail\">
 				<img src=\"http://placehold.it/320x150\" alt=\"\">
 				<div class=\"caption\">
-					<h4 class=\"pull-right\">".$price."</h4>
+					<h4 class=\"pull-right\">".$this->$price."</h4>
 					<h4>
-						<a href=\"#\">".$name."</a>
+						<a href=\"#\">".$this->$name."</a>
 					</h4>
-					<p>".$description."</p>
+					<p>".$this->$description."</p>
 				</div>
 				<div>
 					<form method=\"POST\" action=\"\">
