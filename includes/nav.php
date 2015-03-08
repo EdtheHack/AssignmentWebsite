@@ -37,9 +37,10 @@
 						<li><a href=\"#\">Basket</a></li>
 						</ul></li> 
 					
-						 
-						<ul class=\"nav navbar-nav navbar-right\"><li><input type=\"submit\" name=\"logout\"><i class=\"fa fa-sign-out\"></i> <b> Logout </b></input></li>
-						</ul>
+						<form method=\"POST\" action=\"\">
+							<ul class=\"nav navbar-nav navbar-right\"><li><input type=\"submit\" name=\"logout\"><i class=\"fa fa-sign-out\"></i> <b> Logout </b></input></li>
+							</ul>
+						</form>
 						";	
 						
 						
