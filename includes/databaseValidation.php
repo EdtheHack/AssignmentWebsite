@@ -368,11 +368,11 @@
 		$password = hash("sha256", $password);
 		$passwordCheck = hash("sha256", $passwordCheck);
 				
-		$checkQuery = "SELECT * FROM user WHERE userID = '".$_SESSION['userID']."' AND password = '".$oldPassword."';";
+		$checkQuery = "SELECT * FROM user WHERE user_id = '".$_SESSION['userID']."' AND password = '".$oldPassword."';";
 				
 		$query = "UPDATE user
 				SET password = '".$password."'
-				WHERE userID = '".$_SESSION['userID']."';";
+				WHERE user_id = '".$_SESSION['userID']."';";
 		
 		if ($result = mysqli_query($con, $checkQuery)) {
 			$numRows = mysqli_num_rows($result);						
