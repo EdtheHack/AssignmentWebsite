@@ -67,12 +67,18 @@
 									WHERE email = '".$email."';";  								//query only works when placed here
 							
 									if ($result = mysqli_query($con, $addAttemptQuery)) {		//add a failed attempt
-										echo (5 - $attempt)." login attempts left.";
+										echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong>" (5 - $attempt)." login attempts left.
+						</div>";
 										return 0;
 									}
 								} else {
 									if ($result = mysqli_query($con, $blockQuery)){
-										echo "Account blocked - Please reset password.";
+														echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Account blocked. Please reset password.
+						</div>";
 										return 0;
 									}
 								}
@@ -159,7 +165,10 @@
 		if ($result=mysqli_query($con,$query)) {
 			$numRows = mysqli_num_rows($result);						
 			if ($numRows > 0){
-				echo "email: ".$_SESSION["email"]." is already used";
+				echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> The email address ".$_SESSION["email"]." is already used.
+						</div>";
 				return 0;
 			}
 		}
@@ -171,7 +180,10 @@
 			echo "email must be longer than 3 characters";
 			return 0;
 		} else if (strlen($_SESSION['email']) > 50) {
-			echo "email must be shorter than 20 characters";
+			echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Email must be shorter than 20 characters.
+						</div>";
 			return 0;
 		}
 		
@@ -209,7 +221,10 @@
 			$_SESSION["password"] = mysqli_escape_string($con, $password);
 			return 1;
 		} else {
-			echo "Password cannot contain illegal characters and must be longer than 2 characters";
+			echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Password must not contain illegal characters and be longer than 2 characters.
+						</div>";
 			return 0;
 		}
 	}
@@ -221,7 +236,10 @@
 			$_SESSION["firstName"] = mysqli_escape_string ($con, $firstName);
 			return 1;
 		} else {
-			echo "First name cannot contain numbers and must be longer than 2 characters";
+			echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Frst name must not contain numbers and be longer than 2 characters.
+						</div>";
 			return 0;
 		}
 	}
@@ -233,7 +251,10 @@
 			$_SESSION["lastName"] = mysqli_escape_string ($con, $lastName);
 			return 1;
 		} else {
-			echo "Last name cannot contain numbers and must must be longer than 2 characters";
+			echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Last name must not contain numbers and be longer than 2 characters.
+						</div>";
 			return 0;
 		}
 	}
@@ -245,7 +266,10 @@
 			$_SESSION["addressLine1"] = mysqli_escape_string ($con, $addressLine1);
 			return 1;
 		} else {
-			echo "Address line 1 must be longer than 2 characters";
+			echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Address line 1 must be longer than 2 characters.!
+						</div>";
 			return 0;
 		}
 	}
@@ -257,7 +281,10 @@
 			$_SESSION["addressLine2"] = mysqli_escape_string ($con, $addressLine2);
 			return 1;
 		} else {
-			echo "Address line 2 must be longer than 2 characters";
+			echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Address line 2 must be longer than 2 characters.
+						</div>";
 			return 0;
 		}
 	}
@@ -269,7 +296,10 @@
 			$_SESSION["mobileNumber"] = mysqli_escape_string ($con, $mobileNumber);
 			return 1;
 		} else {
-			echo "Mobile number cannot contain letters and must be longer than 2 characters";
+			echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Mobile number cannot contain letters and must be longer than 2 characters.
+						</div>";
 			return 0;
 		}
 	}
@@ -281,7 +311,10 @@
 			$_SESSION["homeNumber"] = mysqli_escape_string ($con, $homeNumber);
 			return 1;
 		} else {
-			echo "Home number cannot contain letters and must be longer than 2 characters";
+			echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					   		<strong>Error!</strong> Home number cannot contain letters and must be longer than 2 characters.
+						</div>";
 			return 0;
 		}
 	}
