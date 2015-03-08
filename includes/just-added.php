@@ -26,6 +26,10 @@
 			return $this->description;
 		}
 	}
+	
+	if(isset($_POST['viewProduct'])){
+		echo "<script>window.location.replace(index.php)</script>";
+	}
 ?>
 
 <div class="col-md-3">
@@ -50,12 +54,14 @@
 					<p><?php echo $product1->getDescription();?></p>
 				</div>
 				<div>
-					<button type="submit" class="btn btn-default">
-						<i class="fa fa-eye"></i> <b> View </b>
-					</button>
-					<button type="submit" class="btn btn-default pull-right">
-						<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
-					</button>
+					<form method="POST" action="">
+						<button type="submit" name="viewProduct" class="btn btn-default">
+							<i class="fa fa-eye"></i> <b> View </b>
+						</button>
+						<button type="submit" class="btn btn-default pull-right">
+							<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
+						</button>
+					</form>
 				</div>
 			</div>
 		</div>
