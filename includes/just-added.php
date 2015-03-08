@@ -16,15 +16,15 @@
 		}
 		
 		public function getName(){
-			return $name;
+			return $this->name;
 		}
 		
 		public function getPrice(){
-			return $price;
+			return $this->price;
 		}
 		
 		public function getDescription(){
-			return $description;
+			return $this->description;
 		}
 	}
 ?>
