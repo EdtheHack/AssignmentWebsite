@@ -7,7 +7,7 @@ if (isset ( $_POST ['saveDetails'] )) {
 			if (validatePassword ( $password ) == 1) {
 				$email = $_SESSION ['email'];
 				forgottenPassword ( $email, $password );
-				echo "<script>window.location.replace(index.php)</script>";
+				echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
 			}
 		} else {
 			echo "passwords do not match!";
@@ -18,6 +18,6 @@ if (isset ( $_POST ['saveDetails'] )) {
 }
 
 if (isset ( $_POST ['back'] )) {
-	echo "<script>window.location.replace(index.php)</script>";
+	echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
 }
 ?>

@@ -24,6 +24,7 @@
 <div class="container">
 <br>	
 	<h3>For security we suggest you change your password</h3>
+	<br>
 		<form method="POST" action="">
 			<div class="form-group">
 				<label for="password">New password</label>
