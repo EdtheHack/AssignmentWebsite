@@ -28,7 +28,7 @@
 	<div class="col-md-9">
 		<div class="bs-example">
 		    <ul class="nav nav-tabs">
-		        <li><a data-toggle="tab" href="#sectionA">Sign In</a></li>
+		        <li class="active"><a data-toggle="tab" href="#sectionA">Sign In</a></li>
 		        <li><a data-toggle="tab" href="#sectionB">Register With us</a></li>
 		        <li><a data-toggle="tab" href="#sectionC">Reset Password</a></li>
 		    </ul>
@@ -103,7 +103,6 @@
 						<?php 
 							include ("includes/register.php");
 						?>
-			   
 				</div>
 				<div id="sectionC" class="tab-pane fade">
 					<h3>Password Reset</h3>
