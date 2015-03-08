@@ -9,7 +9,7 @@
 		<h3>Just added</h3>
 		
 		<?php
-		for (var i = 0; i < 3; i++) {
+		for ($i = 0; $i < 3; $i++) {
 			$row = getNewestItem($itemNumber);
 			
 			$product = new product($row[1], $row[2], $row[3]);
