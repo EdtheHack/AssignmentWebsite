@@ -38,9 +38,9 @@
 						</ul></li> 
 					
 						 
-						
-						<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"#\" style= type=\"submit\" name=\"logout\"><i class=\"fa fa-sign-out\"></i> <b> Logout </b></a></li>
-						</ul></form>
+						<form 
+						<ul class=\"nav navbar-nav navbar-right\"><li><input type=\"submit\" name=\"logout\"><i class=\"fa fa-sign-out\"></i> <b> Logout </b></a></li>
+						</ul></input>
 						";	
 						
 						
