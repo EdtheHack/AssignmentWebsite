@@ -13,6 +13,7 @@
 <body>
 	<?php
 		include ("includes/nav.php");
+		include ("includes/product.php");
 		
 		$product = unserialize($_POST['serializedProduct']);
 	?>
