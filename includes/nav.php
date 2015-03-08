@@ -38,8 +38,8 @@
 						</ul></li> 
 					
 						 
-						<ul class=\"nav navbar-nav navbar-right\"><li><input type=\"submit\" name=\"logout\"><i class=\"fa fa-sign-out\"></i> <b> Logout </b></a></li>
-						</ul></input>
+						<ul class=\"nav navbar-nav navbar-right\"><li><input type=\"submit\" name=\"logout\"><i class=\"fa fa-sign-out\"></i> <b> Logout </b></input></li>
+						</ul>
 						";	
 						
 						
