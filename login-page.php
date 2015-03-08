@@ -106,7 +106,7 @@
 						?>
 			   
 				</div>
-				<div id="sectionB" class="tab-pane fade">
+				<div id="sectionC" class="tab-pane fade">
 					<h3>Password Reset</h3>
 				</div>
     		</div>
