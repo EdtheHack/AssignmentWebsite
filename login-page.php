@@ -110,7 +110,7 @@
 					
 						<form method="POST" action="">
 							<div class="form-group">
-		    			        <label for="email">Please eneter your account Email:</label>
+		    			        <label for="email">Please enter your account Email:</label>
 								<input type="email" name="email" class="form-control" placeholder="Email">
 							</div>
 							<br>
