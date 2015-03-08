@@ -208,6 +208,9 @@
 		if(validateAddressLine2($addressLine2) != 1){
 			return 0;
 		}
+		if(validatePostcode($postcode) !=1){
+			return 0;
+		}
 		if(validateMobileNumber($mobileNumber) != 1){
 			return 0;
 		}
@@ -298,7 +301,7 @@
 	function validatePostcode($postcode){
 		$con = connect();
 			
-		if (preg_match( '/^[A-Z 0-9 \'\,.-]{2,100}$/i', $postcode)) {
+		if (preg_match( '/^[A-Z 0-9 \'\,.-]{7,8}$/i', $postcode)) {
 			$_SESSION["postcode"] = mysqli_escape_string ($con, $postcode);
 			return 1;
 		} else {

@@ -49,7 +49,10 @@ if (isset ($_POST['changeDetails'])) {
 	$mobileNumber = $_POST['mobileNumber'];
 	$homeNumber = $_POST['homeNumber'];
 	if (updateUser($firstName, $lastName, $addressLine1, $addressLine2, $postcode, $mobileNumber, $homeNumber) == 1) {
-		echo "<script>window.location.replace(userDetails.php)</script>";
+		echo "<div class=\"alert alert-success\">
+		   		<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+		   		<strong>Success!</strong> Your Email has been changed!
+			</div>";
 	} else {
 		echo "There was a problem updating information";
 	}
