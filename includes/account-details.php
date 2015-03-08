@@ -40,7 +40,7 @@ if (isset ($_POST['changeEmail'])) {
 	}
 }
 
-if (isset ($_POST['saveDetails'])) {
+if (isset ($_POST['changeDetails'])) {
 	$firstName = $_POST['firstName'];
 	$lastName = $_POST['lastName'];
 	$addressLine1 = $_POST['addressLine1'];
