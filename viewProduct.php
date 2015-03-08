@@ -16,6 +16,7 @@
 		include ("includes/product.php");
 		
 		$product = unserialize($_SESSION["serializedProduct"]);
+		echo $product;
 	?>
 	
 	<div class="container">
