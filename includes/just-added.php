@@ -28,7 +28,7 @@
 	}
 	
 	if(isset($_POST['viewProduct'])){
-		echo "<script>window.location.replace(index.php)</script>";
+		echo "<script>window.location.replace(viewProduct.php)</script>";
 	}
 ?>
 
