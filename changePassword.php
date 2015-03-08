@@ -23,7 +23,7 @@
 <div class="container">
 	<?php include ("includes/just-added.php")?>
 	
-	<h3>Change your email address</h3>
+	<h3>Change your password</h3>
 	<br>
 	<div class="col-md-9">
 		<form method="POST" action="">
@@ -55,7 +55,7 @@
 						if (updatePassword($oldPassword, $password, $passwordCheck) == 1) {
 							echo "<div class=\"alert alert-success\">
 					        		<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					        		<strong>Success!</strong> Your account email address has been changed!
+					        		<strong>Success!</strong> Your password has been changed!
 					    		</div>";
 						} 	
 					} else {
