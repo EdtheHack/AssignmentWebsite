@@ -51,8 +51,6 @@
 					$oldPassword = $_POST['oldPassword'];
 					$password = $_POST['password'];
 					$passwordCheck = $_POST['passwordCheck'];
-				
-					echo"somewthings going ooon";
 					
 					if ($password != null || $passwordCheck != null){
 						if (updatePassword($oldPassword, $password, $passwordCheck) == 1) {

@@ -52,7 +52,10 @@
 					
 					if ($password != null){
 						if (updateEmail($password, $oldEmail, $newEmail) == 1) {
-							echo "<script>window.location.replace(userDetails.php)</script>";
+							echo "<div class=\"alert alert-success\">
+					        		<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					        		<strong>Success!</strong> Your Email has been changed!
+					    		</div>";
 						} 	
 					} else {
 						echo "Password can not be null";
