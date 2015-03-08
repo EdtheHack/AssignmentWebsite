@@ -44,6 +44,7 @@
 				<br>
 				<input type="submit" name="back" class="btn btn-default" value="Back"> <input type="submit" name="saveDetails" class="btn btn-default" value="Save">
 			</form>	
+			<br>
 			<?php
 				if (isset ($_POST['saveDetails'])) {
 					$password = $_POST['password'];
