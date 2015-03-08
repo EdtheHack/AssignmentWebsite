@@ -1,5 +1,6 @@
 <?php
 	include 'includes/databaseValidation.php';	
+	
 	if ($_SESSION["loggedIn"] == true){
 	} else {
 		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
@@ -43,13 +44,15 @@
 				
 				<br>
 				
-				<input type="submit" name="back" class="btn btn-default" value="Cancel"> <input type="submit" name="saveDetails" class="btn btn-default" value="Save">
+				<input type="submit" name="saveDetails" class="btn btn-default" value="Save"> <input style="float: right;" type="submit" name="back" class="btn btn-default" value="Cancel"> 
 		</form>	
 			<?php
 				if (isset ($_POST['saveDetails'])) {
 					$oldPassword = $_POST['oldPassword'];
 					$password = $_POST['password'];
 					$passwordCheck = $_POST['passwordCheck'];
+				
+					echo"somewthings going ooon";
 					
 					if ($password != null || $passwordCheck != null){
 						if (updatePassword($oldPassword, $password, $passwordCheck) == 1) {
