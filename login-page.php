@@ -31,6 +31,7 @@
 		    <ul class="nav nav-tabs">
 		        <li class="active"><a data-toggle="tab" href="#sectionA">Sign In</a></li>
 		        <li><a data-toggle="tab" href="#sectionB">Register With us</a></li>
+		        <li><a data-toggle="tab" href="#sectionC">Reset Password</a></li>
 		    </ul>
 		    <div class="tab-content">
 		        <div id="sectionA" class="tab-pane fade in active">
@@ -47,7 +48,7 @@
 											
 									<br>
 										<p id="p1" style="float: left" ><input type="checkbox" name="stayLoggedIn"> Remember Me</p>		
-										<p style="float: right"> <input type="submit" name="attemptLogin" class="btn btn-default" value="Login"> <a href ="resetPassword.php"><input class="btn btn-default" value="Forgotten Password"></a></p>
+										<p style="float: right"> <input type="submit" name="attemptLogin" class="btn btn-default" value="Login"> <a data-toggle="tab" href="#sectionC" ><input class="btn btn-default" value="Forgotten Password"></a></p>
 						
 								</div>
 					            <br>
@@ -104,6 +105,9 @@
 							include ("includes/register.php");
 						?>
 			   
+				</div>
+				<div id="sectionB" class="tab-pane fade">
+					<h3>Password Reset</h3>
 				</div>
     		</div>
 		</div>
