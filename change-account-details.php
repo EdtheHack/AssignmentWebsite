@@ -28,11 +28,12 @@ if ($_SESSION["loggedIn"] == true){
 		<div class="bs-example">
 		    <ul class="nav nav-tabs">
 		        <li class="active"><a data-toggle="tab" href="#sectionA">Change Password</a></li>
-		        <li><a data-toggle="tab" href="#sectionC">Change Email</a></li>
+		        <li><a data-toggle="tab" href="#sectionB">Change Email</a></li>
 		        <li><a data-toggle="tab" href="#sectionC">Change Other Details</a></li>
 		        </ul>
 		         	<div class="tab-content">
-		        		<div id="sectionA" class="tab-pane fade in active">		
+		        		<div id="sectionA" class="tab-pane fade in active">	
+		        		<div>	
 								<h3>Change Password</h3>
 								<br>
 									<form method="POST" action="">
@@ -54,7 +55,8 @@ if ($_SESSION["loggedIn"] == true){
 									</form>	
 									<br>
 									
-							</div>             
+							</div> 
+							</div>            
 		        		<div id="sectionB" class="tab-pane fade in active">
 		        				<h3>Change your email address</h3>
 								<br>
