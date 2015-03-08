@@ -8,7 +8,7 @@
 		
 		public function __construct($itemNumber){
 			$row = getNewestItems($itemNumber);
-
+			
 			$this->name = $row[1];
 			$this->price = $row[2];
 			$this->description = $row[3];
@@ -25,30 +25,6 @@
 		public function getDescription(){
 			return $this->description;
 		}
-		
-		?>
-			<div class="row">
-			<br>
-			<div class="thumbnail">
-				<img src="http://placehold.it/320x150" alt="">
-				<div class="caption">
-					<h4 class="pull-right"><?php echo $price();?></h4>
-					<h4>
-						<a href="#"><?php echo $name();?></a>
-					</h4>
-					<p><?php echo $description();?></p>
-				</div>
-				<div>
-					<button type="submit" class="btn btn-default">
-						<i class="fa fa-eye"></i> <b> View </b>
-					</button>
-					<button type="submit" class="btn btn-default pull-right">
-						<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
-					</button>
-				</div>
-			</div>
-		</div>
-		<?php
 	}
 ?>
 
@@ -115,7 +91,7 @@
 					<h4>
 						<a href="#"><?php echo $product3->getName();?></a>
 					</h4>
-					<p><?php echo $product3->getDescription();?></p>
+					<p><?php echo $product3->getName();?></p>
 				</div>
 				<div>
 					<button type="submit" class="btn btn-default">
