@@ -45,9 +45,10 @@ if (isset ($_POST['saveDetails'])) {
 	$lastName = $_POST['lastName'];
 	$addressLine1 = $_POST['addressLine1'];
 	$addressLine2 = $_POST['addressLine2'];
+	$postcode = $_POST['postcode'];
 	$mobileNumber = $_POST['mobileNumber'];
 	$homeNumber = $_POST['homeNumber'];
-	if (updateUser($firstName, $lastName, $addressLine1, $addressLine2, $mobileNumber, $homeNumber) == 1) {
+	if (updateUser($firstName, $lastName, $addressLine1, $addressLine2, $postcode, $mobileNumber, $homeNumber) == 1) {
 		echo "<script>window.location.replace(userDetails.php)</script>";
 	} else {
 		echo "There was a problem updating information";

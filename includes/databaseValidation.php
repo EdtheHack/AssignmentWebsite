@@ -52,8 +52,9 @@
 						$_SESSION["lastName"] = "$row[4]";
 						$_SESSION["addressLine1"] = "$row[5]";
 						$_SESSION["addressLine2"] = "$row[6]";
-						$_SESSION["mobileNumber"] = "$row[7]";
-						$_SESSION["homeNumber"] = "$row[8]";
+						$_SESSION["postcode"] = "$row[7]";
+						$_SESSION["mobileNumber"] = "$row[8]";
+						$_SESSION["homeNumber"] = "$row[9]";
 						return 1;
 					} else {
 						if (checkEmail($email) == 1){											//check if email exists but wrong password entered
@@ -108,7 +109,7 @@
 		}
 	}
 	
-	function updateUser($firstName, $lastName, $addressLine1, $addressLine2, $mobileNumber, $homeNumber){
+	function updateUser($firstName, $lastName, $addressLine1, $addressLine2, $postcode, $mobileNumber, $homeNumber){
 		$con = connect();
 
 		if($firstName != null){
@@ -131,6 +132,11 @@
 				return 0;
 			}
 		}
+		if($postcode != null){
+			if(validatePostcode($postcode) != 1){
+				return 0;
+			}
+		}
 		if($mobileNumber != null){
 			if(validateMobileNumber($mobileNumber) != 1){
 				return 0;
@@ -143,7 +149,7 @@
 		}
 				
 		$query = "UPDATE user
-				SET firstName = '".$_SESSION['firstName']."', lastName = '".$_SESSION['lastName']."', addressLine1 = '".$_SESSION['addressLine1']."', addressLine2 = '".$_SESSION['addressLine2']."', mobileNo = '".$_SESSION['mobileNumber']."', homeNo = '".$_SESSION['homeNumber']."'
+				SET firstName = '".$_SESSION['firstName']."', lastName = '".$_SESSION['lastName']."', addressLine1 = '".$_SESSION['addressLine1']."', addressLine2 = '".$_SESSION['addressLine2']."', postcode = '".$_SESSION['postcode']."',mobileNo = '".$_SESSION['mobileNumber']."', homeNo = '".$_SESSION['homeNumber']."'
 				WHERE userID = '".$_SESSION['userID']."';";
 				
 		if ($result = mysqli_query($con, $query)) {
@@ -154,7 +160,7 @@
 		}
 	}
 
-	function validateDetails($email, $password, $firstName, $lastName, $addressLine1, $addressLine2, $mobileNumber, $homeNumber){
+	function validateDetails($email, $password, $firstName, $lastName, $addressLine1, $addressLine2, $postcode, $mobileNumber, $homeNumber){
 		$con = connect();
 		
 		$_SESSION["email"] = mysqli_real_escape_string($con, "$email");
@@ -285,6 +291,18 @@
 					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
 					   		<strong>Error!</strong> Address line 2 must be longer than 2 characters.
 						</div>";
+			return 0;
+		}
+	}
+	
+	function validatePostcode($postcode){
+		$con = connect();
+			
+		if (preg_match( '/^[A-Z 0-9 \'\,.-]{2,100}$/i', $postcode)) {
+			$_SESSION["postcode"] = mysqli_escape_string ($con, $postcode);
+			return 1;
+		} else {
+			echo "Postcode  must be longer than 2 characters";
 			return 0;
 		}
 	}

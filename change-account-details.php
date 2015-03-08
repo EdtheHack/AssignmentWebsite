@@ -78,6 +78,8 @@ if ($_SESSION["loggedIn"] == true){
 		        		</div>
 		        		<div id="sectionC" class="tab-pane fade">
 		        			<form method="POST" action="">
+		        			<h3>Change other account details</h3>
+		        			<br>
 								<div class="form-group">
 									<label for="firstname">First Name:</label>
 									<input type="text" name="firstName" class="form-control" placeholder="Enter First Name" value="<?php echo $_SESSION['firstName'] ?>">
@@ -93,6 +95,10 @@ if ($_SESSION["loggedIn"] == true){
 								<div class="form-group">
 									<label for="addr2">Address Line 2:</label>
 									<input type="text" name="addressLine2" class="form-control" placeholder="Enter Address Line 2" value="<?php echo $_SESSION['addressLine2'] ?>">
+								</div>
+								<div class="form-group">
+									<label for="addr2">Postcode:</label>
+									<input type="text" name="addressLine2" class="form-control" placeholder="Enter Address Line 2" value="<?php echo $_SESSION['postcode'] ?>">
 								</div>
 								<div class="form-group">
 									<label for="no1">Mobile Number:</label>
