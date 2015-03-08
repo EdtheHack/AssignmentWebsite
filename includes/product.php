@@ -4,12 +4,10 @@
 		private $price;
 		private $description;
 		
-		public function __construct($itemNumber){
-			$row = getNewestItems($itemNumber);
-			
-			$this->name = $row[1];
-			$this->price = $row[2];
-			$this->description = $row[3];
+		public function __construct($name, $price, $description){
+			$this->name = $name;
+			$this->price = $price;
+			$this->description = $description;
 		}
 		
 		public function getName(){
@@ -55,6 +53,5 @@
 				echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
 			}
 		}
-		
 	}
 	?>

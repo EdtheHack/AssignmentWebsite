@@ -1,6 +1,6 @@
 <?php
 
-	function getNewestItems($itemNumber){
+	function getNewestItem($itemNumber){
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 		$query = "SELECT * FROM product ORDER BY price DESC;";
 		
