@@ -6,7 +6,7 @@
 		
 		if ($result = mysqli_query($db_con, $query)) {		//getting array of rows
 			$rows = array();
-			while($row = mysqli_fetch_assoc($result)) {
+			while($row = mysqli_fetch_array($result)) {
 					echo $row[1];
 					$rows[] = $row;
 					echo $rows[0];
