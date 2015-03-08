@@ -56,6 +56,7 @@
 	}
 	
 	if(isset($_POST['viewProduct'])){
+		$_POST['serializedProduct'] = serialise($this);
 		echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
 	}
 ?>
