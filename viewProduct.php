@@ -26,11 +26,11 @@
 				<div class="thumbnail">
 					<img src="http://placehold.it/320x150" alt="">
 					<div class="caption">
-						<h4 class="pull-right"><?php echo $product->getPrice();?></h4>
+						<h4 class="pull-right"><?php echo $_SESSION['price'];?></h4>
 						<h4>
-							<a href="#"><?php echo $product->getName();?></a>
+							<a href="#"><?php echo $_SESSION['name'];?></a>
 						</h4>
-						<p><?php echo $product->getDescription();?></p>
+						<p><?php echo echo $_SESSION['description'];?></p>
 					</div>
 					<div>
 						<button type="submit" class="btn btn-default">
