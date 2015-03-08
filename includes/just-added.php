@@ -25,17 +25,19 @@
 		public function getDescription(){
 			return $this->description;
 		}
-		echo"
+		
+		public function html(){
+			echo"
 		<div class=\"row\">
 			<br>
 			<div class=\"thumbnail\">
 				<img src=\"http://placehold.it/320x150\" alt=\"\">
 				<div class=\"caption\">
-					<h4 class=\"pull-right\"><?php echo $product1->getPrice();?></h4>
+					<h4 class=\"pull-right\">".$price."</h4>
 					<h4>
-						<a href=\"#\"><?php echo $product1->getName();?></a>
+						<a href=\"#\">".$name."</a>
 					</h4>
-					<p><?php echo $product1->getDescription();?></p>
+					<p>".$description."</p>
 				</div>
 				<div>
 					<form method=\"POST\" action=\"\">
@@ -49,6 +51,8 @@
 				</div>
 			</div>
 		</div>";
+		}
+		
 	}
 	
 	if(isset($_POST['viewProduct'])){
@@ -62,8 +66,11 @@
 		
 		<?php
 		$product1 = new product(0);
+		$product1->html();
 		$product2 = new product(1);
+		$product2->html();
 		$product3 = new product(2);
+		$product3->html();
 		?>
 		
 		<div class="row">
