@@ -10,7 +10,7 @@
 		
 		<?php
 		for ($i = 0; $i < 3; $i++) {
-			$row = getNewestItem($itemNumber);
+			$row = getNewestItem($i);
 			
 			$product = new product($row[1], $row[2], $row[3]);
 			$product->html();
