@@ -28,8 +28,6 @@
 	}
 ?>
 
-
-
 <div class="col-md-3">
 	<div class="well">
 		<h3>Just added</h3>
@@ -91,7 +89,7 @@
 					<h4>
 						<a href="#"><?php echo $product3->getName();?></a>
 					</h4>
-					<p><?php echo $product3->getName();?></p>
+					<p><?php echo $product3->getDescription();?></p>
 				</div>
 				<div>
 					<button type="submit" class="btn btn-default">
