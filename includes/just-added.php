@@ -1,6 +1,6 @@
 <?php
 	include ("product.php");
-	include ("common-functions.php");		
+	//include ("common-functions.php");		
 ?>
 
 <div class="col-md-3">
