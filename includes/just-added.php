@@ -26,12 +26,16 @@
 						<p>".$product->getDescription()."</p>
 					</div>
 					<div>
-						<form method=\"POST\" action=\"viewProduct.php\">
-							<button type=\"submit\" name='itemId' value='".$product->getId()."'><i class=\"fa fa-eye\"></i> <b> View </b> </button>	
-						</form>
-						<button type=\"submit\" class=\"btn btn-default pull-right\">
-							<i class=\"fa fa-shopping-cart fa-1x\"></i> <b> Add </b>
-						</button>
+						<div class=\"col-md-5\">
+							<form method=\"POST\" action=\"viewProduct.php\">
+								<button type=\"submit\" name='itemId' value='".$product->getId()."' class=\"btn btn-default left-margin\"><i class=\"fa fa-eye\"></i> <b> View </b> </button>	
+							</form>
+						</div>
+						<div class=\"col-md-5\">
+							<form method=\"POST\" action=\"viewProduct.php\">  
+								<button type=\"submit\" name='itemId' value='".$product->getId()."' class=\"btn btn-default pull-right\"><i class=\"fa fa-shopping-cart fa-1x\"></i> <b> Add </b> </button>	
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>";
