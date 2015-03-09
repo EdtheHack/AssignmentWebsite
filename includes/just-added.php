@@ -14,7 +14,6 @@
 			$product = new product($row[1], $row[2], $row[3]);
 			$product->html();
 		}
-		$_SESSION["hello"] = "hello";
 		?>
 	</div>
 </div>
