@@ -37,7 +37,7 @@
 					</div>
 					<div>
 						<form method=\"POST\" action=\"\">
-							<button type=\"submit\" name=\"viewProduct\" class=\"btn btn-default\">
+							<button type=\"submit\" name="."$this->viewProduct"." class=\"btn btn-default\">
 								<i class=\"fa fa-eye\"></i> <b> View </b>
 							</button>
 							<button type=\"submit\" class=\"btn btn-default pull-right\">
