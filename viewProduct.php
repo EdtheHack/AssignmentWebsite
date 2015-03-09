@@ -5,7 +5,8 @@
 	error_reporting(-1);
 	
 	include ("includes/product.php");
-	$mProduct = unserialize($_SESSION['serializedProduct']);
+	$product = unserialize($_SESSION['serializedProduct']);
+	echo $_SESSION['name'];
 		
 ?>
 <!DOCTYPE html>
@@ -32,17 +33,16 @@
 					<img src="http://placehold.it/500x400" alt="">	
 				</div>
 				<div class="col-md-4">
-					<h4 class="pull-right"><?php echo $mProduct->getPrice();?></h4>
+					<h4 class="pull-right"><?php echo $product->getPrice();?></h4>
 					<h4>
-						<a href="#"><?php echo $mProduct->getName();?></a>
+						<a href="#"><?php echo $product->getName();?></a>
 					</h4>
-					<p><?php echo $mProduct->getDescription();?></p>
+					<p><?php echo $product->getDescription();?></p>
 					<br>
 					<button type="submit" class="btn btn-default pull-right">
 						<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
 					</button>
-				</div>
-				
+				</div>		
 			</div>
 	</div>
 </body>

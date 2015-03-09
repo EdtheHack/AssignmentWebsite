@@ -50,6 +50,7 @@
 		
 			if(isset($_POST['viewProduct'])){
 				$_SESSION["serializedProduct"] = serialize($this);
+				$_SESSION["name"] = $this->getName();
 				echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
 			}
 		}
