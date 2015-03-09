@@ -79,7 +79,7 @@ include ("includes/nav.php");
 							<div id="collapseTwo" class="panel-collapse collapse"
 								role="tabpanel" aria-labelledby="headingTwo">
 								<div class="panel-body">
-                                <form>
+									<form>
 										<div class="form-group">
 											<label for="newProductName">Product Name</label> <input
 												type="text" class="form-control" id="newProductName"
@@ -87,12 +87,13 @@ include ("includes/nav.php");
 										</div>
 										<div class="form-group">
 											<label for="newProductPrice">Password</label> <input
-												type="number" class="form-control"
-												id="newProductPRice" placeholder="Enter product price">
+												type="number" class="form-control" id="newProductPRice"
+												placeholder="Enter product price">
 										</div>
 										<div class="form-group">
-											<label for="productDescription">Description</label> 
-											<textarea class="form-control" rows="5" id="newProductDescription"></textarea>
+											<label for="productDescription">Description</label>
+											<textarea class="form-control" rows="5"
+												id="newProductDescription"></textarea>
 										</div>
 										<div class="checkbox">
 											<label> <input type="checkbox">List product immediately
@@ -100,7 +101,7 @@ include ("includes/nav.php");
 										</div>
 										<button type="submit" class="btn btn-default">Add Product</button>
 									</form>
-                                </div>
+								</div>
 							</div>
 						</div>
 
@@ -115,17 +116,40 @@ include ("includes/nav.php");
 							</div>
 							<div id="collapseThree" class="panel-collapse collapse"
 								role="tabpanel" aria-labelledby="headingThree">
-								<div class="panel-body">Anim pariatur cliche reprehenderit, enim
-									eiusmod high life accusamus terry richardson ad squid. 3 wolf
-									moon officia aute, non cupidatat skateboard dolor brunch. Food
-									truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-									tempor, sunt aliqua put a bird on it squid single-origin coffee
-									nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-									craft beer labore wes anderson cred nesciunt sapiente ea
-									proident. Ad vegan excepteur butcher vice lomo. Leggings
-									occaecat craft beer farm-to-table, raw denim aesthetic synth
-									nesciunt you probably haven't heard of them accusamus labore
-									sustainable VHS.</div>
+								<div class="panel-body">
+									<form>
+										<div class="form-group">
+											<label for="editedProductList">Select product to edit.</label>
+											<select class="form-control" id="editedProductList">
+												<option>Product 1</option>
+												<option>Product 2</option>
+												<option>Product 3</option>
+												<option>Product 4</option>
+											</select>
+										</div>
+
+										<div class="form-group">
+											<label for="editedProductName">Product Name</label> <input
+												type="text" class="form-control" id="editedProductName"
+												placeholder="">
+										</div>
+										<div class="form-group">
+											<label for="editedProductPrice">Password</label> <input
+												type="number" class="form-control" id="editedProductPRice"
+												placeholder="">
+										</div>
+										<div class="form-group">
+											<label for="editedProductDescription">Description</label>
+											<textarea class="form-control" rows="5"
+												id="editedProductDescription"></textarea>
+										</div>
+										<div class="radios">
+											<label class="checkbox-inline"><input type="checkbox" value="">List Product Immediately</label>
+											<label class="checkbox-inline"><input type="checkbox" value="">Do Not List Product Yet</label>
+										</div>
+										<button type="submit" class="btn btn-default">Edit Product</button>
+									</form>
+								</div>
 							</div>
 						</div>
 
