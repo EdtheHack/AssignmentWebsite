@@ -89,6 +89,10 @@
 								<input type="text" name="addressLine2" class="form-control" placeholder="Enter Address Line 2" <?php if(!empty($_POST["addressLine2"])){ echo " value='".$_POST["addressLine2"]."'"; }?>>
 							</div>
 							<div class="form-group">
+		    			        <label for="email">Postcode :</label>	
+								<input type="text" name="addressLine2" class="form-control" placeholder="Enter postcode" <?php if(!empty($_POST["postcode"])){ echo " value='".$_POST["postcode"]."'"; }?>>
+							</div>
+							<div class="form-group">
 		    			        <label for="email">Mobile Number:</label>	
 								<input type="text" name="mobileNumber" class="form-control" placeholder="Enter Mobile Number " <?php if(!empty($_POST["mobileNumber"])){ echo " value='".$_POST["mobileNumber"]."'"; }?>>
 							</div>

@@ -104,8 +104,9 @@
 	function createUser(){
 		$con = connect();
 				
-		$query = "INSERT INTO user (email, password, firstName, lastName, addressLine1, addressLine2, mobileNo, homeNo)
-		VALUES ('".$_SESSION['email']."', '".$_SESSION['password']."', '".$_SESSION['firstName']."', '".$_SESSION['lastName']."', '".$_SESSION['addressLine1']."', '".$_SESSION['addressLine2']."', '".$_SESSION['mobileNumber']."', '".$_SESSION['homeNumber']."');";
+		$query = "INSERT INTO user (email, password, firstName, lastName, addressLine1, addressLine2, postcode, mobileNo, homeNo)
+		VALUES ('".$_SESSION['email']."', '".$_SESSION['password']."', '".$_SESSION['firstName']."', '".$_SESSION['lastName']."', '".$_SESSION['addressLine1']."',
+				 '".$_SESSION['addressLine2']."', '".$_SESSION['postcode']."', '".$_SESSION['mobileNumber']."', '".$_SESSION['homeNumber']."');";
 				
 		if ($result = mysqli_query($con, $query)) {
 			return 1;
