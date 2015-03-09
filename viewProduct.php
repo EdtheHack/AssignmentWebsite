@@ -6,11 +6,7 @@
 	
 	include ("includes/product.php");
 	$product = unserialize($_SESSION['serializedProduct']);
-	echo $_SESSION['price'];
-	echo $_SESSION['hello'];
-	echo $product->getPrice();
-	
-	
+		
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,14 +28,15 @@
 	<div class="container">
 			<div class="row">
 				<br>
-				<div class="thumbnail">
-					<img src="http://placehold.it/320x150" alt="">
-					<div class="caption">
-						<h4 class="pull-right"><?php echo $_SESSION['price'];?></h4>
+				<div class="col-md-6">
+					<img src="http://placehold.it/320x150" alt="">	
+				</div>
+				<div class="col-md-4">
+						<h4 class="pull-right"><?php echo $product->getPrice();?></h4>
 						<h4>
-							<a href="#"><?php echo $_SESSION['name'];?></a>
+							<a href="#"><?php echo $product->getName();?></a>
 						</h4>
-						<p><?php echo $_SESSION['description']; echo $_SESSION['hello'];?></p>
+						<p><?php echo $product->getDescription();?></p>
 					</div>
 					<div>
 						<button type="submit" class="btn btn-default">
@@ -49,7 +46,6 @@
 							<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
 						</button>
 					</div>
-				</div>
 			</div>
 	</div>
 </body>
