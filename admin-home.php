@@ -58,7 +58,9 @@ include ("includes/nav.php");
 								<h4 class="panel-title">
 									<a data-toggle="collapse" data-parent="#accordion"
 										href="#collapseOne" aria-expanded="true"
-										aria-controls="collapseOne">View Orders</a>
+										aria-controls="collapseOne">View Orders
+                                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+</a>
 								</h4>
 							</div>
 							<div id="collapseOne" class="panel-collapse collapse in"
