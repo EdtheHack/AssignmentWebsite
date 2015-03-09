@@ -23,9 +23,8 @@ function checkAdmin() {
 
 
 function getNewestItem($itemNumber){
-	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
-	$db_con = $mysqli;
-	
+	$mysqli = DBconnect ();
+
 	$rows = array();
 	
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product ORDER BY price DESC" )) {
@@ -43,8 +42,7 @@ function getNewestItem($itemNumber){
 }
 
 function getItem($productId){
-	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
-	$db_con = $mysqli;
+	$mysqli = DBconnect ();
 	
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE product_id =?")){
 		$stmt->bind_param ( "s", $productId );
