@@ -44,7 +44,7 @@ function getNewestItem($itemNumber){
 function getItem($productId){
 	$mysqli = DBconnect ();
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE product_id =?")){
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE product_id=?")){
 		$stmt->bind_param ( "s", $productId );
 		$stmt->execute ();
 		$stmt->bind_result ( $result );
