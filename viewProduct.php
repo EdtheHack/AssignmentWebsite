@@ -30,7 +30,7 @@
 						<h4>
 							<a href="#"><?php echo $_SESSION['name'];?></a>
 						</h4>
-						<p><?php echo $_SESSION['description'];?></p>
+						<p><?php echo $_SESSION['description']; echo $_SESSION['hello'];?></p>
 					</div>
 					<div>
 						<button type="submit" class="btn btn-default">
