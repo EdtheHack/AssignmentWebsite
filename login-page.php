@@ -2,7 +2,7 @@
 	include 'includes/databaseValidation.php';	
 	
 	if(isset($_SESSION['loggedIn']) && $_SESSION["stayLoggedIn"] == true){
-			echo "<script type=\"text/javascript\">document.location.href=\"userDetails.php\";</script>";
+			echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
 	}
 ?>
 
@@ -53,7 +53,6 @@
 					            <br>
 							
 							</form>
-							<?php include ("includes/login.php")?>
 					</div>             
 		        </div>
 		        <div id="sectionB" class="tab-pane fade">
@@ -104,9 +103,6 @@
 							<br>
 							<p style="text-align: center"> <input type="submit" name="attemptRegister" class="btn btn-default" value="Register"></p>
 						</form>     
-						<?php 
-							include ("includes/register.php");
-						?>
 				</div>
 				<div id="sectionC" class="tab-pane fade">
 					<h3>Password Reset</h3>
@@ -114,13 +110,13 @@
 						<form method="POST" action="">
 							<div class="form-group">
 		    			        <label for="email">Please enter your account Email:</label>
-								<input type="email" name="email" class="form-control" placeholder="Email">
+								<input type="email" name="resetEmail" class="form-control" placeholder="Email">
 							</div>
 							<br>
 							<input type="submit" name="sendMail" class="btn btn-default" value="Get New Password">
 						</form>
 						<?php 
-							include ("includes/reset-password.php");
+							include ("includes/login-page-functions.php");
 						?>
 					
 				</div>
