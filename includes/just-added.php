@@ -37,7 +37,7 @@
 			</div>";
 		
 			if(isset($_POST['viewProduct'])){
-				$_SESSION["serializedProduct"] = ;
+				$_SESSION["serializedProduct"] = serialize($product);
 				$_SESSION["name"] = $this->getName();
 				echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
 			}
