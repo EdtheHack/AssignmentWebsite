@@ -297,7 +297,7 @@
 	function validateAddressLine2($addressLine2){									
 		$con = connect();
 			
-		if (preg_match( '/^[A-Z 0-9 \'\,.-]{2,100}$/i', $addressLine2)) {
+		if (preg_match( '/^[A-Z 0-9\'\,.-]{2,100}$/i', $addressLine2)) {
 			$_SESSION["addressLine2"] = mysqli_escape_string ($con, $addressLine2);
 			return 1;
 		} else {
@@ -312,7 +312,7 @@
 	function validatePostcode($postcode){
 		$con = connect();
 			
-		if (preg_match( '/^[A-Z 0-9 \'\,.-]{7,8}$/i', $postcode)) {
+		if (preg_match( '/^[A-Z 0-9\'\,.-]{7,8}$/i', $postcode)) {
 			$_SESSION["postcode"] = mysqli_escape_string ($con, $postcode);
 			return 1;
 		} else {
