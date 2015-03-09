@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include ("itemFunctions.php");	
 	include ("product.php");
 ?>
