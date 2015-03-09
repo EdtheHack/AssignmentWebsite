@@ -30,8 +30,7 @@ include ("includes/common-functions.php");
 					
 					<?php if(isset($_SESSION['loggedIn']) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
 
-						checkAdmin(); //check for admin TESTING 
-					
+		
 						$fn = $_SESSION["firstName"];
 						
 						//PHP INJECT HTML TO THE PAGE
@@ -42,10 +41,15 @@ include ("includes/common-functions.php");
 						<li><a href=\"#\">Orders</a></li>
 						<li><a href=\"change-account-details.php\">Account Settings</a></li>
 						<li><a href=\"#\">Basket</a></li>
-						</ul></li> 
+						</ul></li>" ;
+					
+						if(checkAdmin() == 1){ //check for admin user 
+							echo "<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"?logout\" ><i class=\"fa fa-sign-out\"></i> <b> Admin Panel </b></a></li></ul>";
+						}
 					
 						
-						<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"?logout\" ><i class=\"fa fa-sign-out\"></i> <b> Logout </b></a></li></ul>";	
+						echo "<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"?logout\" ><i class=\"fa fa-sign-out\"></i> <b> Logout </b></a></li></ul>";	
+						
 						
 						
 						if(isset($_GET['logout'])){

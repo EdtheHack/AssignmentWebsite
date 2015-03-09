@@ -15,9 +15,9 @@ function checkAdmin() {
 		$stmt->execute ();
 		$stmt->bind_result ( $result );
 		$stmt->fetch ();
-		echo $user . "'s level of priviledges is " . $result;
 		$stmt->close ();
 	}
+	return $result;
 	$mysqli->close ();
 }
 
