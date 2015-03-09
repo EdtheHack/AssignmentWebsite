@@ -51,10 +51,13 @@ if (isset ($_POST['changeDetails'])) {
 	if (updateUser($firstName, $lastName, $addressLine1, $addressLine2, $postcode, $mobileNumber, $homeNumber) == 1) {
 		echo "<div class=\"alert alert-success\">
 		   		<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-		   		<strong>Success!</strong> Your Email has been changed!
+		   		<strong>Success!</strong> Your details has been changed!
 			</div>";
 	} else {
-		//echo "There was a problem updating information";
+		echo "<div class=\"alert alert-danger\">
+					        		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					        		<strong>Error!</strong> Oh no, something bad has happened, contact admin asap!
+					    		</div>";
 	}
 }
 
