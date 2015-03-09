@@ -54,7 +54,7 @@ if (isset ($_POST['changeDetails'])) {
 		   		<strong>Success!</strong> Your Email has been changed!
 			</div>";
 	} else {
-		echo "There was a problem updating information";
+		//echo "There was a problem updating information";
 	}
 }
 
