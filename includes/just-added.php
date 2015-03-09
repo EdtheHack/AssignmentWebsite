@@ -19,11 +19,11 @@
 				<div class=\"thumbnail\">
 					<img src=\"http://placehold.it/320x150\" alt=\"\">
 					<div class=\"caption\">
-						<h4 class=\"pull-right\">".$product->getPrice."</h4>
+						<h4 class=\"pull-right\">".$product->getPrice()."</h4>
 						<h4>
-							<a href=\"#\">".$product->getName."</a>
+							<a href=\"#\">".$product->getName()."</a>
 						</h4>
-						<p>".$product->getDescription."</p>
+						<p>".$product->getDescription()."</p>
 					</div>
 					<div>
 						<form method=\"POST\" action=\"\">
