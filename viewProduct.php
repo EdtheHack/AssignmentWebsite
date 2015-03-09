@@ -29,7 +29,7 @@
 			<div class="row">
 				<br>
 				<div class="col-md-6">
-					<img src="http://placehold.it/320x150" alt="">	
+					<img src="http://placehold.it/750x500" alt="">	
 				</div>
 				<div class="col-md-4">
 						<h4 class="pull-right"><?php echo $product->getPrice();?></h4>
@@ -38,10 +38,7 @@
 						</h4>
 						<p><?php echo $product->getDescription();?></p>
 					</div>
-					<div>
-						<button type="submit" class="btn btn-default">
-							<i class="fa fa-eye"></i> <b> View </b>
-						</button>
+					<div class="pull-down">
 						<button type="submit" class="btn btn-default pull-right">
 							<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
 						</button>
