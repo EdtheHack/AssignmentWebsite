@@ -27,7 +27,7 @@
 					</div>
 					<div>
 						<form method=\"POST\" action=\"viewProduct.php\">
-							<name='product' value=".serialize($product)." class='btn btn-default left-margin'><i class=\"fa fa-eye\"></i> <b> View </b>
+							<name='product' value=".serialize($product)." class='btn btn-default left-margin'><i class=\"fa fa-eye\"></i> <b> View </b> </button>
 							<button type=\"submit\" class=\"btn btn-default pull-right\">
 								<i class=\"fa fa-shopping-cart fa-1x\"></i> <b> Add </b>
 							</button>
