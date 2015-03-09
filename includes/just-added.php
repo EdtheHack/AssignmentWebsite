@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	include ("itemFunctions.php");	
 	include ("product.php");
 ?>
@@ -15,7 +14,7 @@
 			$product = new product($row[1], $row[2], $row[3]);
 			$product->html();
 		}
-		$_SESSION['hello'] = "hello";
+		$_SESSION["hello"] = "hello";
 		?>
 	</div>
 </div>
