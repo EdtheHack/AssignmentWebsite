@@ -172,6 +172,7 @@ include ("includes/nav.php");
 					</div>
 				</div>
 			</div>
+            </div>
 	</div>
 </body>
 </html>
