@@ -156,7 +156,7 @@
 		$query = "UPDATE user
 				SET firstName = '".$_SESSION['firstName']."', lastName = '".$_SESSION['lastName']."', addressLine1 = '".$_SESSION['addressLine1']."', addressLine2 = '".$_SESSION['addressLine2']."',
 				 postcode = '".$_SESSION['postcode']."', mobileNo = '".$_SESSION['mobileNumber']."', homeNo = '".$_SESSION['homeNumber']."'
-				WHERE userID = '".$_SESSION['userID']."';";
+				WHERE user_id = '".$_SESSION['userID']."';";
 				
 		if ($result = mysqli_query($con, $query)) {
 			return 1;
