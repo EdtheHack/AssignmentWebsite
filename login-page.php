@@ -62,7 +62,7 @@
 		        <div id="sectionB" class="tab-pane fade">
 		            <h3>Register With Us</h3>
 							<br>
-						<form method="POST" action="register()">
+						<form method="POST" action="">
 							<div class="form-group">
 		    			        <label for="email">Email:</label>
 								<input type="email" class="form-control" id="email" placeholder="Enter email" name="emailRegister"  <?php if(!empty($_POST["emailRegister"])){ echo " value='".$_POST["emailRegister"]."'"; }?>>
