@@ -1,191 +1,88 @@
 <?php
-session_start ();
-
-/*
- * include ("includes/common-functions.php");
- *
- * if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
- * //admin is logged in
- * }else{
- * echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
- * //FORCE USER TO LOG IN OR NOT ADMIN, IF LOGGED IN AND NOT ADMIN THEN THE LOGIN PAGE WILL SEND TO INDEX
- * //(bit scrubby)
- * }
- */
-
+	session_start();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Admin - Web Programming Assignment 2</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/custom.css">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-</head>
+	<head>
+		<title>Home - Web Programming Assignment 2</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	</head>
 <body>
 <?php
-include ("includes/nav.php");
+	include ("includes/nav.php");
 ?>
+	
 <div class="container">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="jumbotron">
-					<h2>
-						Hi, [name here pls]. <small>What would you like to do today?</small>
-					</h2>
-					<br>
-					<p>Welcome to the administration pages. From here, you can add,
-						edit, and remove products, plus much more.</p>
-				</div>
-			</div>
-
-			<div class="col-md-8">
-				<div class="row">
-					<div class="panel-group" id="accordion" role="tablist"
-						aria-multiselectable="true">
-
-						<div class="panel panel-default">
-							<div class="panel-heading" role="tab" id="headingOne">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion"
-										href="#collapseOne" aria-expanded="true"
-										aria-controls="collapseOne">View Orders 
-								
-								</h4>
-							</div>
-							<div id="collapseOne" class="panel-collapse collapse in"
-								role="tabpanel" aria-labelledby="headingOne">
-								<div class="panel-body">Bare orders here fam</div>
-							</div>
-						</div>
-
-						<div class="panel panel-default">
-							<div class="panel-heading" role="tab" id="headingTwo">
-								<h4 class="panel-title">
-									<a class="collapsed" data-toggle="collapse"
-										data-parent="#accordion" href="#collapseTwo"
-										aria-expanded="false" aria-controls="collapseTwo">Add New
-										Product</a>
-								</h4>
-							</div>
-							<div id="collapseTwo" class="panel-collapse collapse"
-								role="tabpanel" aria-labelledby="headingTwo">
-								<div class="panel-body">
-									<form>
-										<div class="form-group">
-											<label for="newProductName">Product Name</label> <input
-												type="text" class="form-control" id="newProductName"
-												placeholder="Enter product name">
-										</div>
-										<div class="form-group">
-											<label for="newProductPrice">Password</label> <input
-												type="number" class="form-control"
-												id="newProductPRice" placeholder="Enter product price">
-										</div>
-										<div class="form-group">
-											<label for="productDescription">Description</label> 
-											<textarea class="form-control" rows="5" id="newProductDescription"></textarea>
-										</div>
-										<div class="checkbox">
-											<label> <input type="listProductCheck"> List product immediately
-											</label>
-										</div>
-										<button type="submit" class="btn btn-default">Add Product</button>
-									</form>
-								</div>
-							</div>
-						</div>
-
-						<div class="panel panel-default">
-							<div class="panel-heading" role="tab" id="headingThree">
-								<h4 class="panel-title">
-									<a class="collapsed" data-toggle="collapse"
-										data-parent="#accordion" href="#collapseThree"
-										aria-expanded="false" aria-controls="collapseThree">Edit
-										Existing Product</a>
-								</h4>
-							</div>
-							<div id="collapseThree" class="panel-collapse collapse"
-								role="tabpanel" aria-labelledby="headingThree">
-								<div class="panel-body">Anim pariatur cliche reprehenderit, enim
-									eiusmod high life accusamus terry richardson ad squid. 3 wolf
-									moon officia aute, non cupidatat skateboard dolor brunch. Food
-									truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-									tempor, sunt aliqua put a bird on it squid single-origin coffee
-									nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-									craft beer labore wes anderson cred nesciunt sapiente ea
-									proident. Ad vegan excepteur butcher vice lomo. Leggings
-									occaecat craft beer farm-to-table, raw denim aesthetic synth
-									nesciunt you probably haven't heard of them accusamus labore
-									sustainable VHS.</div>
-							</div>
-						</div>
-
-						<div class="panel panel-default">
-							<div class="panel-heading" role="tab" id="headingFour">
-								<h4 class="panel-title">
-									<a class="collapsed" data-toggle="collapse"
-										data-parent="#accordion" href="#collapseFour"
-										aria-expanded="false" aria-controls="collapseFour">Remove
-										Product</a>
-								</h4>
-							</div>
-							<div id="collapseFour" class="panel-collapse collapse"
-								role="tabpanel" aria-labelledby="headingFour">
-								<div class="panel-body">Anim pariatur cliche reprehenderit, enim
-									eiusmod high life accusamus terry richardson ad squid. 3 wolf
-									moon officia aute, non cupidatat skateboard dolor brunch. Food
-									truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-									tempor, sunt aliqua put a bird on it squid single-origin coffee
-									nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-									craft beer labore wes anderson cred nesciunt sapiente ea
-									proident. Ad vegan excepteur butcher vice lomo. Leggings
-									occaecat craft beer farm-to-table, raw denim aesthetic synth
-									nesciunt you probably haven't heard of them accusamus labore
-									sustainable VHS.</div>
-							</div>
-						</div>
-
-						<div class="panel panel-default">
-							<div class="panel-heading" role="tab" id="headingFive">
-								<h4 class="panel-title">
-									<a class="collapsed" data-toggle="collapse"
-										data-parent="#accordion" href="#collapseFive"
-										aria-expanded="false" aria-controls="collapseFive">Edit Your
-										Account Details</a>
-								</h4>
-							</div>
-							<div id="collapseFive" class="panel-collapse collapse"
-								role="tabpanel" aria-labelledby="headingFive">
-								<div class="panel-body">Anim pariatur cliche reprehenderit, enim
-									eiusmod high life accusamus terry richardson ad squid. 3 wolf
-									moon officia aute, non cupidatat skateboard dolor brunch. Food
-									truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-									tempor, sunt aliqua put a bird on it squid single-origin coffee
-									nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-									craft beer labore wes anderson cred nesciunt sapiente ea
-									proident. Ad vegan excepteur butcher vice lomo. Leggings
-									occaecat craft beer farm-to-table, raw denim aesthetic synth
-									nesciunt you probably haven't heard of them accusamus labore
-									sustainable VHS.</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<img src="http://placehold.it/350x150">
-			</div>
+	<?php include ("includes/just-added.php")?>
+    
+    <div class="col-md-9">
+	  <div class="row">
+	   	 <div class="jumbotron">
+	  		<h2>Guaranteed next day delivery...<br><small class="pull-right">(..or your next delivery is on us!)</small></h2>
+	  		<br>
+	  		<br>
+	  		<img src="http://placehold.it/750x200" alt="">
+	  		<br>
+	 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut mi non urna pellentesque vulputate vel nec sem. Nulla feugiat facilisis ex non finibus.</p>
+	  		<p><a class="btn btn-default btn-lg" href="#" role="button">Learn more</a></p>
 		</div>
 	</div>
+	
+<div class="row">
+      <div class="well">
+        <h3>Our Latest Deals</h3>
+        <div class="row"> <br>
+        <div class="col-md-4">
+          <div class="thumbnail"> <img src="http://placehold.it/320x150" alt="">
+            <div class="caption">
+              <h4 class="pull-right">PRICE</h4>
+              <h4><a href="#">Product</a> </h4>
+              <p>DESCRIPTION</p>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-default"><i class="fa fa-eye"></i> <b> View </b></button>
+              <button type="submit" class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> <img src="http://placehold.it/320x150" alt="">
+            <div class="caption">
+              <h4 class="pull-right">PRICE</h4>
+              <h4><a href="#">Product</a> </h4>
+              <p>DESCRIPTION</p>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-default"><i class="fa fa-eye"></i> <b> View </b></button>
+              <button type="submit" class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="thumbnail"> <img src="http://placehold.it/320x150" alt="">
+            <div class="caption">
+              <h4 class="pull-right">PRICE</h4>
+              <h4><a href="#">Product</a> </h4>
+              <p>DESCRIPTION</p>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-default"><i class="fa fa-eye"></i> <b> View </b></button>
+              <button type="submit" class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b></button>
+            </div>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
