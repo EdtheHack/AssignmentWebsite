@@ -12,7 +12,35 @@
 			$row = getNewestItem($i);
 			
 			$product = new product($row[1], $row[2], $row[3]);
-			$product->html();
+
+			echo"
+			<div class=\"row\">
+				<br>
+				<div class=\"thumbnail\">
+					<img src=\"http://placehold.it/320x150\" alt=\"\">
+					<div class=\"caption\">
+						<h4 class=\"pull-right\">".$this->price."</h4>
+						<h4>
+							<a href=\"#\">".$this->name."</a>
+						</h4>
+						<p>".$this->description."</p>
+					</div>
+					<div>
+						<form method=\"POST\" action=\"\">
+							<a href='viewProduct.php?name=$row[1]' class='btn btn-default left-margin'><i class=\"fa fa-eye\"></i> <b> View </b></a>
+							<button type=\"submit\" class=\"btn btn-default pull-right\">
+								<i class=\"fa fa-shopping-cart fa-1x\"></i> <b> Add </b>
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>";
+		
+			if(isset($_POST['viewProduct'])){
+				$_SESSION["serializedProduct"] = serialize($this);
+				$_SESSION["name"] = $this->getName();
+				echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
+			}
 		}
 		?>
 	</div>
