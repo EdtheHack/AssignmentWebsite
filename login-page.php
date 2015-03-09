@@ -22,7 +22,9 @@
 	<?php include ("includes/nav.php");?>
 	
 <div class="container">
-	<?php include ("includes/just-added.php")?>
+	<?php include ("includes/just-added.php");
+		include ("includes/login-page-functions.php");
+						?>
 		
 	
 	<div class="col-md-9">
@@ -58,7 +60,7 @@
 		        <div id="sectionB" class="tab-pane fade">
 		            <h3>Register With Us</h3>
 							<br>
-						<form method="POST" action="">
+						<form method="POST" action="register()">
 							<div class="form-group">
 		    			        <label for="email">Email:</label>
 								<input type="email" class="form-control" id="email" placeholder="Enter email" name="emailRegister"  <?php if(!empty($_POST["emailRegister"])){ echo " value='".$_POST["emailRegister"]."'"; }?>>
@@ -122,9 +124,7 @@
     		</div>
     		
 		</div>
-			<?php 
-							include ("includes/login-page-functions.php");
-						?>
+
 	</div>
 
 </div>

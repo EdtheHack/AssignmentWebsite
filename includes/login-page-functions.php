@@ -1,6 +1,6 @@
 <?php
 
-
+function register(){
 if(isset($_POST['attemptRegister'])){
 	$email = $_POST['emailRegister'];
 	$password = $_POST['passwordRegister'];
@@ -41,6 +41,7 @@ if(isset($_POST['attemptRegister'])){
 			 		<strong>Error!</strong> Passwords do not maatch !
 			</div>";
 	}
+}
 }
 
 require 'PHPMailer/PHPMailerAutoload.php';
