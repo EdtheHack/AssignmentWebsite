@@ -30,34 +30,22 @@ include ("includes/nav.php");
 			<div class="row">
 				<div class="jumbotron">
 					<h2>
-						Hi, [name here pls].<br>
-						<small class="pull-right">What would you like to do today?</small>
+						Hi, [name here pls]. <small>What would you like to do today?</small>
 					</h2><br>
 					<p>Welcome to the administration pages. From here, you can add,
 						edit, and remove products, plus much more.</p>
                         <br>
                      <div class="list-group">
-					<a href="#" class="list-group-item active"> Admin Home </a> <a
-						href="#" class="list-group-item">Add New Product</a> <a href="#"
-						class="list-group-item">Edit Existing Product</a> <a href="#"
-						class="list-group-item">Remove Product</a> <a href="#"
-						class="list-group-item">Update Account Details</a> <a href="#"
-						class="list-group-item">Update Customer Account Details</a>
+					<a href="#" class="list-group-item active">Admin Home</a> 
+                    <a href="#" class="list-group-item">View Orders</a>
+                    <a href="#" class="list-group-item">Add New Product</a> 
+                    <a href="#" class="list-group-item">Edit Existing Product</a> 
+                    <a href="#" class="list-group-item">Remove Product</a> 
+                    <a href="#" class="list-group-item">Update Account Details</a> 
+                    <a href="#"	class="list-group-item">Update Customer Account Details</a>
 				</div>
 				</div>
 			</div>
-
-			<div class="row">
-
-				<div class="list-group">
-					<a href="#" class="list-group-item active"> Admin Home </a> <a
-						href="#" class="list-group-item">Add New Product</a> <a href="#"
-						class="list-group-item">Edit Existing Product</a> <a href="#"
-						class="list-group-item">Remove Product</a> <a href="#"
-						class="list-group-item">Update Account Details</a> <a href="#"
-						class="list-group-item">Update Customer Account Details</a>
-				</div>
-
 
 			</div>
 		</div>
