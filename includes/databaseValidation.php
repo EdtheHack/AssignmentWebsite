@@ -6,7 +6,7 @@
 	error_reporting(-1);
 	
 	
-	function connect(){				// code reuse for cdatabase connection
+	function DBconnect(){				// code reuse for cdatabase connection
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 		
 		$con = $db_con;
@@ -14,7 +14,7 @@
 	}
 	
 	function validateUser($email, $password){
-		$con = connect();
+		$con = DBconnect();
 		
 		$email = mysqli_real_escape_string($con, $email);
 		$password = mysqli_real_escape_string($con, $password);
