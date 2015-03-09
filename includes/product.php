@@ -1,6 +1,5 @@
 <?php	
 	class product{	   //Product object
-		private $viewProduct;
 		private $name;
 		private $price;
 		private $description;
@@ -38,7 +37,7 @@
 					</div>
 					<div>
 						<form method=\"POST\" action=\"\">
-							<button type=\"submit\" name=\".$this->viewProduct.\" class=\"btn btn-default\">
+							<button type=\"submit\" name=\"viewProduct\" class=\"btn btn-default\">
 								<i class=\"fa fa-eye\"></i> <b> View </b>
 							</button>
 							<button type=\"submit\" class=\"btn btn-default pull-right\">
@@ -49,7 +48,7 @@
 				</div>
 			</div>";
 		
-			if(isset($_POST[$this->'viewProduct'])){
+			if(isset($_POST['viewProduct'])){
 				$_SESSION["serializedProduct"] = serialize($this);
 				$_SESSION["name"] = $this->getName();
 				echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
