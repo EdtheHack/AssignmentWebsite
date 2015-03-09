@@ -44,7 +44,7 @@ include ("includes/common-functions.php");
 						</ul></li>" ;
 					
 						if(checkAdmin() == 1){ //check for admin user 
-							echo "<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"?logout\" style=\"color: blue;\" ><i class=\"fa fa-cogs\"></i> <b> Admin Panel </b></a></li></ul>";
+							echo "<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"admin-home.php\" style=\"color: blue;\" ><i class=\"fa fa-cogs\"></i> <b> Admin Panel </b></a></li></ul>";
 						}
 					
 						
