@@ -23,17 +23,18 @@
 	<?php include ("includes/just-added.php")?>
     
     <div class="col-md-9">
-    <div class="row">
-    <div class="jumbotron">
-  <h2>Guaranteed next day delivery...<br><small class="pull-right">(..or your next delivery is on us!)</small></h2>
-  <br>
-  <br>
-  <img src="http://placehold.it/750x200" alt="">
-  <br>
- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut mi non urna pellentesque vulputate vel nec sem. Nulla feugiat facilisis ex non finibus.</p>
-  <p><a class="btn btn-default btn-lg" href="#" role="button">Learn more</a></p>
-</div>
-</div>
+	  <div class="row">
+	   	 <div class="jumbotron">
+	  		<h2>Guaranteed next day delivery...<br><small class="pull-right">(..or your next delivery is on us!)</small></h2>
+	  		<br>
+	  		<br>
+	  		<img src="http://placehold.it/750x200" alt="">
+	  		<br>
+	 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut mi non urna pellentesque vulputate vel nec sem. Nulla feugiat facilisis ex non finibus.</p>
+	  		<p><a class="btn btn-default btn-lg" href="#" role="button">Learn more</a></p>
+		</div>
+	</div>
+	
 <div class="row">
       <div class="well">
         <h3>Our Latest Deals</h3>

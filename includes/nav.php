@@ -34,9 +34,7 @@
 						 Account <b class=\"caret\"></b></a>
 						<ul role=\"menu\" class=\"dropdown-menu\">
 						<li><a href=\"#\">Orders</a></li>
-						<li><a href=\"changePassword.php\">Change Password</a></li>
-						<li><a href=\"changeEmail.php\">Change Email</a></li>
-						<li><a href=\"editDetails.php\">Change Details</a></li>
+						<li><a href=\"change-account-settings.php\">Account Settings</a></li>
 						<li><a href=\"#\">Basket</a></li>
 						</ul></li> 
 					
