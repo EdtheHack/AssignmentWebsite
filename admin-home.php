@@ -95,7 +95,7 @@ include ("includes/nav.php");
 											<textarea class="form-control" rows="5" id="newProductDescription"></textarea>
 										</div>
 										<div class="checkbox">
-											<label> <input type="listProductCheck"> List product immediately
+											<label> <input type="checkbox">List product immediately
 											</label>
 										</div>
 										<button type="submit" class="btn btn-default">Add Product</button>
