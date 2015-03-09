@@ -1,3 +1,6 @@
+<?php 
+include ("includes/common-functions.php");
+?>
 <nav role="navigation" class="navbar navbar-default">
 	<div class="container">
 		<div class="navbar-header">
@@ -26,6 +29,9 @@
 				<li><a href="#"><i class="fa fa-shopping-cart fa-1x"></i> Basket <b>0</b></a></li>
 					
 					<?php if(isset($_SESSION['loggedIn']) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
+
+						checkAdmin(); //check for admin TESTING 
+					
 						$fn = $_SESSION["firstName"];
 						
 						//PHP INJECT HTML TO THE PAGE
