@@ -1,4 +1,5 @@
 <?php	
+session_start();
 	class product{	
 		private $name;
 		private $price;
