@@ -12,7 +12,8 @@
 			$row = getNewestItem($i);
 			
 			$product = new product($row[1], $row[2], $row[3]);
-
+			$serialized = serialize($product);
+			
 			echo"
 			<div class=\"row\">
 				<br>
@@ -27,7 +28,7 @@
 					</div>
 					<div>
 						<form method=\"POST\" action=\"viewProduct.php\">
-							<button type=\"submit\" name='product' value='".serialize($product)."' class='btn btn-default left-margin'><i class=\"fa fa-eye\"></i> <b> View </b> </button>	
+							<button type=\"submit\" name='product' value='$serialized' class='btn btn-default left-margin'><i class=\"fa fa-eye\"></i> <b> View </b> </button>	
 						</form>
 						<button type=\"submit\" class=\"btn btn-default pull-right\">
 							<i class=\"fa fa-shopping-cart fa-1x\"></i> <b> Add </b>
