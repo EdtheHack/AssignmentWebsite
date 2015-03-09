@@ -26,7 +26,7 @@ if ($_SESSION["loggedIn"] == true){
 	
 	<div class="col-md-9">
 		<div class="bs-example">
-		    <ul class="nav nav-tabs">
+		    <ul class="nav nav-tabs" id="myTab">
 		        <li class="active"><a data-toggle="tab" href="#sectionA">Change Password</a></li>
 		        <li><a data-toggle="tab" href="#sectionB">Change Email</a></li>
 		        <li><a data-toggle="tab" href="#sectionC">Change Other Details</a></li>
