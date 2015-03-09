@@ -115,12 +115,14 @@
 							<br>
 							<input type="submit" name="sendMail" class="btn btn-default" value="Get New Password">
 						</form>
-						<?php 
-							include ("includes/login-page-functions.php");
-						?>
+				
 					
 				</div>
+					
     		</div>
+    			<?php 
+							include ("includes/login-page-functions.php");
+						?>
 		</div>
 	</div>
 </div>

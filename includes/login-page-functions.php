@@ -65,7 +65,10 @@ if(isset($_POST['sendMail'])){
 				echo " Mailer Error: " . $mail->ErrorInfo;
 			} else {
 				forgottenPassword($email, $password);
-				echo " Message sent!";
+					echo "<div class=\"alert alert-success\">
+				     		<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+				      		<strong>Success!</strong> Your Password has now been reset, check your emails!
+				   		</div>";
 			}
 		} else {
 			echo "Email does not exist";
@@ -92,9 +95,7 @@ if(isset($_POST['attemptLogin'])){
 			}
 			$_SESSION["loggedIn"] = true;
 			if ($_SESSION['suggestReset'] == true){
-
-				echo "<script type=\"text/javascript\">document.location.href=\"suggestResetPassword.php\";</script>"; //we need to change this once the bootstrap is made
-
+				echo "<script type=\"text/javascript\">document.location.href=\"suggestResetPassword.php\";</script>";
 			} else {
 				echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
 			}
