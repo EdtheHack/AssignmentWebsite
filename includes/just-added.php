@@ -11,8 +11,7 @@
 		for ($i = 0; $i < 3; $i++) {
 			$row = getNewestItem($i);
 			
-			$product = new product($row[1], $row[2], $row[3]);
-			$serialized = serializeArray($product);
+			$product = new product($row[0], $row[1], $row[2], $row[3]);
 			
 			echo"
 			<div class=\"row\">
@@ -28,7 +27,7 @@
 					</div>
 					<div>
 						<form method=\"POST\" action=\"viewProduct.php\">
-							<button type=\"submit\" name='product' value='$serialized' class='btn btn-default left-margin'><i class=\"fa fa-eye\"></i> <b> View </b> </button>	
+							<button type=\"submit\" name='itemId' value='".$product->getId()."' class='btn btn-default left-margin'><i class=\"fa fa-eye\"></i> <b> View </b> </button>	
 						</form>
 						<button type=\"submit\" class=\"btn btn-default pull-right\">
 							<i class=\"fa fa-shopping-cart fa-1x\"></i> <b> Add </b>

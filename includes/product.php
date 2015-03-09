@@ -1,10 +1,12 @@
 <?php	
 	class product{	   //Product object
+		private $id;
 		private $name;
 		private $price;
 		private $description;
 		
-		public function __construct($name, $price, $description){
+		public function __construct($id, $name, $price, $description){
+			$this->id = $id;
 			$this->name = $name;
 			$this->price = $price;
 			$this->description = $description;
@@ -22,6 +24,8 @@
 			return $this->description;
 		}
 		
-		
+		public function getId(){
+			return $this->description;
+		}
 	}
 	?>

@@ -5,8 +5,8 @@
 	error_reporting(-1);
 	
 	include ("includes/product.php");
-	$product = unserialize($_POST['product']);
-	echo $product->getName();
+	//$product = unserialize($_POST['product']);
+	echo $_POST['itemId'];
 		
 ?>
 <!DOCTYPE html>
