@@ -6,7 +6,6 @@
 	
 	include ("includes/product.php");
 	$product = unserialize($_SESSION['serializedProduct']);
-	echo $product." <- product";
 	echo $_SESSION['price'];
 	echo $_SESSION['hello'];
 	echo $product->getPrice();
