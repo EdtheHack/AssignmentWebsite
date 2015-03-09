@@ -23,8 +23,8 @@
 	
 <div class="container">
 	<?php include ("includes/just-added.php");
-		include ("includes/login-page-functions.php");
-						?>
+		
+	?>
 		
 	
 	<div class="col-md-9">
@@ -55,6 +55,8 @@
 					            <br>
 							
 							</form>
+							<br>
+							<?php include ("includes/login-page-login.php"); ?>
 					</div>             
 		        </div>
 		        <div id="sectionB" class="tab-pane fade">
@@ -104,7 +106,9 @@
 										
 							<br>
 							<p style="text-align: center"> <input type="submit" name="attemptRegister" class="btn btn-default" value="Register"></p>
-						</form>     
+						</form>
+						<br>     
+						<?php include ("includes/login-page-register.php"); ?>
 				</div>
 				<div id="sectionC" class="tab-pane fade">
 					<h3>Password Reset</h3>
@@ -117,7 +121,8 @@
 							<br>
 							<input type="submit" name="sendMail" class="btn btn-default" value="Get New Password">
 						</form>
-				
+						<br>     
+						<?php include ("includes/login-page-reset.php"); ?>
 					
 				</div>
 					

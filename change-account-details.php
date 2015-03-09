@@ -53,6 +53,9 @@ if ($_SESSION["loggedIn"] == true){
 									<input type="submit" name="changePassword" class="btn btn-default" value="Save"> <input style="float: right;" type="submit" name="back" class="btn btn-default" value="Cancel"> 
 							</form>	
 							<br>
+							<?php 
+		        			include ("includes/account-details-password.php");
+		        			?>
 						</div>            
 		        		<div id="sectionB" class="tab-pane fade">
 		        			<h3>Change your email address</h3>
@@ -75,6 +78,10 @@ if ($_SESSION["loggedIn"] == true){
 									 <input type="submit" name="changeEmail" class="btn btn-default" value="Save"><input style="float: right;" type="submit" name="back" class="btn btn-default" value="Cancel"> 
 							</form>	
 							<br>
+							
+							<?php 
+		        			include ("includes/account-details-email.php");
+		        			?>
 		        		</div>
 		        		<div id="sectionC" class="tab-pane fade">
 		        			<form method="POST" action="">
@@ -117,6 +124,10 @@ if ($_SESSION["loggedIn"] == true){
 		        		
 		        		<?php 
 		        		include ("includes/account-details.php");
+		        		
+		        		if (isset ($_POST['back'])) {
+		        			echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
+		        		}
 		        		?>
 		     </div>
 		</div>
