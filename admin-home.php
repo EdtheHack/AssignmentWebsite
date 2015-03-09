@@ -86,9 +86,9 @@ include ("includes/nav.php");
 												placeholder="Enter product name">
 										</div>
 										<div class="form-group">
-											<label for="newProductPrice">Password</label> <input
-												type="number" class="form-control" id="newProductPRice"
-												placeholder="Enter product price">
+											<label for="newProductPrice">Price (£)</label> <input
+												type="number" class="form-control" size="20"
+												id="newProductPRice" placeholder="Enter product price">
 										</div>
 										<div class="form-group">
 											<label for="productDescription">Description</label>
@@ -134,9 +134,9 @@ include ("includes/nav.php");
 												placeholder="">
 										</div>
 										<div class="form-group">
-											<label for="editedProductPrice">Password</label> <input
-												type="number" class="form-control" id="editedProductPRice"
-												placeholder="">
+											<label for="editedProductPrice">Price (£)</label> <input
+												type="number" class="form-control" size="20"
+												id="editedProductPRice" placeholder="">
 										</div>
 										<div class="form-group">
 											<label for="editedProductDescription">Description</label>
@@ -144,9 +144,11 @@ include ("includes/nav.php");
 												id="editedProductDescription"></textarea>
 										</div>
 										<div class="radios">
-											<label class="checkbox-inline"><input type="checkbox" value="">List Product Immediately</label>
-											<label class="checkbox-inline"><input type="checkbox" value="">Do Not List Product Yet</label>
+											<label class="radio-inline"><input type="radio" value="">List
+												product immediately</label> <label class="radio-inline"><input
+												type="radio" value="">Don't list product yet</label>
 										</div>
+										<br>
 										<button type="submit" class="btn btn-default">Edit Product</button>
 									</form>
 								</div>
