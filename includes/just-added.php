@@ -12,7 +12,7 @@
 			$row = getNewestItem($i);
 			
 			$product = new product($row[1], $row[2], $row[3]);
-			$serialized = serialize($product);
+			$serialized = serializeArray($product);
 			
 			echo"
 			<div class=\"row\">
