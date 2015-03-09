@@ -25,7 +25,7 @@
 		}
 		
 		public function getId(){
-			return $this->description;
+			return $this->id;
 		}
 	}
 	?>

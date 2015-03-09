@@ -5,9 +5,12 @@
 	error_reporting(-1);
 	
 	include ("includes/product.php");
-	//$product = unserialize($_POST['product']);
-	echo $_POST['itemId'];
+	include ("itemFunctions.php");
+	
+	$row = getItem($_POST['itemId']);	
+	$product = new product($row[0], $row[1], $row[2], $row[3]);
 		
+	//$product = unserialize($_POST['product']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
