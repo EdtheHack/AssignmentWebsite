@@ -27,11 +27,11 @@
 					</div>
 					<div>
 						<form method=\"POST\" action=\"viewProduct.php\">
-							<button type=\"submit\" name='product' value=".serialize($product)."><i class=\"fa fa-eye\"></i> <b> View </b> </button>
-							<button type=\"submit\" class=\"btn btn-default pull-right\">
-								<i class=\"fa fa-shopping-cart fa-1x\"></i> <b> Add </b>
-							</button>
+							<button type=\"submit\" name='product' value=".serialize($product)." class='btn btn-default left-margin'><i class=\"fa fa-eye\"></i> <b> View </b> </button>	
 						</form>
+						<button type=\"submit\" class=\"btn btn-default pull-right\">
+							<i class=\"fa fa-shopping-cart fa-1x\"></i> <b> Add </b>
+						</button>
 					</div>
 				</div>
 			</div>";
