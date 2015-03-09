@@ -120,11 +120,13 @@
 				</div>
 					
     		</div>
-    			<?php 
+    		
+		</div>
+			<?php 
 							include ("includes/login-page-functions.php");
 						?>
-		</div>
 	</div>
+
 </div>
 
 
