@@ -38,8 +38,7 @@ include ("includes/nav.php");
 ?>
 <div class="container">
 		<!--<?php include ("includes/just-added.php")?> -->
-
-			<div class="row">
+<div class="col-md-12">
 				<div class="jumbotron">
 					<h2>
 						Hi, [name here pls]. <small>What would you like to do today?</small>
@@ -48,7 +47,6 @@ include ("includes/nav.php");
 					<p>Welcome to the administration pages. From here, you can add,
 						edit, and remove products, plus much more.</p>
 				</div>
-			</div>
 
 			<div class="panel-group" id="accordion" role="tablist"
 				aria-multiselectable="true">
@@ -172,6 +170,7 @@ include ("includes/nav.php");
 					</div>
 				</div>
 			</div>
+            </div>
             </div>
 	</div>
 </body>
