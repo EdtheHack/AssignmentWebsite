@@ -18,16 +18,28 @@ if(isset($_POST['attemptRegister'])){
 			if (createUser() == 1){
 				if (validateUser($email, $password) == 1){
 					$_SESSION["loggedIn"] = true;
-					echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
+						echo "<div class=\"alert alert-success\">
+					        		<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					        		<strong>Success!</strong> You have been registered, you can now sign in!
+					    		</div>";
 				} else {
-					echo "problem registering";
+					echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					  		<strong>Error!</strong> There was a problem registering !
+						</div>";
 				}
 			} else {
-				echo "There was a problem registering";
+									echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					  		<strong>Error!</strong> There was a problem registering !
+						</div>";
 			}
 		}
 	} else {
-		echo "passwords do not match";
+			echo "<div class=\"alert alert-danger\">
+			  		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+			 		<strong>Error!</strong> Passwords do not maatch !
+			</div>";
 	}
 }
 ?>

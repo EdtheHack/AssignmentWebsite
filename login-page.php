@@ -90,7 +90,7 @@
 							</div>
 							<div class="form-group">
 		    			        <label for="email">Postcode :</label>	
-								<input type="text" name="addressLine2" class="form-control" placeholder="Enter postcode" <?php if(!empty($_POST["postcode"])){ echo " value='".$_POST["postcode"]."'"; }?>>
+								<input type="text" name="postcode" class="form-control" placeholder="Enter postcode" <?php if(!empty($_POST["postcode"])){ echo " value='".$_POST["postcode"]."'"; }?>>
 							</div>
 							<div class="form-group">
 		    			        <label for="email">Mobile Number:</label>	
