@@ -26,8 +26,8 @@
 						<p>".$product->getDescription()."</p>
 					</div>
 					<div>
-						<form method=\"POST\" action=\"\">
-							<a href='viewProduct.php?name=$row[1]' class='btn btn-default left-margin'><i class=\"fa fa-eye\"></i> <b> View </b></a>
+						<form method=\"POST\" action=\"viewProduct.php\">
+							<name='product' value='serialize($product)' class='btn btn-default left-margin'><i class=\"fa fa-eye\"></i> <b> View </b>
 							<button type=\"submit\" class=\"btn btn-default pull-right\">
 								<i class=\"fa fa-shopping-cart fa-1x\"></i> <b> Add </b>
 							</button>
@@ -37,7 +37,7 @@
 			</div>";
 		
 			if(isset($_POST['viewProduct'])){
-				$_SESSION["serializedProduct"] = serialize($this);
+				$_SESSION["serializedProduct"] = ;
 				$_SESSION["name"] = $this->getName();
 				echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
 			}

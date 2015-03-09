@@ -5,7 +5,7 @@
 	error_reporting(-1);
 	
 	include ("includes/product.php");
-	$product = unserialize($_SESSION['serializedProduct']);
+	$product = unserialize($_POST['product']);
 	echo $_SESSION['name'];
 		
 ?>
