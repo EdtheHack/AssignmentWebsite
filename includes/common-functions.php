@@ -23,7 +23,8 @@ function checkAdmin() {
 
 
 function getNewestItem($itemNumber){
-	$mysqli = DBconnect ();
+	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+	$db_con = $mysqli;
 	
 	$rows = array();
 	
@@ -42,7 +43,8 @@ function getNewestItem($itemNumber){
 }
 
 function getItem($productId){
-	$mysqli = DBconnect ();
+	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+	$db_con = $mysqli;
 	
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE product_id =?")){
 		$stmt->bind_param ( "s", $productId );
