@@ -1,7 +1,6 @@
 <?php
-	session_start();
-	include ("itemFunctions.php");	
 	include ("product.php");
+	include ("itemFunctions.php");		
 ?>
 
 <div class="col-md-3">

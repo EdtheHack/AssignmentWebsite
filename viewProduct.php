@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	include ("includes/product.php");
 	$product = unserialize($_SESSION['serializedProduct']);
 	echo $product." <- product";
