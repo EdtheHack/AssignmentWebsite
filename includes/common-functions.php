@@ -1,13 +1,13 @@
 <?php
 
-function connect() { // code reuse for cdatabase connection
+function DBconnect() { // code reuse for cdatabase connection
 	include ($_SERVER ['DOCUMENT_ROOT'] . '/dbconn.php');
 	$db_con;
 	return $db_con;
 }
 
 function checkAdmin() {
-	$mysqli = connect ();
+	$mysqli = DBconnect ();
 	
 	if ($stmt = $mysqli->prepare ( "SELECT admin FROM user WHERE user_id=?" )) {
 		$user = $_SESSION ["userID"];
@@ -23,7 +23,7 @@ function checkAdmin() {
 
 
 function getNewestItem($itemNumber){
-	$mysqli = connect ();
+	$mysqli = DBconnect ();
 	
 	$rows = array();
 	
@@ -42,7 +42,7 @@ function getNewestItem($itemNumber){
 }
 
 function getItem($productId){
-	$mysqli = connect ();
+	$mysqli = DBconnect ();
 	
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE product_id =?")){
 		$stmt->bind_param ( "s", $productId );
