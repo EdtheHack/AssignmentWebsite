@@ -37,7 +37,7 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 include ("includes/nav.php");
 ?>
 <div class="container">
-		<?php include ("includes/just-added.php")?>
+		<!--<?php include ("includes/just-added.php")?> -->
 
 			<div class="row">
 				<div class="jumbotron">
