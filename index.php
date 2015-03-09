@@ -1,4 +1,6 @@
-
+<?php
+	session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,12 +15,9 @@
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
 <body>
-	<?php
-	session_start();
-
+<?php
 	include ("includes/nav.php");
-
-	?>
+?>
 	
 <div class="container">
 	<?php include ("includes/just-added.php")?>
