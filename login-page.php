@@ -29,7 +29,7 @@
 	
 	<div class="col-md-9">
 		<div class="bs-example">
-		    <ul class="nav nav-tabs">
+		    <ul class="nav nav-tabs" id="myTab">
 		        <li class="active"><a data-toggle="tab" href="#sectionA">Sign In</a></li>
 		        <li><a data-toggle="tab" href="#sectionB">Register With us</a></li>
 		        <li><a data-toggle="tab" href="#sectionC">Reset Password</a></li>
@@ -134,7 +134,22 @@
 
 </div>
 
+<script>
+    $('#myTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
 
+    // store the currently selected tab in the hash value
+    $("ul.nav-tabs > li > a").on("shown.bs.tab", function (e) {
+        var id = $(e.target).attr("href").substr(1);
+        window.location.hash = id;
+    });
+
+    // on load of the page: switch to the currently selected tab
+    var hash = window.location.hash;
+    $('#myTab a[href="' + hash + '"]').tab('show');
+</script>
 				
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
