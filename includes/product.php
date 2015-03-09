@@ -1,6 +1,5 @@
 <?php	
-	session_start();
-	class product{	
+	class product{	   //Product object
 		private $name;
 		private $price;
 		private $description;
