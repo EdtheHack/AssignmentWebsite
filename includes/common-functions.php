@@ -21,7 +21,7 @@ function checkAdmin() {
 	$mysqli->close ();
 }
 
-
+/*
 function getNewestItem($itemNumber){
 	$mysqli = connect ();
 
@@ -60,7 +60,7 @@ function getItem($productId){
 
 }
 
-
+*/
 
 
 ?>
