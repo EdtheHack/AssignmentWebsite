@@ -50,5 +50,20 @@
 				</div>		
 		</div>
 	</div>
+	
+<div class="row">
+	<div class="well">
+		<h3>Similar Products</h3>
+			<div class="col-md-5">
+				<div class="well">
+					<img src="http://placehold.it/320x150" alt="">
+						<div class="caption">
+							<h3>Product Name</h3>
+							<p>Description....</p>
+						</div>
+				</div>
+			</div>
+	</div>
+</div>
 </body>
 </html>
