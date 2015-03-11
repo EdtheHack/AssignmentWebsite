@@ -9,6 +9,9 @@
 		<h3>Just added</h3>
 		
 		<?php
+		
+		getMostDiscounted(); 
+		
 		for ($i = 0; $i < 3; $i++) {
 			$row = getNewestItem($i);
 			$product = new product($row[0], $row[1], $row[2], $row[3]);				
