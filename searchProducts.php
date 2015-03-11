@@ -20,8 +20,8 @@ error_reporting ( - 1 );
 	</head>
 <body>
 	<?php
-		include ("common-functions.php");
-		include ("product.php");
+		include ("includes/common-functions.php");
+		include ("includes/product.php");
 		include ("includes/nav.php");
 
 		echo $_POST['searchItem'];
