@@ -29,10 +29,10 @@
 		include ("includes/nav.php");
 	?>
 	
-	<div class="container">
-		<div class="row">
-			<br>
-			<div class="well">
+	<div class="well">
+		<div class="container">
+			<div class="row">
+				<br>
 				<div class="col-md-6">
 					<img src="http://placehold.it/500x400" alt="">	
 				</div>
