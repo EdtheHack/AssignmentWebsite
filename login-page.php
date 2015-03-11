@@ -154,6 +154,11 @@
     // on load of the page: switch to the currently selected tab
     var hash = window.location.hash;
     $('#myTab a[href="' + hash + '"]').tab('show');
+
+
+    $('.nav-tabs li a').click( function(e) {
+        history.pushState( null, null, $(this).attr('href') );
+    });
 </script>
 				
 	
