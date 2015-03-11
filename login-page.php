@@ -156,7 +156,7 @@
     $('#myTab a[href="' + hash + '"]').tab('show');
 
 
-    $('.nav-tabs li a').click( function(e) {
+    $('ul.nav-tabs > li > a').click( function(e) {
         history.pushState( null, null, $(this).attr('href') );
     });
 </script>
