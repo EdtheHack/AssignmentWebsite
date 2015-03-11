@@ -31,7 +31,7 @@ function getNewestItem($itemNumber){
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3 );
 	   	while($stmt->fetch()){
-     		$rows = array( $col0,  $col1,  $col2,  $col3 );
+     		$rows[] = array( $col0,  $col1,  $col2,  $col3 );
     	}
 		$stmt->close ();
 	}
