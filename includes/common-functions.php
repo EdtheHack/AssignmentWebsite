@@ -29,10 +29,9 @@ function getNewestItem($itemNumber){
 	
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product ORDER BY price DESC" )) {
 		$stmt->execute ();
-		//$stmt->bind_result ( $col0,  $col1,  $col2,  $col3 );
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3 );
 		$stmt->fetch ();
-		
-		while($row = $mysqli->fetch_object($result)) {
+		while($row = mysqli_fetch_array($result)) {
 			$rows[] = $row;
 		}
 		$stmt->close ();
@@ -50,7 +49,7 @@ function getItem($productId){
 		$stmt->execute ();
 		$stmt->bind_result ( $result );
 		
-		$row =$mysqli->fetch_object($result); //get the row 
+		$row = mysqli_fetch_row($result); //get the row 
 		
 		$stmt->fetch ();
 		$stmt->close ();
