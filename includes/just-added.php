@@ -21,11 +21,11 @@
 		
 		for ($i = 0; $i < $arr_length; $i++) {
 			
-			if ($i = 0){
+			if ($i == 0){
 				$a = 0; $b = 1; $c = 2; $d = 3;
-			}else if ($i = 1){
+			}else if ($i == 1){
 				$a = 4; $b = 5; $c = 6; $d = 7;
-			}else if ($i = 2){
+			}else if ($i == 2){
 				$a = 8; $b = 9; $c = 10; $d = 11;
 			}else{
 				echo "something has gone very wrong indeed";
