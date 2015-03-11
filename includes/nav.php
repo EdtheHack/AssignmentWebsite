@@ -1,8 +1,14 @@
 <?php 
 
-if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
+$currentFile = $_SERVER["SCRIPT_NAME"];
+$parts = Explode('/', $currentFile);
+$parts = array_reverse($parts);
 
-} else if(basename($_SERVER['PHP_SELF']) == 'searchProduct.php'){
+if($parts == 'viewProduct.php') {
+
+}else if ($parts == 'viewProduct') {
+	echo "pooo";
+} else if($parts == 'searchProduct.php'){
 	include ("includes/common-functions.php");
 	include ("includes/product.php");
 } else{
