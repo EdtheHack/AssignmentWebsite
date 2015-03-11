@@ -65,7 +65,7 @@ include ("includes/nav.php");
       </div>
       <div class="row">
         <div class="row placeholders">
-          <div class="col-xs-6 col-sm-3 placeholder"> <img data-src="js/holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+          <div class="col-xs-6 col-sm-3 placeholder"> <i class="fa fa-circle-o-notch"></i> class="img-responsive" alt="Generic placeholder thumbnail">
             <h4 class="text-center">Listed Products</h4>
             <p class="text-muted text-center">Number of products listed.</p>
           </div>
