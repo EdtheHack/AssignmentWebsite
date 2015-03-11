@@ -31,10 +31,11 @@
 	
 	<div class="container">
 			<div class="row">
-				<div class="well">
 				<br>
 				<div class="col-md-6">
+				<div class="well">
 					<img src="http://placehold.it/500x400" alt="">	
+				</div>
 				</div>
 				<div class="col-md-4">
 					<h4 class="pull-right"><?php echo $product->getPrice();?></h4>
@@ -47,7 +48,6 @@
 						<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
 					</button>
 				</div>		
-			</div>
 		</div>
 	</div>
 </body>
