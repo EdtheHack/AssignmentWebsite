@@ -36,181 +36,55 @@ session_start ();
 include ("includes/nav.php");
 ?>
 <div class="container">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="jumbotron">
-					<h2>
-						Hi, [name here pls]. <small>What would you like to do today?</small>
-					</h2>
-					<br>
-					<p>Welcome to the administration pages. From here, you can add,
-						edit, and remove products, plus much more.</p>
-				</div>
-			</div>
-
-			<div class="col-md-8">
-				<div class="row">
-					<div class="panel-group" id="accordion" role="tablist"
-						aria-multiselectable="true">
-
-						<div class="panel panel-default">
-							<div class="panel-heading" role="tab" id="headingOne">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion"
-										href="#collapseOne" aria-expanded="true"
-										aria-controls="collapseOne">View Orders</a>
-								</h4>
-							</div>
-							<div id="collapseOne" class="panel-collapse collapse in"
-								role="tabpanel" aria-labelledby="headingOne">
-								<div class="panel-body">Bare Orders.</div>
-							</div>
-						</div>
-
-						<div class="panel panel-default">
-							<div class="panel-heading" role="tab" id="headingTwo">
-								<h4 class="panel-title">
-									<a class="collapsed" data-toggle="collapse"
-										data-parent="#accordion" href="#collapseTwo"
-										aria-expanded="false" aria-controls="collapseTwo">Add New
-										Product</a>
-								</h4>
-							</div>
-							<div id="collapseTwo" class="panel-collapse collapse"
-								role="tabpanel" aria-labelledby="headingTwo">
-								<div class="panel-body">
-									<form>
-										<div class="form-group">
-											<label for="newProductName">Product Name</label> <input
-												type="text" class="form-control" id="newProductName"
-												placeholder="Enter product name">
-										</div>
-										<div class="form-group">
-											<label for="newProductPrice">Price (£)</label> <input
-												type="number" class="form-control" size="20"
-												id="newProductPRice" placeholder="Enter product price">
-										</div>
-										<div class="form-group">
-											<label for="productDescription">Description</label>
-											<textarea class="form-control" rows="5"
-												id="newProductDescription"></textarea>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox">List product immediately
-											</label>
-										</div>
-										<button type="submit" class="btn btn-default">Add Product</button>
-									</form>
-								</div>
-							</div>
-						</div>
-
-						<div class="panel panel-default">
-							<div class="panel-heading" role="tab" id="headingThree">
-								<h4 class="panel-title">
-									<a class="collapsed" data-toggle="collapse"
-										data-parent="#accordion" href="#collapseThree"
-										aria-expanded="false" aria-controls="collapseThree">Edit
-										Existing Product</a>
-								</h4>
-							</div>
-							<div id="collapseThree" class="panel-collapse collapse"
-								role="tabpanel" aria-labelledby="headingThree">
-								<div class="panel-body">
-									<form>
-										<div class="form-group">
-											<label for="editedProductList">Select product to edit.</label>
-											<select class="form-control" id="editedProductList">
-												<option>Product 1</option>
-												<option>Product 2</option>
-												<option>Product 3</option>
-												<option>Product 4</option>
-											</select>
-										</div>
-
-										<div class="form-group">
-											<label for="editedProductName">Product Name</label> <input
-												type="text" class="form-control" id="editedProductName"
-												placeholder="">
-										</div>
-										<div class="form-group">
-											<label for="editedProductPrice">Price (£)</label> <input
-												type="number" class="form-control" size="20"
-												id="editedProductPRice" placeholder="">
-										</div>
-										<div class="form-group">
-											<label for="editedProductDescription">Description</label>
-											<textarea class="form-control" rows="5"
-												id="editedProductDescription"></textarea>
-										</div>
-										<div class="radios">
-											<label class="radio-inline"><input type="radio" value="">List
-												product immediately</label> <label class="radio-inline"><input
-												type="radio" value="">Don't list product yet</label>
-										</div>
-										<br>
-										<button type="submit" class="btn btn-default">Edit Product</button>
-									</form>
-								</div>
-							</div>
-						</div>
-
-						<div class="panel panel-default">
-							<div class="panel-heading" role="tab" id="headingFour">
-								<h4 class="panel-title">
-									<a class="collapsed" data-toggle="collapse"
-										data-parent="#accordion" href="#collapseFour"
-										aria-expanded="false" aria-controls="collapseFour">Remove
-										Product</a>
-								</h4>
-							</div>
-							<div id="collapseFour" class="panel-collapse collapse"
-								role="tabpanel" aria-labelledby="headingFour">
-								<div class="panel-body">Anim pariatur cliche reprehenderit, enim
-									eiusmod high life accusamus terry richardson ad squid. 3 wolf
-									moon officia aute, non cupidatat skateboard dolor brunch. Food
-									truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-									tempor, sunt aliqua put a bird on it squid single-origin coffee
-									nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-									craft beer labore wes anderson cred nesciunt sapiente ea
-									proident. Ad vegan excepteur butcher vice lomo. Leggings
-									occaecat craft beer farm-to-table, raw denim aesthetic synth
-									nesciunt you probably haven't heard of them accusamus labore
-									sustainable VHS.</div>
-							</div>
-						</div>
-
-						<div class="panel panel-default">
-							<div class="panel-heading" role="tab" id="headingFive">
-								<h4 class="panel-title">
-									<a class="collapsed" data-toggle="collapse"
-										data-parent="#accordion" href="#collapseFive"
-										aria-expanded="false" aria-controls="collapseFive">Edit Your
-										Account Details</a>
-								</h4>
-							</div>
-							<div id="collapseFive" class="panel-collapse collapse"
-								role="tabpanel" aria-labelledby="headingFive">
-								<div class="panel-body">Anim pariatur cliche reprehenderit, enim
-									eiusmod high life accusamus terry richardson ad squid. 3 wolf
-									moon officia aute, non cupidatat skateboard dolor brunch. Food
-									truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-									tempor, sunt aliqua put a bird on it squid single-origin coffee
-									nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-									craft beer labore wes anderson cred nesciunt sapiente ea
-									proident. Ad vegan excepteur butcher vice lomo. Leggings
-									occaecat craft beer farm-to-table, raw denim aesthetic synth
-									nesciunt you probably haven't heard of them accusamus labore
-									sustainable VHS.</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<img src="http://placehold.it/350x150">
-			</div>
-		</div>
-	</div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="jumbotron">
+        <h2> Hi, [name here pls]. <small>What would you like to do today?</small> </h2>
+        <br>
+        <p>Welcome to the administration pages. From here, you can add,
+          edit, and remove products, plus much more.</p>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="row">
+        <ul class="nav nav-sidebar nav-pills nav-stacked">
+          <li class="active"><a href="#">Admin Home</a></li>
+          <li><a href="#">View All Orders</a></li>
+          <li><a href="#">Add New Product</a></li>
+          <li><a href="#">Edit Existing Product</a></li>
+          <li><a href="#">Remove Product</a></li>
+          <li><a href="#">Edit Customer Account Details</a></li>
+          <li><a href="#">Edit Your Account Details</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-1"> </div>
+    <div class="col-md-9">
+      <div class="page-header">
+        <h1>Statistics <small>At a glance..</small></h1>
+      </div>
+      <div class="row">
+        <div class="row placeholders">
+          <div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
+            <h4 class="text-center">Listed Products</h4>
+            <p class="text-muted text-center">Number of products listed.</p>
+          </div>
+          <div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
+            <h4 class="text-center">Accounts</h4>
+            <p class="text-muted text-center">Number of customer accounts opened.</p>
+          </div>
+          <div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
+            <h4 class="text-center">Unlisted Products</h4>
+            <p class="text-muted text-center">Number of products unlisted.</p>
+          </div>
+          <div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
+            <h4 class="text-center">Label</h4>
+            <p class="text-muted text-center">Something else</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
