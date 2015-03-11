@@ -20,12 +20,12 @@ error_reporting ( - 1 );
 	</head>
 <body>
 	<?php
-		//include ("includes/nav.php");
+		include ("includes/nav.php");
 
 		echo $_POST['searchItem'];
 		$rows = getSearchedItems($_POST['searchItem']);
 		
-		for ($rows as $row) {
+		foreach ($rows as $row) {
 			$product = new product($row[0], $row[1], $row[2], $row[3]);				
 	?>
 		
