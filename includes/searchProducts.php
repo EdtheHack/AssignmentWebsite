@@ -16,7 +16,7 @@
 	</head>
 <body>
 	<?php
-		include ("includes/commonFunctions.php");
+		//include ("includes/commonFunctions.php");
 		include ("includes/nav.php");
 
 		//echo $_POST['searchItem'];
