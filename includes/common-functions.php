@@ -1,5 +1,9 @@
 <?php
 
+ini_set ( 'display_errors', 1 );
+ini_set ( 'display_startup_errors', 1 );
+error_reporting ( - 1 );
+
 function connect() { // code reuse for cdatabase connection
 	include ($_SERVER ['DOCUMENT_ROOT'] . '/dbconn.php');
 	$db_con;
@@ -65,8 +69,10 @@ function getSearchItems($searchItem){
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product" )) {
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
-	   	while($stmt->fetch() && (strpos($col1, '$searchItem') !== false)) {
-     		$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
+	   	while($stmt->fetch()) {
+			if (strpos($col1, '$searchItem') !== false) {
+				$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
+			}
     	}
 		$stmt->close ();
 	}
