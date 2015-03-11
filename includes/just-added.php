@@ -10,13 +10,13 @@
 		
 		<?php
 		
-		getMostDiscounted(); 
+		//getMostDiscounted(); 
 		
 		//for ($i = 0; $i < 3; $i++) {  //highest price items code
 			//$row = getNewestItem($i);
 			//$product = new product($row[0], $row[1], $row[2], $row[3]);	
 			
-
+		$row = getMostDiscounted();
 		$arr_length = count($row);  //most dicounted products code
 		for ($i = 0; $i < $arr_length; $i++) {
 			$product = new product($row[0], $row[1], $row[2], $row[3]);
