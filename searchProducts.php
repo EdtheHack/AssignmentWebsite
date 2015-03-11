@@ -4,7 +4,7 @@ ini_set ( 'display_errors', 1 );
 ini_set ( 'display_startup_errors', 1 );
 error_reporting ( - 1 );
 
-	include ("includes/product.php");
+	//include ("includes/product.php");
 	session_start();
 ?>
 
@@ -22,7 +22,7 @@ error_reporting ( - 1 );
 	</head>
 <body>
 	<?php
-		include ("includes/common-functions.php");
+		//include ("includes/common-functions.php");
 		include ("includes/nav.php");
 
 		echo $_POST['searchItem'];
