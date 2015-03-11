@@ -35,7 +35,6 @@ function getNewestItem($itemNumber){
     	}
 		$stmt->close ();
 	}
-	
 	$mysqli->close ();
 	return $rows[$itemNumber];
 }
@@ -56,7 +55,6 @@ function getItem($productId){
 	
 	$mysqli->close ();
 	return $row;
-
 }
 
 ?>
