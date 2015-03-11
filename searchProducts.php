@@ -1,3 +1,8 @@
+<?php
+	include ("includes/product.php");
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -12,10 +17,10 @@
 	</head>
 <body>
 	<?php
+		//include ("includes/commonFunctions.php");
 		include ("includes/nav.php");
-		include ("product/nav.php");
 
-		echo $_POST['searchItem'];
+		//echo $_POST['searchItem'];
 		
 		for ($i = 0; $i < 3; $i++) {
 			$row = getNewestItem($i);

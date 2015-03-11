@@ -41,8 +41,13 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3] );
 				<div class="col-md-6">
 					<img src="http://placehold.it/500x400" alt="">
 				</div>
+<<<<<<< HEAD
 				<div class="col-md-4">
 					<h4 class="pull-right"><?php echo "&pound;".round($product->getPrice(), 2);?></h4>
+=======
+				<div class="col-md-6">
+					<h4 class="pull-right"><?php echo round($product->getPrice(), 2);?></h4>
+>>>>>>> origin/master
 					<h4>
 						<a href="#"><?php echo $product->getName();?></a>
 					</h4>
@@ -56,11 +61,26 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3] );
 		</div>
 
 
-		<div class="row">
-			<div class="well">
+		<div class="well">
+			<div class="row">
+
 				<h3>Similar Products</h3>
 				<div class="row">
-					<div class="col-md-5">
+					<div class="col-md-4">
+						<img src="http://placehold.it/320x150" alt="">
+						<div class="caption">
+							<h3>Product Name</h3>
+							<p>Description....</p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<img src="http://placehold.it/320x150" alt="">
+						<div class="caption">
+							<h3>Product Name</h3>
+							<p>Description....</p>
+						</div>
+					</div>
+					<div class="col-md-4">
 						<img src="http://placehold.it/320x150" alt="">
 						<div class="caption">
 							<h3>Product Name</h3>
