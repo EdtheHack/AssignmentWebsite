@@ -19,20 +19,20 @@
 				<div class="thumbnail">
 					<img src="http://placehold.it/320x150" alt="">
 					<div class="caption">
-						<h4 class="pull-right"><?php $product->getPrice() ?></h4>
+						<h4 class="pull-right"><?php echo $product->getPrice(); ?></h4>
 						<h4>
-							<a href="#"><?php $product->getName() ?></a>
+							<a href="#"><?php echo $product->getName(); ?></a>
 						</h4>
-						<p> <?php $product->getDescription() ?></p>
+						<p> <?php echo $product->getDescription(); ?></p>
 						
 						<div class="col-md-6">
 							<form method="POST" action="viewProduct.php">
-								<button type="submit" name='itemId' value='<?php$product->getId() ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
+								<button type="submit" name='itemId' value='<?php $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
 							</form>
 						</div>
 						<div class="col-md-6">
 							<form method="POST" action="viewProduct.php">  
-								<button type="submit" name='itemId' value='<?php$product->getId() ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
+								<button type="submit" name='itemId' value='<?php $product->getId(); ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
 							</form>
 						</div>
 					</div>
