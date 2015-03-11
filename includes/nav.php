@@ -6,8 +6,7 @@ error_reporting ( - 1 );
 if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 
 } else if(basename($_SERVER['PHP_SELF']) == 'searchProducts.php'){
-	include ("common-functions.php");
-	include ("product.php");
+
 } else{
 	include ("includes/common-functions.php");
 }
