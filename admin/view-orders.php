@@ -45,7 +45,7 @@ include ("../includes/nav.php");
       </div>
     </div>
     <?php
-include ("../includes/admin-nav.php");
+include ("admin-nav.php");
 ?>
     <div class="col-md-9">
       <table class="table table-hover">
