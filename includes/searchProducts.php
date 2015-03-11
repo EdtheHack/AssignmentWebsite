@@ -19,7 +19,7 @@
 		include ("includes/commonFunctions.php");
 		include ("includes/nav.php");
 
-		echo $_POST['searchItem'];
+		//echo $_POST['searchItem'];
 		
 		for ($i = 0; $i < 3; $i++) {
 			$row = getNewestItem($i);
