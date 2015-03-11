@@ -1,3 +1,7 @@
+<?php
+	include ("includes/product.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -13,7 +17,6 @@
 <body>
 	<?php
 		include ("includes/nav.php");
-		include ("includes/product.php");
 
 		echo $_POST['searchItem'];
 		
