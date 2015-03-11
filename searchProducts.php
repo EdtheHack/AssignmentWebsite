@@ -28,7 +28,8 @@ error_reporting ( - 1 );
 		foreach ($rows as $row) {
 			$product = new product($row[0], $row[1], $row[2], $row[3]);				
 	?>
-		
+	<div class="container">
+		<div class="well">
 			<div class="row">
 				<br>
 				<div class="col-md-6">
@@ -52,8 +53,10 @@ error_reporting ( - 1 );
 				<br>
 				<br>
 			</div>
+		</div>
+	</div>
 		
-		<?php
+	<?php
 		
 			if(isset($_POST['viewProduct'])){   //serialization does not work
 				$_SESSION["serializedProduct"] = serialize($product);
@@ -61,6 +64,6 @@ error_reporting ( - 1 );
 				echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
 			}
 		}
-		?>
+	?>
 	</body>
 </html>
