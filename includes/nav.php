@@ -1,8 +1,8 @@
 <?php 
 
-if(basename(__FILE__) == 'viewProduct.php') {
+if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 
-} else if(basename((__FILE__) == 'searchProduct.php')){
+} else if(basename($_SERVER['PHP_SELF']) == 'searchProduct.php'){
 	include ("includes/common-functions.php");
 	include ("includes/product.php");
 } else{
