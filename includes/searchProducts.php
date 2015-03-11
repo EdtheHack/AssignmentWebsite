@@ -1,5 +1,5 @@
 <?php
-	include ("includes/product.php");
+	//include ("includes/product.php");
 ?>
 
 <!DOCTYPE html>
