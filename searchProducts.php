@@ -65,3 +65,5 @@ error_reporting ( - 1 );
 			}
 		}
 		?>
+	</body>
+</html>
