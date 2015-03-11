@@ -31,9 +31,9 @@ function getNewestItem($itemNumber){
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3 );
 		$stmt->fetch ();
-		while($row = mysqli_fetch_array($result)) {
-			$rows[] = $row;
-		}
+	   while($stmt->fetch()){
+     		$rows[] = array( $col0,  $col1,  $col2,  $col3 );
+    	}
 		$stmt->close ();
 	}
 	
