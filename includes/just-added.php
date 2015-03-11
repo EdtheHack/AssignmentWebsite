@@ -11,36 +11,37 @@
 		<?php
 		for ($i = 0; $i < 3; $i++) {
 			$row = getNewestItem($i);
-			
-			$product = new product($row[0], $row[1], $row[2], $row[3]);
-			
-			echo"
-			<div class=\"row\">
+			$product = new product($row[0], $row[1], $row[2], $row[3]);				
+		?>
+		
+			<div class="row">
 				<br>
-				<div class=\"thumbnail\">
-					<img src=\"http://placehold.it/320x150\" alt=\"\">
-					<div class=\"caption\">
-						<h4 class=\"pull-right\">".$product->getPrice()."</h4>
+				<div class="thumbnail">
+					<img src="http://placehold.it/320x150" alt="">
+					<div class="caption">
+						<h4 class="pull-right"><?php $product->getPrice() ?></h4>
 						<h4>
-							<a href=\"#\">".$product->getName()."</a>
+							<a href="#"><?php $product->getName() ?></a>
 						</h4>
-						<p>".$product->getDescription()."</p>
+						<p> <?php $product->getDescription() ?></p>
 						
-						<div class=\"col-md-6\">
-							<form method=\"POST\" action=\"viewProduct.php\">
-								<button type=\"submit\" name='itemId' value='".$product->getId()."' class=\"btn btn-default left-margin\"><i class=\"fa fa-eye\"></i> <b> View </b> </button>	
+						<div class="col-md-6">
+							<form method="POST" action="viewProduct.php">
+								<button type="submit" name='itemId' value='<?php$product->getId() ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
 							</form>
 						</div>
-						<div class=\"col-md-6\">
-							<form method=\"POST\" action=\"viewProduct.php\">  
-								<button type=\"submit\" name='itemId' value='".$product->getId()."' class=\"btn btn-default pull-right\"><i class=\"fa fa-shopping-cart fa-1x\"></i> <b> Add </b> </button>	
+						<div class="col-md-6">
+							<form method="POST" action="viewProduct.php">  
+								<button type="submit" name='itemId' value='<?php$product->getId() ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
 							</form>
 						</div>
 					</div>
 					<br>
 					<br>
 				</div>
-			</div>";
+			</div>
+		
+		<?php
 		
 			if(isset($_POST['viewProduct'])){
 				$_SESSION["serializedProduct"] = serialize($product);
