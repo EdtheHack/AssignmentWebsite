@@ -1,5 +1,5 @@
 <?php
-	function getNewestItem($itemNumber){
+	/*function getNewestItem($itemNumber){
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 		$query = "SELECT * FROM product ORDER BY price DESC;";
 		
@@ -20,5 +20,5 @@
 			$row = mysqli_fetch_row($result);
 			return $row;
 		}
-	}	
+	}*/	
 ?>
