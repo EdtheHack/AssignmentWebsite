@@ -42,7 +42,7 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3] );
 					<img src="http://placehold.it/500x400" alt="">
 				</div>
 
-				<div class="col-md-4">
+				<div class="col-md-6">
 					<h4 class="pull-right"><?php echo "&pound;".round($product->getPrice(), 2);?></h4>
 					<h4>
 						<a href="#"><?php echo $product->getName();?></a>

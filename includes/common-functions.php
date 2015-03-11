@@ -57,4 +57,22 @@ function getItem($productId){
 	return $row;
 }
 
+function getSearchItems($searchItem){
+	$mysqli = connect ();
+	
+		$rows = array();
+	
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product ORDER BY price DESC" )) {
+		$stmt->execute ();
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3 );
+	   	while($stmt->fetch() && (strpos($a, $searchItem) !== false) {
+     		$rows[] = array( $col0,  $col1,  $col2,  $col3 );
+    	}
+		$stmt->close ();
+	}
+	
+	$mysqli->close ();
+	return $rows;
+}
+
 ?>
