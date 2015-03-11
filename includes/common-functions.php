@@ -46,11 +46,11 @@ function getItem($productId){
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE product_id=?")){
 		$stmt->bind_param ( "s", $productId );
 		$stmt->execute ();
-		$stmt->bind_result ( $result );
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3 );
 		
-		$row = mysqli_fetch_row($result); //get the row 
-		
-		$stmt->fetch ();
+		while($stmt->fetch()){
+			$row[] = array( $col0,  $col1,  $col2,  $col3 );
+		}
 		$stmt->close ();
 	}
 	
