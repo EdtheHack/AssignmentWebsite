@@ -65,20 +65,19 @@ include ("includes/nav.php");
       </div>
       <div class="row">
         <div class="row placeholders">
-          <div class="col-xs-6 col-sm-3 placeholder"> 
-          <i class="fa fa-circle-o-notch fa-5x"></i>
+          <div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
             <h4 class="text-center">Listed Products</h4>
             <p class="text-muted text-center">Number of products listed.</p>
           </div>
-          <div class="col-xs-6 col-sm-3 placeholder"> <i class="fa fa-circle-o-notch fa-5x"></i>
+          <div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
             <h4 class="text-center">Accounts</h4>
             <p class="text-muted text-center">Number of customer accounts opened.</p>
           </div>
-          <div class="col-xs-6 col-sm-3 placeholder"> <i class="fa fa-circle-o-notch fa-5x"></i>
+          <div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
             <h4 class="text-center">Unlisted Products</h4>
             <p class="text-muted text-center">Number of products unlisted.</p>
           </div>
-          <div class="col-xs-6 col-sm-3 placeholder"> <i class="fa fa-circle-o-notch fa-5x text-center"></i>
+          <div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
             <h4 class="text-center">Label</h4>
             <p class="text-muted text-center">Something else</p>
           </div>
