@@ -20,7 +20,7 @@ error_reporting ( - 1 );
 	</head>
 <body>
 	<?php
-		include ("includes/nav.php");
+		//include ("includes/nav.php");
 
 		echo $_POST['searchItem'];
 		$rows = getSearchedItems($_POST['searchItem']);
