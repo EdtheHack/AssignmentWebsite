@@ -110,9 +110,7 @@ function getMostDiscounted(){
 		array_push($row, $col0,  $col1,  $col2, $col3  );
 		$stmt->close ();
 	}
-	
-	print_r($row);
-	
+		
 	return $row;
 }
 
