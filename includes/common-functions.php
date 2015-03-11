@@ -112,6 +112,8 @@ function getMostDiscounted(){
 	}
 	
 	print_r($row);
+	
+	return $row;
 }
 
 /*
