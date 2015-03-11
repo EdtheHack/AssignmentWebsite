@@ -5,7 +5,7 @@
 	error_reporting(-1);
 	
 	include ("includes/product.php");
-	//include ("includes/common-functions.php");
+	include ("includes/common-functions.php");
 	
 	$row = getItem($_POST['itemId']);	
 	$product = new product($row[0], $row[1], $row[2], $row[3]);
