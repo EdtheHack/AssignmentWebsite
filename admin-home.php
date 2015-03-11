@@ -18,7 +18,7 @@ session_start ();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Admin - Web Programming Assignment 2</title>
+<title>Admin Home - Web Programming Assignment 2</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/custom.css">
@@ -45,20 +45,10 @@ include ("includes/nav.php");
           edit, and remove products, plus much more.</p>
       </div>
     </div>
-    <div class="col-md-2">
-      <div class="row">
-        <ul class="nav nav-sidebar nav-pills nav-stacked">
-          <li class="active"><a href="#">Admin Home</a></li>
-          <li><a href="#">View All Orders</a></li>
-          <li><a href="#">Add New Product</a></li>
-          <li><a href="#">Edit Existing Product</a></li>
-          <li><a href="#">Remove Product</a></li>
-          <li><a href="#">Edit Customer Account Details</a></li>
-          <li><a href="#">Edit Your Account Details</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="col-md-1"> </div>
+
+<?php
+include ("includes/admin-nav.php");
+?>
     <div class="col-md-9">
       <div class="page-header">
         <h1>Statistics <small>At a glance..</small></h1>
