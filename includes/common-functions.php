@@ -64,9 +64,9 @@ function getSearchItems($searchItem){
 	
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product" )) {
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3 );
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
 	   	while($stmt->fetch() && (strpos($col1, '$searchItem') !== false)) {
-     		$rows[] = array( $col0,  $col1,  $col2,  $col3 );
+     		$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
     	}
 		$stmt->close ();
 	}
