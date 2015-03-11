@@ -31,6 +31,7 @@
 	
 	<div class="container">
 			<div class="row">
+				<div class="well">
 				<br>
 				<div class="col-md-6">
 					<img src="http://placehold.it/500x400" alt="">	
@@ -47,6 +48,7 @@
 					</button>
 				</div>		
 			</div>
+		</div>
 	</div>
 </body>
 </html>
