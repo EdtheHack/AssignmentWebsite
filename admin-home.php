@@ -65,19 +65,20 @@ include ("includes/nav.php");
       </div>
       <div class="row">
         <div class="row placeholders">
-          <div class="col-xs-6 col-sm-3 placeholder"> <i class="fa-5x fa-circle-o-notch"></i>>
+          <div class="col-xs-6 col-sm-3 placeholder"> 
+          <i class="fa fa-circle-o-notch fa-5x"></i>
             <h4 class="text-center">Listed Products</h4>
             <p class="text-muted text-center">Number of products listed.</p>
           </div>
-          <div class="col-xs-6 col-sm-3 placeholder"> <img data-src="js/holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+          <div class="col-xs-6 col-sm-3 placeholder"> <i class="fa fa-circle-o-notch fa-5x"></i>
             <h4 class="text-center">Accounts</h4>
             <p class="text-muted text-center">Number of customer accounts opened.</p>
           </div>
-          <div class="col-xs-6 col-sm-3 placeholder"> <img data-src="js/holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+          <div class="col-xs-6 col-sm-3 placeholder"> <i class="fa fa-circle-o-notch fa-5x"></i>
             <h4 class="text-center">Unlisted Products</h4>
             <p class="text-muted text-center">Number of products unlisted.</p>
           </div>
-          <div class="col-xs-6 col-sm-3 placeholder"> <img data-src="js/holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+          <div class="col-xs-6 col-sm-3 placeholder"> <i class="fa fa-circle-o-notch fa-5x"></i>
             <h4 class="text-center">Label</h4>
             <p class="text-muted text-center">Something else</p>
           </div>
