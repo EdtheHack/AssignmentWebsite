@@ -26,9 +26,9 @@
 				$a = 4; $b = 5; $c = 6; $d = 7;
 			}else if ($i == 2){
 				$a = 8; $b = 9; $c = 10; $d = 11;
-				break;
 			}else{
-				echo "something has gone very wrong indeed";
+				break; //this should probably be fixed but could be used to prevent infinite loop
+				
 			}
 			
 			$product = new product($row[$a], $row[$b], $row[$c] , $row[$d]);
