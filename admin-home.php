@@ -34,7 +34,6 @@ session_start ();
 <body>
 <?php
 include ("includes/nav.php");
-include ("includes/admin-nav.php");
 ?>
 <div class="container">
   <div class="col-md-12">
@@ -47,6 +46,9 @@ include ("includes/admin-nav.php");
       </div>
     </div>
 
+<?php
+include ("includes/admin-nav.php");
+?>
     <div class="col-md-9">
       <div class="page-header">
         <h1>Statistics <small>At a glance..</small></h1>
