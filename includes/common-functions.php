@@ -49,7 +49,7 @@ function getItem($productId){
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3 );
 		
 		while($stmt->fetch()){
-			$row[] = array( $col0,  $col1,  $col2,  $col3 );
+			$row = array( $col0,  $col1,  $col2,  $col3 );
 		}
 		$stmt->close ();
 	}
@@ -58,8 +58,5 @@ function getItem($productId){
 	return $row;
 
 }
-
-
-
 
 ?>
