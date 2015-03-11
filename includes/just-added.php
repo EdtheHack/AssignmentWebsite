@@ -20,7 +20,7 @@
 		$arr_length = count($row);  //most dicounted products code
 		
 		for ($i = 0; $i < $arr_length; $i++) {
-			$product = new product($row[$i], $row[$i * 1], $row[$i * 2] , $row[$i * 3]);
+			$product = new product($row[$i], $row[$i + 1], $row[$i + 2] , $row[$i + 3]);
 		?>
 		
 			<div class="row">
