@@ -17,7 +17,7 @@ include ("includes/common-functions.php");
 				<li class="active"><a href="index.php"><i class="fa fa-home"></i> Home </a></li>
 				<li><a href="#"> Products </a></li>
 			</ul>
-			<form method="POST" action="searchProduct.php" class="navbar-form navbar-left">
+			<form method="POST" action="searchProducts.php" class="navbar-form navbar-left">
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Search" <?php if(!empty($_POST["searchItem"])){ echo " value='".$_POST["searchItem"]."'"; }?>>
 				</div>
