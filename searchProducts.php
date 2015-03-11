@@ -4,7 +4,7 @@ ini_set ( 'display_errors', 1 );
 ini_set ( 'display_startup_errors', 1 );
 error_reporting ( - 1 );
 
-	session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ error_reporting ( - 1 );
 	</head>
 <body>
 	<?php
-	include ("includes/nav.php");
+		include ("includes/nav.php");
 
 		echo $_POST['searchItem'];
 		$rows = getSearchedItems($_POST['searchItem']);
