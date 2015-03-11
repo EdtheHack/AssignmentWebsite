@@ -1,8 +1,8 @@
 <div class="col-md-2">
   <div class="row">
     <ul class="nav nav-sidebar nav-pills nav-stacked">
-      <li><a href="#">Admin Home</a></li>
-      <li><a href="#">View All Orders</a></li>
+      <li><a href="../admin-home.php">Admin Home</a></li>
+      <li><a href="../admin/view-orders.php">View All Orders</a></li>
       <li><a href="#">Add New Product</a></li>
       <li><a href="#">Edit Existing Product</a></li>
       <li><a href="#">Remove Product</a></li>
