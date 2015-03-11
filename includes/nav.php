@@ -1,5 +1,14 @@
 <?php 
-include ("includes/common-functions.php");
+
+if(basename(__FILE__) == 'viewProduct.php') {
+
+} else if(basename((__FILE__) == 'searchProduct.php')){
+	include ("includes/common-functions.php");
+	include ("includes/product.php");
+} else{
+	include ("includes/common-functions.php");
+}
+
 ?>
 <nav role="navigation" class="navbar navbar-default">
 	<div class="container">
