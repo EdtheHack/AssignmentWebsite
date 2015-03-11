@@ -7,7 +7,7 @@ function connect() { // code reuse for cdatabase connection
 }
 
 function checkAdmin() {
-	$mysqli = DBconnect ();
+	$mysqli = connect ();
 	
 	if ($stmt = $mysqli->prepare ( "SELECT admin FROM user WHERE user_id=?" )) {
 		$user = $_SESSION ["userID"];
