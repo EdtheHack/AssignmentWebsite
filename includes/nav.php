@@ -1,5 +1,5 @@
 <?php 
-include ("includes/common-functions.php");
+//include ("includes/common-functions.php");
 ?>
 <nav role="navigation" class="navbar navbar-default">
 	<div class="container">
