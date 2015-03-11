@@ -29,8 +29,9 @@
 		include ("includes/nav.php");
 	?>
 	
-	<div class="well">
-		<div class="container">
+	
+	<div class="container">
+		<div class="well">
 			<div class="row">
 				<br>
 				<div class="col-md-6">
