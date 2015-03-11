@@ -26,7 +26,7 @@
 				$a = 4; $b = 5; $c = 6; $d = 7;
 			}else if ($i == 2){
 				$a = 8; $b = 9; $c = 10; $d = 11;
-				$i++;
+				break;
 			}else{
 				echo "something has gone very wrong indeed";
 			}
