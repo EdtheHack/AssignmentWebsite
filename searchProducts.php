@@ -23,14 +23,36 @@ error_reporting ( - 1 );
 	<?php
 	include ("includes/nav.php");
 
-		echo $_POST['searchItem'];
-		$rows = getSearchedItems($_POST['searchItem']);
+		//echo $_POST['searchItem'];
+		//$rows = getSearchedItems($_POST['searchItem']);
 		
 		for ($rows as $row) {
 			$product = new product($row[0], $row[1], $row[2], $row[3]);				
 	?>
 		
-			
+			<div class="row">
+				<br>
+				<div class="col-md-6">
+					<img src="http://placehold.it/320x150" alt="">
+				</div>
+				<div class="col-md-6">
+					<h4 class="pull-right"><?php echo $product->getPrice(); ?></h4>
+					<h4>
+						<a href="#"><?php echo $product->getName(); ?></a>
+					</h4>
+					<p> <?php echo $product->getDescription(); ?></p>
+				
+					<form method="POST" action="viewProduct.php">
+						<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
+					</form>
+					
+					<form method="POST" action="viewProduct.php">  
+						<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
+					</form>
+				</div>
+				<br>
+				<br>
+			</div>
 		
 		<?php
 		
