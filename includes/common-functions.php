@@ -84,30 +84,30 @@ function getSearchItems($searchItem){
 function getMostDiscounted(){
 	$mysqli = connect ();
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product)")){ //get the most discounted
+	if ($stmt = $mysqli->prepare ("SELECT name, price, description FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product)")){ //get the most discounted
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6 );
+		$stmt->bind_result ( $col0,  $col1,  $col2 );
 		$stmt->fetch();
-		$row = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6  );
+		$row = array( $col0,  $col1,  $col2  );
 		$stmt->close ();
 	}
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product 
+	if ($stmt = $mysqli->prepare ("SELECT name, price, description FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product 
 			WHERE price - reduced_price < (select MAX(price - reduced_price) from product))")){ //get second most discounted
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6 );
+		$stmt->bind_result ( $col0,  $col1,  $col2 );
 		$stmt->fetch();
-		array_push($row, $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6  );
+		array_push($row, $col0,  $col1,  $col2 );
 		$stmt->close ();
 	}
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product 
+	if ($stmt = $mysqli->prepare ("SELECT name, price, description FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product 
 			WHERE price - reduced_price < (select MAX(price - reduced_price) from product WHERE price - reduced_price < 
 			(select MAX(price - reduced_price) from product)))")){  //get third most discounted
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6 );
+		$stmt->bind_result ( $col0,  $col1,  $col2 );
 		$stmt->fetch();
-		array_push($row, $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6  );
+		array_push($row, $col0,  $col1,  $col2 );
 		$stmt->close ();
 	}
 	
