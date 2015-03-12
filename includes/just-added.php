@@ -37,7 +37,7 @@
 			<div class="row">
 				<br>
 				<div class="thumbnail">
-					<img src="http://placehold.it/320x150" alt="">
+					<img src="img/<?php echo $product->getImg(); ?>" alt="">
 					<div class="caption">
 						<h4 class="pull-right"><?php echo "&pound;".round($product->getPrice(), 2); ?></h4>
 						<h4>
