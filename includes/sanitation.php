@@ -3,7 +3,8 @@
 function sanitiseString ($string, $field, $min, $max){
 	
 	echo "not reaching ";
-	if (preg_match( '/^[A-Z 0-9 \'!@#$%&*_]{'.$min.','.$max.'}$/i', $string)) {
+	
+	if (preg_match( '/^[A-Z 0-9 \'!@#$%&*_]{2,100}$/i', $string)) {
 		return $string;
 		echo "SUCEEESSSSSSS";
 	} else {
