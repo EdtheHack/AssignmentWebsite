@@ -21,17 +21,17 @@
 		for ($i = 0; $i < $arr_length; $i++) {
 			
 			if ($i == 0){
-				$a = 0; $b = 1; $c = 2; $d = 3;
+				$a = 0; $b = 1; $c = 2; $d = 3; $e = 4; $f = 5 ;
 			}else if ($i == 1){
-				$a = 4; $b = 5; $c = 6; $d = 7;
+				$a = 5; $b = 6; $c = 7; $d = 8; $e = 9; $f = 10 ;
 			}else if ($i == 2){
-				$a = 8; $b = 9; $c = 10; $d = 11;
+				$a = 11; $b = 12; $c = 12; $d = 13; $e = 24; $f = 15 ;
 			}else{
 				break; //this should probably be fixed but could be used to prevent infinite loop
 				
 			}
 			
-			$product = new product($row[$a], $row[$b], $row[$c] , $row[$d]);
+			$product = new product($row[$a], $row[$b], $row[$c] , $row[$d], $row[$e], $row[$f]);
 		?>
 		
 			<div class="row">
