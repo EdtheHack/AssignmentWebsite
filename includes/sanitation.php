@@ -10,8 +10,12 @@ function sanitiseString ($string, $field, $min, $max){
 				<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
 				<strong>Error!</strong> ".$field. " must not contain illegal characters and be longer than 2 characters.
 			</div>"; //ad chars in the message 
+		
+		echo "nothing";
 		return 0;
 	}
+	
+	echo "testing";
 }
 
 
