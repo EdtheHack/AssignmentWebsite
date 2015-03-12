@@ -112,6 +112,8 @@ include ("../includes/nav.php");
 					if($name != null){
 						if(sanitiseString($name, 1, 100) != 1){  //not cleared
 							$error_array[] = "Name field has illegial chars or is too short/long";
+						}else{
+							echo $name;
 						}
 					}else{
 						$error_array[] = "Name field cannot be empty";
@@ -120,6 +122,8 @@ include ("../includes/nav.php");
 					if($price != null){
 						if(sanitiseCurrency($price) != 1){  //not cleared
 							$error_array[] = "price field has illegial chars or is too short/long";
+						}else{
+							echo $price;
 						}
 					}else{
 						$error_array[] = "Name field cannot be empty";
