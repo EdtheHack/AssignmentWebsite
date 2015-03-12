@@ -27,7 +27,6 @@ error_reporting ( - 1 );
 			$product = new product($row[0], $row[1], $row[2], $row[3]);				
 	?>
 	
-	<div class="container">
 		<div class="well">
 			<div class="row">
 				<br>
@@ -53,7 +52,6 @@ error_reporting ( - 1 );
 				<br>
 			</div>
 		</div>
-	</div>
 	<br>
 		
 	<?php
