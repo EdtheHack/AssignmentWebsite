@@ -56,12 +56,14 @@ include ("../includes/nav.php");
 					<div class="form-group">
 							<label for="newProductName">Product Name</label> <input
 								type="text" class="form-control" name="newProductName"
-								placeholder="Enter product name" <?php if(!empty($_POST["newProductName"])){ echo " value='".$_POST["newProductName"]."'"; }?>>
+								placeholder="Enter product name" 
+								<?php if(!empty($_POST["newProductName"])){ echo " value='".$_POST["newProductName"]."'"; }?>>
 					</div>
 					<div class="form-group">
 							<label for="newProductPrice">Price (£)</label> <input
 								type="number" class="form-control" size="20"
-								id="newProductPRice" placeholder="Enter product price">
+								id="newProductPRice" name="newProductPrice" placeholder="Enter product price"
+								 <?php if(!empty($_POST["newProductPrice"])){ echo " value='".$_POST["newProductPrice"]."'"; }?>>
 					</div>
 
 					<div class="form-group">
@@ -100,12 +102,30 @@ include ("../includes/nav.php");
 				
 				<?php 
 				
+				$error_array = array();
+				
 				if(isset($_POST['newProduct'])){
 										
 					$name = $_POST['newProductName'];
-					if(sanitiseString($name, $name, 1, 100) == 1){
-						echo $name;
+					$price = $_POST['newProductPrice'];
+					
+					if($name != null){
+						if(sanitiseString($name, 1, 100) != 1){  //not cleared
+							$error_array[] = "Name field has illegial chars or is too short/long";
+						}
+					}else{
+						$error_array[] = "Name field cannot be empty";
 					}
+					
+					if($price != null){
+						if(sanitiseCurrency($price) != 1){  //not cleared
+							$error_array[] = "price field has illegial chars or is too short/long";
+						}
+					}else{
+						$error_array[] = "Name field cannot be empty";
+					}
+					
+					$error = implode("<br>", $error_array);
 					
 				}
 			
