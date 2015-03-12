@@ -61,13 +61,14 @@ function getItem($productId){
 	return $row;
 }
 
-function getSimilarItems($itemId){  //NEEDS WORK
+function getSimilarItems($productId){  //NEEDS WORK
 	$mysqli = connect ();
 	
 		$rows = array();
 	
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product LEFT JOIN product_categories ON product_categories.product_id = product.product_id   
-									WHERE product_categories.category_id = (SELECT category_id FROM product_categories WHERE product_id = '".$itemId."') LIMIT 3" )) {
+									WHERE product_categories.category_id = (SELECT category_id FROM product_categories WHERE product_id=?) LIMIT 3" )) {
+		$stmt->bind_param ( "s", $productId );
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
 	   	while($stmt->fetch()) {
