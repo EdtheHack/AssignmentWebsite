@@ -32,6 +32,24 @@ include ("../includes/sanitation.php");
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	
+<script type="text/javascript"> //needs reference here please 
+                (function($){
+                    $.fn.extend({
+                        bs_alert: function(message, title){
+                            var cls='alert-danger';
+                            var html='<div class="alert '+cls+' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+                            if(typeof title!=='undefined' &&  title!==''){
+                             html+='<h4>'+title+'</h4>';
+                      }
+                     html+='<span>'+message+'</span></div>';
+                     $(this).html(html);
+                  }
+              });
+          })(jQuery);
+
+ </script>      
+	
 </head>
 <body>
 <?php
@@ -179,22 +197,7 @@ include ("../includes/nav.php");
 		</div>
 	</div>
 											 
-<script type="text/javascript"> //needs reference here please 
-                (function($){
-                    $.fn.extend({
-                        bs_alert: function(message, title){
-                            var cls='alert-danger';
-                            var html='<div class="alert '+cls+' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-                            if(typeof title!=='undefined' &&  title!==''){
-                             html+='<h4>'+title+'</h4>';
-                      }
-                     html+='<span>'+message+'</span></div>';
-                     $(this).html(html);
-                  }
-              });
-          })(jQuery);
 
- </script>      
 	
 </body>
 </html>
