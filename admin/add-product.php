@@ -52,15 +52,37 @@ include ("../includes/nav.php");
     <div class="col-md-9">
 				<form>
 					<div class="form-group">
-						<label for="newProductName">Product Name</label> <input
-							type="text" class="form-control" id="newProductName"
-							placeholder="Enter product name">
+						<div class="col-xs-3">
+							<label for="newProductName">Product Name</label> <input
+								type="text" class="form-control" id="newProductName"
+								placeholder="Enter product name">
+						</div>
 					</div>
 					<div class="form-group">
-						<label for="newProductPrice">Price (£)</label> <input
-							type="number" class="form-control" size="20" id="newProductPRice"
-							placeholder="Enter product price">
+						<div class="col-xs-2">
+							<label for="newProductPrice">Price (£)</label> <input
+								type="number" class="form-control" size="20"
+								id="newProductPRice" placeholder="Enter product price">
+						</div>
 					</div>
+
+					<div class="form-group">
+						<div class="col-xs-1">
+							<label for="newProductDiscount">Select discount (optional):</label>
+							<select class="form-control" id="newProductDiscount">
+								<option>5</option>
+								<option>10</option>
+								<option>15</option>
+								<option>20</option>
+								<option>25</option>
+								<option>40</option>
+								<option>50</option>
+								<option>75</option>
+							</select>
+						</div>
+					</div>
+
+
 					<div class="form-group">
 						<label for="productDescription">Description</label>
 						<textarea class="form-control" rows="5" id="newProductDescription"></textarea>
