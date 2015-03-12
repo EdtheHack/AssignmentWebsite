@@ -112,34 +112,18 @@ function getSearchItems($searchItem){  //NEEDS WORK
 function getMostDiscounted(){
 	$mysqli = connect ();
 	
-	if ($stmt = $mysqli->prepare ("SELECT product_id, name, price, description, reduced_price, img FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product)")){ //get the most discounted
+	$rows = array()
+	
+	if ($stmt = $mysqli->prepare ("SELECT product_id, name, price, description, reduced_price, img FROM product ORDER BY price - reduced_price")){ //get the most discounted
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2, $col3, $col4,  $col5 );
-		$stmt->fetch();
-		$row = array( $col0,  $col1,  $col2, $col3 , $col4,  $col5   );
-		$stmt->close ();
-	}
-	
-	if ($stmt = $mysqli->prepare ("SELECT product_id, name, price, description,reduced_price, img FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product 
-			WHERE price - reduced_price < (select MAX(price - reduced_price) from product))")){ //get second most discounted
-		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2, $col3, $col4,  $col5  );
-		$stmt->fetch();
-		array_push($row, $col0,  $col1,  $col2, $col3, $col4,  $col5  );
-		$stmt->close ();
-	}
-	
-	if ($stmt = $mysqli->prepare ("SELECT product_id, name, price, description, reduced_price, img FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product 
-			WHERE price - reduced_price < (select MAX(price - reduced_price) from product WHERE price - reduced_price < 
-			(select MAX(price - reduced_price) from product)))" )){  //get third most discounted
-		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2, $col3, $col4,  $col5  );
-		$stmt->fetch();
-		array_push($row, $col0,  $col1,  $col2, $col3, $col4,  $col5  );
+		while($stmt->fetch()) {
+			$rows[] = array( $col0,  $col1,  $col2, $col3 , $col4,  $col5   );
+		}
 		$stmt->close ();
 	}
 		
-	return $row;
+	return $rows;
 }
 
 /*
