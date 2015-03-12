@@ -130,7 +130,7 @@ include ("../includes/nav.php");
 					}
 					
 					$error = implode("<br>", $error_array);
-					
+					echo $error;
 				}
 			
 				
