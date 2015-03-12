@@ -55,35 +55,30 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[6
 				</div>
 			</div>
 		</div>
+		
 		<div class="well">
-		
-		<?php
-		
-		$rows = getSimilarItems($product->getId());
-		
-		for ($i = 0; $i < 3; $i++) {
-			$product = new product($rows[$i][0], $price, $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][6]);
-
-		?>
-	
+			<h3>Similar Products</h3>
 			<div class="row">
-				<h3>Similar Products</h3>
-				<div class="row">
-					<div class="col-md-4">
-						<img src="http://placehold.it/320x150" alt="">
-						<div class="caption">
-							<h3>Product Name</h3>
-							<p>Description....</p>
+			
+			<?php
+			$rows = getSimilarItems($product->getId());
+			
+			for ($i = 0; $i < 3; $i++) {
+				$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][6]);
+			?>
+					
+						<div class="col-md-4">
+							<img src="img/<?php echo $product->getImg(); ?>" alt="">
+							<div class="caption">
+								<h3><?php echo $product->getName(); ?></h3>
+								<p><?php echo $product->getDescription(); ?></p>
+							</div>
 						</div>
-					</div>
-				</div>
+				
+			<?php
+			}
+			?>
 			</div>
-		
-		<?php
-		
-		}
-		
-		?>
 		</div>
 	</div>
 </body>
