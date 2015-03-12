@@ -1,7 +1,7 @@
 <?php
 session_start ();
 
-include ("includes/sanitation.php");
+include ("../includes/sanitation.php");
 
 /*
  * include ("includes/common-functions.php");
@@ -102,7 +102,7 @@ include ("../includes/nav.php");
 				
 				if(isset($_POST['newProduct'])){
 					$name = $_POST['newProductName'];
-					if(sanitiseString($name, "Name", 0, 100) != 0){
+					if(sanitiseString($name, $name, 0, 100) != 0){
 						
 					}
 				}
