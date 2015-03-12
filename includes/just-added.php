@@ -23,9 +23,9 @@
 			if ($i == 0){
 				$a = 0; $b = 1; $c = 2; $d = 3; $e = 4; $f = 5 ;
 			}else if ($i == 1){
-				$a = 5; $b = 6; $c = 7; $d = 8; $e = 9; $f = 10 ;
+				$a = 6; $b = 7; $c = 8; $d = 9; $e = 10; $f = 11 ;
 			}else if ($i == 2){
-				$a = 11; $b = 12; $c = 12; $d = 13; $e = 24; $f = 15 ;
+				$a = 12; $b = 13; $c = 14; $d = 15; $e = 16; $f = 17 ;
 			}else{
 				break; //this should probably be fixed but could be used to prevent infinite loop
 				
