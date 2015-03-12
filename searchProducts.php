@@ -22,15 +22,13 @@ error_reporting ( - 1 );
 	<?php
 		include ("includes/nav.php");
 
-		echo $_POST['searchItem'];
 		$rows = getSearchItems($_POST['searchItem']);
-		
 		foreach ($rows as $row) {
 			$product = new product($row[0], $row[1], $row[2], $row[3]);				
 	?>
-	<div class="container">
-		<div class="well">
-			<div class="row">
+	<div class="row">
+		<div class="container">
+			<div class="well">
 				<br>
 				<div class="col-md-6">
 					<img src="http://placehold.it/320x150" alt="">

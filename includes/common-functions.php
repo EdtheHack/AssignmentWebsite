@@ -70,7 +70,7 @@ function getSearchItems($searchItem){
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
 	   	while($stmt->fetch()) {
-			if (strpos($col1, $searchItem) !== false) {
+			if (strpos(strtolower($col1), strtolower($searchItem)) !== false  || strpos(strtolower($col3), strtolower($searchItem)) !== false) {
 				$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
 			}
     	}
