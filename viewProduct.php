@@ -55,11 +55,15 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3] );
 				</div>
 			</div>
 		</div>
-
-
 		<div class="well">
+		
+		<?php
+		
+		for ($i = 0; $i < $arr_length; $i++) {
+		
+		?>
+	
 			<div class="row">
-
 				<h3>Similar Products</h3>
 				<div class="row">
 					<div class="col-md-4">
@@ -69,22 +73,14 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3] );
 							<p>Description....</p>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<img src="http://placehold.it/320x150" alt="">
-						<div class="caption">
-							<h3>Product Name</h3>
-							<p>Description....</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<img src="http://placehold.it/320x150" alt="">
-						<div class="caption">
-							<h3>Product Name</h3>
-							<p>Description....</p>
-						</div>
-					</div>
 				</div>
 			</div>
+		
+		<?php
+		
+		}
+		
+		?>
 		</div>
 	</div>
 </body>
