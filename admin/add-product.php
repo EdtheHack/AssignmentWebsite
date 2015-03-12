@@ -102,9 +102,9 @@ include ("../includes/nav.php");
 				
 				if(isset($_POST['newProduct'])){
 					$name = $_POST['newProductName'];
-					if(sanitiseString($name, $name, 0, 100) != 0){
+					sanitiseString($name, $name, 0, 100);
 						
-					}
+					
 				}
 			
 				
