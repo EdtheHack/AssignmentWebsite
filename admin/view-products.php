@@ -36,72 +36,79 @@ session_start ();
 include ("../includes/nav.php");
 ?>
 <div class="container">
-  <div class="col-md-12">
-    <div class="row">
-      <div class="jumbotron">
-        <h2>View/Edit Products <small> A complete list of all produts, across the store.</small> </h2>
-        <br>
-        <p>Below is a complete list of all products.</p>
-      </div>
-    </div>
+		<div class="col-md-12">
+			<div class="row">
+				<div class="jumbotron">
+					<h2>
+						View/Edit Products <small> A complete list of all produts, across
+							the store.</small>
+					</h2>
+					<br>
+					<p>Below is a complete list of all products.</p>
+				</div>
+			</div>
     <?php
-include ("admin-nav.php");
-?>
+				include ("admin-nav.php");
+				?>
     <div class="col-md-9">
-      <table class="table table-hover table-responsive">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Product Name</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Product 1</td>
-            <th>£0.00</th>
-            <td>Edit Product</td>
-            <td><a href"myModal" data-toggle="modal" data-target="#myModal">Delete Product</a></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Product 2</td>
-            <th>£0.00</th>
-            <td>Edit Product</td>
-            <td>Delete Product</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Product 3</td>
-            <th>£0.00</th>
-            <td>Edit Product</td>
-            <td>Delete Product</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+				<table class="table table-hover table-responsive">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Product Name</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Product 1</td>
+							<th>£0.00</th>
+							<td>Edit Product</td>
+							<td><a href"myModal" data-toggle="modal" data-target="#myModal">Delete
+									Product</a></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Product 2</td>
+							<th>£0.00</th>
+							<td>Edit Product</td>
+							<td>Delete Product</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Product 3</td>
+							<th>£0.00</th>
+							<td>Edit Product</td>
+							<td>Delete Product</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Delete Product</h4>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to delete this product? This cannot be undone.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger">Delete PRoduct</button>
-      </div>
-    </div>
-  </div>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Delete Product</h4>
+				</div>
+				<div class="modal-body">Are you sure you want to delete this
+					product? This cannot be undone.</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-danger">Delete Product</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
 </body>
 </html>
