@@ -114,7 +114,7 @@ function getMostDiscounted(){
 	
 	$rows = array()
 	
-	if ($stmt = $mysqli->prepare ("SELECT product_id, name, price, description, percentage_off, img FROM product ORDER BY percentage_off")){ //get the most discounted
+	if ($stmt = $mysqli->prepare ("SELECT product_id, name, price, description, percentage_off, img FROM product ORDER BY percentage_off ASC")){ //get the most discounted
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2, $col3, $col4,  $col5 );
 		while($stmt->fetch()) {
