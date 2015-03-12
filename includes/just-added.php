@@ -8,15 +8,12 @@
 	<div class="well">
 		<h3>Just added</h3>
 		
-		<?php
-		
-		
-		
+		<?php	
 			
 		$rows = getMostDiscounted();
 		
 		for ($i = 0; $i < 3; $i++) {  //loop through most discounted items			
-			$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5]);
+			$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][6]);
 			
 		?>
 		
