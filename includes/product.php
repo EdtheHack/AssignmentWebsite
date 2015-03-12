@@ -17,7 +17,7 @@
 		}
 		
 		public function getPrice(){
-			return $this->price;
+			return $this->round(price, 2);
 		}
 		
 		public function getDescription(){
