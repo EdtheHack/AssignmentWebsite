@@ -1,6 +1,8 @@
 <?php
 session_start ();
 
+include ("includes/sanitation.php");
+
 /*
  * include ("includes/common-functions.php");
  *
@@ -50,10 +52,10 @@ include ("../includes/nav.php");
 				include ("admin-nav.php");
 				?>
     <div class="col-md-9">
-				<form>
+				<form method="POST" action="">
 					<div class="form-group">
 							<label for="newProductName">Product Name</label> <input
-								type="text" class="form-control" id="newProductName"
+								type="text" class="form-control" name="newProductName"
 								placeholder="Enter product name">
 					</div>
 					<div class="form-group">
@@ -93,8 +95,19 @@ include ("../includes/nav.php");
 						<label> <input type="checkbox"> List product immediately
 						</label>
 					</div>
-					<button type="submit" class="btn btn-default">Add Product</button>
+					<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
 				</form>
+				
+				<?php 
+				
+				if(isset($_POST['newProduct'])){
+					$name = $_POST['newProductName'];
+					sanitiseString($name, "Name", 0, 100);
+				}
+			
+				
+				?>
+				
 			</div>
 		</div>
 	</div>
