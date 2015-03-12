@@ -8,7 +8,7 @@ include ("includes/product.php");
 include ("includes/common-functions.php");
 
 $row = getItem ( $_POST ['itemId'] );
-$product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5] );
+$product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5], $row[6] );
 
 // $product = unserialize($_POST['product']);
 ?>
