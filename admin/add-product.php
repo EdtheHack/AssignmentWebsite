@@ -56,7 +56,7 @@ include ("../includes/nav.php");
 					<div class="form-group">
 							<label for="newProductName">Product Name</label> <input
 								type="text" class="form-control" name="newProductName"
-								placeholder="Enter product name">
+								placeholder="Enter product name" <?php if(!empty($_POST["newProductName"])){ echo " value='".$_POST["newProductName"]."'"; }?>>
 					</div>
 					<div class="form-group">
 							<label for="newProductPrice">Price (£)</label> <input
