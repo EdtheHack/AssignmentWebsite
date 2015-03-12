@@ -101,6 +101,9 @@ include ("../includes/nav.php");
 				<?php 
 				
 				if(isset($_POST['newProduct'])){
+					
+					echo "echo me something please";
+					
 					$name = $_POST['newProductName'];
 					sanitiseString($name, $name, 0, 100);
 						
