@@ -49,7 +49,6 @@ include ("admin-nav.php");
 ?>
     <div class="col-md-9">
       <table class="table table-hover table-responsive">
-       <table class="table">
         <thead>
           <tr>
             <th>#</th>
@@ -62,22 +61,22 @@ include ("admin-nav.php");
             <td>1</td>
             <td>Product 1</td>
             <th>£0.00</th>
-            <td>Edit Order</td>
-            <td>Delete Order</td>
+            <td>Edit Product</td>
+            <td>Delete Product</td>
           </tr>
           <tr>
             <td>2</td>
             <td>Product 2</td>
             <th>£0.00</th>
-            <td>Edit Order</td>
-            <td>Delete Order</td>
+            <td>Edit Product</td>
+            <td>Delete Product</td>
           </tr>
           <tr>
             <td>3</td>
             <td>Product 3</td>
             <th>£0.00</th>
-            <td>Edit Order</td>
-            <td>Delete Order</td>
+            <td>Edit Product</td>
+            <td>Delete Product</td>
           </tr>
         </tbody>
       </table>
