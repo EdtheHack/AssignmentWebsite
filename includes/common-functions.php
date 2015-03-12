@@ -112,34 +112,54 @@ function getSearchItems($searchItem){  //NEEDS WORK
 function getMostDiscounted(){
 	$mysqli = connect ();
 	
-	if ($stmt = $mysqli->prepare ("SELECT product_id, name, price, description FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product)")){ //get the most discounted
+	if ($stmt = $mysqli->prepare ("SELECT product_id, name, price, description, reduced_price, img FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product)")){ //get the most discounted
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2, $col3 );
+		$stmt->bind_result ( $col0,  $col1,  $col2, $col3, $col4,  $col5 );
 		$stmt->fetch();
-		$row = array( $col0,  $col1,  $col2, $col3   );
+		$row = array( $col0,  $col1,  $col2, $col3 , $col4,  $col5   );
 		$stmt->close ();
 	}
 	
-	if ($stmt = $mysqli->prepare ("SELECT product_id, name, price, description FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product 
+	if ($stmt = $mysqli->prepare ("SELECT product_id, name, price, description,reduced_price, img FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product 
 			WHERE price - reduced_price < (select MAX(price - reduced_price) from product))")){ //get second most discounted
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2, $col3  );
+		$stmt->bind_result ( $col0,  $col1,  $col2, $col3, $col4,  $col5  );
 		$stmt->fetch();
-		array_push($row, $col0,  $col1,  $col2, $col3  );
+		array_push($row, $col0,  $col1,  $col2, $col3, $col4,  $col5  );
 		$stmt->close ();
 	}
 	
-	if ($stmt = $mysqli->prepare ("SELECT product_id, name, price, description FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product 
+	if ($stmt = $mysqli->prepare ("SELECT product_id, name, price, description, reduced_price, img FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product 
 			WHERE price - reduced_price < (select MAX(price - reduced_price) from product WHERE price - reduced_price < 
-			(select MAX(price - reduced_price) from product)))")){  //get third most discounted
+			(select MAX(price - reduced_price) from product)))" )){  //get third most discounted
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2, $col3  );
+		$stmt->bind_result ( $col0,  $col1,  $col2, $col3, $col4,  $col5  );
 		$stmt->fetch();
-		array_push($row, $col0,  $col1,  $col2, $col3  );
+		array_push($row, $col0,  $col1,  $col2, $col3, $col4,  $col5  );
 		$stmt->close ();
 	}
 		
 	return $row;
+}
+
+
+function getAllProducts(){
+	
+	$mysqli = connect ();
+
+	$products = array();
+	
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product" )) {
+		$stmt->execute ();
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6 );
+	   	while($stmt->fetch()){
+     		$products[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6 );
+    	}
+		$stmt->close ();
+	}
+	$mysqli->close ();
+	
+	return $products[];
 }
 
 /*
