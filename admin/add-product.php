@@ -70,6 +70,10 @@ include ("../includes/nav.php");
 				include ("admin-nav.php");
 				?>
     <div class="col-md-9">
+    			<br>
+    			<div id="print_errors"></div> 
+    			<br>
+    			
 				<form method="POST" action="">
 					<div class="form-group">
 							<label for="newProductName">Product Name</label> <input
@@ -102,7 +106,7 @@ include ("../includes/nav.php");
 
 					<div class="form-group">
 						<label for="productDescription">Description</label>
-						<textarea class="form-control" rows="5" name="newProductDescription"></textarea>
+						<textarea class="form-control" rows="5" name="newProductDescription"<?php if(!empty($_POST["newProductDescription"])){ echo " value='".$_POST["newProductDescription"]."'"; }?>></textarea>
 					</div>
                     
 					<div class="form-group">
@@ -112,13 +116,13 @@ include ("../includes/nav.php");
 					</div>
 
 					<div class="checkbox">
-						<label> <input type="checkbox" name="newProductList" value="list"> List product immediately
+						<label> <input type="checkbox" name="newProductList" value="true"> List product immediately
 						</label>
 					</div>
 					<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
 				</form>
 				
-				<div id="print_errors"></div> 
+				
 				
 				<?php 
 				
@@ -130,9 +134,6 @@ include ("../includes/nav.php");
 					$price = $_POST['newProductPrice'];
 					$discount = $_POST['newProductDiscount'];
 					$description = $_POST['newProductDescription'];
-					$list = $_POST['newProductList'];
-					
-					
 					
 					if($name != null){
 						if(sanitiseString($name, 1, 100) != 1){  //not cleared
@@ -171,21 +172,20 @@ include ("../includes/nav.php");
 						$error_array[] = "product description field cannot be empty";
 					}
 					
-
-					if($list == 'list'){
-						$list == true;
-						echo "checked";
+					
+					if(isset($_POST['newProductList'])){
+						$list = $_POST['newProductList'];
 					}else{
-						$list == false;
-						echo "not checked ";
+						$list = false;#default value
 					}
 					
-					if(!(empty($error_array))){
+
+					if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
 						$error = implode("<br>", $error_array);
-						echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>";
+						echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
 						die; //wrong input, do not proceed
 					}else{
-						echo"enetered correctly";
+						echo"enetered correctly"; //everything was fine so carry on
 					}
 					
 				}
