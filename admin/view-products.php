@@ -62,7 +62,7 @@ include ("admin-nav.php");
             <td>Product 1</td>
             <th>£0.00</th>
             <td>Edit Product</td>
-            <td data-toggle="modal" data-target="#myModal">Delete Product</td>
+            <td><p data-toggle="modal" data-target="#myModal">Delete Product</p></td>
           </tr>
           <tr>
             <td>2</td>
