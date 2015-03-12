@@ -36,45 +36,49 @@ session_start ();
 include ("../includes/nav.php");
 ?>
 <div class="container">
-  <div class="col-md-12">
-    <div class="row">
-      <div class="jumbotron">
-        <h2>Add Product<small> Add a new product to the site for sale.</small> </h2>
-        <br>
-        <p></p>
-      </div>
-    </div>
+		<div class="col-md-12">
+			<div class="row">
+				<div class="jumbotron">
+					<h2>
+						Add Product<small> Add a new product to the site for sale.</small>
+					</h2>
+					<br>
+					<p></p>
+				</div>
+			</div>
     <?php
-include ("admin-nav.php");
-?>
+				include ("admin-nav.php");
+				?>
     <div class="col-md-9">
-      <form>
-        <div class="form-group">
-          <label for="newProductName">Product Name</label>
-          <input
-												type="text" class="form-control" id="newProductName"
-												placeholder="Enter product name">
-        </div>
-        <div class="form-group">
-          <label for="newProductPrice">Price (�)</label>
-          <input
-												type="number" class="form-control" size="20"
-												id="newProductPRice" placeholder="Enter product price">
-        </div>
-        <div class="form-group">
-          <label for="productDescription">Description</label>
-          <textarea class="form-control" rows="5"
-												id="newProductDescription"></textarea>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox">
-            List product immediately </label>
-        </div>
-        <button type="submit" class="btn btn-default">Add Product</button>
-      </form>
-    </div>
-  </div>
-</div>
+				<form>
+					<div class="form-group">
+						<label for="newProductName">Product Name</label> <input
+							type="text" class="form-control" id="newProductName"
+							placeholder="Enter product name">
+					</div>
+					<div class="form-group">
+						<label for="newProductPrice">Price (£)</label> <input
+							type="number" class="form-control" size="20" id="newProductPRice"
+							placeholder="Enter product price">
+					</div>
+					<div class="form-group">
+						<label for="productDescription">Description</label>
+						<textarea class="form-control" rows="5" id="newProductDescription"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="newProductImage">Product Imaget</label> <input
+							type="file" id="newProductImage">
+						<p class="help-block">Please upload an image of the product here.</p>
+					</div>
+
+					<div class="checkbox">
+						<label> <input type="checkbox"> List product immediately
+						</label>
+					</div>
+					<button type="submit" class="btn btn-default">Add Product</button>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
