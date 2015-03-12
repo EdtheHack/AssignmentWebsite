@@ -142,6 +142,7 @@ function getMostDiscounted(){
 	return $row;
 }
 
+/*
 
 function getAllProducts(){
 	
