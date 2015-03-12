@@ -11,27 +11,13 @@
 		<?php
 		
 		
-		//for ($i = 0; $i < 3; $i++) {  //highest price items code
-			//$row = getNewestItem($i);
-			//$product = new product($row[0], $row[1], $row[2], $row[3]);	
-			
-		$row = getMostDiscounted();
-		$arr_length = count($row);  //most dicounted products code
 		
-		for ($i = 0; $i < $arr_length; $i++) {
 			
-			if ($i == 0){
-				$a = 0; $b = 1; $c = 2; $d = 3; $e = 4; $f = 5 ;
-			}else if ($i == 1){
-				$a = 6; $b = 7; $c = 8; $d = 9; $e = 10; $f = 11 ;
-			}else if ($i == 2){
-				$a = 12; $b = 13; $c = 14; $d = 15; $e = 16; $f = 17 ;
-			}else{
-				break; //this should probably be fixed but could be used to prevent infinite loop
-				
-			}
+		$rows = getMostDiscounted();
+		
+		for ($i = 0; $i < 3; $i++) {  //highest price items code			
+			$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6]);
 			
-			$product = new product($row[$a], $row[$b], $row[$c] , $row[$d], $row[$e], $row[$f]);
 		?>
 		
 			<div class="row">
