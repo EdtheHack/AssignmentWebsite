@@ -61,8 +61,9 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[6
 		
 		$rows = getSimilarItems($product->getId());
 		
-		for ($i = 0; $i < $arr_length; $i++) {
-		
+		for ($i = 0; $i < 3; $i++) {
+			$product = new product($rows[$i][0], $price, $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][6]);
+
 		?>
 	
 			<div class="row">
