@@ -12,6 +12,8 @@
 			$this->name = $name;
 			$this->price = round($price, 2);
 			$this->description = $description;
+			$this->reduced_price = $reduced_price;
+			$this->img = $img;
 		}
 		
 		public function getName(){
