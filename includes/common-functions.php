@@ -88,7 +88,8 @@ function getSimilarItems($itemId){  //NEEDS WORK
 function getSearchItems($searchItem){  //NEEDS WORK
 	$mysqli = connect ();
 	
-		$rows = array();
+		$rowsTitle = array();
+		$rowsDescription = array();
 	
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product" )) {
 		$stmt->execute ();
