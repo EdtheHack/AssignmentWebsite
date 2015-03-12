@@ -8,7 +8,7 @@
 		public function __construct($id, $name, $price, $description){
 			$this->id = $id;
 			$this->name = $name;
-			$this->price = $price;
+			$this->price = round($price, 2);
 			$this->description = $description;
 		}
 		
@@ -17,7 +17,7 @@
 		}
 		
 		public function getPrice(){
-			return $this->round(price, 2);
+			return $this->price;
 		}
 		
 		public function getDescription(){
