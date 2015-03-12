@@ -70,18 +70,12 @@ function getSimilarItems($itemId){  //NEEDS WORK
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
 	   	while($stmt->fetch()) {
-			if (strpos(strtolower($col1), strtolower($searchItem)) !== false) {
-				$rowsTitle[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
-			} else if (strpos(strtolower($col3), strtolower($searchItem)) !== false) {
-				$rowsDescription[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
-			}
+			
     	}
 		$stmt->close ();
 	}
-	
 	$mysqli->close ();
 	
-	$rows = array_merge($rowsTitle, $rowsDescription);
 	return $rows;
 }
 
