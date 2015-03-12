@@ -15,8 +15,8 @@
 			
 		$rows = getMostDiscounted();
 		
-		for ($i = 0; $i < 3; $i++) {  //highest price items code			
-			$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6]);
+		for ($i = 0; $i < 3; $i++) {  //loop through most discounted items			
+			$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5]);
 			
 		?>
 		
