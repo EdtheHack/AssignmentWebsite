@@ -164,7 +164,7 @@ include ("../includes/nav.php");
 					
 					
 					$error = implode("<br>", $error_array);
-					echo "<script> $('#print_errors').bs_alert('$errors', 'ERROR'); </script>";
+					echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>";
 					
 					
 				}
