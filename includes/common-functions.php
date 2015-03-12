@@ -81,6 +81,21 @@ function getSimilarItems($productId){  //NEEDS WORK
 	return $rows;
 }
 
+function getCategory($productId){  //TEMPORARY
+	$mysqli = connect ();
+		
+	if ($stmt = $mysqli->prepare ("SELECT category_id FROM product_categories WHERE product_id=?" )) {
+		$stmt->bind_param ( "s", $productId );
+		$stmt->execute ();
+		$stmt->bind_result ( $col0);
+		$stmt->fetch ();
+		$stmt->close ();
+	}
+	$mysqli->close ();
+	
+	return $col0;
+}
+
 function getSearchItems($searchItem){  //NEEDS WORK
 	$mysqli = connect ();
 	
