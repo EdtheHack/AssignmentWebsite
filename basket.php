@@ -22,3 +22,6 @@ error_reporting ( - 1 );
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
+<?php
+	include ("includes/nav.php");
+?>
