@@ -65,7 +65,8 @@ include ("../includes/nav.php");
 					<div class="form-group">
 							<label for="newProductDiscount">Select discount (optional):</label>
 							<select class="form-control" id="newProductDiscount">
-								<option>5</option>
+								<option>0</option>
+                                <option>5</option>
 								<option>10</option>
 								<option>15</option>
 								<option>20</option>
