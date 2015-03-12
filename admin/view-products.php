@@ -54,24 +54,28 @@ include ("admin-nav.php");
           <tr>
             <th>#</th>
             <th>Product Name</th>
+            <th>Price</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
             <td>Product 1</td>
+            <th>£0.00</th>
             <td>Edit Order</td>
             <td>Delete Order</td>
           </tr>
           <tr>
             <td>2</td>
             <td>Product 2</td>
+            <th>£0.00</th>
             <td>Edit Order</td>
             <td>Delete Order</td>
           </tr>
           <tr>
             <td>3</td>
             <td>Product 3</td>
+            <th>£0.00</th>
             <td>Edit Order</td>
             <td>Delete Order</td>
           </tr>
