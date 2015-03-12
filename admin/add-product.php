@@ -106,7 +106,7 @@ include ("../includes/nav.php");
 
 					<div class="form-group">
 						<label for="productDescription">Description</label>
-						<textarea class="form-control" rows="5" name="newProductDescription"<?php if(!empty($_POST["newProductDescription"])){ echo " value='".$_POST["newProductDescription"]."'"; }?>></textarea>
+						<textarea class="form-control" rows="5" name="newProductDescription"><?php if(!empty($_POST["newProductDescription"])){ echo " value='".$_POST["newProductDescription"]."'"; }?></textarea>
 					</div>
                     
 					<div class="form-group">
