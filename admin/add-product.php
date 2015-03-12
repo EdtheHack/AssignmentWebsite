@@ -100,6 +100,8 @@ include ("../includes/nav.php");
 					<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
 				</form>
 				
+				<div id="print_errors"></div> 
+				
 				<?php 
 				
 				$error_array = array();
@@ -121,7 +123,7 @@ include ("../includes/nav.php");
 							echo $name;
 						}
 					}else{
-						$error_array[] = "Name field cannot be empty";
+						$error_array[] = "Product Name field cannot be empty";
 					}
 					
 					if($price != null){
@@ -131,7 +133,7 @@ include ("../includes/nav.php");
 							echo $price;
 						}
 					}else{
-						$error_array[] = "Name field cannot be empty";
+						$error_array[] = "Price field cannot be empty";
 					}
 					
 					if(sanitiseSelection($discount) != 1){
@@ -148,23 +150,23 @@ include ("../includes/nav.php");
 							echo $description;
 						}
 					}else{
-						$error_array[] = "Name field cannot be empty";
+						$error_array[] = "product description field cannot be empty";
 					}
 					
 
 					if($list == 'list'){
+						$list == true;
 						echo "checked";
 					}else{
+						$list == false;
 						echo "not checked ";
 					}
 					
 					
-					
-					
-					
-					
 					$error = implode("<br>", $error_array);
-					echo $error;
+					echo "<script> $('#print_errors').bs_alert('$errors', 'ERROR'); </script>";
+					
+					
 				}
 			
 				
@@ -173,5 +175,23 @@ include ("../includes/nav.php");
 			</div>
 		</div>
 	</div>
+											 
+<script type="text/javascript"> //needs reference here please 
+                (function($){
+                    $.fn.extend({
+                        bs_alert: function(message, title){
+                            var cls='alert-danger';
+                            var html='<div class="alert '+cls+' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+                            if(typeof title!=='undefined' &&  title!==''){
+                             html+='<h4>'+title+'</h4>';
+                      }
+                     html+='<span>'+message+'</span></div>';
+                     $(this).html(html);
+                  }
+              });
+          })(jQuery);
+
+ </script>      
+	
 </body>
 </html>
