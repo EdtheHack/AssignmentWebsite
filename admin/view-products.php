@@ -62,7 +62,7 @@ include ("admin-nav.php");
             <td>Product 1</td>
             <th>£0.00</th>
             <td>Edit Product</td>
-            <td>Delete Product</td>
+            <td data-toggle="modal" data-target="#myModal">Delete Product</td>
           </tr>
           <tr>
             <td>2</td>
@@ -83,5 +83,25 @@ include ("admin-nav.php");
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
