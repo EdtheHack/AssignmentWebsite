@@ -66,7 +66,7 @@ function getSimilarItems($productId){  //NEEDS WORK
 	
 		$rows = array();
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product LEFT JOIN product_categories ON product_categories.product_id = product.product_id   
+	if ($stmt = $mysqli->prepare ("SELECT product.* FROM product INNER JOIN product_categories ON product.product_id = product_categories.product_id   
 									WHERE product_categories.category_id = (SELECT category_id FROM product_categories WHERE product_id=?) LIMIT 3" )) {
 		$stmt->bind_param ( "s", $productId );
 		$stmt->execute ();
