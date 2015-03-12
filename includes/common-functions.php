@@ -112,7 +112,7 @@ function getSearchItems($searchItem){  //NEEDS WORK
 function getMostDiscounted(){
 	$mysqli = connect ();
 	
-	$rows = array()
+	$rows = array();
 	
 	if ($stmt = $mysqli->prepare ("SELECT product_id, name, price, description, percentage_off, img FROM product ORDER BY percentage_off ASC")){ //get the most discounted
 		$stmt->execute ();
