@@ -3,7 +3,7 @@
     <ul class="nav nav-sidebar nav-pills nav-stacked">
       <li><a href="index.php">Admin Home</a></li>
       <li><a href="view-orders.php">View All Orders</a></li>
-      <li><a href="#">Add New Product</a></li>
+      <li><a href="add-product.php">Add New Product</a></li>
       <li><a href="#">Edit Existing Product</a></li>
       <li><a href="#">Remove Product</a></li>
       <li><a href="#">Edit Customer Account Details</a></li>
