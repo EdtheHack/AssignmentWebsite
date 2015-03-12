@@ -15,8 +15,8 @@
 		for ($i = 0; $i < 3; $i++) {  //loop through most discounted items	
 
 			if($rows[$i][5] == 3){
-				$percent = $row[$i][4];
-				$price = $row[$i][1];
+				$percent = $rows[$i][4];
+				$price = $rows[$i][1];
 				
 				$price = $percent * $price - $price; 
 			}else{
