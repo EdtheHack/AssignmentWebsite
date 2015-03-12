@@ -24,7 +24,7 @@ error_reporting ( - 1 );
 
 		$rows = getSearchItems($_POST['searchItem']);
 		foreach ($rows as $row) {
-			$product = new product($row[0], $row[1], $row[2], $row[3]);				
+			$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[6]);
 	?>
 	
 	<div class="container">
