@@ -104,7 +104,7 @@ include ("../includes/nav.php");
 										
 					$name = $_POST['newProductName'];
 					if(sanitiseString($name, $name, 1, 100) == 1){
-						echo name;
+						echo $name;
 					}
 					
 				}
