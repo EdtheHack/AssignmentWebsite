@@ -8,7 +8,7 @@ include ("includes/product.php");
 include ("includes/common-functions.php");
 
 $row = getItem ( $_POST ['itemId'] );
-$product = new product ( $row [0], $row [1], $row [2], $row [3] );
+$product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5] );
 
 // $product = unserialize($_POST['product']);
 ?>
@@ -39,7 +39,7 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3] );
 			<div class="row">
 				<br>
 				<div class="col-md-6">
-					<img src="http://placehold.it/500x400" alt="">
+					<img src="img/<?php echo $product->getImg(); ?>" alt="">
 				</div>
 
 				<div class="col-md-6">
