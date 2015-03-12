@@ -7,7 +7,7 @@ function sanitiseString ($string, $field, $min, $max){
 	if (preg_match( '/^[A-Z 0-9 \'!@#$%&*_]{'.$min.','.$max.'}$/i', $string)) {
 		//return $string;
 		echo "SUCEEESSSSSSS";
-		return $string;
+		return 1;
 	} else {
 		echo "<div class=\"alert alert-danger\">
 				<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>

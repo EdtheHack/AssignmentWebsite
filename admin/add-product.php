@@ -86,7 +86,7 @@ include ("../includes/nav.php");
 					</div>
                     
 					<div class="form-group">
-						<label for="newProductImage">Product Imaget</label> <input
+						<label for="newProductImage">Product Image</label> <input
 							type="file" id="newProductImage">
 						<p class="help-block">Please upload an image of the product here.</p>
 					</div>
@@ -101,12 +101,11 @@ include ("../includes/nav.php");
 				<?php 
 				
 				if(isset($_POST['newProduct'])){
-					
-					echo "echo me something please";
-					
+										
 					$name = $_POST['newProductName'];
-					$name = sanitiseString($name, $name, 1, 100);
-					echo name;
+					if(sanitiseString($name, $name, 1, 100) = 1){
+						echo name;
+					}
 					
 				}
 			
