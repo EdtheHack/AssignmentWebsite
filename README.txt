@@ -8,6 +8,6 @@
 	STATUS CODES
 ====================
 
-0 -> normal lised product (default)
-1 -> listed as a sale item 
+0 -> normal listed product (default)
+1 -> listed and is a sale item 
 2 -> not listed 
