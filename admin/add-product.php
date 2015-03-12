@@ -68,7 +68,7 @@ include ("../includes/nav.php");
 
 					<div class="form-group">
 							<label for="newProductDiscount">Select discount (optional):</label>
-							<select class="form-control" id="newProductDiscount">
+							<select class="form-control" name="newProductDiscount" >
 								<option>0</option>
                                 <option>5</option>
 								<option>10</option>
@@ -108,6 +108,9 @@ include ("../includes/nav.php");
 										
 					$name = $_POST['newProductName'];
 					$price = $_POST['newProductPrice'];
+					$discount = $_POST['newProductDiscount'];
+					
+					echo $discount;
 					
 					if($name != null){
 						if(sanitiseString($name, 1, 100) != 1){  //not cleared
@@ -128,6 +131,10 @@ include ("../includes/nav.php");
 					}else{
 						$error_array[] = "Name field cannot be empty";
 					}
+					
+					
+					
+					
 					
 					$error = implode("<br>", $error_array);
 					echo $error;
