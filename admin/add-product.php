@@ -162,10 +162,13 @@ include ("../includes/nav.php");
 						echo "not checked ";
 					}
 					
-					
-					$error = implode("<br>", $error_array);
-					echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>";
-					
+					if(!(empty($error_array))){
+						$error = implode("<br>", $error_array);
+						echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>";
+						die; //wrong input, do not proceed
+					}else{
+						echo"enetered correctly";
+					}
 					
 				}
 			
