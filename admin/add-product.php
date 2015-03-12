@@ -68,7 +68,7 @@ include ("../includes/nav.php");
 
 					<div class="form-group">
 							<label for="newProductDiscount">Select discount (optional):</label>
-							<select class="form-control" name="newProductDiscount" >
+							<select class="form-control" name="newProductDiscount"  <?php if(!empty($_POST["newProductDiscount"])){ echo " value='".$_POST["newProductDiscount"]."'"; }?>>
 								<option>0</option>
                                 <option>5</option>
 								<option>10</option>
@@ -84,7 +84,7 @@ include ("../includes/nav.php");
 
 					<div class="form-group">
 						<label for="productDescription">Description</label>
-						<textarea class="form-control" rows="5" id="newProductDescription"></textarea>
+						<textarea class="form-control" rows="5" name="newProductDescription"></textarea>
 					</div>
                     
 					<div class="form-group">
@@ -94,7 +94,7 @@ include ("../includes/nav.php");
 					</div>
 
 					<div class="checkbox">
-						<label> <input type="checkbox"> List product immediately
+						<label> <input type="checkbox" name="newProductList" value="list"> List product immediately
 						</label>
 					</div>
 					<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
@@ -109,8 +109,10 @@ include ("../includes/nav.php");
 					$name = $_POST['newProductName'];
 					$price = $_POST['newProductPrice'];
 					$discount = $_POST['newProductDiscount'];
+					$description = $_POST['newProductDescription'];
+					$list = $_POST['newProductList'];
 					
-					echo $discount;
+					
 					
 					if($name != null){
 						if(sanitiseString($name, 1, 100) != 1){  //not cleared
@@ -131,6 +133,31 @@ include ("../includes/nav.php");
 					}else{
 						$error_array[] = "Name field cannot be empty";
 					}
+					
+					if(sanitiseSelection($discount) != 1){
+						$error_array[] = "You shouldn't be doing this";
+					}else{
+						echo $discount;
+					}
+					
+					
+					if($description != null){
+						if(sanitiseString($description, 20, 1500) != 1){  //not cleared
+							$error_array[] = "Name field has illegial chars or is too short/long, the description must be between 20 and 1500 chars";
+						}else{
+							echo $description;
+						}
+					}else{
+						$error_array[] = "Name field cannot be empty";
+					}
+					
+
+					if($list == 'list'){
+						echo "checked";
+					}else{
+						echo "not checked ";
+					}
+					
 					
 					
 					
