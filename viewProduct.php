@@ -59,6 +59,8 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5
 		
 		<?php
 		
+		$rows = getSimilarItems($product->getId());
+		
 		for ($i = 0; $i < $arr_length; $i++) {
 		
 		?>

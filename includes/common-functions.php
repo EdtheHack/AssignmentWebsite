@@ -61,7 +61,7 @@ function getItem($productId){
 	return $row;
 }
 
-function getSimilarItems($searchItem){  //NEEDS WORK
+function getSimilarItems($itemId){  //NEEDS WORK
 	$mysqli = connect ();
 	
 		$rows = array();
