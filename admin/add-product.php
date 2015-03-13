@@ -82,7 +82,7 @@ include ("../includes/nav.php");
 						<label for="newProductImage">Product Image</label> 
 						<input type="file" name="photo">
 						<p class="help-block">Please upload an image of the product here.</p>
-						<button type="submit" name="uploadPhoto" class="btn btn-default">Upload Image</button>
+						<button type="submit" name="newProduct" class="btn btn-default">Upload Image</button>
 					</div>
 				</form>
 	

@@ -65,16 +65,17 @@ if(isset($_POST['newProduct'])){
 	 	addToDB($name, $price, $description, $discount, $status, $img); //everything was fine so carry on and add product
 	}
 	
+	if(isset($_FILES['photo'])){
+		uploadPhoto();
+	}else{
+		echo "no image selected";
+	}
 	
 	
 	}
 	
 	if(isset($_POST['uploadPhoto'])){
-		if(isset($_FILES['photo'])){
-			uploadPhoto();
-		}else{
-			echo "no image selected";
-		}
+	
 	}
 	
 	function productStatus($list, $discount){
