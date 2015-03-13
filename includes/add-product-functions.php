@@ -61,7 +61,7 @@ if(isset($_POST['newProduct'])){
 		$output = uploadPhoto();
 		
 		if(is_array($output)){
-			array_push($error_array, $output);
+			$error_array = array_merge($error_array, $output);
 			$img = ""; //just to clear intilisation messages 
 			echo "i have an array";
 		}else{
