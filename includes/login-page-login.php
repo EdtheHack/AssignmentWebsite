@@ -18,7 +18,7 @@ if(isset($_POST['attemptLogin'])){
 			}
 
 			
-			$user = new user($_SESSION["userID"], $_SESSION["firstName"], getCurrentUserOrderId($_SESSION["userID"]), $_SESSION["admin"])
+			$user = new user($_SESSION["userID"], $_SESSION["firstName"], getCurrentUserOrderId($_SESSION["userID"]), $_SESSION["admin"]);
 			$_SESSION['user'] = serialize($user);
 			$_SESSION["loggedIn"] = true;
 			
@@ -27,7 +27,7 @@ if(isset($_POST['attemptLogin'])){
 			if (getCurrentUserOrderId($user->getId()) == null){
 				addNewUserOrder($user->getId());
 			}
-			$order = new order(getCurrentUserOrderId($_SESSION["userID"]), getCurrentOrderProducts(getCurrentUserOrderId($user->getId())), 0)
+			$order = new order(getCurrentUserOrderId($_SESSION["userID"]), getCurrentOrderProducts(getCurrentUserOrderId($user->getId())), 0);
 			$_SESSION['order'] = serialize();
 			
 			if ($_SESSION['suggestReset'] == true){
