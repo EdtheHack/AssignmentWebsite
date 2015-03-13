@@ -102,13 +102,10 @@ include ("../includes/nav.php");
 					</div>
 
 					<div class="form-group">
-<<<<<<< HEAD
-							<label for="newProductDiscount">Select discount:</label>
-							<select class="form-control" id="newProductDiscount">
-=======
+
 							<label for="newProductDiscount">Select discount (optional):</label>
 							<select class="form-control" name="newProductDiscount"  <?php if(!empty($_POST["newProductDiscount"])){ echo " value='".$_POST["newProductDiscount"]."'"; }?>>
->>>>>>> origin/master
+
 								<option>0</option>
                                 <option>5</option>
 								<option>10</option>
