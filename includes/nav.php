@@ -29,8 +29,8 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 				<li class="active"><a href="index.php"><i class="fa fa-home"></i> Home </a></li>
 				<li><a href="#"> Products </a></li>
 			</ul>
-			<form method="POST" action="" class="navbar-form navbar-left">
-				<input type="text" name="search" class="form-control" placeholder="Search" <?php if(!empty($_POST["search"])){ echo " value='".$_POST["search"]."'"; }?>>
+			<form method="POST" action="searchProducts.php?currentPage=1" class="navbar-form navbar-left">
+				<input type="text" name="searchItem" class="form-control" placeholder="Search" <?php if(!empty($_SESSION["searchItem"])){ echo " value='".$_SESSION["searchItem"]."'"; }?>>
 				<button type="submit" class="btn btn-default">
 					<i class="fa fa-search"></i>
 				</button>
@@ -69,10 +69,6 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 					}else{
 						echo"<li><a href=\"login-page.php\"><i class=\"fa fa-sign-in\"></i> <b> Login </b></a></li>"; //if a user is not logged in show the login button
 						
-					}
-					
-					if(isset($_GET['search'])){
-							echo "<script type=\"text/javascript\">document.location.href=\"searchProducts.php?currentPage=1\";</script>"; //dirty stinking refresh 
 					}
 					
 					?>

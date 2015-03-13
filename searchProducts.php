@@ -26,7 +26,7 @@ echo $_SESSION['searchItem'];
 		include ("includes/nav.php");
 		
 		$currentPage = $_GET['currentPage'];
-		$rows = getSearchItems($_POST['searchItem'], (($currentPage-1)*5));
+		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
 		$pages = ceil(count($rows)/5);  //rounds up
 		foreach ($rows as $row) {
 			$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[6]);
