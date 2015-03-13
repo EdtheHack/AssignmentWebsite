@@ -54,7 +54,12 @@ if(isset($_POST['newProduct'])){
 		$list = false;#default value
 	}
 		
-
+	if(isset($_FILES['photo'])){
+		uploadPhoto();
+	}else{
+		$error_array[] = "Product image must be uploaded";
+	}
+	
 	if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
 		$error = implode("<br>", $error_array);
 		echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
@@ -64,7 +69,9 @@ if(isset($_POST['newProduct'])){
 		$img = "test icles";
 	 	addToDB($name, $price, $description, $discount, $status, $img); //everything was fine so carry on and add product
 	}
-		
+	
+	
+	
 	}
 		
 
@@ -88,21 +95,41 @@ if(isset($_POST['newProduct'])){
 		
 		$mysqli = $db_con;
 		
-			$stmt = $mysqli->prepare ( "INSERT INTO product (name, price, description, percentage_off, status, img) VALUES (?, ?, ?, ?, ?, ?)" );
-			$stmt->bind_param ("sisiis", $name, $price, $description, $discount, $status, $img);
+		$stmt = $mysqli->prepare ( "INSERT INTO product (name, price, description, percentage_off, status, img) VALUES (?, ?, ?, ?, ?, ?)" );
+		$stmt->bind_param ("sisiis", $name, $price, $description, $discount, $status, $img);
 			
-			if ($stmt === false) {
-				trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
-			}
-				
-			if($stmt->execute ()){
-			    print 'Success! ID of last inserted record is : ' .$statement->insert_id .'<br />';
-			}else{
-			    die('Error : ('. $mysqli->errno .') '. $mysqli->error);
-			}
-			$stmt->close ();
-		
-		
+		if ($stmt === false) {
+			trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+		}
+			
+		if(!($stmt->execute ())){
+		   die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+		}
+		$stmt->close ();
 		$mysqli->close ();
+	}
+	
+	function uploadPhoto (){
+		
+		$errors= array();
+		$file_name = $_FILES['photo']['name'];
+		$file_size =$_FILES['photo']['size'];
+		$file_tmp =$_FILES['photo']['tmp_name'];
+		$file_type=$_FILES['photo']['type'];
+		$file_ext=strtolower(end(explode('.',$_FILES['photo']['name'])));
+		$extensions = array("jpeg","jpg","png");
+		if(in_array($file_ext,$extensions )=== false){
+			$errors[]="extension not allowed, please choose a JPEG or PNG file.";
+		}
+		if($file_size > 2097152){
+			$errors[]='File size must be excately 2 MB';
+			}
+		if(empty($errors)==true){
+			move_uploaded_file($file_tmp,"img/".$file_name);
+			echo "Success";
+		}else{
+			print_r($errors);
+		}
+				
 	}
 ?>
