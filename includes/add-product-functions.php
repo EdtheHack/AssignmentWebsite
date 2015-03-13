@@ -55,7 +55,14 @@ if(isset($_POST['newProduct'])){
 	}
 		
 	if(isset($_FILES['photo'])){
-		$img = uploadPhoto();
+		$output = uploadPhoto();
+		
+		if(is_array($output)){
+			array_push($error_arry, $output);
+			echo "i have an array";
+		}else{
+			$output = $img;
+		}
 	}else{
 		$error_array[] = "No image selected";
 	}
@@ -66,7 +73,7 @@ if(isset($_POST['newProduct'])){
 		die; //wrong input, do not proceed
 	}else{
 		$status = productStatus($list, $discount);	
-		$img = "test icles";
+		//$img = "test icles";
 	 	addToDB($name, $price, $description, $discount, $status, $img); //everything was fine so carry on and add product
 	}
 	
@@ -134,14 +141,14 @@ if(isset($_POST['newProduct'])){
 					return $dest_file;
 				} else {
 					$errors[]='File size must be 2 MB or less';
+					return $errors;
 				}
 			} else { 
 				$errors[]='File size must be 2 MB or less';
+				return $errors;
 			}
 		}else{
-			$error = implode("<br>", $errors);
-			echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
-			die; //wrong input, do not proceed
+			return $errors; 
 		}
 	}
 ?>
