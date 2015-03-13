@@ -86,13 +86,16 @@ if(isset($_POST['newProduct'])){
 		
 		$mysqli = $db_con;
 		
-		
-		
-		if ($stmt = $mysqli->prepare ( "INSERT INTO product (name, price, description, percentage_off, status, img) VALUES (?,?,?,?,?,?)" )) {
+			$stmt = $mysqli->prepare ( "INSERT INTO product (name, price, description, percentage_off, status, img) VALUES (?, ?, ?, ?, ?, ?)" );
 			$stmt->bind_param ( "sisiis", $name, $price, $description, $discount, $status, $img);
+			
+			if ($stmt === false) {
+				trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+			}
+				
 			$stmt->execute ();
 			$stmt->close ();
-		}
+		
 		
 		$mysqli->close ();
 	}
