@@ -163,7 +163,7 @@ function addNewUserOrder($userId){
 		$mysqli = connect ();
 		
 		$stmt = $mysqli->prepare ("INSERT INTO order (user_id, confirmed) VALUES (?, 0)" );
-		$stmt->bind_param ("s", $userId);
+		$stmt->bind_param ("i", $userId);
 			
 		if ($stmt === false) {
 			trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
