@@ -87,7 +87,7 @@ include ("../includes/nav.php");
 				</form>-->
 	
     			
-				<form method="POST" action="">
+				<form method="POST" action="" enctype="multipart/form-data">
 					<div class="form-group">
 							<label for="newProductName">Product Name</label> <input
 								type="text" class="form-control" name="newProductName"
