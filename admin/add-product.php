@@ -1,7 +1,7 @@
 <?php
 session_start ();
 
-include ("../includes/sanitation.php");
+//include ("../includes/sanitation.php");
 
 
 /*
