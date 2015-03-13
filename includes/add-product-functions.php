@@ -57,20 +57,6 @@ if(isset($_POST['newProduct'])){
 		}
 	}
 		
-	if(isset($_FILES['photo'])){
-		$output = uploadPhoto();
-		
-		if(is_array($output)){
-			$error_array = array_merge($error_array, $output);
-			$img = ""; //just to clear intilisation messages 
-			echo "i have an array";
-		}else{
-			$img = $output;
-		}
-	}else{
-		$error_array[] = "No image selected";
-	}
-	
 	if(isset($_POST['newProductList'])){
 		$list = $_POST['newProductList'];
 		$list = true;
@@ -204,9 +190,9 @@ if(isset($_POST['newProduct'])){
 			$errors[]="extension not allowed, please choose a JPEG or PNG file.";
 		}
 		
-		//if($file_size > 10000000){
-			//$errors[]='File size must be 2 MB or less';
-		//}
+		if($file_size > 10000000){
+			$errors[]='File size must be 2 MB or less';
+		}
 		
 		if(empty($errors)){
 			if (is_uploaded_file($_FILES['photo']['tmp_name'])) {
