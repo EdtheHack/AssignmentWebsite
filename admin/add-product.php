@@ -77,14 +77,14 @@ include ("../includes/nav.php");
     			
     			
     									
-				<form action="" method="POST" enctype="multipart/form-data">
+				<!-- <form action="" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="newProductImage">Product Image</label> 
 						<input type="file" name="photo">
 						<p class="help-block">Please upload an image of the product here.</p>
 						<button type="submit" name="newProduct" class="btn btn-default">Upload Image</button>
 					</div>
-				</form>
+				</form>-->
 	
     			
 				<form method="POST" action="">
@@ -124,7 +124,14 @@ include ("../includes/nav.php");
 						<textarea class="form-control" rows="5" name="newProductDescription"><?php if(!empty($_POST["newProductDescription"])){ echo "".$_POST["newProductDescription"].""; }?></textarea>
 					</div>
                     
-                    
+                    <div class="form-group">
+						<label for="newProductImage">Product Image</label> 
+						<input type="file" name="photo">
+						<p class="help-block">Please upload an image of the product here.</p>
+						<button type="submit" name="newProduct" class="btn btn-default">Upload Image</button>
+					</div>
+					
+					
 						<div class="checkbox">
 							<label> <input type="checkbox" name="newProductList" value="true"> List product immediately
 							</label>
