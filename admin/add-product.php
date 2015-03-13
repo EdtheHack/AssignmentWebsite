@@ -109,17 +109,19 @@ include ("../includes/nav.php");
 						<textarea class="form-control" rows="5" name="newProductDescription"><?php if(!empty($_POST["newProductDescription"])){ echo "".$_POST["newProductDescription"].""; }?></textarea>
 					</div>
                     
-					<div class="form-group">
-						<label for="newProductImage">Product Image</label> <input
-							type="file" id="newProductImage">
-						<p class="help-block">Please upload an image of the product here.</p>
-					</div>
-
-					<div class="checkbox">
-						<label> <input type="checkbox" name="newProductList" value="true"> List product immediately
-						</label>
-					</div>
-					<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
+                    <form action="../includes/upload.php" method="POST" enctype="multipart/form-data">
+						<div class="form-group">
+							<label for="newProductImage">Product Image</label> <input
+								type="file" name="photo" value="1000000">
+							<p class="help-block">Please upload an image of the product here.</p>
+						</div>
+	
+						<div class="checkbox">
+							<label> <input type="checkbox" name="newProductList" value="true"> List product immediately
+							</label>
+						</div>
+						<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
+					</form>
 				</form>
 				
 				
