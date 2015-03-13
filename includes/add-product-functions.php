@@ -56,6 +56,7 @@ if(isset($_POST['newProduct'])){
 		// Loop to store and display values of individual checked checkbox.
 		foreach($_POST['categories'] as $selected){
 			echo $selected."</br>";
+		}
 	}
 		
 	if(isset($_FILES['photo'])){
