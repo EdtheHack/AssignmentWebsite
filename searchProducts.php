@@ -36,7 +36,6 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	
 		<div class="well">
 			<div class="row">
-				<br>
 				<div class="col-md-6">
 					<img src="http://placehold.it/320x150" alt="">
 				</div>
@@ -55,7 +54,6 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 						<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
 					</form>
 				</div>
-				<br>
 				<br>
 			</div>
 		</div>
