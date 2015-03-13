@@ -60,14 +60,14 @@ if(isset($_POST['newProduct'])){
 		echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
 		die; //wrong input, do not proceed
 	}else{
-		productStatus();	
-	 addToDB(); //everything was fine so carry on and add product
+		$status = productStatus($list);	
+	 	addToDB($name, $price, $description, $discount, $status, $img); //everything was fine so carry on and add product
 	}
 		
 	}
 		
 
-	function productStatus(){
+	function productStatus($list){
 		
 		if($list == false){  //product not listed
 			$status = 2;
@@ -80,7 +80,7 @@ if(isset($_POST['newProduct'])){
 		}
 	}
 	
-	function addToDB(){
+	function addToDB($name, $price, $description, $discount, $status, $img){
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 		
 		$mysqli = $db_con;
