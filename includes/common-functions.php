@@ -87,7 +87,7 @@ function getAllSearchItems($searchItem){  //NEEDS WORK
 		$rows = array();
 		$searchItem = '%'.$searchItem.'%';
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) OR (description) LIKE UPPER (?)")) {
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) OR UPPER (description) LIKE UPPER (?)")) {
 		$stmt->bind_param ("s", $searchItem);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
@@ -108,7 +108,7 @@ function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
 		$rows = array();
 		$searchItem = '%'.$searchItem.'%';
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) OR (description) LIKE UPPER (?) LIMIT ?, 5")) {
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) OR UPPER (description) LIKE UPPER (?) LIMIT ?, 5")) {
 		$stmt->bind_param ("ss", $searchItem, $pageIndex);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
