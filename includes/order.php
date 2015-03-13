@@ -1,28 +1,26 @@
 <?php	
 	class order{	   //Order object
 		private $id;
-		private $products;
+		private $products = array();
 		private $confirmed;
-		private $total;
 		
-		public function __construct($id, $products, $confirmed, $total){
+		public function __construct($id, $products, $confirmed){
+		
 			$this->id = $id;
-			$this->products = $products;
+			for ($i = 0; $i < count($products); $i++) {
+				$this->products[$i] = new product($products[$i][0], $products[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][6]);
+			}
 			$this->confirmed =$confirmed;
-			$this->total = $total;			
 		}
 		
-		public function getProduct($productId){
-			return $this->products[$productId];
+		public function getProducts(){
+			return $this->products;
 		}
 		
 		public function addProduct($userId, $productId){
 			return $this->products[$productId];
 		}
 		
-		public function getTotal(){
-			return $this->total;
-		}
 		
 		public function getConfirmed(){
 			return $this->confirmed;

@@ -30,31 +30,47 @@ error_reporting ( - 1 );
 	
 	 if(isset($_SESSION["user"])){  //checks if user is logged in
 		$user = unserialize($_SESSION["user"]);
+		$order = unserialize($_SESSION["order"]);
 		if(isset($_SESSION["product"])){   //checks if user came here from a product page
 			$addProduct = unserialize($_SESSION["product"]);
-			insertProductIntoUserOrder($user->getCurrentOrderId(), $addProduct->getId(), 1);
+			addProduct($order->getId(), $addProduct->getId(), 1);
 		}
 	} else {
 		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
 	}
+	
+	foreach ($order->getProducts() as $product) {
 ?>
 
-<div class="container">
-	<div class="well">
-		<div class="row">
-			<div class="col-md-4">
-				<div class="thumbnail"> 
+		<div class="well">
+			<div class="row">
+				<div class="col-md-6">
 					<img src="http://placehold.it/320x150" alt="">
 				</div>
 				<div class="col-md-6">
-					<h3>Product Name</h3> <br>
-					<p>Product Description.....</p>
+					<h4 class="pull-right"><?php echo $product->getPrice(); ?></h4>
+					<h4>
+						<a href="#"><?php echo $product->getName(); ?></a>
+					</h4>
+					<p> <?php echo $product->getDescription(); ?></p>
+				
+					<div class="col-md-6">
+						<form method="POST" action="viewProduct.php">
+							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
+						</form>
+					</div>
+					<div class="col-md-6">
+						<form method="POST" action="viewProduct.php">  
+							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
+						</form>
+					</div>
 				</div>
+				<br>
 			</div>
 		</div>
-	</div>
-</div>
-
+		<?php
+		}
+		?>
 
 </body>
 </html>

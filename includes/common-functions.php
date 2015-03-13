@@ -154,15 +154,52 @@ function getCurrentUserOrderId($userId){
 	return $result;
 }
 
-function insertProductIntoUserOrder($orderId, $productId, $quantity){
+function addNewUserOrder($userId){
+		$mysqli = connect ();
+		
+		$stmt = $mysqli->prepare ("INSERT INTO order (user_id, confirmed) VALUES (?, 0)" );
+		$stmt->bind_param ("s", $userId);
+			
+		if ($stmt === false) {
+			trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+		}
+			
+		if(!($stmt->execute ())){
+		   die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+		}
+		$stmt->close ();
+		$mysqli->close ();
+}
+	
+function getCurrentOrderProducts($orderId){
 	$mysqli = connect ();
 	
 	$rows = array();
 	
-	//if exists(orderId/productId) then add the quantities together and dont do next query
+	if ($stmt = $mysqli->prepare ("SELECT product.* FROM product INNER JOIN order_products ON product.product_id = order_products.product_id   
+									WHERE order_products.order_id=?" )){ 
+		$stmt->bind_param ("i", $orderId);
+		$stmt->execute();
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
+	   	while($stmt->fetch()) {
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
+    	}
+		$stmt->close ();
+	}
+	$mysqli->close ();
+	
+	return $rows;
+}
+
+function addProduct($orderId, $productId, $quantity){
+	$mysqli = connect ();
+	
+	$rows = array();
+	
+	//if exists(orderId/productId) then add the quantities together and dont do next query TODO
 	
 	if ($stmt = $mysqli->prepare ("INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){ 
-		$stmt->bind_param ("sss", $orderId, $productId, $quantity);
+		$stmt->bind_param ("ssi", $orderId, $productId, $quantity);
 		$stmt->execute ();
 
 		$stmt->close ();
