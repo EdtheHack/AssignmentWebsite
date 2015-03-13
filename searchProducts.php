@@ -28,7 +28,6 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	<?php		
 		$currentPage = $_GET['currentPage'];
 		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
-		echo getAllSearchItems($_SESSION['searchItem']);
 		$pages = ceil((getAllSearchItems($_SESSION['searchItem']))/5);  //rounds up
 		foreach ($rows as $row) {
 			$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[6]);
@@ -46,13 +45,16 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 					</h4>
 					<p> <?php echo $product->getDescription(); ?></p>
 				
-					<form method="POST" action="viewProduct.php">
-						<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
-					</form>
-					
-					<form method="POST" action="viewProduct.php">  
-						<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
-					</form>
+					<div class="col-md-6">
+						<form method="POST" action="viewProduct.php">
+							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
+						</form>
+					</div>
+					<div class="col-md-6">
+						<form method="POST" action="viewProduct.php">  
+							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
+						</form>
+					</div>
 				</div>
 				<br>
 			</div>
