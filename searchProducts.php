@@ -21,10 +21,11 @@ $_SESSION['searchItem'] = $_POST['searchItem'];
 	</head>
 <body>
 	
-	<div class="container">
 	<?php
 		include ("includes/nav.php");
-		
+	?>
+	<div class="container">
+	<?php		
 		$currentPage = $_GET['currentPage'];
 		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
 		$pages = ceil(count($rows)/5);  //rounds up
@@ -73,7 +74,9 @@ $_SESSION['searchItem'] = $_POST['searchItem'];
 		<ul class="pagination">
 			<li><a href="#">&laquo;</a></li>
 			<?php 
-			echo " <li><a href='{$_SERVER['PHP_SELF']}?currentpage=$currentPage'>$currentPage</a> </li>"; 
+				for ($i = 1; $i < $rows; $i++) {
+					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentpage=$currentPage'>$currentPage</a> </li>"; 
+				}
 			?>
 			<li><a href="#">&raquo;</a></li>
 		</ul>
