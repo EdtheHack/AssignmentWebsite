@@ -56,11 +56,11 @@ error_reporting ( - 1 );
 			</div>
 			<ul class="pagination">
 				<li><a href="#">&laquo;</a></li>
-				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentPage=$currentPage?>"><?php echo $currentPage;?></a></li>
-				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentPage=$currentPage?>"><?php echo $currentPage;?></a></li>
-				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentPage=$currentPage?>"><?php echo $currentPage;?></a></li>
-				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentPage=$currentPage?>"><?php echo $currentPage;?></a></li>
-				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentPage=$currentPage?>"><?php echo $currentPage;?></a></li>
+				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentPage=$currentPage;?>"><?php echo $currentPage;?></a></li>
+				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentPage=$currentPage;?>"><?php echo $currentPage;?></a></li>
+				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentPage=$currentPage;?>"><?php echo $currentPage;?></a></li>
+				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentPage=$currentPage;?>"><?php echo $currentPage;?></a></li>
+				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentPage=$currentPage;?>"><?php echo $currentPage;?></a></li>
 				<li><a href="#">&raquo;</a></li>
 			</ul>
 		</div>
