@@ -87,7 +87,7 @@ function getAllSearchItems($searchItem){  //NEEDS WORK
 		$rows = array();
 		$searchItem = '%'.$searchItem.'%';
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) OR UPPER (description) LIKE UPPER (?)")) {
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE (name) OR (description) LIKE(?);")) {
 		$stmt->bind_param ("s", $searchItem);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
