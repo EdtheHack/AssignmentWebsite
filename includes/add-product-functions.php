@@ -114,7 +114,7 @@ if(isset($_POST['newProduct'])){
 	function uploadPhoto (){
 		$errors= array();
 		
-		$dest = "assignment2/img/";
+		$dest = "../img/";
 		$dest_file = $dest.basename($_FILES['photo']['name']);
 		$file_size = $_FILES['photo']['size'];
 		
