@@ -131,6 +131,7 @@ include ("../includes/nav.php");
 						<div class="table-responsive">          
      					 <table class="table">
      					 	 <tbody>
+     					 	 <tr>
 									<?php
 										include ($_SERVER ['DOCUMENT_ROOT'] . '/dbconn.php');
 																				
@@ -142,18 +143,15 @@ include ("../includes/nav.php");
 											while($stmt->fetch()){
 												
 												if ($tr_count == 4){
+													echo '</tr>';
 													echo '<tr>';
+													$tr_count = 0;
 												}
 												
 												echo ' <td><div class="checkbox"><label>'.$category_name.' <input type="checkbox" name="admin[]" value="'.$id.'"/></label></div</td>'."";
 												
-												if ($tr_count == 4){
-													echo '</tr>';
-													$tr_count = 0;
-												}else{
-													$tr_count++;
-												}
-												
+												$tr_count++;
+
 												$id++;
 											}
 											$stmt->close ();
