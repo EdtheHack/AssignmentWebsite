@@ -63,7 +63,7 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[6
 			<?php
 			$rows = getSimilarItems($product->getId());
 			
-			for ($i = 0; $i < 3; $i++) {
+			for ($i = 0; $i < count(rows); $i++) {
 				$similarProduct = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][6]);
 			?>
 					
@@ -73,7 +73,7 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[6
 								<h3><?php echo $similarProduct->getName(); ?></h3>
 								<p><?php echo $similarProduct->getDescription(); ?></p>
 							</div>
-							<form method="POST" action="viewProduct.php">
+							<form method="POST" action="basket.php">
 								<button type="submit" name='itemId' value='<?php echo $similarProduct->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
 							</form>
 						</div>
