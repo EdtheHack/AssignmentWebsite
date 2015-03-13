@@ -121,11 +121,11 @@ if(isset($_POST['newProduct'])){
 		   die('Error : ('. $mysqli->errno .') '. $mysqli->error);
 		}
 		
-		addProductCategories(mysqli_insert_id($mysqli), $categories);
-		
+		$product_id = mysqli_insert_id($mysqli); 
+		echo $product_id; 
 		$stmt->close ();
 		$mysqli->close ();
-		
+		addProductCategories($product_id, $categories);
 		
 	}
 	
