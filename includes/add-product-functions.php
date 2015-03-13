@@ -54,6 +54,11 @@ if(isset($_POST['newProduct'])){
 		$list = false;#default value
 	}
 		
+	if(isset($_FILES['photo'])){
+		$img = uploadPhoto();
+	}else{
+		$error_array[] = "No image selected";
+	}
 	
 	if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
 		$error = implode("<br>", $error_array);
@@ -65,16 +70,8 @@ if(isset($_POST['newProduct'])){
 	 	addToDB($name, $price, $description, $discount, $status, $img); //everything was fine so carry on and add product
 	}
 	
-	if(isset($_FILES['photo'])){
-		uploadPhoto();
-	}else{
-		echo "no image selected";
-	}
+
 	
-	
-	}
-	
-	if(isset($_POST['uploadPhoto'])){
 	
 	}
 	
@@ -113,7 +110,7 @@ if(isset($_POST['newProduct'])){
 	}
 	
 	function uploadPhoto (){
-		$errors= array();
+		$errors = array();
 		
 		$dest = "../img/";
 		$dest_file = $dest.basename($_FILES['photo']['name']);
@@ -134,15 +131,17 @@ if(isset($_POST['newProduct'])){
 		if(empty($errors)){
 			if (is_uploaded_file($_FILES['photo']['tmp_name'])) {
 				if(move_uploaded_file($_FILES['photo']['tmp_name'], $dest_file)) {
-					echo "The file ". basename( $_FILES['photo']['name'])." has been uploaded";
+					return $dest_file;
 				} else {
-					echo "Error, please try again!";
+					$errors[]='File size must be 2 MB or less';
 				}
 			} else { 
-				echo "error";
+				$errors[]='File size must be 2 MB or less';
 			}
 		}else{
-			print_r($errors);
+			$error = implode("<br>", $errors);
+			echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
+			die; //wrong input, do not proceed
 		}
 	}
 ?>
