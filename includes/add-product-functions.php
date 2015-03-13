@@ -79,6 +79,8 @@ if(isset($_POST['newProduct'])){
 		}else{
 			echo "contact admin";
 		}
+		
+		return $status;
 	}
 	
 	function addToDB($name, $price, $description, $discount, $status, $img){
