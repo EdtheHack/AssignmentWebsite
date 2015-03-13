@@ -103,14 +103,14 @@ include ("../includes/nav.php");
 								placeholder="Enter product name" 
 								<?php if(!empty($_POST["newProductName"])){ echo " value='".$_POST["newProductName"]."'"; }?>>
 					</div>
-					<div class="form-group">
+					<div class="form-group col-xs-6 col-md-4">
 							<label for="newProductPrice">Price (£)</label> <input
 								type="text" class="form-control" size="20"
 								id="newProductPRice" name="newProductPrice" placeholder="Enter product price"
 								 <?php if(!empty($_POST["newProductPrice"])){ echo " value='".$_POST["newProductPrice"]."'"; }?>>
 					</div>
 
-					<div class="form-group">
+					<div class="form-group col-xs-6 col-md-4">
 
 							<label for="newProductDiscount">Select discount (optional):</label>
 							<select class="form-control" name="newProductDiscount"  <?php if(!empty($_POST["newProductDiscount"])){ echo " value='".$_POST["newProductDiscount"]."'"; }?>>
@@ -179,7 +179,6 @@ include ("../includes/nav.php");
 						<p class="help-block">Please upload an image of the product here.</p>
 					</div>
 					
-					<button href="#myModal" class="btn btn-default" data-toggle="modal" data-target="#myModal">Delete Product</button>
 					
 						<div class="checkbox">
 							<label> <input type="checkbox" name="newProductList" value="true"> List product immediately
@@ -202,47 +201,8 @@ include ("../includes/nav.php");
 				
 			</div>
 		</div>
-		
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel">Product Categories</h4>
-				</div>
-				<?php
-					include ($_SERVER ['DOCUMENT_ROOT'] . '/dbconn.php');
-					$db_con;
-					
-					$rows = array();
-					
-					if ($stmt = $db_con->prepare ("SELECT name FROM categories" )) {
-						$stmt->execute ();
-						$stmt->bind_result ( $category_name );
-						$id = 1;
-						while($stmt->fetch()){
-							echo ''.$category_name.'<input type="checkbox" name="admin[]" value="'.$id.'"/><br>'."\n";
-							$id++;
-						}
-						$stmt->close ();
-					}
-					$db_con->close ();
-				?>
-									
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-											 
 
-	
+	</div>
+
 </body>
 </html>
