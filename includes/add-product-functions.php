@@ -1,5 +1,8 @@
 <?php
 
+
+include ("sanitisation.php");
+
 $error_array = array();
 
 if(isset($_POST['newProduct'])){
