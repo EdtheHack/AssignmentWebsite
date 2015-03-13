@@ -77,7 +77,8 @@ if(isset($_POST['newProduct'])){
 		}else{
 			echo "no image selected";
 		}
-
+	}
+	
 	function productStatus($list, $discount){
 		
 		if($list == false){  //product not listed
