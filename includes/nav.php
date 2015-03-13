@@ -60,10 +60,6 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 						
 						echo "<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"?logout\" ><i class=\"fa fa-sign-out\"></i> <b> Logout </b></a></li></ul>";	
 						
-						if(isset($_GET['search'])){
-							echo "<script type=\"text/javascript\">document.location.href=\"searchProducts.php?currentPage=1\";</script>"; //dirty stinking refresh 
-						}
-						
 						if(isset($_GET['logout'])){
 							$_SESSION["loggedIn"] = false;
 							unset($_SESSION);
@@ -73,6 +69,10 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 					}else{
 						echo"<li><a href=\"login-page.php\"><i class=\"fa fa-sign-in\"></i> <b> Login </b></a></li>"; //if a user is not logged in show the login button
 						
+					}
+					
+					if(isset($_GET['search'])){
+							echo "<script type=\"text/javascript\">document.location.href=\"searchProducts.php?currentPage=1\";</script>"; //dirty stinking refresh 
 					}
 					
 					?>
