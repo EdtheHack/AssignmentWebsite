@@ -102,8 +102,8 @@ if(isset($_POST['newProduct'])){
 			echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
 			die; //wrong input, do not proceed
 		}else{
-		$status = productStatus($list, $discount);	
-	 	addToDB($name, $price, $description, $discount, $status, $img, $categories); //everything was fine so carry on and add product
+			$status = productStatus($list, $discount);	
+	 		addToDB($name, $price, $description, $discount, $status, $img, $categories); //everything was fine so carry on and add product
 		}
 	}
 	
@@ -204,7 +204,7 @@ if(isset($_POST['newProduct'])){
 			$errors[]="extension not allowed, please choose a JPEG or PNG file.";
 		}
 		
-		if($file_size > 2097152){
+		if($file_size > 10000000){
 			$errors[]='File size must be 2 MB or less';
 		}
 		
