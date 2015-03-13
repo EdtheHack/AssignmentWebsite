@@ -28,7 +28,7 @@ if(isset($_POST['attemptLogin'])){
 				addNewUserOrder($user->getId());
 			}
 			$order = new order(getCurrentUserOrderId($_SESSION["userID"]), getCurrentOrderProducts(getCurrentUserOrderId($user->getId())), 0);
-			$_SESSION['order'] = serialize();
+			$_SESSION['order'] = serialize($order);
 			
 			if ($_SESSION['suggestReset'] == true){
 				echo "<script type=\"text/javascript\">document.location.href=\"suggestResetPassword.php\";</script>";
