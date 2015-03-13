@@ -103,14 +103,14 @@ include ("../includes/nav.php");
 								placeholder="Enter product name" 
 								<?php if(!empty($_POST["newProductName"])){ echo " value='".$_POST["newProductName"]."'"; }?>>
 					</div>
-					<div class="form-group col-xs-6 col-md-4">
+					<div class="form-group col-md-6">
 							<label for="newProductPrice">Price (£)</label> <input
 								type="text" class="form-control" size="20"
 								id="newProductPRice" name="newProductPrice" placeholder="Enter product price"
 								 <?php if(!empty($_POST["newProductPrice"])){ echo " value='".$_POST["newProductPrice"]."'"; }?>>
 					</div>
 
-					<div class="form-group col-xs-6 col-md-4">
+					<div class="form-group col-md-6">
 
 							<label for="newProductDiscount">Select discount (optional):</label>
 							<select class="form-control" name="newProductDiscount"  <?php if(!empty($_POST["newProductDiscount"])){ echo " value='".$_POST["newProductDiscount"]."'"; }?>>
@@ -126,10 +126,7 @@ include ("../includes/nav.php");
 								<option>75</option>
 							</select>
 					</div>
-					
-					<div class="col-xs-6 col-md-4"><br></div>
-
-
+				
 					<div class="form-group">
 						<label for="productDescription">Description</label>
 						<textarea class="form-control" rows="5" name="newProductDescription"><?php if(!empty($_POST["newProductDescription"])){ echo "".$_POST["newProductDescription"].""; }?></textarea>
