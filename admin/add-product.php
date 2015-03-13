@@ -109,7 +109,7 @@ include ("../includes/nav.php");
 						<textarea class="form-control" rows="5" name="newProductDescription"><?php if(!empty($_POST["newProductDescription"])){ echo "".$_POST["newProductDescription"].""; }?></textarea>
 					</div>
                     
-                    <form action="../includes/upload.php" method="POST" enctype="multipart/form-data">
+                    
 						<div class="form-group">
 							<label for="newProductImage">Product Image</label> <input
 								type="file" name="photo" value="1000000">
@@ -122,7 +122,6 @@ include ("../includes/nav.php");
 						</div>
 						<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
 					</form>
-				</form>
 				
 				
 				
