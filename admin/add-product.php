@@ -138,6 +138,7 @@ include ("../includes/nav.php");
 											$stmt->execute ();
 											$stmt->bind_result ( $category_name );
 											$id = 1;
+											$tr_count = 0;
 											while($stmt->fetch()){
 												
 												if ($tr_count == 4){
