@@ -45,7 +45,7 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 						
 						//$fn = $_SESSION["firstName"];
 						
-						$fn = unserialize($_SESSION["user"]->getName());
+						$fn = unserialize($_SESSION["user"])->getName();
 						
 						//PHP INJECT HTML TO THE PAGE
 						echo"<li class=\"dropdown\"><a data-toggle=\"dropdown\"
