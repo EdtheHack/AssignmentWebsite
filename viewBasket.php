@@ -25,6 +25,13 @@ error_reporting ( - 1 );
 <body>
 <?php
 	include ("includes/nav.php");
+	
+	if (isset($_SESSION["user"])){
+		$user = unserialize($_SESSION["user"]);
+		echo $user->getName();
+	} else {
+		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
+	}
 ?>
 
 <div class="container">

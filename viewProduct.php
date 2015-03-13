@@ -49,9 +49,11 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[6
 					</h4>
 					<p><?php echo $product->getDescription();?></p>
 					<br>
-					<button type="submit" class="btn btn-default pull-right">
-						<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
-					</button>
+					<form method="POST" action="viewBasket.php">  
+						<button type="submit" class="btn btn-default pull-right">
+							<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
+						</button>
+					</form>
 				</div>
 			</div>
 		</div>

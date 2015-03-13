@@ -18,6 +18,10 @@
 			return $this->products[$productId];
 		}
 		
+		public function addProduct($productId){
+			return $this->products[$productId];
+		}
+		
 		public function getTotal(){
 			return $this->total;
 		}

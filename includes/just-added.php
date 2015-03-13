@@ -38,16 +38,16 @@
 						</h4>
 						<p> <?php echo $product->getDescription(); ?></p>
 						
-						<div class="col-md-6">
+						<!--<div class="col-md-6">-->
 							<form method="POST" action="viewProduct.php">
 								<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
 							</form>
-						</div>
+						<!-- </div>
 						<div class="col-md-6">
-							<form method="POST" action="viewProduct.php">  
+							<form method="POST" action="viewBasket.php">  
 								<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
 							</form>
-						</div>
+						</div> -->
 					</div>
 					<br>
 					<br>
