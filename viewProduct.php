@@ -59,29 +59,33 @@ $_SESSION['product'] = serialize($product);
 			</div>
 		</div>
 		
-		<div class="well">
-			<h3>Similar Products</h3>
-			<div class="row">
-			
-			<?php
-			$rows = getSimilarItems($product->getId());
-			
-			for ($i = 0; $i < count($rows); $i++) {
-				$similarProduct = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][6]);
-			?>
-					
-						<div class="col-md-4">
-							<img src="img/<?php echo $similarProduct->getImg(); ?>" alt="">
-							<div class="caption">
-								<h3><?php echo $similarProduct->getName(); ?></h3>
-								<p><?php echo $similarProduct->getDescription(); ?></p>
-							</div>
-							<form method="POST" action="basket.php">
-								<button type="submit" name='itemId' value='<?php echo $similarProduct->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
-							</form>
-						</div>
+		<?php
+			if(count(getSimilarItems($product->getId()) != 0){
+		?>
+			<div class="well">
+				<h3>Similar Products</h3>
+				<div class="row">
 				
+				<?php
+				$rows = getSimilarItems($product->getId());
+				
+				for ($i = 0; $i < count($rows); $i++) {
+					$similarProduct = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][6]);
+				?>
+						
+					<div class="col-md-4">
+						<img src="img/<?php echo $similarProduct->getImg(); ?>" alt="">
+						<div class="caption">
+							<h3><?php echo $similarProduct->getName(); ?></h3>
+							<p><?php echo $similarProduct->getDescription(); ?></p>
+						</div>
+						<form method="POST" action="basket.php">
+							<button type="submit" name='itemId' value='<?php echo $similarProduct->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
+						</form>
+					</div>
+
 			<?php
+				}
 			}
 			?>
 			</div>

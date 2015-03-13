@@ -28,11 +28,11 @@ error_reporting ( - 1 );
 	include ("includes/order.php");
 	include ("includes/product.php");
 	
-	 if(isset($_SESSION["user"])){
+	 if(isset($_SESSION["user"])){  //checks if user is logged in
 		$user = unserialize($_SESSION["user"]);
-		if(isset($_SESSION["product"])){
+		if(isset($_SESSION["product"])){   //checks if user came here from a product page
 			$addProduct = unserialize($_SESSION["product"]);
-			addProduct($user->getId(), $addProduct->getId());
+			insertProductIntoUserOrder($user->getCurrentOrderId(), $addProduct->getId(), 1);
 		}
 	} else {
 		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";

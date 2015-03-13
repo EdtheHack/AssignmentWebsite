@@ -96,7 +96,6 @@ function getAllSearchItems($searchItem){  //NEEDS WORK
     	}
 		$stmt->close ();
 	}
-	
 	$mysqli->close ();
 	return count($rows);
 }
@@ -136,26 +135,39 @@ function getMostDiscounted(){
 		}
 		$stmt->close ();
 	}
-		
+	$mysqli->close ();	
 	return $rows;
 }
 
-function insertProductIntoOrder($userId, $productId, $quantity){
+function getCurrentUserOrderId($userId){
 	$mysqli = connect ();
 	
 	$rows = array();
 	
+	if ($stmt = $mysqli->prepare ("SELECT order_id FROM orders WHERE user_id = ? AND confirmed = 0")){ //get the most 
+		
+		$stmt->execute ();
+		$stmt->bind_result ( $result);
+		$stmt->close ();
+	}
+	$mysqli->close ();	
+	return $result;
+}
+
+function insertProductIntoUserOrder($orderId, $productId, $quantity){
+	$mysqli = connect ();
+	
+	$rows = array();
+	
+	//if exists(orderId/productId) then add the quantities together and dont do next query
+	
 	if ($stmt = $mysqli->prepare ("INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){ 
 		$stmt->bind_param ("sss", $orderId, $productId, $quantity);
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2, $col3, $col4,  $col5, $col6 );
-		while($stmt->fetch()) {
-			$rows[] = array( $col0,  $col1,  $col2, $col3 , $col4,  $col5, $col6 );
-		}
+
 		$stmt->close ();
 	}
-		
-	return $rows;
+	$mysqli->close ();
 }
 
 function fileUploads(){

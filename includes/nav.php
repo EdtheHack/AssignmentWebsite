@@ -41,8 +41,8 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 				</button>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><i class="fa fa-shopping-cart fa-1x"></i> Basket <b>0</b></a></li>
-					
+					<li><a href="login-page.php"><i class="fa fa-shopping-cart fa-1x"></i> Basket <b>0</b></a></li>
+				
 					<?php if(isset($_SESSION['loggedIn']) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
 						
 					if(basename($_SERVER['PHP_SELF']) == 'add-product.php'){  //this code needs to be here just for now please thankyou
@@ -62,7 +62,7 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 						<ul role=\"menu\" class=\"dropdown-menu\">
 						<li><a href=\"#\">Orders</a></li>
 						<li><a href=\"change-account-details.php\">Account Settings</a></li>
-						<li><a href=\"#\">Basket</a></li>
+						<li><a href=\"viewBasket.php\">Basket</a></li>
 						</ul></li>" ;
 					
 						if(checkAdmin() == 1){ //check for admin user 

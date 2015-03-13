@@ -1,5 +1,6 @@
 <?php
 
+require_once "includes/common-functions.php";
 require_once "includes/user.php";
 
 if(isset($_POST['attemptLogin'])){
@@ -15,7 +16,7 @@ if(isset($_POST['attemptLogin'])){
 			}else{
 				$_SESSION["stayLoggedIn"] = false;
 			}
-			$_SESSION['user'] = serialize(new user($_SESSION["userID"], $_SESSION["firstName"], $_SESSION["admin"]));
+			$_SESSION['user'] = serialize(new user($_SESSION["userID"], $_SESSION["firstName"], getCurrentUserOrderId($_SESSION["userID"]), $_SESSION["admin"]));
 			$_SESSION["loggedIn"] = true;
 			if ($_SESSION['suggestReset'] == true){
 				echo "<script type=\"text/javascript\">document.location.href=\"suggestResetPassword.php\";</script>";
