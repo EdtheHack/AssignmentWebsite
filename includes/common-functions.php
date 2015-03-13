@@ -85,8 +85,9 @@ function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
 	$mysqli = connect ();
 	
 		$pageBounds = $pageIndex + 5;
-		$rowsTitle = array();
-		$rowsDescription = array();
+		$rows = array();
+		//$rowsTitle = array();
+		//$rowsDescription = array();
 	
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE name OR description LIKE %?% LIMIT ?, ?")) {
 		$stmt->bind_param ("sss", $searchItem, $pageIndex, $pageBounds);
