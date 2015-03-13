@@ -191,7 +191,7 @@ include ("../includes/nav.php");
 					
 					$rows = array();
 					
-					if ($stmt = $mysqli->prepare ("SELECT name FROM categories" )) {
+					if ($stmt = $db_con->prepare ("SELECT name FROM categories" )) {
 						$stmt->execute ();
 						$stmt->bind_result ( $category_name );
 						$id = 1;
@@ -201,7 +201,7 @@ include ("../includes/nav.php");
 						}
 						$stmt->close ();
 					}
-					$mysqli->close ();
+					$db_con->close ();
 				?>
 									
 				<div class="modal-footer">
