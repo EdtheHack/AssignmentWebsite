@@ -31,11 +31,16 @@ error_reporting ( - 1 );
 	<div class="well">
 		<div class="row">
 			<div class="col-md-4">
-				<div class="thumbnail"> <img src="http://placehold.it/320x150" alt="">
+				<div class="thumbnail"> 
+					<img src="http://placehold.it/320x150" alt="">
+				</div>
+				<div class="col-md-6">
+					<h3>Product Name</h3> <br>
+					<p>Product Description.....</p>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>
 
 
