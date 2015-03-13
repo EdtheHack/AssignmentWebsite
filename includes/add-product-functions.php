@@ -51,13 +51,11 @@ if(isset($_POST['newProduct'])){
 	}else{
 		$error_array[] = "product description field cannot be empty";
 	}
-		
-		
-	if(isset($_POST['newProductList'])){
-		$list = $_POST['newProductList'];
-		$list = true;
-	}else{
-		$list = false;#default value
+	
+	if(!empty($_POST['categories'])){
+		// Loop to store and display values of individual checked checkbox.
+		foreach($_POST['categories'] as $selected){
+			echo $selected."</br>";
 	}
 		
 	if(isset($_FILES['photo'])){
@@ -72,6 +70,13 @@ if(isset($_POST['newProduct'])){
 		}
 	}else{
 		$error_array[] = "No image selected";
+	}
+	
+	if(isset($_POST['newProductList'])){
+		$list = $_POST['newProductList'];
+		$list = true;
+	}else{
+		$list = false;#default value
 	}
 	
 	if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
