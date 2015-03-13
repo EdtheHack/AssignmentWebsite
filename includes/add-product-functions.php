@@ -204,9 +204,9 @@ if(isset($_POST['newProduct'])){
 			$errors[]="extension not allowed, please choose a JPEG or PNG file.";
 		}
 		
-		if($file_size > 10000000){
-			$errors[]='File size must be 2 MB or less';
-		}
+		//if($file_size > 10000000){
+			//$errors[]='File size must be 2 MB or less';
+		//}
 		
 		if(empty($errors)){
 			if (is_uploaded_file($_FILES['photo']['tmp_name'])) {
