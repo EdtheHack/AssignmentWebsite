@@ -54,11 +54,6 @@ if(isset($_POST['newProduct'])){
 		$list = false;#default value
 	}
 		
-	if(isset($_FILES['photo'])){
-		uploadPhoto();
-	}else{
-		$error_array[] = "Product image must be uploaded";
-	}
 	
 	if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
 		$error = implode("<br>", $error_array);
@@ -74,6 +69,14 @@ if(isset($_POST['newProduct'])){
 	
 	}
 		
+	
+	
+	if(isset($_POST['uploadPhoto'])){
+		if(isset($_FILES['photo'])){
+			uploadPhoto();
+		}else{
+			echo "no image selected";
+		}
 
 	function productStatus($list, $discount){
 		
