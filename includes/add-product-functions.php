@@ -86,13 +86,13 @@ if(isset($_POST['newProduct'])){
 		
 		$img = "test icles";
 		
-		if ($stmt = $mysqli->prepare ( "INSERT INTO products (name, price, description, percentage_off, status, img) VALUES (?,?,?,?,?,?)1(" )) {
+		if ($stmt = $mysqli->prepare ( "INSERT INTO product (name, price, description, percentage_off, status, img) VALUES (?,?,?,?,?,?)" )) {
 			$user = $_SESSION ["userID"];
 			$stmt->bind_param ( "sisiis", $name, $price, $description, $discount, $statement, $img);
 			$stmt->execute ();
 			$stmt->close ();
 		}
-		return $result;
+		
 		$mysqli->close ();
 	}
 ?>
