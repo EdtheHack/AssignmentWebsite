@@ -44,7 +44,12 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 				<li><a href="#"><i class="fa fa-shopping-cart fa-1x"></i> Basket <b>0</b></a></li>
 					
 					<?php if(isset($_SESSION['loggedIn']) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
+						
+					if(basename($_SERVER['PHP_SELF']) == 'add-product.php'){  //this code needs to be here just for now please thankyou
+						include ("../includes/user.php");
+					}else{
 						include "includes/user.php";
+					}
 						
 						//$fn = $_SESSION["firstName"];
 						
