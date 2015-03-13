@@ -68,7 +68,7 @@ function getSimilarItems($productId){  //NEEDS WORK
 	
 	if ($stmt = $mysqli->prepare ("SELECT product.* FROM product INNER JOIN product_categories ON product.product_id = product_categories.product_id   
 									WHERE product_categories.category_id = (SELECT category_id FROM product_categories WHERE product_id=?) LIMIT 3" )) {
-		$stmt->bind_param ( "s", $productId );
+		$stmt->bind_param ("s", $productId);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
 	   	while($stmt->fetch()) {
@@ -81,33 +81,44 @@ function getSimilarItems($productId){  //NEEDS WORK
 	return $rows;
 }
 
-function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
+function getAllSearchItems($searchItem){  //NEEDS WORK
 	$mysqli = connect ();
 	
-		$pageBounds = $pageIndex + 5;
 		$rows = array();
 		$searchItem = '%'.$searchItem.'%';
-		//$rowsTitle = array();
-		//$rowsDescription = array();
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) OR (description) LIKE UPPER (?) LIMIT ?, ?")) {
-		$stmt->bind_param ("sss", $searchItem, $pageIndex, $pageBounds);
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) OR (description) LIKE UPPER (?)")) {
+		$stmt->bind_param ("s", $searchItem);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
 	   	while($stmt->fetch()) {
-			//if (strpos(strtolower($col1), strtolower($searchItem)) !== false) {
-			//	$rowsTitle[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
-			//} else if (strpos(strtolower($col3), strtolower($searchItem)) !== false) {
-			//	$rowsDescription[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
-			//}
 			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
     	}
 		$stmt->close ();
 	}
 	
 	$mysqli->close ();
+	return count($rows);
+}
+
+function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
+	$mysqli = connect ();
 	
-	//$rows = array_merge($rowsTitle, $rowsDescription);
+		$pageBounds = $pageIndex + 5;
+		$rows = array();
+		$searchItem = '%'.$searchItem.'%';
+	
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) OR (description) LIKE UPPER (?) LIMIT ?, ?")) {
+		$stmt->bind_param ("sss", $searchItem, $pageIndex, $pageBounds);
+		$stmt->execute ();
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
+	   	while($stmt->fetch()) {
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
+    	}
+		$stmt->close ();
+	}
+	
+	$mysqli->close ();
 	return $rows;
 }
 
