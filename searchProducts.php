@@ -74,7 +74,7 @@ $_SESSION['searchItem'] = $_POST['searchItem'];
 		<ul class="pagination">
 			<li><a href="#">&laquo;</a></li>
 			<?php 
-				for ($i = 1; $i < $rows; $i++) {
+				for ($i = 1; $i <= $pages; $i++) {
 					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentpage=$currentPage'>$currentPage</a> </li>"; 
 				}
 			?>
