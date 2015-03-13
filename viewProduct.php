@@ -7,7 +7,7 @@ error_reporting ( - 1 );
 include ("includes/product.php");
 include ("includes/common-functions.php");
 
-$row = getItem ( $_POST ['itemId'] );
+$row = getItem ($_POST['itemId']);
 $product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[6] );
 $_SESSION['product'] = serialize($product);
 
@@ -60,7 +60,7 @@ $_SESSION['product'] = serialize($product);
 		</div>
 		
 		<?php
-			if(count(getSimilarItems($product->getId()) != 0){
+			if(count(getSimilarItems($product->getId()) != 0)){
 		?>
 			<div class="well">
 				<h3>Similar Products</h3>
