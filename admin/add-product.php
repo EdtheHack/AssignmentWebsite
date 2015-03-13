@@ -88,6 +88,24 @@ include ("../includes/nav.php");
 	
     			
 				<form method="POST" action="" enctype="multipart/form-data">
+				
+				
+				  <select multiple  id="e19">
+				      <option value="January">January</option>
+				      <option value="February">February</option>
+				      <option value="March">March</option>
+				      <option value="April">April</option>
+				      <option value="May">May</option>
+				      <option value="June">June</option>
+				      <option value="July">July</option>
+				      <option value="August">August</option>
+				      <option value="September">September</option>
+				      <option value="October">October</option>
+				      <option value="November">November</option>
+				      <option value="December">December</option>
+				</select>
+				
+				
 					<div class="form-group">
 							<label for="newProductName">Product Name</label> <input
 								type="text" class="form-control" name="newProductName"
@@ -128,7 +146,6 @@ include ("../includes/nav.php");
 						<label for="newProductImage">Product Image</label> 
 						<input type="file" name="photo">
 						<p class="help-block">Please upload an image of the product here.</p>
-						<button type="submit" name="newProduct" class="btn btn-default">Upload Image</button>
 					</div>
 					
 					
@@ -139,6 +156,9 @@ include ("../includes/nav.php");
 						<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
 					
 					</form>
+					<br>
+					<br>
+					<br>
 				
 				
 				

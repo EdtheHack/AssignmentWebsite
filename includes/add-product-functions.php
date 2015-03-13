@@ -7,6 +7,9 @@ $error_array = array();
 
 if(isset($_POST['newProduct'])){
 
+	
+	
+	echo $_POST['e19'];
 	$name = $_POST['newProductName'];
 	$price = $_POST['newProductPrice'];
 	$discount = $_POST['newProductDiscount'];
