@@ -8,7 +8,10 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 } else if(basename($_SERVER['PHP_SELF']) == 'searchProducts.php'){
 	include ("includes/common-functions.php");
 	include ("includes/product.php");
-} else{
+} else if(basename($_SERVER['PHP_SELF']) == 'add-product.php'){
+	include ("../includes/common-functions.php");
+	include ("../includes/product.php");
+}else{
 	include ("includes/common-functions.php");
 }
 
