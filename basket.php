@@ -36,6 +36,7 @@ error_reporting ( - 1 );
 		</div>
 	</div>
 </div>
+</div>
 
 
 </body>
