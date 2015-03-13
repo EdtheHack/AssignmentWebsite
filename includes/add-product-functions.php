@@ -64,7 +64,7 @@ if(isset($_POST['newProduct'])){
 			array_push($error_arry, $output);
 			echo "i have an array";
 		}else{
-			$output = $img;
+			$img = $output;
 		}
 	}else{
 		$error_array[] = "No image selected";
