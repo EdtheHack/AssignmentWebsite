@@ -4,7 +4,7 @@ ini_set ( 'display_errors', 1 );
 ini_set ( 'display_startup_errors', 1 );
 error_reporting ( - 1 );
 
-$_SESSION['searchItem'] = $_POST['searchItem'];
+if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];}
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +70,7 @@ $_SESSION['searchItem'] = $_POST['searchItem'];
 			<li><a href="#">&laquo;</a></li>
 			<?php 
 				for ($i = 1; $i <= $pages; $i++) {
-					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$currentPage'>".$i."</a> </li>"; 
+					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$i'>".$i."</a> </li>"; 
 				}
 			?>
 			<li><a href="#">&raquo;</a></li>
