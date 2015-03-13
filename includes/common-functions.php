@@ -84,11 +84,12 @@ function getSimilarItems($productId){  //NEEDS WORK
 function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
 	$mysqli = connect ();
 	
+		$pageBounds = $pageIndex + 5;
 		$rowsTitle = array();
 		$rowsDescription = array();
 	
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product LIMIT ?, ?")) {
-		$stmt->bind_param ("ss", $pageIndex, ($pageIndex + 5));
+		$stmt->bind_param ("ss", $pageIndex, $pageBounds);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
 	   	while($stmt->fetch()) {
