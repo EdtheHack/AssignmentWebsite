@@ -173,9 +173,11 @@ include ("../includes/nav.php");
 					
                     
                     <div class="form-group">
-						<label for="newProductImage">Product Image</label> 
+						<label for="newProductImage">Product Image</label>
+						<br> 
 						<input type="file" name="photo">
 						<p class="help-block">Please upload an image of the product here.</p>
+						<hr>
 					</div>
 					
 					
