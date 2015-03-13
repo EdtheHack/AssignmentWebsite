@@ -19,6 +19,8 @@ error_reporting ( - 1 );
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
 <body>
+	
+	<div class="container">
 	<?php
 		include ("includes/nav.php");
 		
@@ -29,7 +31,6 @@ error_reporting ( - 1 );
 			$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[6]);
 	?>
 	
-	<div class="container">
 		<div class="well">
 			<div class="row">
 				<br>
@@ -54,15 +55,8 @@ error_reporting ( - 1 );
 				<br>
 				<br>
 			</div>
-			<ul class="pagination">
-				<li><a href="#">&laquo;</a></li>
-				<?php
-				echo " <li><a href='{$_SERVER['PHP_SELF']}?currentpage=$currentPage'>$currentPage</a> </li>"; 
-				?>
-				<li><a href="#">&raquo;</a></li>
-			</ul>
 		</div>
-	</div>
+	
 	<br>
 		
 	<?php
@@ -74,5 +68,14 @@ error_reporting ( - 1 );
 			}
 		}
 	?>
+	
+		<ul class="pagination">
+			<li><a href="#">&laquo;</a></li>
+			<?php 
+			echo " <li><a href='{$_SERVER['PHP_SELF']}?currentpage=$currentPage'>$currentPage</a> </li>"; 
+			?>
+			<li><a href="#">&raquo;</a></li>
+		</ul>
+	</div>
 	</body>
 </html>
