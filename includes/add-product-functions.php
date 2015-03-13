@@ -156,20 +156,21 @@ if(isset($_POST['newProduct'])){
 			}
 			
 			$stmt->close ();
+			$mysqli->close ();
 			
-			$stmt = $mysqli->prepare ( "INSERT INTO product_categories (product_id, category_id)VALUES (?, ?)" );
-			$stmt->bind_param ("ii", $product_id, $cat_id);
+			$stmt2 = $mysqli->prepare ( "INSERT INTO product_categories (product_id, category_id)VALUES (?, ?)" );
+			$stmt2->bind_param ("ii", $product_id, $cat_id);
 			
-			if ($stmt === false) {
+			if ($stmt2 === false) {
 				trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
 			}
 			
-			if(!($stmt->execute ())){
+			if(!($stmt2->execute ())){
 				die('Error 2 : ('. $mysqli->errno .') '. $mysqli->error);
 			}
 				
-			$stmt->close ();
-			
+			$stmt2->close ();
+			$mysqli->close ();
 		}
 	}
 	
