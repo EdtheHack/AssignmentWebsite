@@ -25,10 +25,15 @@ error_reporting ( - 1 );
 <body>
 <?php
 	include ("includes/nav.php");
+	include ("includes/order.php");
+	include ("includes/product.php");
 	
-	if (isset($_SESSION["user"])){
+	 if(isset($_SESSION["user"])){
 		$user = unserialize($_SESSION["user"]);
-		echo $user->getName();
+		if(isset($_SESSION["product"])){
+			$addProduct = unserialize($_SESSION["product"]);
+			$addProduct->getName();
+		}
 	} else {
 		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
 	}
