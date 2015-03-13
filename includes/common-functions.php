@@ -100,7 +100,6 @@ function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
 			//} else if (strpos(strtolower($col3), strtolower($searchItem)) !== false) {
 			//	$rowsDescription[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
 			//}
-			echo "FOUND";
 			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
     	}
 		$stmt->close ();
