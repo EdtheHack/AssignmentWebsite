@@ -151,7 +151,12 @@ function getCurrentUserOrderId($userId){
 		$stmt->close ();
 	}
 	$mysqli->close ();	
-	return $result;
+	
+	if(isset($result)){ 
+		return $result;
+	} else {
+		return false;
+	}
 }
 
 function addNewUserOrder($userId){

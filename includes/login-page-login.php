@@ -25,7 +25,7 @@ if(isset($_POST['attemptLogin'])){
 			
 			echo "Current ID ->".getCurrentUserOrderId($user->getId());
 			
-			if (getCurrentUserOrderId($user->getId()) == null){
+			if (getCurrentUserOrderId($user->getId()) == false){
 				addNewUserOrder($user->getId());
 			}
 			$order = new order(getCurrentUserOrderId($_SESSION["userID"]), getCurrentOrderProducts(getCurrentUserOrderId($user->getId())), 0);
