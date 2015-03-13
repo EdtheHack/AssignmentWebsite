@@ -28,6 +28,7 @@ $_SESSION['searchItem'] = $_POST['searchItem'];
 	<?php		
 		$currentPage = $_GET['currentPage'];
 		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
+		echo count($rows);
 		$pages = ceil(count($rows)/5);  //rounds up
 		foreach ($rows as $row) {
 			$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[6]);
@@ -75,7 +76,7 @@ $_SESSION['searchItem'] = $_POST['searchItem'];
 			<li><a href="#">&laquo;</a></li>
 			<?php 
 				for ($i = 1; $i <= $pages; $i++) {
-					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentpage=$currentPage'>$currentPage</a> </li>"; 
+					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentpage=$currentPage'>$currentPage+$i</a> </li>"; 
 				}
 			?>
 			<li><a href="#">&raquo;</a></li>
