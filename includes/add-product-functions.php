@@ -156,7 +156,7 @@ if(isset($_POST['newProduct'])){
 			}
 			
 			$stmt->close ();
-			$mysqli->close ();
+		
 			
 			$stmt2 = $mysqli->prepare ( "INSERT INTO product_categories (product_id, category_id)VALUES (?, ?)" );
 			$stmt2->bind_param ("ii", $product_id, $cat_id);
