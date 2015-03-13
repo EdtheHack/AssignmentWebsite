@@ -1,5 +1,5 @@
 <?php	
-	require_once "include/product.php";
+	require_once "includes/product.php";
 
 	class order{	   //Order object
 		private $id;
