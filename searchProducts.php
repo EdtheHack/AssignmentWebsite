@@ -63,12 +63,6 @@ $_SESSION['searchItem'] = $_POST['searchItem'];
 	<br>
 		
 	<?php
-		
-			if(isset($_POST['viewProduct'])){   //serialization does not work
-				$_SESSION["serializedProduct"] = serialize($product);
-				$_SESSION["name"] = $this->getName();
-				echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
-			}
 		}
 	?>
 	
@@ -76,7 +70,7 @@ $_SESSION['searchItem'] = $_POST['searchItem'];
 			<li><a href="#">&laquo;</a></li>
 			<?php 
 				for ($i = 1; $i <= $pages; $i++) {
-					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentpage=$currentPage'>".$i."</a> </li>"; 
+					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$currentPage'>".$i."</a> </li>"; 
 				}
 			?>
 			<li><a href="#">&raquo;</a></li>
