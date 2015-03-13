@@ -127,7 +127,8 @@ function getMostDiscounted(){
 	
 	$rows = array();
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE status=1 ORDER BY percentage_off DESC ")){ //get the most discounted
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE status=1 ORDER BY percentage_off DESC ")){ //get the most 
+		
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2, $col3, $col4,  $col5, $col6 );
 		while($stmt->fetch()) {
@@ -139,7 +140,23 @@ function getMostDiscounted(){
 	return $rows;
 }
 
-
+function insertProductIntoOrder($userId, $productId, $quantity){
+	$mysqli = connect ();
+	
+	$rows = array();
+	
+	if ($stmt = $mysqli->prepare ("INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){ 
+		$stmt->bind_param ("sss", $orderId, $productId, $quantity);
+		$stmt->execute ();
+		$stmt->bind_result ( $col0,  $col1,  $col2, $col3, $col4,  $col5, $col6 );
+		while($stmt->fetch()) {
+			$rows[] = array( $col0,  $col1,  $col2, $col3 , $col4,  $col5, $col6 );
+		}
+		$stmt->close ();
+	}
+		
+	return $rows;
+}
 
 function fileUploads(){
 	//if they DID upload a file...

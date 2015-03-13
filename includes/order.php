@@ -1,6 +1,4 @@
 <?php	
-	//require_once "includes/product.php";
-
 	class order{	   //Order object
 		private $id;
 		private $products;
@@ -18,7 +16,7 @@
 			return $this->products[$productId];
 		}
 		
-		public function addProduct($productId){
+		public function addProduct($userId, $productId){
 			return $this->products[$productId];
 		}
 		

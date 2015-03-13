@@ -31,9 +31,8 @@ error_reporting ( - 1 );
 	 if(isset($_SESSION["user"])){
 		$user = unserialize($_SESSION["user"]);
 		if(isset($_SESSION["product"])){
-			echo "does it reach here";
 			$addProduct = unserialize($_SESSION["product"]);
-			$addProduct->getName();
+			addProduct($user->getId(), $addProduct->getId());
 		}
 	} else {
 		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
