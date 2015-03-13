@@ -160,10 +160,10 @@ function getCurrentUserOrderId($userId){
 }
 
 function addNewUserOrder($userId){
-		$mysqli = connect ();
+		$mysqli = connect();
 		
-		$stmt = $mysqli->prepare ("INSERT INTO order (user_id, confirmed) VALUES (?, 0)" );
-		$stmt->bind_param ("i", $userId);
+		$stmt = $mysqli->prepare ("INSERT INTO order (user_id, confirmed) VALUES (?, ?)" );
+		$stmt->bind_param("ii", $userId, 0);
 			
 		if ($stmt === false) {
 			trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
