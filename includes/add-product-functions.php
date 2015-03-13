@@ -60,14 +60,15 @@ if(isset($_POST['newProduct'])){
 		echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
 		die; //wrong input, do not proceed
 	}else{
-		$status = productStatus($list);	
+		$status = productStatus($list, $discount);	
+		$img = "test icles";
 	 	addToDB($name, $price, $description, $discount, $status, $img); //everything was fine so carry on and add product
 	}
 		
 	}
 		
 
-	function productStatus($list){
+	function productStatus($list, $discount){
 		
 		if($list == false){  //product not listed
 			$status = 2;
@@ -85,7 +86,7 @@ if(isset($_POST['newProduct'])){
 		
 		$mysqli = $db_con;
 		
-		$img = "test icles";
+		
 		
 		if ($stmt = $mysqli->prepare ( "INSERT INTO product (name, price, description, percentage_off, status, img) VALUES (?,?,?,?,?,?)" )) {
 			$stmt->bind_param ( "sisiis", $name, $price, $description, $discount, $status, $img);
