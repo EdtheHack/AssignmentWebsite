@@ -145,7 +145,7 @@ include ("../includes/nav.php");
 													echo '<tr>';
 												}
 												
-												echo ' <td>'.$category_name.'<input type="checkbox" name="admin[]" value="'.$id.'"/></td>'."";
+												echo ' <td><div class="checkbox"><label>'.$category_name.' <input type="checkbox" name="admin[]" value="'.$id.'"/></label></div</td>'."";
 												
 												if ($tr_count == 4){
 													echo '</tr>';
