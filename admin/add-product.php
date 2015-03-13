@@ -90,7 +90,7 @@ include ("../includes/nav.php");
 				<form method="POST" action="" enctype="multipart/form-data">
 				
 				
-				  <select multiple  id="e19">
+				  <select multiple  id="e19[]">
 				      <option value="January">January</option>
 				      <option value="February">February</option>
 				      <option value="March">March</option>
@@ -148,6 +148,8 @@ include ("../includes/nav.php");
 						<p class="help-block">Please upload an image of the product here.</p>
 					</div>
 					
+					<a href="#myModal" data-toggle="modal" data-target="#myModal">Delete
+									Product</a>
 					
 						<div class="checkbox">
 							<label> <input type="checkbox" name="newProductList" value="true"> List product immediately
@@ -165,10 +167,49 @@ include ("../includes/nav.php");
 				<?php 
 				
 				include ("../includes/add-product-functions.php");
+				
 				?>
 				
 			</div>
 		</div>
+		
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Product Categories</h4>
+				</div>
+				<?php
+					include ($_SERVER ['DOCUMENT_ROOT'] . '/dbconn.php');
+					$db_con;
+					
+					$rows = array();
+					
+					if ($stmt = $mysqli->prepare ("SELECT name FROM categories" )) {
+						$stmt->execute ();
+						$stmt->bind_result ( $category_name );
+						$id = 1;
+						while($stmt->fetch()){
+							echo '<tr><td>'.$category_name.'</td><td><input type="checkbox" name="admin[]" value="'.$id.'"/></td></tr>'."\n";
+							$id++;
+						}
+						$stmt->close ();
+					}
+					$mysqli->close ();
+				?>
+									
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	</div>
 											 
 
