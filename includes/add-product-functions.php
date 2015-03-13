@@ -83,8 +83,28 @@ if(isset($_POST['newProduct'])){
 		echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
 		die; //wrong input, do not proceed
 	}else{
+		if(isset($_FILES['photo'])){
+			$output = uploadPhoto();
+		
+			if(is_array($output)){
+				$error_array = array_merge($error_array, $output);
+				$img = ""; //just to clear intilisation messages
+				echo "i have an array";
+			}else{
+				$img = $output;
+			}
+		}else{
+			$error_array[] = "No image selected";
+		}
+		
+		if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
+			$error = implode("<br>", $error_array);
+			echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
+			die; //wrong input, do not proceed
+		}else{
 		$status = productStatus($list, $discount);	
 	 	addToDB($name, $price, $description, $discount, $status, $img, $categories); //everything was fine so carry on and add product
+		}
 	}
 	
 	
@@ -159,7 +179,7 @@ if(isset($_POST['newProduct'])){
 			}
 			
 			if(!($stmt->execute ())){
-				die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+				die('Error 2 : ('. $mysqli->errno .') '. $mysqli->error);
 			}
 				
 			$stmt->close ();
