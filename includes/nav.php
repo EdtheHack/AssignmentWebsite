@@ -30,9 +30,7 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 				<li><a href="#"> Products </a></li>
 			</ul>
 			<form method="POST" action="" class="navbar-form navbar-left">
-				<div class="form-group">
-					<input type="text" name="searchItem" class="form-control" placeholder="Search" <?php if(!empty($_POST["search"])){ echo " value='".$_POST["search"]."'"; }?>>
-				</div>
+				<input type="text" name="search" class="form-control" placeholder="Search" <?php if(!empty($_POST["search"])){ echo " value='".$_POST["search"]."'"; }?>>
 				<button type="submit" class="btn btn-default">
 					<i class="fa fa-search"></i>
 				</button>
