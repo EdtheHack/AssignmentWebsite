@@ -56,11 +56,11 @@ error_reporting ( - 1 );
 			</div>
 			<ul class="pagination">
 				<li><a href="#">&laquo;</a></li>
-				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentpage=$currentPage?>"><?php echo $currentPage?></a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
+				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentpage=$currentPage?>"><?php echo $currentPage;?></a></li>
+				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentpage=$currentPage?>"><?php echo $currentPage;?></a></li>
+				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentpage=$currentPage?>"><?php echo $currentPage;?></a></li>
+				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentpage=$currentPage?>"><?php echo $currentPage;?></a></li>
+				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentpage=$currentPage?>"><?php echo $currentPage;?></a></li>
 				<li><a href="#">&raquo;</a></li>
 			</ul>
 		</div>
