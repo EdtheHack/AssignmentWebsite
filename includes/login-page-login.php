@@ -1,5 +1,7 @@
 <?php
 
+require_once "includes/user.php"
+
 if(isset($_POST['attemptLogin'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
@@ -13,6 +15,7 @@ if(isset($_POST['attemptLogin'])){
 			}else{
 				$_SESSION["stayLoggedIn"] = false;
 			}
+			$_SESSION['user'] = serialize(new user($_SESSION["userID"], $_SESSION["firstName"], $_SESSION["admin"]))
 			$_SESSION["loggedIn"] = true;
 			if ($_SESSION['suggestReset'] == true){
 				echo "<script type=\"text/javascript\">document.location.href=\"suggestResetPassword.php\";</script>";

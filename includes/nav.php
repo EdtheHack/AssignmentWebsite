@@ -41,9 +41,11 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 				<li><a href="#"><i class="fa fa-shopping-cart fa-1x"></i> Basket <b>0</b></a></li>
 					
 					<?php if(isset($_SESSION['loggedIn']) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
-
-		
-						$fn = $_SESSION["firstName"];
+						include "includes/user.php";
+						
+						//$fn = $_SESSION["firstName"];
+						
+						$fn = unserialize($_SESSION["user"]->getName());
 						
 						//PHP INJECT HTML TO THE PAGE
 						echo"<li class=\"dropdown\"><a data-toggle=\"dropdown\"

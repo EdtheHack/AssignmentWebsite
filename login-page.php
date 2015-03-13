@@ -1,7 +1,5 @@
 <?php
-	include 'includes/databaseValidation.php';
-	include ("includes/customer.php");
-	
+	include 'includes/databaseValidation.php';	
 	if(isset($_SESSION['loggedIn']) && $_SESSION["stayLoggedIn"] == true){
 			echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
 	}

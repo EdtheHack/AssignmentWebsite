@@ -54,6 +54,7 @@
 						$_SESSION["postcode"] = "$row[7]";
 						$_SESSION["mobileNumber"] = "$row[8]";
 						$_SESSION["homeNumber"] = "$row[9]";
+						$_SESSION["admin"] = "$row[12]";
 						return 1;
 					} else {
 						if (checkEmail($email) == 1){											//check if email exists but wrong password entered
