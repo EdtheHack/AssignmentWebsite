@@ -49,7 +49,15 @@ include ("../includes/sanitation.php");
               });
           })(jQuery);
 
- </script>      
+ </script>  
+ 
+ <style>
+ .borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
+    border: none;
+}
+ 
+ </style>
+     
 	
 </head>
 <body>
@@ -129,7 +137,7 @@ include ("../includes/nav.php");
 					<hr>
 						<label for="productCategories">Associated Product Categories</label>
 						<div class="table-responsive">          
-     					 <table class="table">
+     					 <table class="table borderless">
      					 	 <tbody>
      					 	 <tr>
 									<?php
@@ -142,7 +150,7 @@ include ("../includes/nav.php");
 											$tr_count = 0;
 											while($stmt->fetch()){
 												
-												if ($tr_count == 4){
+												if ($tr_count == 5){
 													echo '</tr>';
 													echo '<tr>';
 													$tr_count = 0;
