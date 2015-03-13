@@ -111,8 +111,9 @@ include ("../includes/nav.php");
                     
                     
 						<div class="form-group">
-							<label for="newProductImage">Product Image</label> <input
-								type="file" name="photo" value="1000000">
+						<form action="" method="POST" enctype="multipart/form-data">
+							<label for="newProductImage">Product Image</label> 
+							<input type="file" name="photo" value="1000000">
 							<p class="help-block">Please upload an image of the product here.</p>
 						</div>
 	
@@ -121,6 +122,7 @@ include ("../includes/nav.php");
 							</label>
 						</div>
 						<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
+						</form>
 					</form>
 				
 				
