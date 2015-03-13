@@ -68,8 +68,6 @@ if(isset($_POST['newProduct'])){
 	
 	
 	}
-		
-	
 	
 	if(isset($_POST['uploadPhoto'])){
 		if(isset($_FILES['photo'])){
@@ -114,26 +112,36 @@ if(isset($_POST['newProduct'])){
 	}
 	
 	function uploadPhoto (){
-		
 		$errors= array();
-		$file_name = $_FILES['photo']['name'];
-		$file_size =$_FILES['photo']['size'];
-		$file_tmp =$_FILES['photo']['tmp_name'];
-		$file_type=$_FILES['photo']['type'];
-		$file_ext=strtolower(end(explode('.',$_FILES['photo']['name'])));
-		$extensions = array("jpeg","jpg","png");
-		if(in_array($file_ext,$extensions )=== false){
+		
+		$dest = "assignment2/img/";
+		$dest_file = $dest.basename($_FILES['photo']['name']);
+		$file_size = $_FILES['photo']['size'];
+		
+		$name = $_FILES['photo']['name'];
+		$ext = pathinfo($name, PATHINFO_EXTENSION);
+		
+		$ext_types = array("jpeg","jpg","png");
+		if(in_array($ext,$ext_types )=== false){
 			$errors[]="extension not allowed, please choose a JPEG or PNG file.";
 		}
+		
 		if($file_size > 2097152){
-			$errors[]='File size must be excately 2 MB';
+			$errors[]='File size must be 2 MB or less';
+		}
+		
+		if(empty($errors)){
+			if (is_uploaded_file($_FILES['photo']['tmp_name'])) {
+				if(move_uploaded_file($_FILES['photo']['tmp_name'], $dest_file)) {
+					echo "The file ". basename( $_FILES['photo']['name'])." has been uploaded";
+				} else {
+					echo "Error, please try again!";
+				}
+			} else { 
+				echo "error";
 			}
-		if(empty($errors)==true){
-			move_uploaded_file($file_tmp,"img/".$file_name);
-			echo "Success";
 		}else{
 			print_r($errors);
 		}
-				
 	}
 ?>
