@@ -61,8 +61,6 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[6
 			<div class="row">
 			
 			<?php
-			echo $product->getId();
-			echo "category - ".getCategory($product->getId());
 			$rows = getSimilarItems($product->getId());
 			
 			for ($i = 0; $i < 3; $i++) {
