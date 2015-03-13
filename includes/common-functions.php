@@ -88,23 +88,24 @@ function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
 		$rowsTitle = array();
 		$rowsDescription = array();
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product LIMIT ?, ?")) {
-		$stmt->bind_param ("ss", $pageIndex, $pageBounds);
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE name OR description LIKE '%?%' LIMIT ?, ?")) {
+		$stmt->bind_param ("sss", $searchItem, $pageIndex, $pageBounds);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
 	   	while($stmt->fetch()) {
-			if (strpos(strtolower($col1), strtolower($searchItem)) !== false) {
-				$rowsTitle[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
-			} else if (strpos(strtolower($col3), strtolower($searchItem)) !== false) {
-				$rowsDescription[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
-			}
+			//if (strpos(strtolower($col1), strtolower($searchItem)) !== false) {
+			//	$rowsTitle[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
+			//} else if (strpos(strtolower($col3), strtolower($searchItem)) !== false) {
+			//	$rowsDescription[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
+			//}
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
     	}
 		$stmt->close ();
 	}
 	
 	$mysqli->close ();
 	
-	$rows = array_merge($rowsTitle, $rowsDescription);
+	//$rows = array_merge($rowsTitle, $rowsDescription);
 	return $rows;
 }
 
