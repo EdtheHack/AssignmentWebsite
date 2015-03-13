@@ -64,15 +64,18 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[6
 			$rows = getSimilarItems($product->getId());
 			
 			for ($i = 0; $i < 3; $i++) {
-				$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][6]);
+				$similarProduct = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][6]);
 			?>
 					
 						<div class="col-md-4">
-							<img src="img/<?php echo $product->getImg(); ?>" alt="">
+							<img src="img/<?php echo $similarProduct->getImg(); ?>" alt="">
 							<div class="caption">
-								<h3><?php echo $product->getName(); ?></h3>
-								<p><?php echo $product->getDescription(); ?></p>
+								<h3><?php echo $similarProduct->getName(); ?></h3>
+								<p><?php echo $similarProduct->getDescription(); ?></p>
 							</div>
+							<form method="POST" action="viewProduct.php">
+								<button type="submit" name='itemId' value='<?php echo $similarProduct->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
+							</form>
 						</div>
 				
 			<?php

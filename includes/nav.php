@@ -29,9 +29,9 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 				<li class="active"><a href="index.php"><i class="fa fa-home"></i> Home </a></li>
 				<li><a href="#"> Products </a></li>
 			</ul>
-			<form method="POST" action="searchProducts.php" class="navbar-form navbar-left">
+			<form method="POST" action="searchProducts.php?currentPage=1" class="navbar-form navbar-left">
 				<div class="form-group">
-					<input type="text" name="searchItem" class="form-control" placeholder="Search" <?php if(!empty($_POST["searchItem"])){ echo " value='".$_POST["searchItem"]."'"; }?>>
+					<input type="text" name="searchItem" class="form-control" placeholder="Search" <?php if(!empty($_SESSION["searchItem"])){ echo " value='".$_SESSION["searchItem"]."'"; }?>>
 				</div>
 				<button type="submit" class="btn btn-default">
 					<i class="fa fa-search"></i>
@@ -61,8 +61,6 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 					
 						
 						echo "<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"?logout\" ><i class=\"fa fa-sign-out\"></i> <b> Logout </b></a></li></ul>";	
-						
-						
 						
 						if(isset($_GET['logout'])){
 							$_SESSION["loggedIn"] = false;

@@ -4,6 +4,7 @@ ini_set ( 'display_errors', 1 );
 ini_set ( 'display_startup_errors', 1 );
 error_reporting ( - 1 );
 
+if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];}
 ?>
 
 <!DOCTYPE html>
@@ -19,18 +20,21 @@ error_reporting ( - 1 );
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
 <body>
+	
 	<?php
 		include ("includes/nav.php");
-
-		$rows = getSearchItems($_POST['searchItem']);
+	?>
+	<div class="container">
+	<?php		
+		$currentPage = $_GET['currentPage'];
+		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
+		$pages = ceil((getAllSearchItems($_SESSION['searchItem']))/5);  //rounds up
 		foreach ($rows as $row) {
 			$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[6]);
 	?>
 	
-	<div class="container">
 		<div class="well">
 			<div class="row">
-				<br>
 				<div class="col-md-6">
 					<img src="http://placehold.it/320x150" alt="">
 				</div>
@@ -41,29 +45,36 @@ error_reporting ( - 1 );
 					</h4>
 					<p> <?php echo $product->getDescription(); ?></p>
 				
-					<form method="POST" action="viewProduct.php">
-						<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
-					</form>
-					
-					<form method="POST" action="viewProduct.php">  
-						<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
-					</form>
+					<div class="col-md-6">
+						<form method="POST" action="viewProduct.php">
+							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
+						</form>
+					</div>
+					<div class="col-md-6">
+						<form method="POST" action="viewProduct.php">  
+							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
+						</form>
+					</div>
 				</div>
-				<br>
 				<br>
 			</div>
 		</div>
-	</div>
+	
 	<br>
 		
 	<?php
-		
-			if(isset($_POST['viewProduct'])){   //serialization does not work
-				$_SESSION["serializedProduct"] = serialize($product);
-				$_SESSION["name"] = $this->getName();
-				echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
-			}
 		}
 	?>
+	
+		<ul class="pagination">
+			<li><a href="#">&laquo;</a></li>
+			<?php 
+				for ($i = 1; $i <= $pages; $i++) {
+					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$i'>".$i."</a> </li>"; 
+				}
+			?>
+			<li><a href="#">&raquo;</a></li>
+		</ul>
+	</div>
 	</body>
 </html>

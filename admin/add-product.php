@@ -2,6 +2,7 @@
 session_start ();
 
 include ("../includes/sanitation.php");
+include ("../includes/add-product-functions.php");
 
 /*
  * include ("includes/common-functions.php");
@@ -32,6 +33,24 @@ include ("../includes/sanitation.php");
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	
+<script type="text/javascript"> //needs reference here please 
+                (function($){
+                    $.fn.extend({
+                        bs_alert: function(message, title){
+                            var cls='alert-danger';
+                            var html='<div class="alert '+cls+' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+                            if(typeof title!=='undefined' &&  title!==''){
+                             html+='<h4>'+title+'</h4>';
+                      }
+                     html+='<span>'+message+'</span></div>';
+                     $(this).html(html);
+                  }
+              });
+          })(jQuery);
+
+ </script>      
+	
 </head>
 <body>
 <?php
@@ -52,6 +71,22 @@ include ("../includes/nav.php");
 				include ("admin-nav.php");
 				?>
     <div class="col-md-9">
+    			<br>
+    			<div id="print_errors"></div> 
+    			<br>
+    			
+    			
+    									
+				<form action="" method="POST" enctype="multipart/form-data">
+					<div class="form-group">
+						<label for="newProductImage">Product Image</label> 
+						<input type="file" name="photo">
+						<p class="help-block">Please upload an image of the product here.</p>
+						<button type="submit" name="uploadPhoto" class="btn btn-default">Upload Image</button>
+					</div>
+				</form>
+	
+    			
 				<form method="POST" action="">
 					<div class="form-group">
 							<label for="newProductName">Product Name</label> <input
@@ -67,8 +102,13 @@ include ("../includes/nav.php");
 					</div>
 
 					<div class="form-group">
+<<<<<<< HEAD
 							<label for="newProductDiscount">Select discount:</label>
 							<select class="form-control" id="newProductDiscount">
+=======
+							<label for="newProductDiscount">Select discount (optional):</label>
+							<select class="form-control" name="newProductDiscount"  <?php if(!empty($_POST["newProductDiscount"])){ echo " value='".$_POST["newProductDiscount"]."'"; }?>>
+>>>>>>> origin/master
 								<option>0</option>
                                 <option>5</option>
 								<option>10</option>
@@ -84,60 +124,30 @@ include ("../includes/nav.php");
 
 					<div class="form-group">
 						<label for="productDescription">Description</label>
-						<textarea class="form-control" rows="5" id="newProductDescription"></textarea>
+						<textarea class="form-control" rows="5" name="newProductDescription"><?php if(!empty($_POST["newProductDescription"])){ echo "".$_POST["newProductDescription"].""; }?></textarea>
 					</div>
                     
-					<div class="form-group">
-						<label for="newProductImage">Product Image</label> <input
-							type="file" id="newProductImage">
-						<p class="help-block">Please upload an image of the product here.</p>
-					</div>
-
-					<div class="checkbox">
-						<label> <input type="checkbox"> List product immediately
-						</label>
-					</div>
-					<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
-				</form>
+                    
+						<div class="checkbox">
+							<label> <input type="checkbox" name="newProductList" value="true"> List product immediately
+							</label>
+						</div>
+						<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
+					
+					</form>
+				
+				
 				
 				<?php 
 				
-				$error_array = array();
-				
-				if(isset($_POST['newProduct'])){
-										
-					$name = $_POST['newProductName'];
-					$price = $_POST['newProductPrice'];
-					
-					if($name != null){
-						if(sanitiseString($name, 1, 100) != 1){  //not cleared
-							$error_array[] = "Name field has illegial chars or is too short/long";
-						}else{
-							echo $name;
-						}
-					}else{
-						$error_array[] = "Name field cannot be empty";
-					}
-					
-					if($price != null){
-						if(sanitiseCurrency($price) != 1){  //not cleared
-							$error_array[] = "price field has illegial chars or is too short/long";
-						}else{
-							echo $price;
-						}
-					}else{
-						$error_array[] = "Name field cannot be empty";
-					}
-					
-					$error = implode("<br>", $error_array);
-					echo $error;
-				}
-			
 				
 				?>
 				
 			</div>
 		</div>
 	</div>
+											 
+
+	
 </body>
 </html>

@@ -61,13 +61,14 @@ function getItem($productId){
 	return $row;
 }
 
-function getSimilarItems($itemId){  //NEEDS WORK
+function getSimilarItems($productId){  //NEEDS WORK
 	$mysqli = connect ();
 	
 		$rows = array();
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product FULL OUTER JOIN product_categories ON product.product_id = product_categories.product_id 
-									WHERE product_categories.category_id = (SELECT category_id FROM product_categories WHERE product_id = '".$itemId."') LIMIT 3" )) {
+	if ($stmt = $mysqli->prepare ("SELECT product.* FROM product INNER JOIN product_categories ON product.product_id = product_categories.product_id   
+									WHERE product_categories.category_id = (SELECT category_id FROM product_categories WHERE product_id=?) LIMIT 3" )) {
+		$stmt->bind_param ("s", $productId);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
 	   	while($stmt->fetch()) {
@@ -80,28 +81,44 @@ function getSimilarItems($itemId){  //NEEDS WORK
 	return $rows;
 }
 
-function getSearchItems($searchItem){  //NEEDS WORK
+function getAllSearchItems($searchItem){  //NEEDS WORK
 	$mysqli = connect ();
 	
-		$rowsTitle = array();
-		$rowsDescription = array();
+		$rows = array();
+		$searchItem = '%'.$searchItem.'%';
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product" )) {
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) OR (description) LIKE UPPER (?)")) {
+		$stmt->bind_param ("s", $searchItem);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
 	   	while($stmt->fetch()) {
-			if (strpos(strtolower($col1), strtolower($searchItem)) !== false) {
-				$rowsTitle[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
-			} else if (strpos(strtolower($col3), strtolower($searchItem)) !== false) {
-				$rowsDescription[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
-			}
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
     	}
 		$stmt->close ();
 	}
 	
 	$mysqli->close ();
+	return count($rows);
+}
+
+function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
+	$mysqli = connect ();
 	
-	$rows = array_merge($rowsTitle, $rowsDescription);
+		//$pageBounds = $pageIndex + 5;
+		$rows = array();
+		$searchItem = '%'.$searchItem.'%';
+	
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) OR (description) LIKE UPPER (?) LIMIT ?, 5")) {
+		$stmt->bind_param ("ss", $searchItem, $pageIndex);
+		$stmt->execute ();
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
+	   	while($stmt->fetch()) {
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
+    	}
+		$stmt->close ();
+	}
+	
+	$mysqli->close ();
 	return $rows;
 }
 
@@ -121,6 +138,47 @@ function getMostDiscounted(){
 		
 	return $rows;
 }
+
+
+
+function fileUploads(){
+	//if they DID upload a file...
+	if($_FILES['photo']['name']){
+		//if no errors...
+		if(!$_FILES['photo']['error']){
+			//now is the time to modify the future file name and validate the file
+			$new_file_name = strtolower($_FILES['photo']['tmp_name']); //rename file
+			if($_FILES['photo']['size'] > (1024000)) //can't be larger than 1 MB
+			{
+				$valid_file = false;
+				$message = 'Oops!  Your file\'s size is to large.';
+			}
+	
+			//if the file has passed the test
+			if($valid_file)
+			{
+				//move it to where we want it to be
+				move_uploaded_file($_FILES['photo']['tmp_name'], 'uploads/'.$new_file_name);
+				$message = 'Congratulations!  Your file was accepted.';
+			}
+		}
+		//if there is an error...
+		else
+		{
+			//set that to be the returned message
+			$message = 'Ooops!  Your upload triggered the following error:  '.$_FILES['photo']['error'];
+		}
+	}
+	
+	//you get the following information for each file:
+	$_FILES['field_name']['name'];
+	$_FILES['field_name']['size'];
+	$_FILES['field_name']['type'];
+	$_FILES['field_name']['tmp_name'];
+	
+	
+}
+
 
 /*
 
