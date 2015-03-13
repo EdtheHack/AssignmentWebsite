@@ -160,9 +160,11 @@ function getCurrentUserOrderId($userId){
 }
 
 function addNewUserOrder($userId){
-		$mysqli = connect();
+	$mysqli = connect();
 		
-		$stmt = $mysqli->prepare ("INSERT INTO order (user_id, confirmed) VALUES (?, ?)" );
+	echo"id - >".$userId;
+		
+	if ($stmt = $mysqli->prepare ("INSERT INTO order (user_id, confirmed) VALUES (?, ?)" )){
 		$stmt->bind_param("ii", $userId, 0);
 			
 		if ($stmt === false) {
@@ -173,7 +175,8 @@ function addNewUserOrder($userId){
 		   die('Error : ('. $mysqli->errno .') '. $mysqli->error);
 		}
 		$stmt->close ();
-		$mysqli->close ();
+	}
+	$mysqli->close ();
 }
 	
 function getCurrentOrderProducts($orderId){
