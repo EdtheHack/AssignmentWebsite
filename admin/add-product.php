@@ -89,23 +89,6 @@ include ("../includes/nav.php");
     			
 				<form method="POST" action="" enctype="multipart/form-data">
 				
-				
-				  <select multiple  id="e19[]">
-				      <option value="January">January</option>
-				      <option value="February">February</option>
-				      <option value="March">March</option>
-				      <option value="April">April</option>
-				      <option value="May">May</option>
-				      <option value="June">June</option>
-				      <option value="July">July</option>
-				      <option value="August">August</option>
-				      <option value="September">September</option>
-				      <option value="October">October</option>
-				      <option value="November">November</option>
-				      <option value="December">December</option>
-				</select>
-				
-				
 					<div class="form-group">
 							<label for="newProductName">Product Name</label> <input
 								type="text" class="form-control" name="newProductName"
@@ -141,6 +124,47 @@ include ("../includes/nav.php");
 						<label for="productDescription">Description</label>
 						<textarea class="form-control" rows="5" name="newProductDescription"><?php if(!empty($_POST["newProductDescription"])){ echo "".$_POST["newProductDescription"].""; }?></textarea>
 					</div>
+					
+					<div class="form-group">
+					<hr>
+						<label for="productCategories">Associated Product Categories</label>
+						<div class="table-responsive">          
+     					 <table class="table">
+     					 	 <tbody>
+									<?php
+										include ($_SERVER ['DOCUMENT_ROOT'] . '/dbconn.php');
+																				
+										if ($stmt = $db_con->prepare ("SELECT name FROM categories" )) {
+											$stmt->execute ();
+											$stmt->bind_result ( $category_name );
+											$id = 1;
+											while($stmt->fetch()){
+												
+												if ($tr_count == 4){
+													echo '<tr>';
+												}
+												
+												echo ' <td>'.$category_name.'<input type="checkbox" name="admin[]" value="'.$id.'"/></td>'."";
+												
+												if ($tr_count == 4){
+													echo '<tr>';
+													$tr_count = 0;
+												}else{
+													$tr_count++;
+												}
+												
+												$id++;
+											}
+											$stmt->close ();
+										}
+										$db_con->close ();
+									?>
+								</tbody>
+							</table>
+						</div>
+					<hr>
+					</div>
+					
                     
                     <div class="form-group">
 						<label for="newProductImage">Product Image</label> 
@@ -148,8 +172,7 @@ include ("../includes/nav.php");
 						<p class="help-block">Please upload an image of the product here.</p>
 					</div>
 					
-					<a href="#myModal" data-toggle="modal" data-target="#myModal">Delete
-									Product</a>
+					<button href="#myModal" class="btn btn-default" data-toggle="modal" data-target="#myModal">Delete Product</button>
 					
 						<div class="checkbox">
 							<label> <input type="checkbox" name="newProductList" value="true"> List product immediately
@@ -196,7 +219,7 @@ include ("../includes/nav.php");
 						$stmt->bind_result ( $category_name );
 						$id = 1;
 						while($stmt->fetch()){
-							echo '<tr><td>'.$category_name.'</td><td><input type="checkbox" name="admin[]" value="'.$id.'"/></td></tr>'."\n";
+							echo ''.$category_name.'<input type="checkbox" name="admin[]" value="'.$id.'"/><br>'."\n";
 							$id++;
 						}
 						$stmt->close ();
