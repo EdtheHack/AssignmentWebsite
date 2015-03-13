@@ -48,6 +48,7 @@ if(isset($_POST['newProduct'])){
 		
 		
 	if(isset($_POST['newProductList'])){
+		$list = $_POST['newProductList'];
 		$list = true;
 	}else{
 		$list = false;#default value
@@ -87,8 +88,7 @@ if(isset($_POST['newProduct'])){
 		$img = "test icles";
 		
 		if ($stmt = $mysqli->prepare ( "INSERT INTO product (name, price, description, percentage_off, status, img) VALUES (?,?,?,?,?,?)" )) {
-			$user = $_SESSION ["userID"];
-			$stmt->bind_param ( "sisiis", $name, $price, $description, $discount, $statement, $img);
+			$stmt->bind_param ( "sisiis", $name, $price, $description, $discount, $status, $img);
 			$stmt->execute ();
 			$stmt->close ();
 		}
