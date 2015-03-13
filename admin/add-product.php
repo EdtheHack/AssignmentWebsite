@@ -148,7 +148,7 @@ include ("../includes/nav.php");
 													$tr_count = 0;
 												}
 												
-												echo ' <td><div class="checkbox"><label>'.$category_name.' <input type="checkbox" name="admin[]" value="'.$id.'"/></label></div</td>'."";
+												echo ' <td><div class="checkbox"><label><input type="checkbox" name="categories[]" value="'.$id.'"/>'.$category_name.'</label></div</td>'."";
 												
 												$tr_count++;
 
