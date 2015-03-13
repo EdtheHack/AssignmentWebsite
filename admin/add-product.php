@@ -126,6 +126,8 @@ include ("../includes/nav.php");
 								<option>75</option>
 							</select>
 					</div>
+					
+					<div class="col-xs-6 col-md-4"></div>
 
 
 					<div class="form-group">
