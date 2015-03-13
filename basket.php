@@ -22,6 +22,21 @@ error_reporting ( - 1 );
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
+<body>
 <?php
 	include ("includes/nav.php");
 ?>
+
+<div class="container">
+	<div class="well">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="thumbnail"> <img src="http://placehold.it/320x150" alt="">
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>
