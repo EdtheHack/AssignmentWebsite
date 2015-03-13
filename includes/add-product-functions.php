@@ -7,9 +7,6 @@ $error_array = array();
 
 if(isset($_POST['newProduct'])){
 
-	
-	
-	echo $_POST['e19'];
 	$name = $_POST['newProductName'];
 	$price = $_POST['newProductPrice'];
 	$discount = $_POST['newProductDiscount'];
@@ -53,9 +50,10 @@ if(isset($_POST['newProduct'])){
 	}
 	
 	if(!empty($_POST['categories'])){
-		// Loop to store and display values of individual checked checkbox.
+		$categories = array();
 		foreach($_POST['categories'] as $selected){
 			echo $selected."</br>";
+			$categories[] = $selected;
 		}
 	}
 		
@@ -86,11 +84,8 @@ if(isset($_POST['newProduct'])){
 		die; //wrong input, do not proceed
 	}else{
 		$status = productStatus($list, $discount);	
-		//$img = "test icles";
-	 	addToDB($name, $price, $description, $discount, $status, $img); //everything was fine so carry on and add product
+	 	addToDB($name, $price, $description, $discount, $status, $img, $categories); //everything was fine so carry on and add product
 	}
-	
-
 	
 	
 	}
@@ -110,7 +105,7 @@ if(isset($_POST['newProduct'])){
 		return $status;
 	}
 	
-	function addToDB($name, $price, $description, $discount, $status, $img){
+	function addToDB($name, $price, $description, $discount, $status, $img, $categories){
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 		
 		$mysqli = $db_con;
@@ -125,9 +120,54 @@ if(isset($_POST['newProduct'])){
 		if(!($stmt->execute ())){
 		   die('Error : ('. $mysqli->errno .') '. $mysqli->error);
 		}
+		
+		addProductCategories(mysqli_insert_id($mysqli), $categories);
+		
 		$stmt->close ();
 		$mysqli->close ();
+		
+		
 	}
+	
+	
+	function addProductCategories ($product_id, $categories){
+		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+		
+		$mysqli = $db_con;
+		
+		
+		foreach ($categories as &$value){
+			$stmt = $mysqli->prepare ( "SELECT category_id FROM categories WHERE name=?" );
+			$stmt->bind_param ("s", $value);
+			$stmt->bind_result ($cat_id);
+			
+			if ($stmt === false) {
+				trigger_error('Statement 1 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+			}
+				
+			if(!($stmt->execute ())){
+				die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+			}
+			
+			$stmt->close ();
+			
+			$stmt = $mysqli->prepare ( "INSERT INTO product_categories (product_id, category_id)VALUES (?, ?)" );
+			$stmt->bind_param ("ss", $product_id, $cat_id);
+			
+			if ($stmt === false) {
+				trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+			}
+			
+			if(!($stmt->execute ())){
+				die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+			}
+				
+			$stmt->close ();
+			
+		}
+	}
+	
+	
 	
 	function uploadPhoto (){
 		$errors = array();

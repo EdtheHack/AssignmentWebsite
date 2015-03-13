@@ -82,19 +82,7 @@ include ("../includes/nav.php");
     			<br>
     			<div id="print_errors"></div> 
     			<br>
-    			
-    			
-    									
-				<!-- <form action="" method="POST" enctype="multipart/form-data">
-					<div class="form-group">
-						<label for="newProductImage">Product Image</label> 
-						<input type="file" name="photo">
-						<p class="help-block">Please upload an image of the product here.</p>
-						<button type="submit" name="newProduct" class="btn btn-default">Upload Image</button>
-					</div>
-				</form>-->
-	
-    			
+    			   			
 				<form method="POST" action="" enctype="multipart/form-data">
 				
 					<div class="form-group">
