@@ -51,12 +51,12 @@ include ("../includes/sanitation.php");
 
  </script>  
  
- <style>
+<!-- <style>
  .borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
     border: none;
 }
  
- </style>
+ </style> -->
      
 	
 </head>
@@ -71,7 +71,6 @@ include ("../includes/nav.php");
 					<h2>
 						Add Product <small> Add a new product to the site for sale.</small>
 					</h2>
-					<br>
 					<p></p>
 				</div>
 			</div>

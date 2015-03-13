@@ -39,10 +39,9 @@ include ("../includes/nav.php");
   <div class="col-md-12">
     <div class="row">
       <div class="jumbotron">
-        <h2> Hi, [name here pls]. <small>What would you like to do today?</small> </h2>
-        <br>
-        <p>Welcome to the administration pages. From here, you can add,
-          edit, and remove products, plus much more.</p>
+        <h2> Hi, [name here pls]. <small>Welcome to the administration pages. From here, you can add,
+          edit, and remove products, plus much more.</small> </h2>
+        <p></p>
       </div>
     </div>
 

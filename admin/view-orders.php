@@ -40,7 +40,6 @@ include ("../includes/nav.php");
     <div class="row">
       <div class="jumbotron">
         <h2>View All Orders <small> A complete list of all orders placed.</small> </h2>
-        <br>
         <p></p>
       </div>
     </div>
