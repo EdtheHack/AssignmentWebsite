@@ -44,7 +44,6 @@ include ("../includes/nav.php");
 							the store.</small>
 					</h2>
 					<br>
-					<p>Below is a complete list of all products.</p>
 				</div>
 			</div>
     <?php

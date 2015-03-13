@@ -42,7 +42,7 @@ include ("../includes/nav.php");
 			<div class="row">
 				<div class="jumbotron">
 					<h2>
-						Add Product<small> Add a new product to the site for sale.</small>
+						Add Product <small> Add a new product to the site for sale.</small>
 					</h2>
 					<br>
 					<p></p>
@@ -67,7 +67,7 @@ include ("../includes/nav.php");
 					</div>
 
 					<div class="form-group">
-							<label for="newProductDiscount">Select discount (optional):</label>
+							<label for="newProductDiscount">Select discount:</label>
 							<select class="form-control" id="newProductDiscount">
 								<option>0</option>
                                 <option>5</option>
