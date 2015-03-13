@@ -2,7 +2,7 @@
 session_start ();
 
 include ("../includes/sanitation.php");
-include ("../includes/add-product-functions.php");
+
 
 /*
  * include ("includes/common-functions.php");
@@ -140,7 +140,7 @@ include ("../includes/nav.php");
 				
 				<?php 
 				
-				
+				include ("../includes/add-product-functions.php");
 				?>
 				
 			</div>
