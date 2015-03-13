@@ -73,6 +73,9 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[6
 								<h3><?php echo $similarProduct->getName(); ?></h3>
 								<p><?php echo $similarProduct->getDescription(); ?></p>
 							</div>
+							<form method="POST" action="viewProduct.php">
+								<button type="submit" name='itemId' value='<?php echo $similarProduct->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
+							</form>
 						</div>
 				
 			<?php

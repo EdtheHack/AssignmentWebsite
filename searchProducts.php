@@ -21,8 +21,10 @@ error_reporting ( - 1 );
 <body>
 	<?php
 		include ("includes/nav.php");
-
-		$rows = getSearchItems($_POST['searchItem']);
+		
+		$currentPage = $_GET['currentPage'];
+		$rows = getSearchItems($_POST['searchItem'], $currentPage*5);
+		$pages = ceil(count($rows)/5);  //rounds up
 		foreach ($rows as $row) {
 			$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[6]);
 	?>
@@ -52,6 +54,15 @@ error_reporting ( - 1 );
 				<br>
 				<br>
 			</div>
+			<ul class="pagination">
+				<li><a href="#">&laquo;</a></li>
+				<li><a href="<?php echo {$_SERVER['PHP_SELF']}?currentpage=$currentPage?>"><?php echo $currentPage?></a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">&raquo;</a></li>
+			</ul>
 		</div>
 	</div>
 	<br>
