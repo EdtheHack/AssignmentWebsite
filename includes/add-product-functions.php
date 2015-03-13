@@ -152,7 +152,7 @@ if(isset($_POST['newProduct'])){
 			$stmt->close ();
 			
 			$stmt = $mysqli->prepare ( "INSERT INTO product_categories (product_id, category_id)VALUES (?, ?)" );
-			$stmt->bind_param ("ss", $product_id, $cat_id);
+			$stmt->bind_param ("ii", $product_id, $cat_id);
 			
 			if ($stmt === false) {
 				trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
