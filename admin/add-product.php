@@ -127,7 +127,7 @@ include ("../includes/nav.php");
 							</select>
 					</div>
 					
-					<div class="col-xs-6 col-md-4"></div>
+					<div class="col-xs-6 col-md-4"><br></div>
 
 
 					<div class="form-group">
