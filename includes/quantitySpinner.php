@@ -16,33 +16,13 @@
   
   $(function() {
     var spinner = $( "#prodQtySpinner" ).spinner({
-		icons:{down:"ui-icon-arrowthickstop-1-s" , up:"ui-icon-arrowthickstop-1-n"}
-		incremental:false
+		//icons:{down:"ui-icon-arrowthickstop-1-s" , up:"ui-icon-arrowthickstop-1-n"}
+		//incremental:false
 		min: 1
 		max: 15
-		}); //create spinner
+		}); 
 	})
-	//$(".qtySelector").spinner({
-		//icons:(down:"ui-icon-arrowthickstop-1-s" , up:"ui-icon-arrowthickstop-1-n")});  //initialize up/down arrows
-	//var icons = $(".qtySelector").spinner("option","icons"); //get
-	//$(".qtySelector").spinner("option","icons", {down:"i-icon-arrowthickstop-1-s", up:"ui-icon-arrowthickstop-1-n"}); //set
 	
-	//$(".qtySelector").spinner({
-		//incremental:false}); //initialize false on step increment - stops button increasing when held
-	//var incremental = $(."qtySelector").spinner("option", "incremental"); //get
-	//$(".qtySelector").spinner("option", "incremental", false); //set
-	
-	//$(".qtySelector").spinner({
-		//min: 1 }); //initialize qty minimum of 1
-	//var min = $(".qtySelector").spinner("option","min"); //get
-	//$(".qtySelector").spinner("option", "min", 1);
-	
-	//$(".qtySelector").spinner({
-		//max: 15}); } //initialize qty max of 15
-	//var max = $(".qtySelector").spinner("option","max"); //get
-	//$(".qtySelector").spinner("option", "max", 15); //set
-	
-	//CHECK VARIABLE NAMING U FGT
 </script>
 <body>
 <div id="test">
