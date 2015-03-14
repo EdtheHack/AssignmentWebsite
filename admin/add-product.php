@@ -189,6 +189,8 @@ include ("../includes/nav.php");
 				
 			</div>
 		</div>
+	</div> <!-- CONTAINER DIV -->
+		
 		
 		<div class="modal hide fade" id="CompletedAdd" >
 		   <div class="modal-dialog">
@@ -211,7 +213,6 @@ include ("../includes/nav.php");
 		</div>
 		
 
-	</div>
 
 </body>
 </html>
