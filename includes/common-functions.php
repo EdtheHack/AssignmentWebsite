@@ -164,7 +164,7 @@ function addNewUserOrder($userId){
 		
 	echo"id - >".$userId;
 		
-	if ($stmt = $mysqli->prepare ("INSERT INTO order (user_id, confirmed) VALUES (?, ?)" )){
+	if ($stmt = $mysqli->prepare ("INSERT INTO `order` (`user_id`, `purchased`) VALUES (?, ?);" )){
 		$stmt->bind_param("ii", $userId, 0);
 			
 		if ($stmt === false) {
@@ -175,6 +175,8 @@ function addNewUserOrder($userId){
 		   die('Error : ('. $mysqli->errno .') '. $mysqli->error);
 		}
 		$stmt->close ();
+	} else {
+	
 	}
 	$mysqli->close ();
 }
