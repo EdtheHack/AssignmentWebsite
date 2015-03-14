@@ -6,7 +6,7 @@
 
 <div class="col-md-3">
 	<div class="well">
-		<h3>Just added</h3>
+		<h3>Biggest Deals</h3>
 		
 		<?php	
 			
