@@ -33,13 +33,16 @@ error_reporting ( - 1 );
 		$order = unserialize($_SESSION["order"]);
 		if(isset($_SESSION["product"])){   //checks if user came here from a product page
 			$addProduct = unserialize($_SESSION["product"]);
+			$order->addProduct(unserialize($_SESSION["product"]));
 			addProduct($order->getId(), $addProduct->getId(), 1);
 		}
 	} else {
 		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
 	}
 	
-	//foreach ($order->getProducts() as $product) {
+	foreach ($order->getProducts() as $product) {
+		echo $order->getId();
+		echo $product->getName();
 ?>
 
 		<div class="well">
@@ -69,7 +72,7 @@ error_reporting ( - 1 );
 			</div>
 		</div>
 		<?php
-		//}
+		}
 		?>
 
 </body>

@@ -17,8 +17,8 @@
 			return $this->products;
 		}
 		
-		public function addProduct($userId, $productId){
-			return $this->products[$productId];
+		public function addProduct(){
+			return $this->products;
 		}
 		
 		
