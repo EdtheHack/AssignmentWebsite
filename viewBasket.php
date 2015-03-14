@@ -40,9 +40,8 @@ error_reporting ( - 1 );
 		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
 	}
 	
-	foreach ($order->getProducts() as $product) {
-		echo $order->getId();
-		echo $product->getName();
+	$products = $order->getProducts();
+	for ($i = 0; $i < count($products); $i++) {
 ?>
 
 		<div class="well">
@@ -51,20 +50,15 @@ error_reporting ( - 1 );
 					<img src="http://placehold.it/320x150" alt="">
 				</div>
 				<div class="col-md-6">
-					<h4 class="pull-right"><?php echo $product->getPrice(); ?></h4>
+					<h4 class="pull-right"><?php echo $products[$i]->getPrice(); ?></h4>
 					<h4>
-						<a href="#"><?php echo $product->getName(); ?></a>
+						<a href="#"><?php echo $products[$i]->getName(); ?></a>
 					</h4>
-					<p> <?php echo $product->getDescription(); ?></p>
+					<p> <?php echo $products[$i]->getDescription(); ?></p>
 				
 					<div class="col-md-6">
 						<form method="POST" action="viewProduct.php">
-							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
-						</form>
-					</div>
-					<div class="col-md-6">
-						<form method="POST" action="viewProduct.php">  
-							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
+							<button type="submit" name='itemId' value='<?php echo $products[$i]->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
 						</form>
 					</div>
 				</div>
