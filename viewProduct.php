@@ -55,7 +55,7 @@ $_SESSION['product'] = serialize($product);
 						<button type="submit" class="btn btn-default pull-right">
 							<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
 						</button>
-						<?php include ("includes/quantitySpinner"); ?>
+						<?php include ("includes/quantitySpinner.php"); ?>
 					</form>
 					<br>
 					
