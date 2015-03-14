@@ -199,7 +199,7 @@ function getCurrentOrderProducts($orderId){
 	}
 	$mysqli->close ();
 	
-	return $products;
+	return $rows;
 }
 
 function addProduct($orderId, $productId, $quantity){
