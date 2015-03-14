@@ -186,9 +186,15 @@ if(isset($_POST['newProduct'])){
 			if(!($stmt->execute ())){
 				die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
 			}
+			
+			$close = true;
 		}
 		
-		$stmt->close ();
+		
+		if($close){
+			$stmt->close ();
+		}
+		
 		$mysqli->close ();
 		
 		completedProductAdd();
