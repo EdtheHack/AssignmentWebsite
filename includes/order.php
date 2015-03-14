@@ -17,8 +17,12 @@
 			return $this->products;
 		}
 		
-		public function addProduct(){
-			return $this->products;
+		public function getAmountOfProducts(){
+			return $this->count(products);
+		}
+		
+		public function addProduct($product){
+			array_push($this->products, $product);
 		}
 		
 		
