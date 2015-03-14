@@ -83,7 +83,7 @@ error_reporting ( - 1 );
 					</div>
 					<div class="col-md-6">
 						<form method="POST" action="viewProduct.php">
-							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
+							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> Remove </b> </button>	
 						</form>
 					</div>
 				</div>

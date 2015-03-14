@@ -24,7 +24,7 @@
 		
 		public function getTotalPrice(){
 			$total = 0;
-			foreach ($products as $product) {
+			foreach ($this->products as $product) {
 				$total = $total + $product->getPrice();
 			}
 			return $total;
