@@ -33,7 +33,7 @@ error_reporting ( - 1 );
 		$order = unserialize($_SESSION["order"]);
 		if(isset($_SESSION["product"])){   //checks if user came here from a product page
 			$addProduct = unserialize($_SESSION["product"]);
-			$order->addProduct(unserialize($_SESSION["product"]));
+			$order->addProduct($addProduct);
 			addProduct($order->getId(), $addProduct->getId(), 1);
 		}
 	} else {
@@ -43,8 +43,13 @@ error_reporting ( - 1 );
 	$products = $order->getProducts();
 	
 	echo $order->getAmountOfProducts();
+	
+	?>
+	<div class="container">
+	<?php	
+	
 	foreach ($products as $product) {
-?>
+	?>
 
 		<div class="well">
 			<div class="row">
@@ -70,6 +75,7 @@ error_reporting ( - 1 );
 		<?php
 		}
 		?>
+	</div>
 
 </body>
 </html>

@@ -41,7 +41,7 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 				</button>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-					<li><a href="login-page.php"><i class="fa fa-shopping-cart fa-1x"></i> Basket <b>0</b></a></li>
+					<li><a href="viewBasket.php"><i class="fa fa-shopping-cart fa-1x"></i> Basket <b>0</b></a></li>
 				
 					<?php if(isset($_SESSION['loggedIn']) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
 						
