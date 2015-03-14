@@ -66,7 +66,7 @@ function getSimilarItems($productId){  //NEEDS WORK
 	
 		$rows = array();
 	
-	if ($stmt = $mysqli->prepare ("SELECT product.* FROM product INNER JOIN product_categories ON product.product_id = product_categories.product_id   
+	if ($stmt = $mysqli->prepare ("SELECT product.* FROM product LEFT JOIN product_categories ON product.product_id = product_categories.product_id   
 									WHERE product_categories.category_id = (SELECT category_id FROM product_categories WHERE product_id=?) LIMIT 3" )) {
 		$stmt->bind_param ("s", $productId);
 		$stmt->execute ();
@@ -187,10 +187,10 @@ function getCurrentOrderProducts($orderId){
 	
 	$rows = array();
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM `product` INNER JOIN order_contents ON product.product_id = order_contents.product_id   
+	if ($stmt = $mysqli->prepare ("SELECT * FROM `product` LEFT JOIN order_contents ON product.product_id = order_contents.product_id   
 									WHERE order_contents.order_id=?" )){ 
 		$stmt->bind_param ("i", $orderId);
-		$stmt->execute();
+		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
 	   	while($stmt->fetch()) {
 			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
@@ -199,7 +199,7 @@ function getCurrentOrderProducts($orderId){
 	}
 	$mysqli->close ();
 	
-	return $rows;
+	return $products;
 }
 
 function addProduct($orderId, $productId, $quantity){

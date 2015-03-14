@@ -8,7 +8,7 @@
 		
 			$this->id = $id;
 			for ($i = 0; $i < count($products); $i++) {
-				$this->products[$i] = new product($products[$i][0], $products[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][6]);
+				$this->products[] = new product($products[$i][0], $products[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][6]);
 			}
 			$this->confirmed =$confirmed;
 		}
