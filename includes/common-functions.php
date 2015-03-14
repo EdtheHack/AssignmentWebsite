@@ -148,7 +148,7 @@ function getCurrentUserOrderId($userId){
 		$stmt->bind_param ( "i", $userId);
 		$stmt->execute ();
 		$stmt->bind_result ( $result);
-		$stmt->fetch()
+		$stmt->fetch();
 		$stmt->close ();
 	}
 	$mysqli->close ();	
