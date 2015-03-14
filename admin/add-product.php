@@ -192,7 +192,8 @@ include ("../includes/nav.php");
 	</div> <!-- CONTAINER DIV -->
 		
 		
-		<div class="modal hide fade" id="CompletedAdd" >
+		<div class="modal fade" id="CompletedAdd" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
 		   <div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
