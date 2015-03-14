@@ -166,7 +166,7 @@ if(isset($_POST['newProduct'])){
 		foreach ($categories as &$value){
 			
 			echo $value;
-			$stmt = $mysqli->prepare ( "SELECT category_id FROM categories WHERE name=?" );
+			/*$stmt = $mysqli->prepare ( "SELECT category_id FROM categories WHERE name=?" );
 			$stmt->bind_param ("s", $value);
 			$stmt->bind_result ($cat_id);
 			
@@ -180,9 +180,9 @@ if(isset($_POST['newProduct'])){
 			
 			$stmt->close ();
 		
-			
+			*/
 			$stmt2 = $mysqli->prepare ( "INSERT INTO product_categories (product_id, category_id)VALUES (?, ?)" );
-			$stmt2->bind_param ("ii", $product_id, $cat_id);
+			$stmt2->bind_param ("ii", $product_id, $value);
 			
 			if ($stmt2 === false) {
 				trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
