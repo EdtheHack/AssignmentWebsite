@@ -206,11 +206,12 @@ function addProduct($orderId, $productId, $quantity){
 	$mysqli = connect ();
 	
 	$rows = array();
-	
-	//if exists(orderId/productId) then add the quantities together and dont do next query TODO
-	
-	if ($stmt = $mysqli->prepare ("INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){ 
-		$stmt->bind_param ("ssi", $orderId, $productId, $quantity);
+		
+	if ($stmt = $mysqli->prepare ("IF EXISTS (SELECT * FROM order_contents WHERE order_id=?) UPDATE order_contents SET (quantity = (quantity + ?)) WHERE order_id=? ELSE
+    INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){	
+		
+	//if ($stmt = $mysqli->prepare ("INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){ 
+		$stmt->bind_param ("sisssi", $orderId, $quantity, $orderId, $orderId, $productId, $quantity);
 		$stmt->execute ();
 
 		$stmt->close ();
