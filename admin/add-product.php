@@ -190,7 +190,7 @@ include ("../includes/nav.php");
 			</div>
 		</div>
 		
-		<div class="modal hide fade" id="CompletedADD" >
+		<div class="modal hide fade" id="CompletedAdd" >
 		   <div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
