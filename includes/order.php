@@ -18,7 +18,7 @@
 		}
 		
 		public function getAmountOfProducts(){
-			return $this->count(products);
+			return count($this->products);
 		}
 		
 		public function addProduct($product){
