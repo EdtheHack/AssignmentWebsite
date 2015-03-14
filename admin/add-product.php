@@ -206,7 +206,7 @@ include ("../includes/nav.php");
 				<div class="modal-body">The producted has now been added to the product catalog, add another or go back to Admin Home
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" onClick="history.go(0)" VALUE="Refresh">Add Another</button>
+					<button type="button" class="btn btn-default" onClick="location.href='add-product.php'" VALUE="Refresh">Add Another</button>
 					<button type="button" class="btn btn-fefault" onClick="location.href='index.php'" >Admin Home</button>
 				</div>
 			</div>
