@@ -187,7 +187,7 @@ function getCurrentOrderProducts($orderId){
 	
 	$rows = array();
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM `product` LEFT JOIN order_contents ON product.product_id = order_contents.product_id   
+	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN order_contents ON product.product_id = order_contents.product_id   
 									WHERE order_contents.order_id=?" )){ 
 		$stmt->bind_param ("i", $orderId);
 		$stmt->execute ();
