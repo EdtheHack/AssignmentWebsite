@@ -102,7 +102,8 @@ if(isset($_POST['newProduct'])){
 	- productStatus: Determines and returns the product status depending on if the admin wants the product to be listed and discount variables
 	- addToDB: Adds the product to the database if all checks are passed
 	- addProductCategories: If the DB Add is a success then the new product will have associated categories added to it in this function 
-	- uploadPhoto: Handles the uploading of the files entered by the Admin and checks for the file input	
+	- uploadPhoto: Handles the uploading of the files entered by the Admin and checks for the file input
+	- completedProductAdd: Only happens once everything has been added sucessfully, shows modal to confirm 	
 */
 
 	
@@ -189,6 +190,8 @@ if(isset($_POST['newProduct'])){
 		
 		$stmt->close ();
 		$mysqli->close ();
+		
+		completedProductAdd();
 	}
 	
 	
@@ -228,4 +231,14 @@ if(isset($_POST['newProduct'])){
 			return $errors; 
 		}
 	}
+	
+	
+	function completedProductAdd(){
+		echo "<script type='text/javascript'>
+					$(document).ready(function(){
+					$('#CompletedAdd').modal('show');
+					});
+				</script>";
+	}
+	
 ?>

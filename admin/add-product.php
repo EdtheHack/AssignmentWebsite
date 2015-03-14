@@ -189,6 +189,27 @@ include ("../includes/nav.php");
 				
 			</div>
 		</div>
+		
+		<div class="modal hide fade" id="CompletedADD" >
+		   <div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					<h4 class="modal-title" id="myModalLabel">Product Added Scuessfully</h4>
+				</div>
+				<div class="modal-body">The producted has now been added to the product catalog, add another or go back to Admin Home
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" onClick="history.go(0)" VALUE="Refresh">Add Another</button>
+					<button type="button" class="btn btn-fefault" onClick="location.href='index.php'" >Admin Home</button>
+				</div>
+			</div>
+		  </div>
+		</div>
+		
 
 	</div>
 
