@@ -49,13 +49,13 @@ error_reporting ( - 1 );
 	<div class="container">
 		<div class="well">
 			<div class="col-md-4">
-				<p><?php echo $user->getName()."'s Basket"; ?></p>
+				<h2><?php echo $user->getName()."'s Basket"; ?></h2>
 			</div>
 			<div class="col-md-4">
-				<p><?php echo $order->getAmountOfProducts()." Products";?></p>
+				<h2><?php echo $order->getAmountOfProducts()." Products";?></h2>
 			</div>
 			<div class="col-md-4">
-				<p>£<?php echo "Total Price: ".$order->getTotalPrice(); ?></p>
+				<h2><?php echo "Total Price: £".$order->getTotalPrice(); ?></h2>
 			</div>
 		</div>
 	
@@ -82,7 +82,7 @@ error_reporting ( - 1 );
 						</form>
 					</div>
 					<div class="col-md-6">
-						<form method="POST" action="viewProduct.php">
+						<form method="POST" action="viewBasket.php">
 							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> Remove </b> </button>	
 						</form>
 					</div>
