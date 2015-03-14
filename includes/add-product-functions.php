@@ -178,11 +178,11 @@ if(isset($_POST['newProduct'])){
 			$stmt = $mysqli->prepare ( "INSERT INTO product_categories (product_id, category_id)VALUES (?, ?)" );
 			$stmt->bind_param ("ii", $product_id, $value);
 			
-			if ($stmt2 === false) {
+			if ($stmt === false) {
 				trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
 			}
 			
-			if(!($stmt2->execute ())){
+			if(!($stmt->execute ())){
 				die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
 			}
 				
