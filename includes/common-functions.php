@@ -207,11 +207,12 @@ function addProduct($orderId, $productId, $quantity){
 	
 	$rows = array();
 		
-	if ($stmt = $mysqli->prepare ("IF EXISTS (SELECT * FROM order_contents WHERE order_id=?) UPDATE order_contents SET (quantity = (quantity + ?)) WHERE order_id=? ELSE
-    INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){	
+	//if ($stmt = $mysqli->prepare ("IF EXISTS (SELECT * FROM order_contents WHERE order_id=?) UPDATE order_contents SET (quantity = (quantity + ?)) WHERE product_id=? ELSE
+    //INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){	
 		
-	//if ($stmt = $mysqli->prepare ("INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){ 
-		$stmt->bind_param ("sisssi", $orderId, $quantity, $orderId, $orderId, $productId, $quantity);
+	if ($stmt = $mysqli->prepare ("INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){ 
+		//$stmt->bind_param ("sisssi", $orderId, $quantity, $orderId, $orderId, $productId, $quantity);
+		$stmt->bind_param ("ssi", $orderId, $productId, $quantity);
 		$stmt->execute ();
 
 		$stmt->close ();
