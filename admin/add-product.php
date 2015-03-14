@@ -207,7 +207,7 @@ include ("../includes/nav.php");
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" onClick="location.href='add-product.php'" VALUE="Refresh">Add Another</button>
-					<button type="button" class="btn btn-fefault" onClick="location.href='index.php'" >Admin Home</button>
+					<button type="button" class="btn btn-default" onClick="location.href='index.php'" >Admin Home</button>
 				</div>
 			</div>
 		  </div>
