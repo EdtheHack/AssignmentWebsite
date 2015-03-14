@@ -42,10 +42,23 @@ error_reporting ( - 1 );
 	
 	$products = $order->getProducts();
 	
-	echo $order->getAmountOfProducts();
+	
 	
 	?>
+	
 	<div class="container">
+		<div class="well">
+			<div class="col-md-4">
+				<p><?php echo $user->getName()."'s Basket"; ?></p>
+			</div>
+			<div class="col-md-4">
+				<p><?php echo $order->getAmountOfProducts()." Products";?></p>
+			</div>
+			<div class="col-md-4">
+				<p>£<?php echo "Total Price: ".$order->calculateTotalPrice(); ?></p>
+			</div>
+		</div>
+	
 	<?php	
 	
 	foreach ($products as $product) {
@@ -63,6 +76,11 @@ error_reporting ( - 1 );
 					</h4>
 					<p> <?php echo $product->getDescription(); ?></p>
 				
+					<div class="col-md-6">
+						<form method="POST" action="viewProduct.php">
+							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
+						</form>
+					</div>
 					<div class="col-md-6">
 						<form method="POST" action="viewProduct.php">
 							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	

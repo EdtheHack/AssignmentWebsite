@@ -22,6 +22,14 @@
 			return count($this->products);
 		}
 		
+		public function getTotalPrice(){
+			$total = 0;
+			foreach (products as product) {
+				$total = $total + $product->getPrice();
+			}
+			return $total;
+		}
+		
 		public function addProduct($product){
 			array_push($this->products, $product);
 		}
