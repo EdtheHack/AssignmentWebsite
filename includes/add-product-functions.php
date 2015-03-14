@@ -136,6 +136,27 @@ if(isset($_POST['newProduct'])){
 	}
 	
 	
+	function getCategories($categories){
+		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+	
+		foreach ($categories as &$value){
+			$stmt = $mysqli->prepare ( "SELECT category_id FROM categories WHERE name=?" );
+			$stmt->bind_param ("s", $value);
+			$stmt->bind_result ($cat_id);
+				
+			if ($stmt === false) {
+				trigger_error('Statement 1 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+			}
+		
+			if(!($stmt->execute ())){
+				die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+			}
+				
+			$stmt->close ();
+			addProductCategories($product_id, $categories);
+		}
+	}
+	
 	function addProductCategories ($product_id, $categories){
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 		
@@ -143,6 +164,8 @@ if(isset($_POST['newProduct'])){
 		
 		
 		foreach ($categories as &$value){
+			
+			echo $value;
 			$stmt = $mysqli->prepare ( "SELECT category_id FROM categories WHERE name=?" );
 			$stmt->bind_param ("s", $value);
 			$stmt->bind_result ($cat_id);
