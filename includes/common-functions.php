@@ -164,8 +164,8 @@ function addNewUserOrder($userId){
 		
 	echo"id - >".$userId;
 		
-	if ($stmt = $mysqli->prepare ("INSERT INTO `order` (`user_id`, `purchased`) VALUES (?, ?);" )){
-		$stmt->bind_param("ii", $userId, 0);
+	if ($stmt = $mysqli->prepare ("INSERT INTO `order` (`user_id`, `purchased`) VALUES (?, 0);" )){
+		$stmt->bind_param("i", $userId);
 			
 		if ($stmt === false) {
 			trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
