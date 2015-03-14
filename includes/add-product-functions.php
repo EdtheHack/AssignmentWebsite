@@ -50,6 +50,8 @@ if(isset($_POST['newProduct'])){
 		foreach($_POST['categories'] as $selected){ //for every selected check box add to an array which can be later used 
 			$categories[] = $selected;
 		}
+	}else{
+		$categories = array(); //empty array to protect varis
 	}
 		
 	if(isset($_POST['newProductList'])){
@@ -171,7 +173,7 @@ if(isset($_POST['newProduct'])){
 		$mysqli = $db_con; //just for names sake 
 		
 		
-		foreach ($categories as &$value){ //for every checkbox selected set to value
+		foreach ($categories as $value){ //for every checkbox selected set to value
 			
 			$stmt = $mysqli->prepare ( "INSERT INTO product_categories (product_id, category_id)VALUES (?, ?)" );
 			$stmt->bind_param ("ii", $product_id, $value);
