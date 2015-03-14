@@ -144,8 +144,8 @@ function getCurrentUserOrderId($userId){
 	
 	$rows = array();
 	
-	if ($stmt = $mysqli->prepare ("SELECT order_id FROM orders WHERE user_id = ? AND confirmed = 0")){ //get the most 
-		
+	if ($stmt = $mysqli->prepare ("SELECT order_id FROM orders WHERE user_id = ? AND purchased = 0")){ //get the most 
+		$stmt->bind_param("i", $userId);
 		$stmt->execute ();
 		$stmt->bind_result ( $result);
 		$stmt->close ();
