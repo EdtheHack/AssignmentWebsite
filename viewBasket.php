@@ -55,7 +55,7 @@ error_reporting ( - 1 );
 				<p><?php echo $order->getAmountOfProducts()." Products";?></p>
 			</div>
 			<div class="col-md-4">
-				<p>£<?php echo "Total Price: ".$order->calculateTotalPrice(); ?></p>
+				<p>£<?php echo "Total Price: ".$order->getTotalPrice(); ?></p>
 			</div>
 		</div>
 	
