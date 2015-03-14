@@ -20,8 +20,6 @@ if(isset($_POST['newProduct'])){
 	if($name != null){
 		if(sanitiseString($name, 1, 100) != 1){  //not cleared
 			$error_array[] = "Name field has illegial chars or is too short/long";
-		}else{
-			echo $name;
 		}
 	}else{
 		$error_array[] = "Product Name field cannot be empty";
@@ -30,8 +28,6 @@ if(isset($_POST['newProduct'])){
 	if($price != null){
 		if(sanitiseCurrency($price) != 1){  //not cleared
 			$error_array[] = "price field has illegial chars or is too short/long";
-		}else{
-			echo $price;
 		}
 	}else{
 		$error_array[] = "Price field cannot be empty";
@@ -39,16 +35,11 @@ if(isset($_POST['newProduct'])){
 		
 	if(sanitiseSelection($discount) != 1){
 		$error_array[] = "You shouldn't be doing this";
-	}else{
-		echo $discount;
-	}
-		
+	}else
 		
 	if($description != null){
 		if(sanitiseString($description, 20, 1500) != 1){  //not cleared
 			$error_array[] = "Name field has illegial chars or is too short/long, the description must be between 20 and 1500 chars";
-		}else{
-			echo $description;
 		}
 	}else{
 		$error_array[] = "product description field cannot be empty";
@@ -210,7 +201,7 @@ if(isset($_POST['newProduct'])){
 		$name = $_FILES['photo']['name'];
 		$ext = pathinfo($name, PATHINFO_EXTENSION); //get file extention
 		
-		$ext_types = array("jpeg","jpg","png"); //file types allowed
+		$ext_types = array("jpeg","jpg","png", "PNG"); //file types allowed
 		if(in_array($ext,$ext_types )=== false){ //check for a match 
 			$errors[]="File extension is not allowed, please upload only JPEG, JPG or PNG files.";
 		}
