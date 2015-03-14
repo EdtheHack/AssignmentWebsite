@@ -2,7 +2,7 @@
 
 function sanitiseString ($string, $min, $max){
 
-	if (preg_match( '/^[A-Z 0-9 \'!@#$%&*_]{'.$min.','.$max.'}$/i', $string)) {
+	if (preg_match( '/^[A-Z 0-9\'\,.-]{'.$min.','.$max.'}$/i', $string)) {
 		return 1;
 	} else {	
 		return 0;

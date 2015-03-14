@@ -1,9 +1,14 @@
 <?php
 
-
 include ("sanitisation.php");
 
-$error_array = array();
+/*
+ ========================
+   FORM POST FUNCTION
+ ========================
+*/
+
+$error_array = array(); //collection of errors 
 
 if(isset($_POST['newProduct'])){
 
@@ -51,8 +56,7 @@ if(isset($_POST['newProduct'])){
 	
 	if(!empty($_POST['categories'])){
 		$categories = array();
-		foreach($_POST['categories'] as $selected){
-			echo $selected."</br>";
+		foreach($_POST['categories'] as $selected){ //for every selected check box add to an array which can be later used 
 			$categories[] = $selected;
 		}
 	}
@@ -61,7 +65,7 @@ if(isset($_POST['newProduct'])){
 		$list = $_POST['newProductList'];
 		$list = true;
 	}else{
-		$list = false;#default value
+		$list = false; //default value
 	}
 	
 	if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
@@ -69,32 +73,66 @@ if(isset($_POST['newProduct'])){
 		echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
 		die; //wrong input, do not proceed
 	}else{
-		if(isset($_FILES['photo'])){
-			$output = uploadPhoto();
+		if(isset($_FILES['photo'])){ //if no errors have oocured now lets check the file upload (prevents uploading even when errors occur)
+			$output = uploadPhoto();  
 		
-			if(is_array($output)){
-				$error_array = array_merge($error_array, $output);
+			if(is_array($output)){  //check to see if the ouput from function is an array, if it is an array then errors have occured
+				$error_array = array_merge($error_array, $output); //merge errors to the error array
 				$img = ""; //just to clear intilisation messages
-				echo "i have an array";
 			}else{
-				$img = $output;
+				$img = $output;  //if it's not a error then it can only be the file location of the picture which needs to be added to the db
 			}
 		}else{
-			$error_array[] = "No image selected";
+			$error_array[] = "No image selected"; //image wasnt selected in the firm place
 		}
-		
+		//check to see if errors have occured after the picture upload and print them to the screen
 		if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
 			$error = implode("<br>", $error_array);
 			echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
 			die; //wrong input, do not proceed
-		}else{
-			$status = productStatus($list, $discount);	
-	 		addToDB($name, $price, $description, $discount, $status, $img, $categories); //everything was fine so carry on and add product
+		}else{ //if all errors are clear then carry on 
+			if(productCheck($name) == 1){	
+				$status = productStatus($list, $discount);	//get the product status based on the lust variable and if a discount has been etered 
+	 			addToDB($name, $price, $description, $discount, $status, $img, $categories); //everything was fine so carry on and add product
+			}else{
+				echo "<script> $('#print_errors').bs_alert('Product already exits!', 'ERROR'); </script>";
+			}
 		}
 	}
+}
+	
+/*	
+	========================
+		 CORE FUNCTIONS
+	========================
+	- productCheck: Checks for existing products in the DB
+	- productStatus: Determines and returns the product status depending on if the admin wants the product to be listed and discount variables
+	- addToDB: Adds the product to the database if all checks are passed
+	- addProductCategories: If the DB Add is a success then the new product will have associated categories added to it in this function 
+	- uploadPhoto: Handles the uploading of the files entered by the Admin and checks for the file input	
+*/
+
 	
 	
+	function productCheck($name){ //this is a basic product check and could do with adding the search funcitonality to it
+		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+		
+		$mysqli = $db_con;
+		
+		if ($stmt = $mysqli->prepare ("SELECT name FROM product" )) {
+			$stmt->execute ();
+			$stmt->bind_result ( $col0 );
+			while($stmt->fetch()){
+				if (strcasecmp($col0, $name) == 0) {
+					return 0;  //name already exits in the db therefore same product entered
+				}
+			}
+			return 1; //no products matched, must be a new product
+			$stmt->close ();
+		}
+		$mysqli->close ();
 	}
+	
 	
 	function productStatus($list, $discount){
 		
@@ -127,72 +165,35 @@ if(isset($_POST['newProduct'])){
 		   die('Error : ('. $mysqli->errno .') '. $mysqli->error);
 		}
 		
-		$product_id = mysqli_insert_id($mysqli); 
-		echo $product_id; 
+		$product_id = mysqli_insert_id($mysqli); //get the PK ID from the entry 
 		$stmt->close ();
 		$mysqli->close ();
-		addProductCategories($product_id, $categories);
+		
+		addProductCategories($product_id, $categories); //add the related categories to the product_categories table
+														//product ID comes from the entery and Categories get passed into this function and then transfered to the next
 		
 	}
 	
-	
-	function getCategories($categories){
-		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
-	
-		foreach ($categories as &$value){
-			$stmt = $mysqli->prepare ( "SELECT category_id FROM categories WHERE name=?" );
-			$stmt->bind_param ("s", $value);
-			$stmt->bind_result ($cat_id);
-				
-			if ($stmt === false) {
-				trigger_error('Statement 1 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
-			}
-		
-			if(!($stmt->execute ())){
-				die('Error : ('. $mysqli->errno .') '. $mysqli->error);
-			}
-				
-			$stmt->close ();
-			addProductCategories($product_id, $categories);
-		}
-	}
-	
-	function addProductCategories ($product_id, $categories){
+	function addProductCategories ($product_id, $categories){ 
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 		
-		$mysqli = $db_con;
+		$mysqli = $db_con; //just for names sake 
 		
 		
-		foreach ($categories as &$value){
+		foreach ($categories as &$value){ //for every checkbox selected set to value
 			
-			echo $value;
-			/*$stmt = $mysqli->prepare ( "SELECT category_id FROM categories WHERE name=?" );
-			$stmt->bind_param ("s", $value);
-			$stmt->bind_result ($cat_id);
-			
-			if ($stmt === false) {
-				trigger_error('Statement 1 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
-			}
-				
-			if(!($stmt->execute ())){
-				die('Error : ('. $mysqli->errno .') '. $mysqli->error);
-			}
-			
-			$stmt->close ();
-		
-			*/
-			$stmt2 = $mysqli->prepare ( "INSERT INTO product_categories (product_id, category_id)VALUES (?, ?)" );
-			$stmt2->bind_param ("ii", $product_id, $value);
+			$stmt = $mysqli->prepare ( "INSERT INTO product_categories (product_id, category_id)VALUES (?, ?)" );
+			$stmt->bind_param ("ii", $product_id, $value);
 			
 			if ($stmt2 === false) {
 				trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
 			}
 			
 			if(!($stmt2->execute ())){
-				die('Error 2 : ('. $mysqli->errno .') '. $mysqli->error);
+				die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
 			}
 				
-			$stmt2->close ();
+			$stmt->close ();
 			$mysqli->close ();
 		}
 	}
@@ -202,32 +203,32 @@ if(isset($_POST['newProduct'])){
 	function uploadPhoto (){
 		$errors = array();
 		
-		$dest = "../img/";
-		$dest_file = $dest.basename($_FILES['photo']['name']);
-		$file_size = $_FILES['photo']['size'];
+		$dest = "../img/"; //where the file is going to 
+		$dest_file = $dest.basename($_FILES['photo']['name']);  //get the file name
+		$file_size = $_FILES['photo']['size']; //get the file size
 		
 		$name = $_FILES['photo']['name'];
-		$ext = pathinfo($name, PATHINFO_EXTENSION);
+		$ext = pathinfo($name, PATHINFO_EXTENSION); //get file extention
 		
-		$ext_types = array("jpeg","jpg","png");
-		if(in_array($ext,$ext_types )=== false){
-			$errors[]="extension not allowed, please choose a JPEG or PNG file.";
+		$ext_types = array("jpeg","jpg","png"); //file types allowed
+		if(in_array($ext,$ext_types )=== false){ //check for a match 
+			$errors[]="File extension is not allowed, please upload only JPEG, JPG or PNG files.";
 		}
 		
-		if($file_size > 10000000){
-			$errors[]='File size must be 2 MB or less';
+		if($file_size > 10000000){ //check for file size being too high
+			$errors[]='File size must be 10 MB or less';
 		}
 		
-		if(empty($errors)){
-			if (is_uploaded_file($_FILES['photo']['tmp_name'])) {
-				if(move_uploaded_file($_FILES['photo']['tmp_name'], $dest_file)) {
-					return $dest_file;
+		if(empty($errors)){ //only upload if no errors have occured
+			if (is_uploaded_file($_FILES['photo']['tmp_name'])) { // check to see if the file already exists
+				if(move_uploaded_file($_FILES['photo']['tmp_name'], $dest_file)) { //move file
+					return $dest_file; //retrun the destination to be uploaded to the DB
 				} else {
-					$errors[]='File size must be 2 MB or less';
-					return $errors;
+					$errors[]='Unable to upload or file already exists';
+					return $errors; //error has occured to cancel and return it to be displayed
 				}
 			} else { 
-				$errors[]='File size must be 2 MB or less';
+				$errors[]='Unable to upload or file already exists, please try again';
 				return $errors;
 			}
 		}else{
