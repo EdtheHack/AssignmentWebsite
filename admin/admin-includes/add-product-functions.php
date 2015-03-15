@@ -147,7 +147,7 @@ if(isset($_POST['newProduct'])){
 		
 		$mysqli = $db_con;
 		
-		$stmt = $mysqli->prepare ( "INSERT INTO product (name, price, description, percentage_off, status, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" );
+		$stmt = $mysqli->prepare ( "INSERT INTO product (name, price, description, percentage_off, status, img, stock, date_added) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" );
 		$stmt->bind_param ("sdsiisis", $name, $price, $description, $discount, $status, $img, $stock, $date_added);
 			
 		if ($stmt === false) {
