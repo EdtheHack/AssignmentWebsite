@@ -10,7 +10,7 @@ function sanitiseString ($string, $min, $max){
 }
 
 function sanitiseInteger($int){
-	if (preg_match( '/^[0-9]+$/', $string)) {
+	if (preg_match( '/^[0-9]+$/', $int)) {
 		return 1;
 	}else{
 		return 0;
