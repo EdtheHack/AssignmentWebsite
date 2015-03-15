@@ -24,7 +24,7 @@ if($row[5] == 1){
 	$percent = $product->getPercentage();
 		
 	$sale_price_tmp = round($price * $percent / 100, 2);
-	$sale_price =  round($price - $sale_price_tmp, 2);
+	$sale_price =  round($price - $sale_price_tmp, 3);
 }
 
 // $product = unserialize($_POST['product']);
