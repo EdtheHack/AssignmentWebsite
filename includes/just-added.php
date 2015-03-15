@@ -36,12 +36,12 @@
 						
 						<h5 class="pull-left"><?php echo "<strong> Our Price: &pound;".$sale_price."</strong><br>
 															RRP: <strike>&pound;".$price ."</strike><br>
-															You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em>"?></h5> <!-- PLEASE IGNORE HTML ERRORS -->
+															You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em><br>"?></h5> <!-- PLEASE IGNORE HTML ERRORS -->
 
 						
 						
 						<!--<div class="col-md-6">-->
-							<form method="POST" action="viewProduct.php" class="pull-left">
+							<form method="POST" action="viewProduct.php">
 								<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
 							</form>
 						<!-- </div>
