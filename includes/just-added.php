@@ -29,9 +29,9 @@
 				<div class="thumbnail">
 					<img src="img/<?php echo $product->getImg(); ?>" alt="">
 					<div class="caption">
-						<h6 class="pull-right"><?php echo "RRP: <strike>&pound;".$price ."</strike><br>
-															Price: <strong>&pound;".$sale_price."</strong><br>
-															You Save: <em>&pound;".$sale_price_tmp."</em><"?></h6>
+						<h5 class="pull-right"><?php echo "Price: <strong>&pound;".$sale_price."</strong><br></h5>
+															<h6 class=\"pull-right\">RRP: <strike>&pound;".$price ."</strike><br>
+															You Save: <em>&pound;".$sale_price_tmp."</em>"?></h6> <!-- PLEASE IGNORE HTML ERRORS -->
 						<h4>
 							<a href="#"><?php echo $product->getName(); ?></a>
 						</h4>
