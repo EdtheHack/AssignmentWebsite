@@ -65,7 +65,7 @@ include ("nav.php");
 			
 			$mysqli->close ();
 				
-			return $rows[];
+			return $rows;
 		}
 						
 ?>
