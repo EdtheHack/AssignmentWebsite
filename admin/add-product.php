@@ -167,7 +167,7 @@ include ("nav.php");
 								 <?php if(!empty($_POST["newStockQuantity"])){ echo " value='".$_POST["newStockQuantity"]."'"; }?>>
                                  <hr>
          </div>
-         <div class="form-group">
+         <div class="form-group col-md-6">
            <label for="listProduct">Product Visibility Settings:</label>
            <select class="form-control" name="listProduct" id="listProduct"  <?php if(!empty($_POST["listProduct"])){ echo " value='".$_POST["listProduct"]."'"; }?>>
              <option value="0">List Product (Not on sale)</option>
