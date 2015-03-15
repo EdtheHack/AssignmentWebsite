@@ -8,9 +8,15 @@ include ("includes/product.php");
 include ("includes/common-functions.php");
 
 
-$row = getItem ($_POST['itemId']);
+//$row = getItem ($_POST['itemId']);
+//$product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5], $row[6], $row[7], $row[8] );
+//$_SESSION['product'] = serialize($product);
+
+$pageId = $_SERVER[ 'QUERY_STRING' ];
+
+$row = getPage($pageId);
+
 $product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5], $row[6], $row[7], $row[8] );
-$_SESSION['product'] = serialize($product);
 
 if($row[5] == 1){
 		

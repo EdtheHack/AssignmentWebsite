@@ -113,7 +113,6 @@ include ("nav.php");
 				</form>
 				
 				<?php 
-				
 				if(isset($_POST['newProduct'])){
 					
 					echo "echo me something please";
@@ -121,10 +120,7 @@ include ("nav.php");
 					$name = $_POST['newProductName'];
 					$name = sanitiseString($name, $name, 1, 100);
 					echo name;
-					
 				}
-			
-				
 				?>
 				
 			</div>

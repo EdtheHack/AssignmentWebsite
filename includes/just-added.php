@@ -13,7 +13,6 @@
 		$rows = getMostDiscounted();
 		
 		for ($i = 0; $i < 3; $i++) {  //loop through most discounted items	
-
 				
 				$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6], $rows[$i][7], $rows[$i][8]);
 				
@@ -37,10 +36,10 @@
 						<h5 class=""><?php echo "<strong> Our Price: &pound;".$sale_price."</strong><br>
 															RRP: <strike>&pound;".$price ."</strike><br>
 															You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em><br>"?></h5> <!-- PLEASE IGNORE HTML ERRORS -->
-						<!--<div class="col-md-6">-->
-							<form method="POST" action="viewProduct.php">
-								<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default "><i class="fa fa-eye "></i> <b> View </b> </button>	
-							</form>
+						<!--<div class="col-md-6">
+							<form method="POST" action="viewProduct.php">-->
+								<a href="viewProduct.php?<?php echo $product->getId(); ?>"><button type="submit" class="btn btn-default "><i class="fa fa-eye "></i> <b> View </b> </button></a>
+							
 						<!-- </div>
 						<div class="col-md-6">
 							<form method="POST" action="viewBasket.php">  
@@ -53,11 +52,11 @@
 		
 		<?php
 		
-				if(isset($_GET['viewProduct'])){   //serialization does not work
-					$_SESSION["serializedProduct"] = serialize($product);
-					$_SESSION["name"] = $this->getName();
-					echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
-				}
+			//	if(isset($_GET['viewProduct'])){   //serialization does not work
+				//	$_SESSION["serializedProduct"] = serialize($product);
+				//	$_SESSION["name"] = $this->getName();
+				//	echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
+			//	}
 
 		}
 		?>

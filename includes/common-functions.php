@@ -10,6 +10,26 @@ function connect() { // code reuse for cdatabase connection
 	return $db_con;
 }
 
+function getPage($pageId){
+	$mysqli = connect ();
+	
+	$rows = array();
+
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE product_id=?" )) {
+		$stmt->bind_param ( "i", $pageId );
+		$stmt->execute ();
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6, $col7, $col8 );
+		$stmt->fetch();
+		$rows = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
+		$stmt->close ();
+	}
+
+	$mysqli->close ();
+	return $rows;
+
+}
+
+
 function checkAdmin() {
 	$mysqli = connect ();
 	
