@@ -7,6 +7,7 @@ error_reporting ( - 1 );
 session_start ();
 
 include ("../includes/sanitisation.php");
+include ("includes/admin-common.php");
 
 
 /*
@@ -54,29 +55,17 @@ include ("nav.php");
 				</div>
 			</div>
     <?php
-				include ("admin-nav.php");
+		include ("admin-nav.php");
 				
-				$productId = $_SERVER[ 'QUERY_STRING' ];
+		$pageId = $_SERVER[ 'QUERY_STRING' ];
+		
+		$rows = getPage($pageId);
 				
-				include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
-					
-				$mysqli = $db_con;
+		$product = new product($rows[0], $rows[1], $rows[2], $rows[3], $rows[4], $rows[5], $rows[6], $rows[7], $rows[8]);
 				
-				if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE product_id=?" )) {
-					$stmt->bind_param ( "i", $productId );
-					$stmt->execute ();
-					$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6, $col7, $col8 );
-					$stmt->fetch();
-					$stmt->close ();
-				}
-					
-				$mysqli->close ();
-				
-				$product = new product($col0, $col1, $col2, $col3, $col4, $col5, $col6, $col7, $col8);
-				
-				echo $product->getPrice();
-				
-				?>
+		echo $product->getPrice();
+			
+	?>
     <div class="col-md-9">
 				<form method="POST" action="">
 					<div class="form-group">
@@ -87,7 +76,7 @@ include ("nav.php");
 					<div class="form-group">
 							<label for="newProductPrice">Price (£)</label> <input
 								type="number" class="form-control" size="20"
-								id="newProductPRice" placeholder="Enter product price">
+								id="newProductPRice" placeholder="Enter product price" value="<?php $product->getPrice()?>">
 					</div>
 
 					<div class="form-group">
