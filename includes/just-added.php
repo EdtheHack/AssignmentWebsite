@@ -23,7 +23,7 @@
 				$price = $rows[$i][1];
 			}
 			
-			$product = new product($rows[$i][0], $price, $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][6]);
+			$product = new product($rows[$i][0], $price, $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][6], $rows[$i][7]);
 			
 		?>
 		

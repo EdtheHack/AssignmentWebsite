@@ -6,15 +6,16 @@
 		private $description;
 		private $percentage_off;
 		private $img;
+		private $status;
 		
-		public function __construct($id, $name, $price, $description, $percentage_off, $img){
+		public function __construct($id, $name, $price, $description, $percentage_off, $img, $status){
 			$this->id = $id;
 			$this->name = $name;
 			$this->price = round($price, 2);
 			$this->description = $description;
 			$this->percentage_off = $percentage_off;
 			$this->img = $img;
-			
+			$this->status = $status;
 		}
 		
 		public function getName(){
@@ -39,6 +40,10 @@
 		
 		public function getImg(){
 			return $this->img;
+		}
+		
+		public function getStatus(){
+			return $this->status;
 		}
 	}
 	?>
