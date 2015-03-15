@@ -14,7 +14,6 @@
 		
 		for ($i = 0; $i < 3; $i++) {  //loop through most discounted items	
 
-			//if($rows[$i][5] == 1){
 				$percent = $rows[$i][4];
 				$price = $rows[$i][2];
 				

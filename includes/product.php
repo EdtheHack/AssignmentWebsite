@@ -40,7 +40,5 @@
 		public function getImg(){
 			return $this->img;
 		}
-		
-	
 	}
-	?>
+?>
