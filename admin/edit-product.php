@@ -57,18 +57,8 @@ include ("nav.php");
 				include ("admin-nav.php");
 				
 				$url = $_SERVER[ 'QUERY_STRING' ];
-				
-				echo $url;
-				
-				$url2 = $_SERVER['PHP_SELF'];
-				
-				$urlvars = parse_url($url2);
-				echo $urlvars[query]; 
-				
-				$productId = $urlvars[query];
-				
-				echo $productId;
-				
+				$productId = $url;
+
 				include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 					
 				$mysqli = $db_con;
