@@ -101,11 +101,11 @@ include ("nav.php");
 					<div class="form-group col-md-6">
 
 							<label for="newProductDiscount">Select discount (optional):</label>
-							<select class="form-control" name="newProductDiscount"  <?php if(!empty($_POST["newProductDiscount"])){ echo " value='".$_POST["newProductDiscount"]."'"; }?>>
+							<select class="form-control" name="newProductDiscount" id="newProductDiscount" <?php if(!empty($_POST["newProductDiscount"])){ echo " value='".$_POST["newProductDiscount"]."'"; }?>>
 
-								<option <?php if(!empty($_POST["newProductDiscount"] == 0)){ echo 'selected'; }?>>0</option>
-                                <option <?php if(!empty($_POST["newProductDiscount"] == 5)){ echo 'selected'; }?>>5</option>
-								<option <?php if(!empty($_POST["newProductDiscount"] == 10)){ echo 'selected'; }?>>10</option>
+								<option>0</option>
+                                <option>5</option>
+								<option>10</option>
 								<option>15</option>
 								<option>20</option>
 								<option>25</option>
@@ -113,6 +113,10 @@ include ("nav.php");
 								<option>50</option>
 								<option>75</option>
 							</select>
+							
+							<script type="text/javascript">
+  								document.getElementById('newProductDiscount').value = "<?php echo $_GET['newProductDiscount'];?>";
+							</script>
 					</div>
 				
 					<div class="form-group">
@@ -159,6 +163,8 @@ include ("nav.php");
 					<hr>
 					</div>
 					
+					
+					
                     
                     <div class="form-group">
 						<label for="newProductImage">Product Image</label>
@@ -171,17 +177,18 @@ include ("nav.php");
 					<div class="form-group">
 
 							<label for="listProduct">Product Visibility Settings:</label>
-							<select class="form-control" name="listProduct"  <?php if(!empty($_POST["listProduct"])){ echo " value='".$_POST["listProduct"]."'"; }?>>
+							<select class="form-control" name="listProduct" id="listProduct"  <?php if(!empty($_POST["listProduct"])){ echo " value='".$_POST["listProduct"]."'"; }?>>
 								<option value="0">List Product (Not on sale)</option>
                                 <option value="1">List Product (On sale)</option>
 								<option value="2">Save but do not list the product</option>
 							</select>
 					</div>
 					
-						<div class="checkbox">
-							<label> <input type="checkbox" name="newProductList" value="true"> List product immediately
-							</label>
-						</div>
+							<script type="text/javascript">
+  								document.getElementById('listProduct').value = "<?php echo $_GET['listProduct'];?>";
+							</script>
+					
+					
 						<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
 					
 					</form>
