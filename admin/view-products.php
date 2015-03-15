@@ -95,9 +95,9 @@ include ("nav.php");
 							$status = $product->getStatus();
 							
 							if($status == 0){
-								$status = "Product is Listed (Not on sale)";
+								$status = "Listed (Not on sale)";
 							}else if($status == 1){
-								$status = "Product is Listed (On sale)";
+								$status = "Listed (On sale)";
 							}else{
 								$status = "Not Listed";
 							}
@@ -110,7 +110,7 @@ include ("nav.php");
 							<td><?php echo $product->getPercentage()."&#37;"?></td>
 							<td><?php echo $status;?></td>
 							<td>Edit Product</td>
-							<td><a href="myModal" data-toggle="modal" data-target="#myModal">DeleteProduct</a></td>
+							<td><a href="myModal" data-toggle="modal" data-target="#myModal">Delete Product</a></td>
 						</tr>
 						
 						<?php 
