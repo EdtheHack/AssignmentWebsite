@@ -31,7 +31,7 @@
 					<div class="caption">
 						<h5 class="pull-right"><?php echo "Price: <strong>&pound;".$sale_price."</strong><br></h5>
 															<h6 class=\"pull-right\">RRP: <strike>&pound;".$price ."</strike><br>
-															You Save: <em>&pound;".$sale_price_tmp."</em>"?></h6> <!-- PLEASE IGNORE HTML ERRORS -->
+															You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em>"?></h6> <!-- PLEASE IGNORE HTML ERRORS -->
 						<h4>
 							<a href="#"><?php echo $product->getName(); ?></a>
 						</h4>
