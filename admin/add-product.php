@@ -32,6 +32,7 @@ include ("../includes/sanitation.php");
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 <script type="text/javascript"> //needs reference here please 
                 (function($){
                     $.fn.extend({
@@ -46,9 +47,8 @@ include ("../includes/sanitation.php");
                   }
               });
           })(jQuery);
-
- </script>
-
+ </script>  
+ 
 <!-- <style>
  .borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
     border: none;
@@ -58,10 +58,11 @@ include ("../includes/sanitation.php");
 
 </head>
 <body>
- <?php
-	include ("nav.php");
-	?>
- <div class="container">
+<?php
+include ("nav.php");
+?>
+<div class="container">
+
 		<div class="col-md-12">
 			<div class="row">
 				<div class="jumbotron">
@@ -71,6 +72,7 @@ include ("../includes/sanitation.php");
 					<p></p>
 				</div>
 			</div>
+
      <?php
 					include ("admin-nav.php");
 					?>
@@ -124,8 +126,7 @@ include ("../includes/sanitation.php");
 								<tbody>
 									<tr>
                    <?php
-<<<<<<< HEAD
-						include ($_SERVER ['DOCUMENT_ROOT'] . '/dbconn.php');
+			include ($_SERVER ['DOCUMENT_ROOT'] . '/dbconn.php');
 																			
 				if ($stmt = $db_con->prepare ( "SELECT name FROM categories" )) {
 					$stmt->execute ();
@@ -190,107 +191,13 @@ include ("../includes/sanitation.php");
 				</form>
 				<br> <br> <br>
        <?php
-							
-							include ("admin-includes/add-product-functions.php");
-							
-							?>
-=======
-										include ($_SERVER ['DOCUMENT_ROOT'] . '/dbconn.php');
-																				
-										if ($stmt = $db_con->prepare ("SELECT name FROM categories" )) {
-											$stmt->execute ();
-											$stmt->bind_result ( $category_name );
-											$id = 1;
-											$tr_count = 0;
-											while($stmt->fetch()){
-												
-												if ($tr_count == 5){
-													echo '</tr>';
-													echo '<tr>';
-													$tr_count = 0;
-												}
-												
-												echo ' <td><div class="checkbox"><label><input type="checkbox" name="categories[]" value="'.$id.'"/>'.$category_name.'</label></div</td>'."";
-												
-												$tr_count++;
-
-												$id++;
-											}
-											$stmt->close ();
-										}
-										$db_con->close ();
-									?>
-               </tbody>
-             </table>
-           </div>
-           <hr>
-         </div>
-         <div class="form-group">
-           <label for="newProductImage">Product Image</label>
-           <br>
-           <input type="file" name="photo">
-           <p class="help-block">Please upload an image of the product here.</p>
-           <hr>
-         </div>
-         <div class="form-group col-md-6">
-           <label for="newStockQuantity">Stock</label>
-           <input
-								type="text" class="form-control" size="20"
-								id="newStockQuantity" name="newStockQuantity" placeholder="Enter Stock Quantity"
-								 <?php if(!empty($_POST["newStockQuantity"])){ echo " value='".$_POST["newStockQuantity"]."'"; }?>>
-                                 <hr>
-         </div>
-         <div class="form-group col-md-6">
-           <label for="listProduct">Product Visibility Settings:</label>
-           <select class="form-control" name="listProduct" id="listProduct"  <?php if(!empty($_POST["listProduct"])){ echo " value='".$_POST["listProduct"]."'"; }?>>
-             <option value="0">List Product (Not on sale)</option>
-             <option value="1">List Product (On sale)</option>
-             <option value="2">Save but do not list the product</option>
-           </select>
-         </div>
-         <div class="row">
-         <script type="text/javascript">
-  								document.getElementById('listProduct').value = "<?php echo $_POST['listProduct'];?>";
-							</script>
-         <button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
-         </div>
-       </form>
-       <br>
-       <br>
-       <br>
-       <?php 
-				
-				include ("admin-includes/add-product-functions.php");
-				
-				?>
->>>>>>> b6268beafb7c912cd7dfc06648f30c1494cefc17
-     </div>
+		include ("admin-includes/add-product-functions.php");
+		?>
+		
 		</div>
-	</div>
-	<!-- CONTAINER DIV -->
-
-	<div class="modal fade" id="CompletedAdd" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel">Product Added Scuessfully</h4>
-				</div>
-				<div class="modal-body">The producted has now been added to the
-					product catalog, add another or go back to Admin Home</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default"
-						onClick="location.href='add-product.php'" VALUE="Refresh">Add
-						Another</button>
-					<button type="button" class="btn btn-default"
-						onClick="location.href='index.php'">Admin Home</button>
-				</div>
-			</div>
 		</div>
-	</div>
+		</div>
+	
+
 </body>
 </html>
