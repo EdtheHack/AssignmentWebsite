@@ -13,7 +13,7 @@
 		public function __construct($id, $name, $price, $description, $percentage_off, $status, $img, $stock, $date_added){
 			$this->id = $id;
 			$this->name = $name;
-			$this->price = round($price, 2);
+			$this->price = round($price, 4);
 			$this->description = $description;
 			$this->percentage_off = $percentage_off;
 			$this->img = $img;

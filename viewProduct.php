@@ -20,11 +20,11 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5
 
 if($row[5] == 1){
 		
-	$price = round($product->getPrice(), 3);
+	$price = round($product->getPrice(), 4);
 	$percent = $product->getPercentage();
 		
-	$sale_price_tmp = round($price * $percent / 100, 3);
-	$sale_price =  round($price - $sale_price_tmp, 3);
+	$sale_price_tmp = round($price * $percent / 100, 4);
+	$sale_price =  round($price - $sale_price_tmp, 4);
 }
 
 // $product = unserialize($_POST['product']);
