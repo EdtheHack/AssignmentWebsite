@@ -19,12 +19,10 @@
 				$price = $rows[$i][1];
 				
 				$price = $percent * $price - $price; 
-			}else{
-				$i--;
-				//$price = $rows[$i][1];
-			}
+				$product = new product($rows[$i][0], $price, $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6]);
 			
-			$product = new product($rows[$i][0], $price, $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6]);
+			
+			
 			
 		?>
 		
@@ -55,10 +53,14 @@
 		
 		<?php
 		
-			if(isset($_POST['viewProduct'])){   //serialization does not work
-				$_SESSION["serializedProduct"] = serialize($product);
-				$_SESSION["name"] = $this->getName();
-				echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
+				if(isset($_POST['viewProduct'])){   //serialization does not work
+					$_SESSION["serializedProduct"] = serialize($product);
+					$_SESSION["name"] = $this->getName();
+					echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
+				}
+			}else{
+				$i--;
+				//$price = $rows[$i][1];
 			}
 		}
 		?>
