@@ -6,7 +6,7 @@ error_reporting ( - 1 );
 
 session_start ();
 
-include ("../includes/sanitation.php");
+include ("../includes/sanitisation.php");
 include ("../includes/product.php");
 
 $row = getItem ($_POST['itemId']);
