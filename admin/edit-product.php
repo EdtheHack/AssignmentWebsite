@@ -58,6 +58,8 @@ include ("nav.php");
 				
 				$url = $_SERVER[ 'QUERY_STRING' ];
 				$productId = $url;
+				
+				echo $url;
 
 				include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 					
