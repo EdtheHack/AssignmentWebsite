@@ -115,7 +115,7 @@ include ("nav.php");
 							</select>
 							
 							<script type="text/javascript">
-  								document.getElementById('newProductDiscount').value = "<?php echo $_GET['newProductDiscount'];?>";
+  								document.getElementById('newProductDiscount').value = "<?php echo $_POST['newProductDiscount'];?>";
 							</script>
 					</div>
 				
@@ -185,7 +185,7 @@ include ("nav.php");
 					</div>
 					
 							<script type="text/javascript">
-  								document.getElementById('listProduct').value = "<?php echo $_GET['listProduct'];?>";
+  								document.getElementById('listProduct').value = "<?php echo $_POST['listProduct'];?>";
 							</script>
 					
 					
