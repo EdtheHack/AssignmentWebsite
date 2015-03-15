@@ -19,6 +19,7 @@
 				$price = $rows[$i][1];
 				
 				$price = $percent * $price - $price; 
+				
 				$product = new product($rows[$i][0], $price, $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6]);
 			
 			
@@ -60,6 +61,7 @@
 				}
 			}else{
 				$i--;
+				echo "elsed";
 				//$price = $rows[$i][1];
 			}
 		}
