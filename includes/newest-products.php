@@ -5,13 +5,22 @@ include ("product.php");
 
 <div class="row">
 	<div class="well">
-		<h3>Our Latest Deals</h3>
+		<h3>Our Newest Products</h3>
 
-		<!-- CREATE PHP TO RETREIVE SQL AND LOOP ITEMS HERE -->
+		<?php 
+		$rows = getNewestItem();
+		
+		for($i = 0; $i < 3; $i++){
+			
+			$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6], $rows[$i][7], $rows[$i][8]);
+			$price = round($product->getPrice(), 2);
+			
+		}
+		?> 
 
 		<div class="row">
 			<div class="well">
-				<h3>Our Latest Deals</h3>
+				<h3>Our Newest Products</h3>
 				<div class="row">
 					<br>
 					<div class="col-md-4">
