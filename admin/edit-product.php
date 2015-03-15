@@ -57,13 +57,36 @@ include (".nav.php");
 			</div>
     <?php
 				include ("admin-nav.php");
+				
+				
+				$productId = substr($url, strrpos($url, '/') + 1);
+				
+				include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+					
+				$mysqli = $db_con;
+				
+				$rows = array();
+				
+				if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE product_id=?" )) {
+					$stmt->bind_param ( "s", $productId );
+					$stmt->execute ();
+					$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6, $col7, $col8 );
+					$stmt->close ();
+				}
+					
+				$mysqli->close ();
+				
+				$product = new product($col0, $col1, $col2, $col3, $col4, $col5, $col6, $col7, $col8);
+				
+				echo $product->getPrice();
+				
 				?>
     <div class="col-md-9">
 				<form method="POST" action="">
 					<div class="form-group">
 							<label for="newProductName">Product Name</label> <input
 								type="text" class="form-control" name="newProductName"
-								placeholder="Enter product name" <?php if(!empty($_POST["newProductName"])){ echo " value='".$_POST["newProductName"]."'"; }?>>
+								placeholder="Enter product name" value="<?php $product->getName()?>">
 					</div>
 					<div class="form-group">
 							<label for="newProductPrice">Price (£)</label> <input

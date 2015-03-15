@@ -111,22 +111,12 @@ include ("nav.php");
 							<td><?php echo $product->getPercentage()."&#37;"?></td>
                             <td><p>Stock quantity remaining</p></td>
 							<td><?php echo $status;?></td>
-							<td><form method="POST" action="edit-product.php">
-								<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' >Edit Product</button>
-							</form></td>
+							<td>
+							<td><a href="edit-product.php#id=<?php echo $product->getId(); ?>" data-toggle="modal" data-target="#myModal">Edit</a></td>
 							<td><a href="myModal" data-toggle="modal" data-target="#myModal">Delete Product</a></td>
 						</tr>
 						
 						<?php 
-						
-
-						if(isset($_GET['edit-product'])){   //serialization does not work
-							$_SESSION["serializedProduct"] = serialize($product);
-							$_SESSION["name"] = $this->getName();
-							echo "<script type=\"text/javascript\">document.location.href=\"edit-product.php\";</script>";
-						}
-						
-						
 						
 							}
 						?>
