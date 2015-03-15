@@ -42,7 +42,7 @@ include ("../includes/product.php");
 </head>
 <body>
 <?php
-include (".nav.php");
+include ("nav.php");
 ?>
 <div class="container">
 		<div class="col-md-12">
@@ -57,8 +57,9 @@ include (".nav.php");
     <?php
 				include ("admin-nav.php");
 				
+				$url = $_SERVER[ 'QUERY_STRING' ];
 				
-				$productId = substr($url, strrpos($url, '/') + 1);
+				$productId = substr($url, strrpos($url, '?') + 1);
 				
 				include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 					

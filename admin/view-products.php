@@ -112,7 +112,7 @@ include ("nav.php");
                             <td><p>Stock quantity remaining</p></td>
 							<td><?php echo $status;?></td>
 							<td>
-							<td><a href="edit-product.php/<?php echo $product->getId(); ?>" >Edit</a></td>
+							<td><a href="edit-product.php?<?php echo $product->getId(); ?>" >Edit</a></td>
 							<td><a href="myModal" data-toggle="modal" data-target="#myModal">Delete Product</a></td>
 						</tr>
 						
