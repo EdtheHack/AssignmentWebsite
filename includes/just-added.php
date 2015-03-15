@@ -32,12 +32,13 @@
 						<h4>
 							<a href="#"><?php echo $product->getName(); ?></a>
 						</h4>
+						<p> <?php echo $product->getDescription(); ?></p>
 						
-						<h5 class="pull-right"><?php echo "<strong> Our Price: &pound;".$sale_price."</strong><br>
+						<h5 class="pull-left"><?php echo "<strong> Our Price: &pound;".$sale_price."</strong><br>
 															RRP: <strike>&pound;".$price ."</strike><br>
 															You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em>"?></h5> <!-- PLEASE IGNORE HTML ERRORS -->
 
-						<p> <?php echo $product->getDescription(); ?></p>
+						
 						
 						<!--<div class="col-md-6">-->
 							<form method="POST" action="viewProduct.php">
