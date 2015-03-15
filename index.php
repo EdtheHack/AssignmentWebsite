@@ -40,8 +40,10 @@
 	</div>
 	
 <?php 
-	//include ("includes/newest-products.php") //WILL FIX THIS ISSUE-LOVE WILL
+	include ("includes/newest-products.php") //WILL FIX THIS ISSUE-LOVE WILL
 ?>
+	
+<!-- 
 <div class="row">
       <div class="well">
         <h3>Our Latest Deals</h3>
@@ -88,6 +90,9 @@
           </div>
         </div>
       </div>
+      
+      -->
+      
     </div>
   </div>
 </div>
