@@ -175,10 +175,12 @@ include ("nav.php");
              <option value="2">Save but do not list the product</option>
            </select>
          </div>
+         <div class="row">
          <script type="text/javascript">
   								document.getElementById('listProduct').value = "<?php echo $_POST['listProduct'];?>";
 							</script>
          <button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
+         </div>
        </form>
        <br>
        <br>
