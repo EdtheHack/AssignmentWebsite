@@ -16,6 +16,7 @@ if(isset($_POST['newProduct'])){
 	$price = $_POST['newProductPrice'];
 	$discount = $_POST['newProductDiscount'];
 	$description = $_POST['newProductDescription'];
+	$listProduct = $_POST['listProduct'];
 		
 	if($name != null){
 		if(sanitiseString($name, 1, 100) != 1){  //not cleared
@@ -53,13 +54,8 @@ if(isset($_POST['newProduct'])){
 	}else{
 		$categories = array(); //empty array to protect varis
 	}
-		
-	if(isset($_POST['newProductList'])){
-		$list = $_POST['newProductList'];
-		$list = true;
-	}else{
-		$list = false; //default value
-	}
+	
+	echo $listProduct;
 	
 	if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
 		$error = implode("<br>", $error_array);

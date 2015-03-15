@@ -168,6 +168,15 @@ include ("nav.php");
 						<hr>
 					</div>
 					
+					<div class="form-group">
+
+							<label for="listProduct">Select discount (optional):</label>
+							<select class="form-control" name="listProduct"  <?php if(!empty($_POST["listProduct"])){ echo " value='".$_POST["listProduct"]."'"; }?>>
+								<option value="0">List Product (Not on sale)</option>
+                                <option value="1">List Product (On sale)</option>
+								<option value="2">Save but do not list the product</option>
+							</select>
+					</div>
 					
 						<div class="checkbox">
 							<label> <input type="checkbox" name="newProductList" value="true"> List product immediately
