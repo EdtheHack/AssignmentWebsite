@@ -16,13 +16,13 @@
 
 			//if($rows[$i][5] == 1){
 				$percent = $rows[$i][4];
-				$price = $rows[$i][1];
+				$price = $rows[$i][2];
 				
 				$price_tmp = $price * $percent / 100;
 				$price = $price - $price_tmp; 
 				
 				
-				$product = new product($rows[$i][0], $price, $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6]);
+				$product = new product($rows[$i][0], $rows[$i][1], $price, $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6]);
 		?>
 		
 			<div class="row">
