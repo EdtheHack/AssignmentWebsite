@@ -86,7 +86,7 @@ include ("nav.php");
 					<tbody>
 						<?php 
 						
-						$rows = getAllProducts;
+						$rows = getAllProducts();
 						
 							for ($i = 0; $i < count($rows); $i++) { 
 							
