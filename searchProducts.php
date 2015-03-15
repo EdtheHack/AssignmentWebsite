@@ -47,12 +47,13 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 					<p> <?php echo $product->getDescription(); ?></p>
 				
 					<div class="col-md-6">
-						<form method="POST" action="viewProduct.php">
-							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
-						</form>
+						<!-- <form method="POST" action="viewProduct.php"> -->
+							<a href="viewProduct.php?<?php echo $product->getId(); ?>"><button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button></a>	
+						<!--</form>-->
 					</div>
 					<div class="col-md-6">
 						<form method="POST" action="viewProduct.php">  
+						
 							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
 						</form>
 					</div>

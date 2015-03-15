@@ -21,7 +21,7 @@
 							<p><?php echo $product->getDescription(); ?></p>
 						</div>
 						<div>
-							<button type="submit" class="btn btn-default"><i class="fa fa-eye"></i> <b> View </b></button>
+							<a href="viewProduct.php?<?php echo $product->getId(); ?>"><button type="submit" class="btn btn-default"><i class="fa fa-eye"></i> <b> View </b></button></a>
 							<button type="submit" class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b></button>
 						</div>
 					</div>
