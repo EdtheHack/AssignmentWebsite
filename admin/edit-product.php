@@ -63,7 +63,6 @@ include ("nav.php");
 				
 		$product = new product($rows[0], $rows[1], $rows[2], $rows[3], $rows[4], $rows[5], $rows[6], $rows[7], $rows[8]);
 				
-		echo $product->getPrice();
 			
 	?>
     <div class="col-md-9">
@@ -71,12 +70,12 @@ include ("nav.php");
 					<div class="form-group">
 							<label for="newProductName">Product Name</label> <input
 								type="text" class="form-control" name="newProductName"
-								placeholder="Enter product name" value="<?php $product->getName()?>">
+								placeholder="Enter product name" value="<?php echo $product->getName()?>">
 					</div>
 					<div class="form-group">
 							<label for="newProductPrice">Price (£)</label> <input
 								type="number" class="form-control" size="20"
-								id="newProductPRice" placeholder="Enter product price" value="<?php $product->getPrice()?>">
+								id="newProductPRice" placeholder="Enter product price" value="<?php echo $product->getPrice()?>">
 					</div>
 
 					<div class="form-group">
