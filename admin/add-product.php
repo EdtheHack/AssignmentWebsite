@@ -194,10 +194,34 @@ include ("nav.php");
 		include ("admin-includes/add-product-functions.php");
 		?>
 		
-		</div>
-		</div>
-		</div>
-	
+		    </div>
+            </div>
+      </div> <!-- CONTAINER DIV -->
+            
+            
+            <div class="modal fade" id="CompletedAdd" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel" aria-hidden="true">
+               <div class="modal-dialog">
+                  <div class="modal-content">
+                        <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal"
+                                          aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                    </button>
+                              <h4 class="modal-title" id="myModalLabel">Product Added Scuessfully</h4>
+                        </div>
+                        <div class="modal-body">The producted has now been added to the product catalog, add another or go back to Admin Home
+                        </div>
+                        <div class="modal-footer">
+                              <button type="button" class="btn btn-default" onClick="location.href='add-product.php'" VALUE="Refresh">Add Another</button>
+                              <button type="button" class="btn btn-default" onClick="location.href='index.php'" >Admin Home</button>
+                        </div>
+                  </div>
+              </div>
+            </div>
+            
+
 
 </body>
 </html>
+		
