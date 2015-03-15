@@ -90,7 +90,7 @@ include ("nav.php");
 						
 							for ($i = 0; $i < count($rows); $i++) { 
 							
-							$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6]);
+							$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6], $rows[$i][7], $rows[$i][8]);
 							
 							$status = $product->getStatus();
 							
