@@ -1,8 +1,6 @@
 <?php
 session_start ();
 
-include ("../includes/product.php");
-
 /*
  * include ("includes/common-functions.php");
  *
