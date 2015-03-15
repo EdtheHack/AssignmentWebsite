@@ -12,6 +12,15 @@ $row = getItem ($_POST['itemId']);
 $product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5], $row[6] );
 $_SESSION['product'] = serialize($product);
 
+if($row[5] == 1){
+		
+	$price = round($product->getPrice(), 2);
+	$percent = $product->getPercentage();
+	
+	$sale_price_tmp = round($price * $percent / 100, 2);
+	$sale_price =  round($price - $sale_price_tmp, 2);
+}
+
 // $product = unserialize($_POST['product']);
 ?>
 <!DOCTYPE html>
@@ -45,8 +54,18 @@ $_SESSION['product'] = serialize($product);
 				</div>
 
 				<div class="col-md-6">
-					<h4 class="pull-right"><?php echo "&pound;".round($product->getPrice(), 2);?></h4>
+					<div class="col-md-2 pull-right" >
+						<h4 class="pull-left"><?php if($row[5] == 1){
+														echo "<strong> Our Price: &pound;".$sale_price."</strong><br>
+															RRP: <strike>&pound;".$price ."</strike><br>
+															You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em><br>";
+													}else{
+														echo "&pound;".round($product->getPrice(), 2);
+													}?></h4>
+					
+					</div>
 					<h4>
+					
 						<a href="#"><?php echo $product->getName();?></a>
 					</h4>
 					<p><?php echo $product->getDescription();?></p>
@@ -75,6 +94,8 @@ $_SESSION['product'] = serialize($product);
 				
 				for ($i = 0; $i < count($rows); $i++) {
 					$similarProduct = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6]);
+					
+										
 				?>
 						
 					<div class="col-md-4">
