@@ -39,6 +39,9 @@
 		</div>
 	</div>
 	
+<?php 
+	include ("includes/newest-products.php")
+?>
 <div class="row">
       <div class="well">
         <h3>Our Latest Deals</h3>

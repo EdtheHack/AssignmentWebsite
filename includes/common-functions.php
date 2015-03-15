@@ -26,7 +26,7 @@ function checkAdmin() {
 }
 
 
-function getNewestItem($itemNumber){
+function getNewestItem($itemNumber){  //potentially redundant?
 	$mysqli = connect ();
 
 	$rows = array();
@@ -37,6 +37,23 @@ function getNewestItem($itemNumber){
 	   	while($stmt->fetch()){
      		$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
     	}
+		$stmt->close ();
+	}
+	$mysqli->close ();
+	return $rows[$itemNumber];
+}
+
+function getNewest($itemNumber){
+	$mysqli = connect ();
+
+	$rows = array();
+
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product ORDER BY date_added DESC" )) {
+		$stmt->execute ();
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
+		while($stmt->fetch()){
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
+		}
 		$stmt->close ();
 	}
 	$mysqli->close ();

@@ -1,5 +1,6 @@
 <?php
 include ("product.php");
+include ("common-functions.php")
 ?>
 
 
@@ -8,7 +9,7 @@ include ("product.php");
 		<h3>Our Newest Products</h3>
 
 		<?php 
-		$rows = getNewestItem();
+		$rows = getNewest();
 		
 		for($i = 0; $i < 3; $i++){
 			
