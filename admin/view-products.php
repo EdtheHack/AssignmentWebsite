@@ -120,7 +120,7 @@ include ("nav.php");
 						<?php 
 						
 
-						if(isset($_POST['edit-product'])){   //serialization does not work
+						if(isset($_GET['edit-product'])){   //serialization does not work
 							$_SESSION["serializedProduct"] = serialize($product);
 							$_SESSION["name"] = $this->getName();
 							echo "<script type=\"text/javascript\">document.location.href=\"edit-product.php\";</script>";
