@@ -88,7 +88,7 @@ include ("nav.php");
          <div class="form-group col-md-6">
            <label for="newProductPrice">Price (£)</label>
            <input
-								type="text" class="form-control" size="20"
+								type="" class="form-control" size="20"
 								id="newProductPRice" name="newProductPrice" placeholder="Enter product price"
 								 <?php if(!empty($_POST["newProductPrice"])){ echo " value='".$_POST["newProductPrice"]."'"; }?>>
          </div>
@@ -159,12 +159,13 @@ include ("nav.php");
            <p class="help-block">Please upload an image of the product here.</p>
            <hr>
          </div>
-         <div class="form-group">
+         <div class="form-group col-md-6">
            <label for="newStockQuantity">Stock</label>
            <input
 								type="text" class="form-control" size="20"
 								id="newStockQuantity" name="newStockQuantity" placeholder="Enter Stock Quantity"
 								 <?php if(!empty($_POST["newStockQuantity"])){ echo " value='".$_POST["newStockQuantity"]."'"; }?>>
+                                 <hr>
          </div>
          <div class="form-group">
            <label for="listProduct">Product Visibility Settings:</label>
