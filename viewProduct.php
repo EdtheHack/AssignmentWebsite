@@ -76,7 +76,7 @@ if($row[5] == 1){
 					</h4>
 					<p><?php echo $product->getDescription();?></p>
 					<br>
-                    <p>Remaining Stock: 0</p>
+                    <p>Remaining Stock: <?php echo $stock->getStock();?></p>
 					<form method="POST" action="viewBasket.php">  
 						<button type="submit" class="btn btn-default pull-right">
 							<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
