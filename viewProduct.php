@@ -66,7 +66,7 @@ if($row[5] == 1){
 															RRP: <strike>&pound;".$price ."</strike><br>
 															You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em><br>";
 													}else{
-														echo "&pound;".round($product->getPrice(), 2);
+														echo "&pound;".round($product->getPrice(), 4);
 													}?></h4>
 					
 					</div>
