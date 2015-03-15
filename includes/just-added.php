@@ -16,7 +16,7 @@
 				
 				$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6], $rows[$i][7], $rows[$i][8]);
 				
-				$price = round($product->getPrice(), 2);
+				$price = $product->getPrice();
 				$percent = $product->getPercentage();
 				
 				$sale_price_tmp = round($price * $percent / 100, 2);
