@@ -43,7 +43,7 @@ function getNewestItem($itemNumber){  //potentially redundant?
 	return $rows[$itemNumber];
 }
 
-function getNewest($itemNumber){
+function getNewest(){
 	$mysqli = connect ();
 
 	$rows = array();
@@ -57,7 +57,7 @@ function getNewest($itemNumber){
 		$stmt->close ();
 	}
 	$mysqli->close ();
-	return $rows[$itemNumber];
+	return $rows;
 }
 
 function getItem($productId){
