@@ -3,6 +3,13 @@ session_start ();
 
 include ("../includes/sanitation.php");
 
+$row = getItem ($_POST['itemId']);
+$product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5], $row[6] );
+$_SESSION['product'] = serialize($product);
+
+
+echo $row [1];
+
 /*
  * include ("includes/common-functions.php");
  *
