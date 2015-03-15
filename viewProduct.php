@@ -4,7 +4,6 @@ ini_set ( 'display_errors', 1 );
 ini_set ( 'display_startup_errors', 1 );
 error_reporting ( - 1 );
 
-include ("includes/product.php");
 include ("includes/common-functions.php");
 
 
