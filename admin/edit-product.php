@@ -58,7 +58,14 @@ include ("nav.php");
 				
 				$url = $_SERVER[ 'QUERY_STRING' ];
 				
-				$productId = substr($url, strrpos($url, '?') + 1);
+				echo $url;
+				
+				$url2 = $_SERVER['PHP_SELF'];
+				
+				$urlvars = parse_url($url2);
+				echo $urlvars[query]; 
+				
+				$productId = $urlvars[query];
 				
 				echo $productId;
 				
