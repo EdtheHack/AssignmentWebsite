@@ -44,15 +44,7 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 					<li><a href="viewBasket.php"><i class="fa fa-shopping-cart fa-1x"></i> Basket <b>0</b></a></li>
 				
 					<?php if(isset($_SESSION['loggedIn']) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
-						
-					if(basename($_SERVER['PHP_SELF']) == 'add-product.php'){  //this code needs to be here just for now please thankyou
-						include ("../includes/user.php");
-					}else{
-						include "includes/user.php";
-					}
-						
-						//$fn = $_SESSION["firstName"];
-						
+												
 						$fn = unserialize($_SESSION["user"])->getName();
 						
 						//PHP INJECT HTML TO THE PAGE
@@ -66,7 +58,7 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 						</ul></li>" ;
 					
 						if(checkAdmin() == 1){ //check for admin user 
-							echo "<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"admin-home.php\" style=\"color: blue;\" ><i class=\"fa fa-cogs\"></i> <b> Admin Panel </b></a></li></ul>";
+							echo "<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"admin/\" style=\"color: blue;\" ><i class=\"fa fa-cogs\"></i> <b> Admin Panel </b></a></li></ul>";
 						}
 					
 						
