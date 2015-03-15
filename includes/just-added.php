@@ -14,16 +14,17 @@
 		
 		for ($i = 0; $i < 3; $i++) {  //loop through most discounted items	
 
-			if($rows[$i][5] == 3){
+			if($rows[$i][5] == 1){
 				$percent = $rows[$i][4];
 				$price = $rows[$i][1];
 				
 				$price = $percent * $price - $price; 
 			}else{
-				$price = $rows[$i][1];
+				$i--;
+				//$price = $rows[$i][1];
 			}
 			
-			$product = new product($rows[$i][0], $price, $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][6], $rows[$i][7]);
+			$product = new product($rows[$i][0], $price, $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6]);
 			
 		?>
 		

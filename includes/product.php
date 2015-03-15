@@ -8,7 +8,7 @@
 		private $img;
 		private $status;
 		
-		public function __construct($id, $name, $price, $description, $percentage_off, $img, $status){
+		public function __construct($id, $name, $price, $description, $percentage_off, $status, $img){
 			$this->id = $id;
 			$this->name = $name;
 			$this->price = round($price, 2);
