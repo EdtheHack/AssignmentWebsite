@@ -7,7 +7,6 @@ error_reporting ( - 1 );
 session_start ();
 
 include ("../includes/sanitisation.php");
-include ("../includes/product.php");
 
 
 /*
