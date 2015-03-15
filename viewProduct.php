@@ -54,7 +54,7 @@ if($row[5] == 1){
 				</div>
 
 				<div class="col-md-6">
-					<div class="col-md-2 pull-right" >
+					<div class="col-md-5 pull-right" >
 						<h4 class="pull-left"><?php if($row[5] == 1){
 														echo "<strong> Our Price: &pound;".$sale_price."</strong><br>
 															RRP: <strike>&pound;".$price ."</strike><br>
