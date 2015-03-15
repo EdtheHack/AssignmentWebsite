@@ -17,6 +17,7 @@ if(isset($_POST['newProduct'])){
 	$discount = $_POST['newProductDiscount'];
 	$description = $_POST['newProductDescription'];
 	$listProduct = $_POST['listProduct'];
+	$stock = $_POST['newStockQuantity'];
 		
 	if($name != null){
 		if(sanitiseString($name, 1, 100) != 1){  //not cleared
@@ -45,6 +46,16 @@ if(isset($_POST['newProduct'])){
 	}else{
 		$error_array[] = "product description field cannot be empty";
 	}
+	
+	
+	if($stock != null){
+		if(sanitiseInteger($stock) != 1){
+			$error_array[] = "Stock can only be a Interger.";
+		}
+	}else{
+		$error_array[] = "You must enter 0 or more and cannot be empty";
+	}
+	
 	
 	if(!empty($_POST['categories'])){
 		$categories = array();
@@ -89,7 +100,8 @@ if(isset($_POST['newProduct'])){
 			die; //wrong input, do not proceed
 		}else{ //if all errors are clear then carry on 
 			if(productCheck($name) == 1){	
-	 			addToDB($name, $price, $description, $discount, $status, $img, $categories); //everything was fine so carry on and add product
+				$date_added = date('Y/m/d');
+	 			addToDB($name, $price, $description, $discount, $status, $img, $categories, $stock, $date_added); //everything was fine so carry on and add product
 			}else{
 				echo "<script> $('#print_errors').bs_alert('Product already exits!', 'ERROR'); </script>";
 			}
@@ -130,13 +142,13 @@ if(isset($_POST['newProduct'])){
 	}
 	
 	
-	function addToDB($name, $price, $description, $discount, $status, $img, $categories){
+	function addToDB($name, $price, $description, $discount, $status, $img, $categories, $stock, $date_added){
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 		
 		$mysqli = $db_con;
 		
-		$stmt = $mysqli->prepare ( "INSERT INTO product (name, price, description, percentage_off, status, img) VALUES (?, ?, ?, ?, ?, ?)" );
-		$stmt->bind_param ("sdsiis", $name, $price, $description, $discount, $status, $img);
+		$stmt = $mysqli->prepare ( "INSERT INTO product (name, price, description, percentage_off, status, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" );
+		$stmt->bind_param ("sdsiisis", $name, $price, $description, $discount, $status, $img, $stock, $date_added);
 			
 		if ($stmt === false) {
 			trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);

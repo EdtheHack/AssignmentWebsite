@@ -9,6 +9,13 @@ function sanitiseString ($string, $min, $max){
 	}
 }
 
+function sanitiseInteger($int){
+	if (preg_match( '/^[0-9]+$/', $string)) {
+		return 1;
+	}else{
+		return 0;
+	}
+}
 
 function sanitiseCurrency ($input){
 
