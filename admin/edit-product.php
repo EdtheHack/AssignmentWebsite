@@ -56,17 +56,14 @@ include ("nav.php");
     <?php
 				include ("admin-nav.php");
 				
-				$url = $_SERVER[ 'QUERY_STRING' ];
-				$productId = $url;
+				$productId = $_SERVER[ 'QUERY_STRING' ];
 				
-				echo $url;
-
 				include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 					
 				$mysqli = $db_con;
 				
 				if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE product_id=?" )) {
-					$stmt->bind_param ( "s", $productId );
+					$stmt->bind_param ( "i", $productId );
 					$stmt->execute ();
 					$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6, $col7, $col8 );
 					$stmt->close ();
