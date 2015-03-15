@@ -33,9 +33,9 @@ function getNewestItem($itemNumber){
 	
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product ORDER BY price DESC" )) {
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6 );
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
 	   	while($stmt->fetch()){
-     		$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6 );
+     		$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
     	}
 		$stmt->close ();
 	}
@@ -49,10 +49,10 @@ function getItem($productId){
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE product_id=?")){
 		$stmt->bind_param ( "s", $productId );
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6 );
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8 );
 		
 		while($stmt->fetch()){
-			$row = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6  );
+			$row = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8  );
 		}
 		$stmt->close ();
 	}
@@ -70,9 +70,9 @@ function getSimilarItems($productId){  //NEEDS WORK
 									WHERE product_categories.category_id = (SELECT category_id FROM product_categories WHERE product_id=?) LIMIT 3" )) {
 		$stmt->bind_param ("s", $productId);
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
 	   	while($stmt->fetch()) {
-			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8);
     	}
 		$stmt->close ();
 	}
@@ -90,9 +90,9 @@ function getAllSearchItems($searchItem){  //NEEDS WORK
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) LIKE UPPER (?) OR UPPER (description) LIKE UPPER (?)")) {
 		$stmt->bind_param ("ss", $searchItem, $searchItem);
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
 	   	while($stmt->fetch()) {
-			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8);
     	}
 		$stmt->close ();
 	}
@@ -110,9 +110,9 @@ function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) LIKE UPPER (?) OR UPPER (description) LIKE UPPER (?) LIMIT ?, 5")) {
 		$stmt->bind_param ("sss", $searchItem, $searchItem, $pageIndex);
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
 	   	while($stmt->fetch()) {
-			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8);
     	}
 		$stmt->close ();
 	}
@@ -129,9 +129,9 @@ function getMostDiscounted(){
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE status=1 ORDER BY percentage_off DESC ")){ //get the most 
 		
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2, $col3, $col4,  $col5, $col6 );
+		$stmt->bind_result ( $col0,  $col1,  $col2, $col3, $col4,  $col5, $col6,  $col7,  $col8 );
 		while($stmt->fetch()) {
-			$rows[] = array( $col0,  $col1,  $col2, $col3 , $col4,  $col5, $col6 );
+			$rows[] = array( $col0,  $col1,  $col2, $col3 , $col4,  $col5, $col6,  $col7,  $col8 );
 		}
 		$stmt->close ();
 	}
@@ -191,9 +191,9 @@ function getCurrentOrderProducts($orderId){
 									WHERE order_contents.order_id=?" )){ 
 		$stmt->bind_param ("i", $orderId);
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6);
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
 	   	while($stmt->fetch()) {
-			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6);
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8);
     	}
 		$stmt->close ();
 	}

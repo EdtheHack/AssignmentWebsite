@@ -11,3 +11,18 @@
 0 -> normal listed product (default)
 1 -> listed and is a sale item 
 2 -> not listed 
+
+
+===================
+   PRODUCT TABLE
+===================
+
+- product_id		 
+- name	 
+- price	
+- description		 
+- percentage_off
+- status	 
+- img		 
+- stock	 
+- date_added	  
