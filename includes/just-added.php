@@ -34,7 +34,7 @@
 						</h4>
 						<p> <?php echo $product->getDescription(); ?></p>
 						
-						<h5 class="pull-left"><?php echo "<strong> Our Price: &pound;".$sale_price."</strong><br>
+						<h5 class=""><?php echo "<strong> Our Price: &pound;".$sale_price."</strong><br>
 															RRP: <strike>&pound;".$price ."</strike><br>
 															You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em><br>"?></h5> <!-- PLEASE IGNORE HTML ERRORS -->
 
@@ -43,7 +43,7 @@
 						<!--<div class="col-md-6">-->
 							<form method="POST" action="viewProduct.php">
 							<br>
-								<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default pull-left"><i class="fa fa-eye "></i> <b> View </b> </button>	
+								<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default "><i class="fa fa-eye "></i> <b> View </b> </button>	
 							</form>
 						<!-- </div>
 						<div class="col-md-6">
