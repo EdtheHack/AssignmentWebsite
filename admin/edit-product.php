@@ -60,11 +60,11 @@ include ("nav.php");
 				
 				$productId = substr($url, strrpos($url, '?') + 1);
 				
+				echo $productId;
+				
 				include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 					
 				$mysqli = $db_con;
-				
-				$rows = array();
 				
 				if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE product_id=?" )) {
 					$stmt->bind_param ( "s", $productId );
