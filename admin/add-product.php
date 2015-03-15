@@ -200,7 +200,7 @@ include ("nav.php");
 				
 				<?php 
 				
-				include ("../includes/add-product-functions.php");
+				include ("admin-includes/add-product-functions.php");
 				
 				?>
 				

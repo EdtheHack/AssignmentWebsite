@@ -43,9 +43,32 @@ include ("nav.php");
 					</h2>
 				</div>
 			</div>
-    <?php
-				include ("admin-nav.php");
-				?>
+  <?php
+	include ("admin-nav.php");
+				
+	
+	function getAllProducts(){
+		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+			
+		$mysqli = $db_con;
+				
+		$rows = array();
+		
+		if ($stmt = $mysqli->prepare ("SELECT * FROM product" )) {
+			$stmt->execute ();
+			$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6 );
+			while($stmt->fetch()){
+				$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6 );
+			}
+			$stmt->close ();
+			}
+			
+			$mysqli->close ();
+				
+			return $rows;
+		}
+						
+?>
     <div class="col-md-9">
 				<table class="table table-hover table-responsive">
 					<thead>
@@ -53,38 +76,61 @@ include ("nav.php");
 							<th>#</th>
 							<th>Product Name</th>
 							<th>Price</th>
+							<th>Discount</th>
+							<th>Visbility</th>
+							<th>Edit</th>
+							<th>Delete</th>
+							
 						</tr>
 					</thead>
 					<tbody>
+						<?php 
+						
+						$rows = getAllProducts;
+						
+							for ($i = 0; $i < count($rows); $i++) { 
+							
+							$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6]);
+							
+							$status = $product->getStatus();
+							
+							if($status == 0){
+								$status = "Product is Listed (Not on sale)";
+							}else if($status == 1){
+								$status = "Product is Listed (On sale)";
+							}else{
+								$status = "Not Listed";
+							}
+						
+						?>									
 						<tr>
-							<td>1</td>
-							<td>Product 1</td>
-							<th>£0.00</th>
+							<td><?php echo $product->getId()?></td>
+							<td><?php echo $product->getName()?></td>
+							<td><?php echo "&pound;".$product->getPrice()?></td>
+							<td><?php echo $product->getPercentage()."&#37;"?></td>
+							<td><?php echo $status;?></td>
 							<td>Edit Product</td>
-							<td><a href"myModal" data-toggle="modal" data-target="#myModal">Delete
-									Product</a></td>
+							<td><a href="myModal" data-toggle="modal" data-target="#myModal">DeleteProduct</a></td>
 						</tr>
-						<tr>
-							<td>2</td>
-							<td>Product 2</td>
-							<th>£0.00</th>
-							<td>Edit Product</td>
-							<td>Delete Product</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>Product 3</td>
-							<th>£0.00</th>
-							<td>Edit Product</td>
-							<td>Delete Product</td>
-						</tr>
+						
+						<?php 
+						
+							}
+						?>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	
 
-	<!-- Modal -->
+	<!-- Modal
+	
+	
+						<td><a href"myModal" data-toggle="modal" data-target="#myModal">Delete
+									Product</a></td>
+	
+	
+	 -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
