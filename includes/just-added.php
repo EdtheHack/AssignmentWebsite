@@ -43,7 +43,7 @@
 						<!--<div class="col-md-6">-->
 							<form method="POST" action="viewProduct.php">
 							<br>
-								<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye pull-left"></i> <b> View </b> </button>	
+								<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default pull-left"><i class="fa fa-eye "></i> <b> View </b> </button>	
 							</form>
 						<!-- </div>
 						<div class="col-md-6">
