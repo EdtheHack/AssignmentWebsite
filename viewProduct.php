@@ -22,6 +22,7 @@ if($row[5] == 1){
 		
 	$price = round($product->getPrice(), 2);
 	$percent = $product->getPercentage();
+	$stock = $stock->getStock();
 	
 	$sale_price_tmp = round($price * $percent / 100, 2);
 	$sale_price =  round($price - $sale_price_tmp, 2);
