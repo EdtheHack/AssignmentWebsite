@@ -11,11 +11,10 @@
 		<?php	
 			
 		$rows = getMostDiscounted();
-		$ii = 3;
 		
-		for ($i = 0; $i < $ii; $i++) {  //loop through most discounted items	
+		for ($i = 0; $i < 3; $i++) {  //loop through most discounted items	
 
-			if($rows[$i][5] == 1){
+			//if($rows[$i][5] == 1){
 				$percent = $rows[$i][4];
 				$price = $rows[$i][1];
 				
@@ -24,10 +23,6 @@
 				
 				
 				$product = new product($rows[$i][0], $price, $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6]);
-			
-			
-			
-			
 		?>
 		
 			<div class="row">
@@ -62,11 +57,7 @@
 					$_SESSION["name"] = $this->getName();
 					echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
 				}
-			}else{
-				$ii++;
-				echo "elsed";
-				//$price = $rows[$i][1];
-			}
+
 		}
 		?>
 	</div>

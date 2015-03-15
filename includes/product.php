@@ -17,33 +17,30 @@
 			$this->img = $img;
 			$this->status = $status;
 		}
-		
-		public function getName(){
-			return $this->name;
-		}
-		
-		public function getPrice(){
-			return $this->price;
-		}
-		
-		public function getDescription(){
-			return $this->description;
-		}
-		
 		public function getId(){
 			return $this->id;
 		}
-		
+		public function getName(){
+			return $this->name;
+		}
+		public function getPrice(){
+			return $this->price;
+		}
+		public function getDescription(){
+			return $this->description;
+		}
+
 		public function getPercentage(){
 			return $this->percentage_off;
+		}
+		public function getStatus(){
+			return $this->status;
 		}
 		
 		public function getImg(){
 			return $this->img;
 		}
 		
-		public function getStatus(){
-			return $this->status;
-		}
+	
 	}
 	?>
