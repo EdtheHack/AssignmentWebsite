@@ -14,14 +14,14 @@
 		
 		for ($i = 0; $i < 3; $i++) {  //loop through most discounted items	
 
-				$percent = $rows[$i][4];
-				$price = $rows[$i][2];
 				
-				$price_tmp = $price * $percent / 100;
-				$price = $price - $price_tmp; 
+				$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6]);
 				
+				$price = round($product->getPrice(), 2);
+				$percent = $product->getPercentage();
 				
-				$product = new product($rows[$i][0], $rows[$i][1], $price, $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6]);
+				$sale_price_tmp = $price * $percent / 100;
+				$sale_price = $price - $sale_price_tmp;
 		?>
 		
 			<div class="row">
@@ -29,7 +29,9 @@
 				<div class="thumbnail">
 					<img src="img/<?php echo $product->getImg(); ?>" alt="">
 					<div class="caption">
-						<h4 class="pull-right"><?php echo "&pound;".round($product->getPrice(), 2); ?></h4>
+						<h6 class="pull-right"><?php echo "RRP: <strike>&pound;".$price ."</strike><br>
+															Price: <strong>&pound;".$sale_price."</strong><br>
+															You Save: <em>&pound;".$sale_price_tmp."</em><"?></h6>
 						<h4>
 							<a href="#"><?php echo $product->getName(); ?></a>
 						</h4>
