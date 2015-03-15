@@ -20,8 +20,8 @@
 				$price = round($product->getPrice(), 2);
 				$percent = $product->getPercentage();
 				
-				$sale_price_tmp = $price * $percent / 100;
-				$sale_price = $price - $sale_price_tmp;
+				$sale_price_tmp = round($price * $percent / 100, 2);
+				$sale_price =  round($price - $sale_price_tmp, 2);
 		?>
 		
 			<div class="row">
@@ -41,7 +41,7 @@
 						
 						
 						<!--<div class="col-md-6">-->
-							<form method="POST" action="viewProduct.php">
+							<form method="POST" action="viewProduct.php" class="pull-left">
 								<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
 							</form>
 						<!-- </div>
