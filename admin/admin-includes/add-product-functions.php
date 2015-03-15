@@ -136,7 +136,7 @@ if(isset($_POST['newProduct'])){
 		$mysqli = $db_con;
 		
 		$stmt = $mysqli->prepare ( "INSERT INTO product (name, price, description, percentage_off, status, img) VALUES (?, ?, ?, ?, ?, ?)" );
-		$stmt->bind_param ("sisiis", $name, $price, $description, $discount, $status, $img);
+		$stmt->bind_param ("sdsiis", $name, $price, $description, $discount, $status, $img);
 			
 		if ($stmt === false) {
 			trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
