@@ -20,11 +20,11 @@ $product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5
 
 if($row[5] == 1){
 		
-	$price = round($product->getPrice(), 4);
+	$price = round($product->getPrice(), 2);
 	$percent = $product->getPercentage();
 		
-	$sale_price_tmp = round($price * $percent / 100, 4);
-	$sale_price =  round($price - $sale_price_tmp, 4);
+	$sale_price_tmp = round($price * $percent / 100, 2);
+	$sale_price =  round($price - $sale_price_tmp, 2);
 }
 
 // $product = unserialize($_POST['product']);
@@ -66,7 +66,7 @@ if($row[5] == 1){
 															RRP: <strike>&pound;".$price ."</strike><br>
 															You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em><br>";
 													}else{
-														echo "&pound;".round($product->getPrice(), 4);
+														echo "&pound;".round($product->getPrice(), 2);
 													}?></h4>
 					
 					</div>
