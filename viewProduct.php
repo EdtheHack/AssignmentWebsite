@@ -56,7 +56,7 @@ if($row[5] == 1){
 			<div class="row">
 				<br>
 				<div class="col-md-6">
-					<img src="img/<?php echo $product->getImg(); ?>" alt="">
+					<img src="img/<?php echo $product->getImg(); ?>" alt="Product Image" height="450" width="auto">
 				</div>
 
 				<div class="col-md-6">
@@ -106,7 +106,7 @@ if($row[5] == 1){
 				?>
 						
 					<div class="col-md-4">
-						<img src="img/<?php echo $similarProduct->getImg(); ?>" alt="">
+						<img src="img/<?php echo $similarProduct->getImg(); ?>" alt="Similar Product Image" height="150" width="auto">
 						<div class="caption">
 							<h3><?php echo $similarProduct->getName(); ?></h3>
 							<p><?php echo $similarProduct->getDescription(); ?></p>
