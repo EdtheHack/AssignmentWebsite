@@ -21,21 +21,20 @@ include ("../includes/sanitation.php");
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Add Product - Web Programming Assignment 2</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/custom.css">
-<link rel="stylesheet"
+ <head>
+ <title>Add Product - Web Programming Assignment 2</title>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="css/custom.css">
+ <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet"
+ <link rel="stylesheet"
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<script
+ <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script
+ <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	
-<script type="text/javascript"> //needs reference here please 
+ <script type="text/javascript"> //needs reference here please 
                 (function($){
                     $.fn.extend({
                         bs_alert: function(message, title){
@@ -50,88 +49,79 @@ include ("../includes/sanitation.php");
               });
           })(jQuery);
 
- </script>  
- 
-<!-- <style>
+ </script>
+
+ <!-- <style>
  .borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
     border: none;
 }
  
  </style> -->
-     
-	
-</head>
-<body>
-<?php
+
+ </head>
+ <body>
+ <?php
 include ("nav.php");
 ?>
-<div class="container">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="jumbotron">
-					<h2>
-						Add Product <small> Add a new product to the site for sale.</small>
-					</h2>
-					<p></p>
-				</div>
-			</div>
-    <?php
+ <div class="container">
+   <div class="col-md-12">
+     <div class="row">
+       <div class="jumbotron">
+         <h2> Add Product <small> Add a new product to the site for sale.</small> </h2>
+         <p></p>
+       </div>
+     </div>
+     <?php
 				include ("admin-nav.php");
 				?>
-    <div class="col-md-9">
-    			<br>
-    			<div id="print_errors"></div> 
-    			<br>
-    			   			
-				<form method="POST" action="" enctype="multipart/form-data">
-				
-					<div class="form-group">
-							<label for="newProductName">Product Name</label> <input
+     <div class="col-md-9"> <br>
+       <div id="print_errors"></div>
+       <br>
+       <form method="POST" action="" enctype="multipart/form-data">
+         <div class="form-group">
+           <label for="newProductName">Product Name</label>
+           <input
 								type="text" class="form-control" name="newProductName"
 								placeholder="Enter product name" 
 								<?php if(!empty($_POST["newProductName"])){ echo " value='".$_POST["newProductName"]."'"; }?>>
-					</div>
-					<div class="form-group col-md-6">
-							<label for="newProductPrice">Price (£)</label> <input
+         </div>
+         <div class="form-group col-md-6">
+           <label for="newProductPrice">Price (£)</label>
+           <input
 								type="text" class="form-control" size="20"
 								id="newProductPRice" name="newProductPrice" placeholder="Enter product price"
 								 <?php if(!empty($_POST["newProductPrice"])){ echo " value='".$_POST["newProductPrice"]."'"; }?>>
-					</div>
-
-					<div class="form-group col-md-6">
-
-							<label for="newProductDiscount">Select discount (optional):</label>
-							<select class="form-control" name="newProductDiscount" id="newProductDiscount" <?php if(!empty($_POST["newProductDiscount"])){ echo " value='".$_POST["newProductDiscount"]."'"; }?>>
-
-								<option>0</option>
-                                <option>5</option>
-								<option>10</option>
-								<option>15</option>
-								<option>20</option>
-								<option>25</option>
-								<option>40</option>
-								<option>50</option>
-								<option>75</option>
-							</select>
-							
-							<script type="text/javascript">
+         </div>
+         <div class="form-group col-md-6">
+           <label for="newProductDiscount">Select discount (optional):</label>
+           <select class="form-control" name="newProductDiscount" id="newProductDiscount" <?php if(!empty($_POST["newProductDiscount"])){ echo " value='".$_POST["newProductDiscount"]."'"; }?>>
+             <option>0</option>
+             <option>5</option>
+             <option>10</option>
+             <option>15</option>
+             <option>20</option>
+             <option>25</option>
+             <option>40</option>
+             <option>50</option>
+             <option>75</option>
+           </select>
+           <script type="text/javascript">
   								document.getElementById('newProductDiscount').value = "<?php echo $_POST['newProductDiscount'];?>";
-							</script>
-					</div>
-				
-					<div class="form-group">
-						<label for="productDescription">Description</label>
-						<textarea class="form-control" rows="5" name="newProductDescription"><?php if(!empty($_POST["newProductDescription"])){ echo "".$_POST["newProductDescription"].""; }?></textarea>
-					</div>
-					
-					<div class="form-group">
-					<hr>
-						<label for="productCategories">Associated Product Categories</label>
-						<div class="table-responsive">          
-     					 <table class="table borderless">
-     					 	 <tbody>
-     					 	 <tr>
-									<?php
+							</script> 
+         </div>
+         <div class="form-group">
+           <label for="productDescription">Description</label>
+           <textarea class="form-control" rows="5" name="newProductDescription"><?php if(!empty($_POST["newProductDescription"])){ echo "".$_POST["newProductDescription"].""; }?>
+</textarea>
+         </div>
+         <div class="form-group">
+           <hr>
+           <label for="productCategories">Associated Product Categories</label>
+           <div class="table-responsive">
+             <table class="table borderless">
+               <tbody>
+                 <tr>
+                   <?php
 										include ($_SERVER ['DOCUMENT_ROOT'] . '/dbconn.php');
 																				
 										if ($stmt = $db_con->prepare ("SELECT name FROM categories" )) {
@@ -157,80 +147,67 @@ include ("nav.php");
 										}
 										$db_con->close ();
 									?>
-								</tbody>
-							</table>
-						</div>
-					<hr>
-					</div>
-					
-					
-					
-                    
-                    <div class="form-group">
-						<label for="newProductImage">Product Image</label>
-						<br> 
-						<input type="file" name="photo">
-						<p class="help-block">Please upload an image of the product here.</p>
-						<hr>
-					</div>
-					
-					<div class="form-group">
-
-							<label for="listProduct">Product Visibility Settings:</label>
-							<select class="form-control" name="listProduct" id="listProduct"  <?php if(!empty($_POST["listProduct"])){ echo " value='".$_POST["listProduct"]."'"; }?>>
-								<option value="0">List Product (Not on sale)</option>
-                                <option value="1">List Product (On sale)</option>
-								<option value="2">Save but do not list the product</option>
-							</select>
-					</div>
-					
-							<script type="text/javascript">
+               </tbody>
+             </table>
+           </div>
+           <hr>
+         </div>
+         <div class="form-group">
+           <label for="newProductImage">Product Image</label>
+           <br>
+           <input type="file" name="photo">
+           <p class="help-block">Please upload an image of the product here.</p>
+           <hr>
+         </div>
+         <div class="form-group">
+           <label for="newStockQuantity">Stock</label>
+           <input
+								type="text" class="form-control" size="20"
+								id="newStockQuantity" name="newStockQuantity" placeholder="Enter Stock Quantity"
+								 <?php if(!empty($_POST["newStockQuantity"])){ echo " value='".$_POST["newStockQuantity"]."'"; }?>>
+         </div>
+         <div class="form-group">
+           <label for="listProduct">Product Visibility Settings:</label>
+           <select class="form-control" name="listProduct" id="listProduct"  <?php if(!empty($_POST["listProduct"])){ echo " value='".$_POST["listProduct"]."'"; }?>>
+             <option value="0">List Product (Not on sale)</option>
+             <option value="1">List Product (On sale)</option>
+             <option value="2">Save but do not list the product</option>
+           </select>
+         </div>
+         <script type="text/javascript">
   								document.getElementById('listProduct').value = "<?php echo $_POST['listProduct'];?>";
 							</script>
-					
-					
-						<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
-					
-					</form>
-					<br>
-					<br>
-					<br>
-				
-				
-				
-				<?php 
+         <button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
+       </form>
+       <br>
+       <br>
+       <br>
+       <?php 
 				
 				include ("admin-includes/add-product-functions.php");
 				
 				?>
-				
-			</div>
-		</div>
-	</div> <!-- CONTAINER DIV -->
-		
-		
-		<div class="modal fade" id="CompletedAdd" tabindex="-1" role="dialog"
+     </div>
+   </div>
+ </div>
+ <!-- CONTAINER DIV -->
+
+ <div class="modal fade" id="CompletedAdd" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
-		   <div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					<h4 class="modal-title" id="myModalLabel">Product Added Scuessfully</h4>
-				</div>
-				<div class="modal-body">The producted has now been added to the product catalog, add another or go back to Admin Home
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" onClick="location.href='add-product.php'" VALUE="Refresh">Add Another</button>
-					<button type="button" class="btn btn-default" onClick="location.href='index.php'" >Admin Home</button>
-				</div>
-			</div>
-		  </div>
-		</div>
-		
-
-
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal"
+							aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+         <h4 class="modal-title" id="myModalLabel">Product Added Scuessfully</h4>
+       </div>
+       <div class="modal-body">The producted has now been added to the product catalog, add another or go back to Admin Home </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-default" onClick="location.href='add-product.php'" VALUE="Refresh">Add Another</button>
+         <button type="button" class="btn btn-default" onClick="location.href='index.php'" >Admin Home</button>
+       </div>
+     </div>
+   </div>
+ </div>
 </body>
 </html>
