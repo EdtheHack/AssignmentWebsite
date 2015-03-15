@@ -1,6 +1,6 @@
 <?php
 
-include ("../../sanitisation.php");
+include ("../../includes/sanitisation.php");
 
 /*
  ========================
