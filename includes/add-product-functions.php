@@ -160,6 +160,7 @@ if(isset($_POST['newProduct'])){
 		
 		$mysqli = $db_con; //just for names sake 
 		
+		$close = false; //initilise 
 		
 		foreach ($categories as $value){ //for every checkbox selected set to value
 			

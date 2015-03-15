@@ -103,9 +103,9 @@ include ("nav.php");
 							<label for="newProductDiscount">Select discount (optional):</label>
 							<select class="form-control" name="newProductDiscount"  <?php if(!empty($_POST["newProductDiscount"])){ echo " value='".$_POST["newProductDiscount"]."'"; }?>>
 
-								<option>0</option>
-                                <option>5</option>
-								<option>10</option>
+								<option <?php if(!empty($_POST["newProductDiscount"] == 0)){ echo 'selected'; }?>>0</option>
+                                <option <?php if(!empty($_POST["newProductDiscount"] == 5)){ echo 'selected'; }?>>5</option>
+								<option <?php if(!empty($_POST["newProductDiscount"] == 10)){ echo 'selected'; }?>>10</option>
 								<option>15</option>
 								<option>20</option>
 								<option>25</option>
