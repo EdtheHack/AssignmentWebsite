@@ -29,6 +29,14 @@ function sanitiseSelection ($s){ //this is really needed but it's just to make s
 		
 }
 
+function sanitiseListProduct($listProduct){
+	if($listProduct == 0 || $listProduct == 1 || $listProduct == 2){
+		return 1;
+	}else{
+		return 0;
+	}
+}
+
 
 
 

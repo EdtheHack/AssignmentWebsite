@@ -170,7 +170,7 @@ include ("nav.php");
 					
 					<div class="form-group">
 
-							<label for="listProduct">Select discount (optional):</label>
+							<label for="listProduct">Product Visibility Settings:</label>
 							<select class="form-control" name="listProduct"  <?php if(!empty($_POST["listProduct"])){ echo " value='".$_POST["listProduct"]."'"; }?>>
 								<option value="0">List Product (Not on sale)</option>
                                 <option value="1">List Product (On sale)</option>

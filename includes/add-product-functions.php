@@ -55,7 +55,15 @@ if(isset($_POST['newProduct'])){
 		$categories = array(); //empty array to protect varis
 	}
 	
-	echo $listProduct;
+	if(sanitiseListProduct($listProduct) == 1){
+		if($listProduct == 1 && $discount == 0){
+			$error_array[] = "You cannot list the product as a sale item without having a discount value";
+		}else{
+			$status = $listProduct; //just for names sake lets rename this
+		}
+	}else{
+		$error_array[] = "You should not be inputing anything here";
+	}
 	
 	if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
 		$error = implode("<br>", $error_array);
@@ -81,7 +89,6 @@ if(isset($_POST['newProduct'])){
 			die; //wrong input, do not proceed
 		}else{ //if all errors are clear then carry on 
 			if(productCheck($name) == 1){	
-				$status = productStatus($list, $discount);	//get the product status based on the lust variable and if a discount has been etered 
 	 			addToDB($name, $price, $description, $discount, $status, $img, $categories); //everything was fine so carry on and add product
 			}else{
 				echo "<script> $('#print_errors').bs_alert('Product already exits!', 'ERROR'); </script>";
@@ -95,7 +102,6 @@ if(isset($_POST['newProduct'])){
 		 CORE FUNCTIONS
 	========================
 	- productCheck: Checks for existing products in the DB
-	- productStatus: Determines and returns the product status depending on if the admin wants the product to be listed and discount variables
 	- addToDB: Adds the product to the database if all checks are passed
 	- addProductCategories: If the DB Add is a success then the new product will have associated categories added to it in this function 
 	- uploadPhoto: Handles the uploading of the files entered by the Admin and checks for the file input
@@ -123,21 +129,6 @@ if(isset($_POST['newProduct'])){
 		$mysqli->close ();
 	}
 	
-	
-	function productStatus($list, $discount){
-		
-		if($list == false){  //product not listed
-			$status = 2;
-		}else if($list == true && $discount == 0){  //listed but is not a sale item
-			$status = 0;
-		}else if ($list == true && $discount != 0){ //listed and is a sale item
-			$status = 1;			
-		}else{
-			echo "contact admin";
-		}
-		
-		return $status;
-	}
 	
 	function addToDB($name, $price, $description, $discount, $status, $img, $categories){
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
