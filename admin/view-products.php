@@ -77,6 +77,7 @@ include ("nav.php");
 							<th>Product Name</th>
 							<th>Price</th>
 							<th>Discount</th>
+                            <th>Stock Remaining</th>
 							<th>Visbility</th>
 							<th>Edit</th>
 							<th>Delete</th>
@@ -108,6 +109,7 @@ include ("nav.php");
 							<td><?php echo $product->getName()?></td>
 							<td><?php echo "&pound;".$product->getPrice()?></td>
 							<td><?php echo $product->getPercentage()."&#37;"?></td>
+                            <td><p>Stock quantity remaining</p></td>
 							<td><?php echo $status;?></td>
 							<td><form method="POST" action="edit-product.php">
 								<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' >Edit Product</button>
