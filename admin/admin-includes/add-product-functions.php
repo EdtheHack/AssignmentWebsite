@@ -81,33 +81,48 @@ if(isset($_POST['newProduct'])){
 		echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
 		die; //wrong input, do not proceed
 	}else{
-		if(isset($_FILES['photo'])){ //if no errors have oocured now lets check the file upload (prevents uploading even when errors occur)
-			$output = uploadPhoto();  
-		
-			if(is_array($output)){  //check to see if the ouput from function is an array, if it is an array then errors have occured
-				$error_array = array_merge($error_array, $output); //merge errors to the error array
-				$img = ""; //just to clear intilisation messages
-			}else{
-				$img = $output;  //if it's not a error then it can only be the file location of the picture which needs to be added to the db
-			}
+		if($edit == false){ //adding new not editing current
+			if(isset($_FILES['photo'])){ //if no errors have oocured now lets check the file upload (prevents uploading even when errors occur)
+				$output = uploadPhoto();  
+			
+				if(is_array($output)){  //check to see if the ouput from function is an array, if it is an array then errors have occured
+					$error_array = array_merge($error_array, $output); //merge errors to the error array
+					$img = ""; //just to clear intilisation messages
+				}else{
+					$img = $output;  //if it's not a error then it can only be the file location of the picture which needs to be added to the db
+				}
 		}else{
 			$error_array[] = "No image selected"; //image wasnt selected in the firm place
 		}
+		}else{ //editing products nott adding new ones
+			if(isset($_FILES['photo'])){ //if no errors have oocured and a file has been uploaded do this (NOTE: USER DOES NOT HAVE TO ADD A PHOTO WHEN EDITING A PRODUCT)
+				$output = uploadPhoto();
+					
+				if(is_array($output)){  //check to see if the ouput from function is an array, if it is an array then errors have occured
+					$error_array = array_merge($error_array, $output); //merge errors to the error array
+					$img = ""; //just to clear intilisation messages
+				}else{
+					$img = $output;  //if it's not a error then it can only be the file location of the picture which needs to be added to the db
+				}
+			}else{	
+				$img = $product->getImg(); //no new image was uploaded to just add the old img string back to the db for simplicity 
+			}
+		}
+		
 		//check to see if errors have occured after the picture upload and print them to the screen
 		if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
 			$error = implode("<br>", $error_array);
 			echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
 			die; //wrong input, do not proceed
 		}else{ //if all errors are clear then carry on 
-			if($edit == false){ //#######################################################
+			if($edit == false){ //adding new files not editing current
 				if(productCheck($name) == 1){	
 					$date_added = date('Y/m/d');
 	 				addToDB($name, $price, $description, $discount, $status, $img, $categories, $stock, $date_added); //everything was fine so carry on and add product
 				}else{
 					echo "<script> $('#print_errors').bs_alert('Product already exits!', 'ERROR'); </script>";
 				}
-			}else{
-				echo "eeeddddidididitiititiiting";
+			}else{//editing current files so run the following functions
 				updateProduct($name, $price, $description, $discount, $status, $img, $categories, $stock, $pageId);
 				
 			}

@@ -205,6 +205,7 @@ include ("nav.php");
 				</div>
 				<div class="col-md-6">
 					<label for="newProductImage">Current Image Preview </label> <br>
+					<p class="help-block">NOTE: By not uploading another photo by clicking browse, the current photo below will be kept as the desired product photo in the catelogue.</p>
 					<img src="<?php echo $product->getImg(); ?>" alt="Product Image" height="100" width="auto">
 				</div><hr>
 				<br>
