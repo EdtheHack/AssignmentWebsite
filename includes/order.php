@@ -37,13 +37,13 @@
 		}
 		
 		public function removeProduct($remiveId){
-			for ($i = 0; $i < count($products); $i++) {
+			for ($i = 0; $i < count($this->products); $i++) {
 				if ($this->products[$i]->getId() == $removeId){
 					array_splice($this->products, $i, 1);
 					continue;
 				}			
 			}
-			removeOrderProductFromDb($this->id, $product->getId(), 1);
+			removeOrderProductFromDb($this->id, $removeId, 1);
 		}
 			
 		public function getConfirmed(){
