@@ -80,7 +80,7 @@ if($row[5] == 1){
 					<br>
                     <p>Remaining Stock: <?php echo $product->getStock();?></p>
 					<form method="POST" action="viewBasket.php">  
-						<button type="submit" class="btn btn-default pull-right">
+						<button type="submit" class="btn btn-default pull-right" name="product" value="<?php serialize($product); ?>">
 							<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
 						</button>
 						<?php include ("includes/quantitySpinner.php"); ?>
