@@ -24,10 +24,11 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	<?php
 		include ("includes/nav.php");
 	?>
-	<div class="container">
-     
+	<div class="container"> 
+	<?php include ("includes/just-added.php");
+	  ?>
 
-    <div class="col-md-9, pull-right"> <!--pull right not needed once sidebar is working-->
+    <div class="col-md-9">
 	<?php		
 		$currentPage = $_GET['currentPage'];
 		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
