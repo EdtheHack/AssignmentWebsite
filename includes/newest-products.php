@@ -14,7 +14,7 @@
 			?> 
 				<div class="col-md-4">
 					<div class="thumbnail">
-					<img src="img/<?php echo $product->getImg(); ?>" alt="">
+					<img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our newest products" height="150" width="auto">
 						<div class="caption">
 							<h4 class="pull-right">£<?php echo $product->getPrice(); ?></h4>
 							<h4><a href="#"><?php echo $product->getName(); ?></a></h4>
