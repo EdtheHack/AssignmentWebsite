@@ -74,8 +74,16 @@ include ("nav.php");
 			</div>
 
      <?php
-					include ("admin-nav.php");
-					?>
+		include ("admin-nav.php");
+					
+
+		$pageId = $_SERVER[ 'QUERY_STRING' ];
+					
+		$row = getPage($pageId);
+					
+		$product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5], $row[6], $row[7], $row[8] );
+						
+		?>
      <div class="col-md-9">
 				<br>
 				<div id="print_errors"></div>
@@ -85,7 +93,7 @@ include ("nav.php");
 						<label for="newProductName">Product Name</label> <input
 							type="text" class="form-control" name="newProductName"
 							placeholder="Enter product name"
-							<?php if(!empty($_POST["newProductName"])){ echo " value='".$_POST["newProductName"]."'"; }?>>
+							<?php if(!empty($_POST["newProductName"])){ echo " value='".$_POST["newProductName"]."'"; } else { echo $product->getName();} ?>>
 					</div>
 					<div class="form-group col-md-6">
 						<label for="newProductPrice">Price (£)</label> <input type="text"
