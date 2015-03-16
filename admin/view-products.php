@@ -73,11 +73,11 @@ include ("nav.php");
 				<table class="table table-hover table-responsive">
 					<thead>
 						<tr>
-							<th>#</th>
+							<th>ID</th>
 							<th>Product Name</th>
 							<th>Price</th>
 							<th>Discount</th>
-                            <th>Stock Remaining</th>
+                            <th>Stock</th>
 							<th>Visbility</th>
 							<th>Edit</th>
 							<th>Delete</th>
@@ -112,11 +112,10 @@ include ("nav.php");
                             <td><?php echo $product->getStock()?></td>
 							<td><?php echo $status;?></td>
 							<td><a href="edit-product.php?<?php echo $product->getId(); ?>" >Edit</a></td>
-							<td><a href="myModal" data-toggle="modal" data-target="#myModal">Delete Product</a></td>
+							<td><a href="myModal" data-toggle="modal" data-target="#myModal">Delete</a></td>
 						</tr>
 						
-						<?php 
-						
+						<?php
 							}
 						?>
 					</tbody>
@@ -125,14 +124,6 @@ include ("nav.php");
 		</div>
 	
 
-	<!-- Modal
-	
-	
-						<td><a href"myModal" data-toggle="modal" data-target="#myModal">Delete
-									Product</a></td>
-	
-	
-	 -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
