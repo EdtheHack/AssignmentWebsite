@@ -183,7 +183,7 @@ include ("nav.php");
 				<div class="col-md-6">
 				<label for="newProductImage">Current Image Preview</label> <br>
 					<img src="img/<?php echo $product->getImg(); ?>" alt="Product Image" height="100" width="auto">
-				</div
+				</div>
 					<div class="form-group">
 						<label for="newStockQuantity">Stock</label> <input type="text"
 							class="form-control" size="20" id="newStockQuantity"
