@@ -124,7 +124,7 @@ include ("nav.php");
 					
 					<script type="text/javascript">
   								document.getElementById('newProductDiscount').value = "<?php if(!empty($_POST["newProductDiscount"])){ 
-  									echo $_POST["newProductDiscount"]; } else { $product->getPercentage();} ?>";
+  									echo $_POST["newProductDiscount"]; } else { echo $product->getPercentage();} ?>";
 					</script>
 						
 					<div class="form-group">
@@ -177,7 +177,7 @@ include ("nav.php");
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="newProductImage">Product Image</label> <br> 
-						<input type="file" src=" <?php echo  $product->getImg();?>"  name="photo" >
+						<input type="file" src="<?php echo $product->getImg(); ?>"   name="photo" >
 						<p class="help-block">Please upload an image of the product here.</p>
 						
 					</div>
