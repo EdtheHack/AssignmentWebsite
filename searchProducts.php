@@ -37,7 +37,7 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 		<div class="well">
 			<div class="row">
 				<div class="col-md-6">
-					<img src="product/<?php echo $product->getImg(); ?>" alt="">
+					<img src="product/<?php echo $product->getImg(); ?>" alt="Image of a product found from your search query" height="150" width="auto">
 				</div>
 				<div class="col-md-6">
 					<h4 class="pull-right"><?php echo $product->getPrice(); ?></h4>
