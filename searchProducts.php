@@ -35,7 +35,8 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 		$pages = ceil((getAllSearchItems($_SESSION['searchItem']))/5);  //rounds up
 		echo getAllSearchItems($_SESSION['searchItem']);
 		foreach ($rows as $row) {
-			$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
+			
+			//$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
 	?>
 	
 		<div class="well">
