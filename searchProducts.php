@@ -36,30 +36,30 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 		echo getAllSearchItems($_SESSION['searchItem']);
 		foreach ($rows as $row) {
 			
-			//$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
+			$product2 = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
 	?>
 	
 		<div class="well">
 			<div class="row">
 				<div class="col-md-3">
-					<img src="includes/<?php echo $product->getImg(); ?>" alt="Image of a product found from your search query" height="150" width="auto">
+					<img src="includes/<?php echo $product2->getImg(); ?>" alt="Image of a product found from your search query" height="150" width="auto">
 				</div>
 				<div class="col-md-9">
-					<h4 class="pull-right">£<?php echo $product->getPrice(); ?></h4>
+					<h4 class="pull-right">£<?php echo $product2->getPrice(); ?></h4>
 					<h4>
-						<a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a>
+						<a href="viewProduct.php?<?php echo $product2->getId(); ?>"><?php echo $product2->getName(); ?></a>
 					</h4>
-					<p> <?php echo $product->getDescription(); ?></p>
+					<p> <?php echo $product2->getDescription(); ?></p>
 				
 					<div class="col-md-6">
 						<!-- <form method="POST" action="viewProduct.php"> -->
-							<a href="viewProduct.php?<?php echo $product->getId(); ?>"><button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button></a>	
+							<a href="viewProduct.php?<?php echo $product2->getId(); ?>"><button type="submit" name='itemId' value='<?php echo $product2->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button></a>	
 						<!--</form>-->
 					</div>
 					<div class="col-md-6">
 						<form method="POST" action="viewProduct.php">  
 						
-							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
+							<button type="submit" name='itemId' value='<?php echo $product2->getId(); ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
 						</form>
 					</div>
 				</div>
