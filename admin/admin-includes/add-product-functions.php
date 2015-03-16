@@ -153,17 +153,19 @@ if(isset($_POST['newProduct'])){
 		$mysqli = $db_con;
 	
 		$stmt = $mysqli->prepare ( "UPDATE product SET name=?, price=? description=? percentage_off=?, status=?, img=?, stock=? WHERE product_id=?" );
-		$stmt->bind_param ("sdsiisii", $name, $price, $description, $discount, $status, $img, $stock, $pageId);
+		
 			
 		if ($stmt === false) {
 			trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
 		}
+		
+		$stmt->bind_param ("sdsiisii", $name, $price, $description, $discount, $status, $img, $stock, $pageId);
 			
 		if(!($stmt->execute ())){
 			die('Error : ('. $mysqli->errno .') '. $mysqli->error);
 		}
 	
-		$product_id = mysqli_insert_id($mysqli); //get the PK ID from the entry
+		$product_id = mysqli_insert_id($mysqli); //get the PK ID from the entr
 		$stmt->close ();
 		$mysqli->close ();
 	
