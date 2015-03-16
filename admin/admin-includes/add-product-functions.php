@@ -121,7 +121,7 @@ if(isset($_POST['newProduct'])){
 */
 
 	
-	
+
 	function productCheck($name){ //this is a basic product check and could do with adding the search funcitonality to it
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 		
