@@ -173,7 +173,7 @@ include ("nav.php");
 						$tr_count = 0;
 						}
 						
-						if (in_array($category_id, $cat)) {
+						if (in_array($cat, $category_id)) {
 							$check = "checked";
 							echo $check;
 						}else{
