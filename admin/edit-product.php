@@ -207,7 +207,7 @@ include ("nav.php");
 				</div>
 				<div class="col-md-6">
 					<label for="newProductImage">Current Image Preview </label> <br>
-					<img src="<?php echo $product->getImg(); ?>" alt="Product Image" height="100" width="auto">
+					<img src="<?php echo $product->getImg(); ?>" alt="Product Image" height="150" width="auto">
 				</div><hr>
 				<br>
 				
