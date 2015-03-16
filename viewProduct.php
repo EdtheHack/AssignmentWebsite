@@ -7,13 +7,13 @@ error_reporting ( - 1 );
 include ("includes/product.php");
 include ("includes/common-functions.php");
 
-$_SESSION['product'] = serialize($product);  //serialize product object to pass to basket
-
 $pageId = $_SERVER[ 'QUERY_STRING' ];
 
 $row = getPage($pageId);
 
 $product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5], $row[6], $row[7], $row[8] );
+
+$_SESSION['product'] = serialize($product);  //serialize product object to pass to basket
 
 if($row[5] == 1){
 		
