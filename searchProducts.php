@@ -37,7 +37,7 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 		<div class="well">
 			<div class="row">
 				<div class="col-md-6">
-					<img src="http://placehold.it/320x150" alt="">
+					<img src="product/<?php echo $product->getImg(); ?>" alt="">
 				</div>
 				<div class="col-md-6">
 					<h4 class="pull-right"><?php echo $product->getPrice(); ?></h4>
