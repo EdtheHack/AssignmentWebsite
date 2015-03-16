@@ -218,7 +218,7 @@ include ("nav.php");
 							name="newStockQuantity" placeholder="Enter Stock Quantity" 
 							<?php if(!empty($_POST["newStockQuantity"])){ echo " value='".$_POST["newStockQuantity"]."'"; } else { echo  " value='".$product->getStock()."'";} ?>>
 					</div>
-					</div>
+					
 					<div class="form-group">
 						<label for="listProduct">Product Visibility Settings:</label> <select
 							class="form-control" name="listProduct" id="listProduct"
@@ -240,7 +240,7 @@ include ("nav.php");
        
 		include ("admin-includes/add-product-functions.php");
 		?>
-		
+			</div>
 		    </div>
             </div>
       </div> <!-- CONTAINER DIV -->
