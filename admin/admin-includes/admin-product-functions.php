@@ -257,7 +257,6 @@ if(isset($_POST['newProduct'])){
 		
 		addProductCategories($product_id, $categories); //add the related categories to the product_categories table
 														//product ID comes from the entery and Categories get passed into this function and then transfered to the next
-		
 	}
 	
 	function addProductCategories ($product_id, $categories){ 
