@@ -36,13 +36,13 @@ include ("includes/user.php");
 				
 					<?php if(isset($_SESSION["user"]) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
 					
-						$fn = unserialize($_SESSION["user"])->getName();
+						$user = unserialize($_SESSION["user"]);
 						
-						echo"<li><a href=\"viewBasket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".unserialize($_SESSION["user"])->getOrder()->getAmountOfProducts()."</b></a></li>";
+						echo"<li><a href=\"viewBasket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".$user->getOrder()->getAmountOfProducts()."</b></a></li>";
 						
 						//PHP INJECT HTML TO THE PAGE
 						echo"<li class=\"dropdown\"><a data-toggle=\"dropdown\"
-						class=\"dropdown-toggle\" href=\"#\"><i class=\"fa fa-wrench\"></i> ".$fn."'s   
+						class=\"dropdown-toggle\" href=\"#\"><i class=\"fa fa-wrench\"></i> ".$user->getName()."'s   
 						 Account <b class=\"caret\"></b></a>
 						<ul role=\"menu\" class=\"dropdown-menu\">
 						<li><a href=\"#\">Orders</a></li>

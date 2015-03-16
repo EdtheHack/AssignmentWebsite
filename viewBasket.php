@@ -25,18 +25,19 @@ error_reporting ( - 1 );
 <body>
 <?php
 	include ("includes/nav.php");
-	//include ("includes/order.php");
-	//include ("includes/product.php");
 	
 	 if(isset($_SESSION["user"])){  //checks if user is logged in
 		$user = unserialize($_SESSION["user"]);
-		//$order = unserialize($_SESSION["order"]);
 		if(isset($_SESSION["product"])){   //checks if user came here from a product page
 			$addProduct = unserialize($_SESSION["product"]);
 			$user->getOrder()->addProduct($addProduct);
 		}
 	} else {
 		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
+	}
+	
+	if(isset($_POST["removeItemId"])){ 
+		$user->getOrder()->removeProduct($_POST["removeItemId"]);
 	}
 
 	?>
@@ -77,7 +78,7 @@ error_reporting ( - 1 );
 					</div>
 					<div class="col-md-6">
 						<form method="POST" action="viewBasket.php">
-							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> Remove </b> </button>	
+							<button type="submit" name='removeItemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> Remove </b> </button>	
 						</form>
 					</div>
 				</div>

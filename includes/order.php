@@ -31,12 +31,21 @@
 			return $total;
 		}
 		
-		public function addProduct($addProduct){
-			array_push($this->products, $addProduct);
-			addProductToDb($this->id, $addProduct->getId(), 1);
+		public function addProduct($product){
+			array_push($this->products, $product);
+			addOrderProductToDb($this->id, $product->getId(), 1);
 		}
 		
-		
+		public function removeProduct($remiveId){
+			for ($i = 0; $i < count($products); $i++) {
+				if ($this->products[$i]->getId() == $removeId){
+					array_splice($this->products, $i, 1);
+					continue;
+				}			
+			}
+			removeOrderProductFromDb($this->id, $product->getId(), 1);
+		}
+			
 		public function getConfirmed(){
 			return $this->confirmed;
 		}

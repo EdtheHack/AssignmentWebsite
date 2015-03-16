@@ -239,7 +239,7 @@ function getCurrentOrderProducts($orderId){
 	return $rows;
 }
 
-function addProductToDb($orderId, $productId, $quantity){
+function addOrderProductToDb($orderId, $productId, $quantity){
 	$mysqli = connect ();
 	
 	$rows = array();
@@ -252,6 +252,19 @@ function addProductToDb($orderId, $productId, $quantity){
 		$stmt->bind_param ("ssi", $orderId, $productId, $quantity);
 		$stmt->execute ();
 
+		$stmt->close ();
+	}
+	$mysqli->close ();
+}
+
+function removeOrderProductFromDb($orderId, $productId){
+	$mysqli = connect ();
+	
+	$rows = array();
+		
+	if ($stmt = $mysqli->prepare ("DELETE FROM order_contents WHERE order_id=? AND product_id=?;")){ 
+		$stmt->bind_param ("ii", $orderId, $productId);
+		$stmt->execute ();
 		$stmt->close ();
 	}
 	$mysqli->close ();
