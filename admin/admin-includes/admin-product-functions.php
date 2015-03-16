@@ -343,16 +343,21 @@ if(isset($_POST['newProduct'])){
 			$stmt->close ();
 		}
 		
+		print_r ($img);
 		$mysqli->close ();
 		
 		
 
 		foreach ($files as $file){
-		$file = str_replace("../img/", "", $file); //won't let us search if we dont replace 
+			
+			
+		//$file = str_replace("../img/", "", $file); //won't let us search if we dont replace 
 						
 			if(in_array($file, $img )=== false){
 				echo "deleting".$file;
-				unlink("../img/".$file); //add dir back in
+				
+				$file = "../img/".$file;
+				unlink($file); //add dir back in
 			}
 		}
 		
