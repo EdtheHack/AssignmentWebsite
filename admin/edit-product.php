@@ -170,20 +170,22 @@ include ("nav.php");
 						</div>
 						<hr>
 					</div>
->
+
 
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="newProductImage">Product Image</label> <br> <input
 							type="file" name="photo">
 						<p class="help-block">Please upload an image of the product here.</p>
-						<hr>
+						
 					</div>
 				</div>
 				<div class="col-md-6">
-				<label for="newProductImage">Current Image Preview</label> <br>
-					<img src="img/<?php echo $product->getImg(); ?>" alt="Product Image" height="100" width="auto">
-				</div>
+					<label for="newProductImage">Current Image Preview</label> <br>
+					<img src="<?php echo $product->getImg(); ?>" alt="Product Image" height="100" width="auto">
+				</div><hr>
+				<br>
+				
 					<div class="form-group">
 						<label for="newStockQuantity">Stock</label> <input type="text"
 							class="form-control" size="20" id="newStockQuantity"
