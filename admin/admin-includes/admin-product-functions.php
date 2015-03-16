@@ -97,7 +97,9 @@ if(isset($_POST['newProduct'])){
 		}else{ //editing products nott adding new ones
 			if(isset($_FILES['photo'])){ //if no errors have oocured and a file has been uploaded do this (NOTE: USER DOES NOT HAVE TO ADD A PHOTO WHEN EDITING A PRODUCT)
 				$output = uploadPhoto();
-					
+
+				echo "i'm in here";
+				
 				if(is_array($output)){  //check to see if the ouput from function is an array, if it is an array then errors have occured
 					$error_array = array_merge($error_array, $output); //merge errors to the error array
 					$img = ""; //just to clear intilisation messages
@@ -105,7 +107,13 @@ if(isset($_POST['newProduct'])){
 					$img = $output;  //if it's not a error then it can only be the file location of the picture which needs to be added to the db
 				}
 			}else{	
+				if(!($product->getImg() == "")){
+				
 				$img = $product->getImg(); //no new image was uploaded to just add the old img string back to the db for simplicity 
+			
+				}else{
+					$img = "";
+				}
 			}
 		}
 		
@@ -182,11 +190,11 @@ if(isset($_POST['newProduct'])){
 			die('Error : ('. $mysqli->errno .') '. $mysqli->error);
 		}
 	
-		$product_id = mysqli_insert_id($mysqli); //get the PK ID from the entr
+		//$product_id = $pageId; //get the PK ID from the entr
 		$stmt->close ();
 		$mysqli->close ();
 	
-		updateProductCategories($product_id, $categories); //add the related categories to the product_categories table
+		updateProductCategories($pageId, $categories); //add the related categories to the product_categories table
 		//product ID comes from the entery and Categories get passed into this function and then transfered to the next
 	
 	}
