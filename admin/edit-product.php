@@ -152,6 +152,7 @@ include ("nav.php");
 				$stmt->bind_result ( $category_name );
 
 				while ( $stmt->fetch ()) {	
+					echo $category_name;
 					$cat[] = array($category_name);
 				}
 				$stmt->close ();
