@@ -255,7 +255,7 @@ if(isset($_POST['newProduct'])){
 			}
 			
 			while($stmt->fetch()){
-				$prod_cats = array_push($product_id, $category_id);
+				 array_push($prod_cats, $product_id, $category_id);
 			}
 			
 			
