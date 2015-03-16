@@ -23,8 +23,10 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	
 	<?php
 		include ("includes/nav.php");
+		include ("includes/just-added.php")
 	?>
 	<div class="container">
+    <div class="col-md-9">
 	<?php		
 		$currentPage = $_GET['currentPage'];
 		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
@@ -36,13 +38,13 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	
 		<div class="well">
 			<div class="row">
-				<div class="col-md-6">
-					<img src="product/<?php echo $product->getImg(); ?>" alt="Image of a product found from your search query" height="150" width="auto">
+				<div class="col-md-3">
+					<img src="<?php echo $product->getImg(); ?>" alt="Image of a product found from your search query" height="150" width="auto">
 				</div>
-				<div class="col-md-6">
-					<h4 class="pull-right"><?php echo $product->getPrice(); ?></h4>
+				<div class="col-md-9">
+					<h4 class="pull-right">£<?php echo $product->getPrice(); ?></h4>
 					<h4>
-						<a href="#"><?php echo $product->getName(); ?></a>
+						<a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a>
 					</h4>
 					<p> <?php echo $product->getDescription(); ?></p>
 				
@@ -78,5 +80,6 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 			<li><a href="#">&raquo;</a></li>
 		</ul>
 	</div>
+    </div>
 	</body>
 </html>
