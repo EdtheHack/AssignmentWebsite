@@ -108,6 +108,8 @@ if(isset($_POST['newProduct'])){
 				}
 			}else{
 				echo "eeeddddidididitiititiiting";
+				updateProduct($name, $price, $description, $discount, $status, $img, $categories, $stock, $pageId);
+				
 			}
 		}
 	}
@@ -144,6 +146,66 @@ if(isset($_POST['newProduct'])){
 		}
 		$mysqli->close ();
 	}
+	
+	function updateProduct($name, $price, $description, $discount, $status, $img, $categories, $stock, $pageId){
+		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+	
+		$mysqli = $db_con;
+	
+		$stmt = $mysqli->prepare ( "UPDATE product SET (name, price, description, percentage_off, status, img, stock, date_added) VALUES (?, ?, ?, ?, ?, ?, ?, ?) WHERE product_id=?" );
+		$stmt->bind_param ("sdsiisii", $name, $price, $description, $discount, $status, $img, $stock, $pageId);
+			
+		if ($stmt === false) {
+			trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+		}
+			
+		if(!($stmt->execute ())){
+			die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+		}
+	
+		$product_id = mysqli_insert_id($mysqli); //get the PK ID from the entry
+		$stmt->close ();
+		$mysqli->close ();
+	
+		updateProductCategories($product_id, $categories); //add the related categories to the product_categories table
+		//product ID comes from the entery and Categories get passed into this function and then transfered to the next
+	
+	}
+	
+	
+	function addProductCategories ($product_id, $categories){
+		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+	
+		$mysqli = $db_con; //just for names sake
+	
+		$close = false; //initilise
+	
+		foreach ($categories as $value){ //for every checkbox selected set to value
+				
+			$stmt = $mysqli->prepare ( "UPDATE product_categories SET (category_id) VALUES (?) WHERE product_id=?" );
+			$stmt->bind_param ("ii", $value, $product_id);
+				
+			if ($stmt === false) {
+				trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+			}
+				
+			if(!($stmt->execute ())){
+				die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
+			}
+				
+			$close = true;
+		}
+	
+	
+		if($close){
+			$stmt->close ();
+		}
+	
+		$mysqli->close ();
+	
+		completedProductAdd();
+	}
+	
 	
 	
 	function addToDB($name, $price, $description, $discount, $status, $img, $categories, $stock, $date_added){
