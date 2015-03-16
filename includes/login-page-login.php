@@ -28,7 +28,7 @@ if(isset($_POST['attemptLogin'])){
 			if (getCurrentUserOrderId($user->getId()) == false){
 				addNewUserOrder($user->getId());
 			}
-			$order = new order(getCurrentUserOrderId($_SESSION["userID"]), getCurrentOrderProducts(getCurrentUserOrderId($user->getId())), 0);
+			$order = new order(getCurrentUserOrderId($user->getId()), getCurrentOrderProducts(getCurrentUserOrderId($user->getId())), 0);
 			$_SESSION['order'] = serialize($order);
 			
 			if ($_SESSION['suggestReset'] == true){

@@ -4,8 +4,7 @@
 		private $products = array();
 		private $confirmed;
 		
-		public function __construct($id, $products, $confirmed){
-		
+		public function __construct($id, $products, $confirmed){	
 			$this->id = $id;
 			for ($i = 0; $i < count($products); $i++) {
 				$product = new product($products[$i][0], $products[$i][1], $products[$i][2], $products[$i][3], $products[$i][4], $products[$i][5], $products[$i][6]);
@@ -31,9 +30,8 @@
 		}
 		
 		public function addProduct($addProduct){
-			//echo "PRODUCT - ID -".$product->getId();
-			addProductToDb($this->id, $addProduct->getId(), 1);
 			array_push($this->products, $addProduct);
+			addProductToDb($this->id, $addProduct->getId(), 1);
 		}
 		
 		
