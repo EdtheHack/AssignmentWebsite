@@ -245,10 +245,7 @@ if(isset($_POST['newProduct'])){
 		if ($stmt = $mysqli->prepare ( "SELECT * FROM product_categories" )){
 			$stmt->bind_result ($product_id, $category_id);
 			
-			while($stmt->fetch()){
-				$prod_cats = array_push($product_id, $category_id);
-			}
-				
+
 			if ($stmt === false) {
 				trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
 			}
@@ -256,6 +253,11 @@ if(isset($_POST['newProduct'])){
 			if(!($stmt->execute ())){
 				die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
 			}
+			
+			while($stmt->fetch()){
+				$prod_cats = array_push($product_id, $category_id);
+			}
+			
 			
 			$stmt->close ();
 		}
