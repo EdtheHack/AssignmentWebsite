@@ -163,7 +163,7 @@ include ("nav.php");
 				if ($stmt = $db_con->prepare ( "SELECT category_id, name FROM categories" )) {
 					$stmt->execute ();
 					$stmt->bind_result ( $category_id, $category_name );
-					$id = 1;
+					$id = 0;
 					$tr_count = 0;
 					while ( $stmt->fetch () ) {
 																			
