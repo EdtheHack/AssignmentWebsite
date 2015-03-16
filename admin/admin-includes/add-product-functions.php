@@ -152,7 +152,7 @@ if(isset($_POST['newProduct'])){
 	
 		$mysqli = $db_con;
 	
-		$stmt = $mysqli->prepare ( "UPDATE product SET name=?, price=? description=? percentage_off=?, status=?, img=?, stock=?, date_added=? WHERE product_id=?" );
+		$stmt = $mysqli->prepare ( "UPDATE product SET name=?, price=? description=? percentage_off=?, status=?, img=?, stock=? WHERE product_id=?" );
 		$stmt->bind_param ("sdsiisii", $name, $price, $description, $discount, $status, $img, $stock, $pageId);
 			
 		if ($stmt === false) {
@@ -182,7 +182,7 @@ if(isset($_POST['newProduct'])){
 	
 		foreach ($categories as $value){ //for every checkbox selected set to value
 				
-			$stmt = $mysqli->prepare ( "UPDATE product_categories SET (category_id) VALUES (?) WHERE product_id=?" );
+			$stmt = $mysqli->prepare ( "UPDATE product_categories SET category_id=? WHERE product_id=?" );
 			$stmt->bind_param ("ii", $value, $product_id);
 				
 			if ($stmt === false) {
