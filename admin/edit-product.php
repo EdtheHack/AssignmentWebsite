@@ -119,11 +119,14 @@ include ("nav.php");
 							<option>50</option>
 							<option>75</option>
 						</select>
-						<script type="text/javascript">
+
+					</div>
+					
+					<script type="text/javascript">
   								document.getElementById('newProductDiscount').value = "<?php if(!empty($_POST["newProductDiscount"])){ 
   									echo $_POST["newProductDiscount"]; } else { $product->getPercentage();} ?>";
-						</script>
-					</div>
+					</script>
+						
 					<div class="form-group">
 						<label for="productDescription">Description</label>
 						<textarea class="form-control" rows="5"
@@ -163,12 +166,7 @@ include ("nav.php");
 				}
 				$db_con->close ();
 			?>
-               
-								
-								
-								
-								
-								
+               								
 								</tbody>
 							</table>
 						</div>
@@ -179,7 +177,7 @@ include ("nav.php");
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="newProductImage">Product Image</label> <br> 
-						<input type="file" name="photo" src="<?php echo  $product->getImg();?>">
+						<input type="file" src=" <?php echo  $product->getImg();?>"  name="photo" >
 						<p class="help-block">Please upload an image of the product here.</p>
 						
 					</div>
@@ -207,9 +205,8 @@ include ("nav.php");
 					</div>
 					<script type="text/javascript">
   								document.getElementById('listProduct').value = "<?php  if(!empty($_POST["listProduct"])){ echo " value='".$_POST["listProduct"]."'"; } else { echo $product->getStatus();}?>";
-							</script>
-					<button type="submit" name="newProduct" class="btn btn-default">Add
-						Product</button>
+					</script>
+					<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
 				</form>
 				<br> <br> <br>
        <?php
