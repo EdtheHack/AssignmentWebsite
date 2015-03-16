@@ -329,7 +329,7 @@ if(isset($_POST['newProduct'])){
 		$dir = "/var/www/html/assignment2/img/";
 		$files = scandir($dir);
 		
-		$mysqli = $db_conn;
+		$mysqli = $db_con;
 		
 		$img = array();
 		
