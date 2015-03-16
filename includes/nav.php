@@ -8,9 +8,6 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 } else if(basename($_SERVER['PHP_SELF']) == 'searchProducts.php'){
 	include ("includes/common-functions.php");
 	include ("includes/product.php");
-} else if(basename($_SERVER['PHP_SELF']) == 'add-product.php'){
-	include ("../includes/common-functions.php");
-	include ("../includes/product.php");
 }else{
 	include ("includes/common-functions.php");
 }
@@ -44,7 +41,9 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 					<li><a href="viewBasket.php"><i class="fa fa-shopping-cart fa-1x"></i> Basket <b>0</b></a></li>
 				
 					<?php if(isset($_SESSION['loggedIn']) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
-												
+
+					include ("includes/user.php");
+					
 						$fn = unserialize($_SESSION["user"])->getName();
 						
 						//PHP INJECT HTML TO THE PAGE
