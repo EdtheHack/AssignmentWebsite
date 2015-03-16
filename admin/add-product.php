@@ -191,6 +191,9 @@ include ("nav.php");
 				</form>
 				<br> <br> <br>
        <?php
+       
+       	$edit = false;
+       
 		include ("admin-includes/add-product-functions.php");
 		?>
 		

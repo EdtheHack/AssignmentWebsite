@@ -99,11 +99,15 @@ if(isset($_POST['newProduct'])){
 			echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
 			die; //wrong input, do not proceed
 		}else{ //if all errors are clear then carry on 
-			if(productCheck($name) == 1){	
-				$date_added = date('Y/m/d');
-	 			addToDB($name, $price, $description, $discount, $status, $img, $categories, $stock, $date_added); //everything was fine so carry on and add product
+			if($edit == false){ //#######################################################
+				if(productCheck($name) == 1){	
+					$date_added = date('Y/m/d');
+	 				addToDB($name, $price, $description, $discount, $status, $img, $categories, $stock, $date_added); //everything was fine so carry on and add product
+				}else{
+					echo "<script> $('#print_errors').bs_alert('Product already exits!', 'ERROR'); </script>";
+				}
 			}else{
-				echo "<script> $('#print_errors').bs_alert('Product already exits!', 'ERROR'); </script>";
+				echo "eeeddddidididitiititiiting";
 			}
 		}
 	}
