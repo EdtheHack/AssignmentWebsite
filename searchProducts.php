@@ -23,9 +23,11 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	
 	<?php
 		include ("includes/nav.php");
-		include ("includes/just-added.php")
 	?>
 	<div class="container">
+      <?php include ("includes/just-added.php");
+	  ?>
+
     <div class="col-md-9">
 	<?php		
 		$currentPage = $_GET['currentPage'];
