@@ -152,7 +152,6 @@ include ("nav.php");
 				$stmt->bind_result ( $category_name );
 
 				while ( $stmt->fetch ()) {	
-					echo $category_name;
 					array_push($cat, $category_name);
 				}
 				$stmt->close ();
@@ -175,7 +174,6 @@ include ("nav.php");
 						
 						if (in_array($category_id, $cat)) {
 							$check = "checked";
-							echo $check;
 						}else{
 							$check = "";
 						}
