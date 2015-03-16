@@ -3,27 +3,6 @@ session_start();
 ini_set ( 'display_errors', 1 );
 ini_set ( 'display_startup_errors', 1 );
 error_reporting ( - 1 );
-
-include ("includes/product.php");
-include ("includes/common-functions.php");
-
-$pageId = $_SERVER[ 'QUERY_STRING' ];
-
-$row = getPage($pageId);
-
-$product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5], $row[6], $row[7], $row[8] );
-
-$_SESSION['product'] = serialize($product);  //serialize product object to pass to basket
-
-if($row[5] == 1){
-		
-	$price = $product->getPrice();
-	$percent = $product->getPercentage();
-		
-	//$sale_price_tmp = round($price * $percent / 100, 2);
-	//$sale_price =  round($price - $sale_price_tmp, 2);
-	$sale_price_tmp = number_format(($price * $percent / 100), 2, '.', '');
-	$sale_price =  number_format(($price - $sale_price_tmp), 2, '.', '');
 }
 
 // $product = unserialize($_POST['product']);
@@ -47,6 +26,24 @@ if($row[5] == 1){
 <body>
 	<?php
 	include ("includes/nav.php");
+	
+	$pageId = $_SERVER[ 'QUERY_STRING' ];
+
+	$row = getPage($pageId);
+
+	$product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5], $row[6], $row[7], $row[8] );
+
+	$_SESSION['product'] = serialize($product);  //serialize product object to pass to basket
+
+	if($row[5] == 1){
+			
+	$price = $product->getPrice();
+	$percent = $product->getPercentage();
+		
+	//$sale_price_tmp = round($price * $percent / 100, 2);
+	//$sale_price =  round($price - $sale_price_tmp, 2);
+	$sale_price_tmp = number_format(($price * $percent / 100), 2, '.', '');
+	$sale_price =  number_format(($price - $sale_price_tmp), 2, '.', '');
 	?>
 	
 	
