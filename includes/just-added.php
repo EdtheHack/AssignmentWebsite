@@ -1,5 +1,5 @@
 <?php
-	include ("product.php");
+	//include ("product.php");
 	//include ("common-functions.php");		
 	//include ("itemFunctions.php");
 	?>

@@ -12,6 +12,8 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 	include ("includes/common-functions.php");
 }
 
+include ("includes/user.php");
+
 ?>
 <nav role="navigation" class="navbar navbar-default">
 	<div class="container">
@@ -41,8 +43,6 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 					
 				
 					<?php if(isset($_SESSION['loggedIn']) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
-
-					include ("includes/user.php");
 					
 						$fn = unserialize($_SESSION["user"])->getName();
 						
