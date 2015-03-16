@@ -153,7 +153,7 @@ include ("nav.php");
 
 				while ( $stmt->fetch ()) {	
 					echo $category_name;
-					$cat[] = array($category_name);
+					array_push($cat, $category_name);
 				}
 				$stmt->close ();
 			}	
