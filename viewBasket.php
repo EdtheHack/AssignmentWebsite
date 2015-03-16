@@ -35,6 +35,7 @@ error_reporting ( - 1 );
 		$order = unserialize($_SESSION["order"]);
 		if(isset($_POST["product"])){   //checks if user came here from a product page
 			$addProduct = unserialize($_POST["product"]);
+			echo "productId-> ".$addProduct->getId();
 			$order->addProduct($addProduct);
 			//addProduct($order->getId(), $addProduct->getId(), 1);
 		}

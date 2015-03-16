@@ -30,10 +30,10 @@
 			return $total;
 		}
 		
-		public function addProduct($product){
+		public function addProduct($addProduct){
 			//echo "PRODUCT - ID -".$product->getId();
-			addProductToDb($this->id, $product->getId(), 1);
-			array_push($this->products, $product);
+			addProductToDb($this->id, $addProduct->getId(), 1);
+			array_push($this->products, $addProduct);
 		}
 		
 		
