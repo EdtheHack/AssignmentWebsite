@@ -326,7 +326,7 @@ if(isset($_POST['newProduct'])){
 	
 	function checkUploads(){
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
-		$dir = "/var/www/html/assignment2/img/";
+		$dir = "../img/";
 		$files = scandir($dir);
 		
 		$mysqli = $db_con;
@@ -348,11 +348,11 @@ if(isset($_POST['newProduct'])){
 		
 
 		foreach ($files as $file){
-			$file = str_replace("../img/", "", $file);
+		$file = str_replace("../img/", "", $file); //won't let us search if we dont replace 
 						
 			if(in_array($file, $img )=== false){
 				echo "deleting".$file;
-				unlink($file);
+				unlink("../img/".$file); //add dir back in
 			}
 		}
 		
