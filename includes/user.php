@@ -1,4 +1,6 @@
 <?php	
+	include ("includes/order.php");
+
 	class user{	   //User object
 		private $id;
 		private $name;

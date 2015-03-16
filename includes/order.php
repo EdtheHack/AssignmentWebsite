@@ -1,4 +1,6 @@
 <?php	
+	include ("includes/product.php");
+
 	class order{	   //Order object
 		private $id;
 		private $products = array();

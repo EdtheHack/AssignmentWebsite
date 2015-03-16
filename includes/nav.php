@@ -43,8 +43,6 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 					<?php if(isset($_SESSION['loggedIn']) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
 
 					include ("includes/user.php");
-					include ("includes/order.php");
-					//include ("includes/product.php");
 					
 						$fn = unserialize($_SESSION["user"])->getName();
 						
