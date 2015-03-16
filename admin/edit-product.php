@@ -142,27 +142,47 @@ include ("nav.php");
 									<tr>
             <?php
 			include ($_SERVER ['DOCUMENT_ROOT'] . '/dbconn.php');
-																			
-				if ($stmt = $db_con->prepare ( "SELECT name FROM categories" )) {
+					
+
+			$cat = array();
+			
+			if ($stmt = $db_con->prepare ( "SELECT category_id FROM product_categories WHERE product_id=?" )) {
+				$stmt->bind_param ("i", $pageId);
+				$stmt->execute ();
+				$stmt->bind_result ( $category_name );
+
+				while ( $stmt->fetch () ) {	
+					$cat[] = array($category_name);
+				}
+				$stmt->close ();
+			
+			
+			
+				if ($stmt = $db_con->prepare ( "SELECT category_id, name FROM categories" )) {
 					$stmt->execute ();
-					$stmt->bind_result ( $category_name );
+					$stmt->bind_result ( $category_id, $category_name );
 					$id = 1;
 					$tr_count = 0;
 					while ( $stmt->fetch () ) {
 																			
-					if ($tr_count == 5) {
-					echo '</tr>';
-					echo '<tr>';
-					$tr_count = 0;
-				}
+						if ($tr_count == 5) {
+						echo '</tr>';
+						echo '<tr>';
+						$tr_count = 0;
+						}
+						
+						if (in_array($category_id, $cat)) {
+							$check = checked;
+						}else{
+							$check = "";
+						}
 							
-				echo ' <td><div class="checkbox"><label><input type="checkbox" name="categories[]" value="' . $id . '"/>' . $category_name . '</label></div</td>' . "";
+						echo ' <td><div class="checkbox"><label><input type="checkbox" name="categories[]" value="' . $id . '" '.$check.'/>' . $category_name . '</label></div</td>' . "";
 																					
-				$tr_count ++;
-																					
-				$id ++;
-				}
-				$stmt->close ();
+						$tr_count ++;															
+						$id ++;
+					}
+					$stmt->close ();
 				}
 				$db_con->close ();
 			?>
@@ -191,7 +211,7 @@ include ("nav.php");
 					<div class="form-group">
 						<label for="newStockQuantity">Stock</label> <input type="text"
 							class="form-control" size="20" id="newStockQuantity"
-							name="newStockQuantity" placeholder="Enter Stock Quantity" value="0"
+							name="newStockQuantity" placeholder="Enter Stock Quantity" 
 							<?php if(!empty($_POST["newStockQuantity"])){ echo " value='".$_POST["newStockQuantity"]."'"; } else { echo  " value='".$product->getStock()."'";} ?>>
 					</div>
 					<div class="form-group">
@@ -206,7 +226,7 @@ include ("nav.php");
 					<script type="text/javascript">
   								document.getElementById('listProduct').value = "<?php  if(!empty($_POST["listProduct"])){ echo " value='".$_POST["listProduct"]."'"; } else { echo $product->getStatus();}?>";
 					</script>
-					<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
+					<button type="submit" name="newProduct" class="btn btn-default">Edit Product</button>
 				</form>
 				<br> <br> <br>
        <?php
