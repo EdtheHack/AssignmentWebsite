@@ -173,7 +173,7 @@ if(isset($_POST['newProduct'])){
 	}
 	
 	
-	function addProductCategories ($product_id, $categories){
+	function updateProductCategories ($product_id, $categories){
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 	
 		$mysqli = $db_con; //just for names sake
