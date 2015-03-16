@@ -160,7 +160,7 @@ include ("nav.php");
 			$cat = array_reverse($cat);
 			
 			
-				if ($stmt = $db_con->prepare ( "SELECT category_id, name FROM categories" )) {
+				if ($stmt = $db_con->prepare ( "SELECT category_id, name FROM categories ORDER BY category_id ASC" )) {
 					$stmt->execute ();
 					$stmt->bind_result ( $category_id, $category_name );
 					$id = 1;
