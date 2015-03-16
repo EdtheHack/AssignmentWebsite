@@ -34,7 +34,7 @@ include ("includes/user.php");
 			<ul class="nav navbar-nav navbar-right">
 					
 				
-					<?php if(isset($_SESSION['loggedIn']) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
+					<?php if(isset($_SESSION["user"]) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
 					
 						$fn = unserialize($_SESSION["user"])->getName();
 						

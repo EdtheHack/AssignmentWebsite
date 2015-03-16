@@ -73,9 +73,7 @@ error_reporting ( - 1 );
 					<p> <?php echo $product->getDescription(); ?></p>
 				
 					<div class="col-md-6">
-						<form method="POST" action="viewProduct.php">
-							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
-						</form>
+						<a href="viewProduct.php?<?php echo $product->getId(); ?>"><button type="submit" class="btn btn-default "><i class="fa fa-eye "></i> <b> View </b> </button></a>
 					</div>
 					<div class="col-md-6">
 						<form method="POST" action="viewBasket.php">
