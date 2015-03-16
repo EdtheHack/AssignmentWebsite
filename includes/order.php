@@ -36,7 +36,7 @@
 			addOrderProductToDb($this->id, $product->getId(), 1);
 		}
 		
-		public function removeProduct($remiveId){
+		public function removeProduct($removeId){
 			for ($i = 0; $i < count($this->products); $i++) {
 				if ($this->products[$i]->getId() == $removeId){
 					array_splice($this->products, $i, 1);

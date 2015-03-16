@@ -44,14 +44,16 @@ error_reporting ( - 1 );
 	
 	<div class="container">
 		<div class="well">
-			<div class="col-md-4">
-				<h2><?php echo $user->getName()."'s Basket"; ?></h2>
-			</div>
-			<div class="col-md-4">
-				<h2><?php echo $user->getOrder()->getAmountOfProducts()." Products";?></h2>
-			</div>
-			<div class="col-md-4">
-				<h2><?php echo "Total Price: £".$user->getOrder()->getTotalPrice(); ?></h2>
+			<div class="row">
+				<div class="col-md-4">
+					<h2><?php echo $user->getName()."'s Basket"; ?></h2>
+				</div>
+				<div class="col-md-4">
+					<h2><?php echo $user->getOrder()->getAmountOfProducts()." Products";?></h2>
+				</div>
+				<div class="col-md-4">
+					<h2><?php echo "Total Price: £".$user->getOrder()->getTotalPrice(); ?></h2>
+				</div>
 			</div>
 		</div>
 	
@@ -62,26 +64,28 @@ error_reporting ( - 1 );
 	?>
 
 		<div class="well">
-			<div class="col-md-6">
-				<img src="includes/<?php echo $product->getImg(); ?>" alt="Product Image" height="150" width="auto">
-			</div>
-			<div class="col-md-6">
-				<h4 class="pull-right"><?php echo $product->getPrice(); ?></h4>
-				<h4>
-					<a href="#"><?php echo $product->getName(); ?></a>
-				</h4>
-				<p> <?php echo $product->getDescription(); ?></p>
-			
+			<div class="row">
 				<div class="col-md-6">
-					<a href="viewProduct.php?<?php echo $product->getId(); ?>"><button type="submit" class="btn btn-default "><i class="fa fa-eye "></i> <b> View </b> </button></a>
+					<img src="includes/<?php echo $product->getImg(); ?>" alt="Product Image" height="150" width="auto">
 				</div>
 				<div class="col-md-6">
-					<form method="POST" action="viewBasket.php">
-						<button type="submit" name='removeItemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> Remove </b> </button>	
-					</form>
+					<h4 class="pull-right"><?php echo $product->getPrice(); ?></h4>
+					<h4>
+						<a href="#"><?php echo $product->getName(); ?></a>
+					</h4>
+					<p> <?php echo $product->getDescription(); ?></p>
+				
+					<div class="col-md-6">
+						<a href="viewProduct.php?<?php echo $product->getId(); ?>"><button type="submit" class="btn btn-default "><i class="fa fa-eye "></i> <b> View </b> </button></a>
+					</div>
+					<div class="col-md-6">
+						<form method="POST" action="viewBasket.php">
+							<button type="submit" name='removeItemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> Remove </b> </button>	
+						</form>
+					</div>
 				</div>
+				<br>
 			</div>
-			<br>
 		</div>
 		<?php
 		}
