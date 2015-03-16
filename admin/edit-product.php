@@ -198,7 +198,7 @@ include ("nav.php");
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="newProductImage">Product Image</label> <br> 
-						<input type="file" src="<?php echo $product->getImg(); ?>"   name="photo" >
+						<input type="file" <?php echo "src='".$product->getImg()."'"; ?> name="photo" >
 						<p class="help-block">Please upload an image of the product here.</p>
 						
 					</div>
