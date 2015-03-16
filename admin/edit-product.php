@@ -201,7 +201,7 @@ include ("nav.php");
 						<input type="file" <?php echo "src='".$product->getImg()."'"; ?> name="photo" >
 						<p class="help-block">Please upload an image of the product here.</p>
 						<p class="help-block">NOTE: By not uploading another photo by clicking browse, the current photo below will be kept as the desired product photo in the catelogue.</p>
-		
+						
 						
 					</div>
 				</div>
@@ -211,11 +211,13 @@ include ("nav.php");
 				</div><hr>
 				<br>
 				
+				<div class="col-md-12">
 					<div class="form-group">
 						<label for="newStockQuantity">Stock</label> <input type="text"
 							class="form-control" size="20" id="newStockQuantity"
 							name="newStockQuantity" placeholder="Enter Stock Quantity" 
 							<?php if(!empty($_POST["newStockQuantity"])){ echo " value='".$_POST["newStockQuantity"]."'"; } else { echo  " value='".$product->getStock()."'";} ?>>
+					</div>
 					</div>
 					<div class="form-group">
 						<label for="listProduct">Product Visibility Settings:</label> <select
