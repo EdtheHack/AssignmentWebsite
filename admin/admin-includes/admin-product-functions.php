@@ -209,7 +209,7 @@ if(isset($_POST['newProduct'])){
 	
 		foreach ($categories as $value){ //for every checkbox selected set to value
 				
-			$stmt = $mysqli->prepare ( "INSERT INTO product_categories (product_id, category_id) VALUES (?, ?) ON DUPLICATE KEY UPDATE  product_id=VALUES(product_id), category_id=VALUES(category_id)" );
+			$stmt = $mysqli->prepare ( "INSERT INTO product_categories (product_id, category_id) VALUES (?, ?) ON DUPLICATE KEY UPDATE product_id=VALUES(product_id), category_id=VALUES(category_id)" );
 			$stmt->bind_param ("ii", $product_id, $value);
 				
 			if ($stmt === false) {

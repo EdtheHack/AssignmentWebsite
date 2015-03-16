@@ -157,6 +157,7 @@ include ("nav.php");
 				$stmt->close ();
 			}	
 			
+			$cat = array_reverse($cat);
 			
 			
 				if ($stmt = $db_con->prepare ( "SELECT category_id, name FROM categories" )) {
