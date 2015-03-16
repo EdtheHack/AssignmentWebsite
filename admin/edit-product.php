@@ -200,12 +200,13 @@ include ("nav.php");
 						<label for="newProductImage">Product Image</label> <br> 
 						<input type="file" <?php echo "src='".$product->getImg()."'"; ?> name="photo" >
 						<p class="help-block">Please upload an image of the product here.</p>
+						<p class="help-block">NOTE: By not uploading another photo by clicking browse, the current photo below will be kept as the desired product photo in the catelogue.</p>
+		
 						
 					</div>
 				</div>
 				<div class="col-md-6">
 					<label for="newProductImage">Current Image Preview </label> <br>
-					<p class="help-block">NOTE: By not uploading another photo by clicking browse, the current photo below will be kept as the desired product photo in the catelogue.</p>
 					<img src="<?php echo $product->getImg(); ?>" alt="Product Image" height="100" width="auto">
 				</div><hr>
 				<br>
