@@ -309,7 +309,7 @@ if(isset($_POST['newProduct'])){
 		if(empty($errors)){ //only upload if no errors have occured
 			if (is_uploaded_file($_FILES['photo']['tmp_name'])) { // check to see if the file already exists
 				if(move_uploaded_file($_FILES['photo']['tmp_name'], $dest_file)) { //move file
-					checkUploads();
+					
 					return $dest_file; //retrun the destination to be uploaded to the DB
 				} else {
 					$errors[]='Unable to upload or file already exists';
@@ -360,6 +360,8 @@ if(isset($_POST['newProduct'])){
 	
 	
 	function completedProductAdd(){
+		checkUploads(); //now that everything is working we can now check our uploaded files and delete old pictures
+		
 		echo "<script type='text/javascript'>
 					$(document).ready(function(){
 					$('#CompletedAdd').modal('show');
