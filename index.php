@@ -55,7 +55,6 @@ include ("includes/nav.php");
 								<img src="http://placehold.it/735x300" alt="">
 								<div class="carousel-caption">Slide 3</div>
 							</div>
-							Hi hello
 						</div>
 
 						<!-- Controls -->
@@ -69,15 +68,6 @@ include ("includes/nav.php");
 							aria-hidden="true"></span> <span class="sr-only">Next</span>
 						</a>
 					</div>
-
-
-					<!--<h2>Guaranteed next day delivery...<br><small class="pull-right">(..or your next delivery is on us!)</small></h2>
-	  		<br>
-	  		<br>
-	  		<img src="http://placehold.it/750x200" alt="">
-	  		<br>
-	 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut mi non urna pellentesque vulputate vel nec sem. Nulla feugiat facilisis ex non finibus.</p>
-	  		<p><a class="btn btn-default btn-lg" href="#" role="button">Learn more</a></p> -->
 				</div>
 			</div>
     <?php
