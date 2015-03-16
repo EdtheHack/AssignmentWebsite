@@ -345,18 +345,13 @@ if(isset($_POST['newProduct'])){
 		
 		print_r ($img);
 		$mysqli->close ();
-		
-		
 
 		foreach ($files as $file){
 			
-			
-		//$file = str_replace("../img/", "", $file); //won't let us search if we dont replace 
-						
+			$file = "../img/".$file;
+									
 			if(in_array($file, $img )=== false){
 				echo "deleting".$file;
-				
-				$file = "../img/".$file;
 				unlink($file); //add dir back in
 			}
 		}
