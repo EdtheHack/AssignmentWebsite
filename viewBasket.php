@@ -30,10 +30,10 @@ error_reporting ( - 1 );
 	
 	 if(isset($_SESSION["user"])){  //checks if user is logged in
 		$user = unserialize($_SESSION["user"]);
-		$order = unserialize($_SESSION["order"]);
+		//$order = unserialize($_SESSION["order"]);
 		if(isset($_SESSION["product"])){   //checks if user came here from a product page
 			$addProduct = unserialize($_SESSION["product"]);
-			$order->addProduct($addProduct);
+			$user->getOrder()->addProduct($addProduct);
 		}
 	} else {
 		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
@@ -47,23 +47,23 @@ error_reporting ( - 1 );
 				<h2><?php echo $user->getName()."'s Basket"; ?></h2>
 			</div>
 			<div class="col-md-4">
-				<h2><?php echo $order->getAmountOfProducts()." Products";?></h2>
+				<h2><?php echo $user->getOrder()->getAmountOfProducts()." Products";?></h2>
 			</div>
 			<div class="col-md-4">
-				<h2><?php echo "Total Price: £".$order->getTotalPrice(); ?></h2>
+				<h2><?php echo "Total Price: £".$user->getOrder()->getTotalPrice(); ?></h2>
 			</div>
 		</div>
 	
 	<?php	
 	
-	$products = $order->getProducts();
+	$products = $user->getOrder()->getProducts();
 	foreach ($products as $product) {
 	?>
 
 		<div class="well">
 			<div class="row">
 				<div class="col-md-6">
-					<img src="http://placehold.it/320x150" alt="">
+					<img src="includes/<?php echo $product->getImg(); ?>" alt="Product Image" height="150" width="auto">
 				</div>
 				<div class="col-md-6">
 					<h4 class="pull-right"><?php echo $product->getPrice(); ?></h4>

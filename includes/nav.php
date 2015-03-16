@@ -38,7 +38,7 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 				</button>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-					<li><a href="viewBasket.php"><i class="fa fa-shopping-cart fa-1x"></i> Basket <b>0</b></a></li>
+					
 				
 					<?php if(isset($_SESSION['loggedIn']) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
 
@@ -46,9 +46,11 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 					
 						$fn = unserialize($_SESSION["user"])->getName();
 						
+						echo"<li><a href=\"viewBasket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".$user->getOrder()->getAmountOfProducts()."</b></a></li>";
+						
 						//PHP INJECT HTML TO THE PAGE
 						echo"<li class=\"dropdown\"><a data-toggle=\"dropdown\"
-						class=\"dropdown-toggle\" href=\"#\"><i class=\"fa fa-wrench\"></i> " .$fn ."'s   
+						class=\"dropdown-toggle\" href=\"#\"><i class=\"fa fa-wrench\"></i> ".$fn."'s   
 						 Account <b class=\"caret\"></b></a>
 						<ul role=\"menu\" class=\"dropdown-menu\">
 						<li><a href=\"#\">Orders</a></li>
