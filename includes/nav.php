@@ -43,10 +43,12 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 					<?php if(isset($_SESSION['loggedIn']) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
 
 					include ("includes/user.php");
+					include ("includes/order.php");
+					include ("includes/product.php");
 					
 						$fn = unserialize($_SESSION["user"])->getName();
 						
-						echo"<li><a href=\"viewBasket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".unserialize($_SESSION["user"])->getOrder()->getAmountOfProducts()."</b></a></li>";
+						echo"<li><a href=\"viewBasket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".echo unserialize($_SESSION["user"])->getOrder()->getAmountOfProducts(); ."</b></a></li>";
 						
 						//PHP INJECT HTML TO THE PAGE
 						echo"<li class=\"dropdown\"><a data-toggle=\"dropdown\"

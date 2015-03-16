@@ -25,8 +25,8 @@ error_reporting ( - 1 );
 <body>
 <?php
 	include ("includes/nav.php");
-	include ("includes/order.php");
-	include ("includes/product.php");
+	//include ("includes/order.php");
+	//include ("includes/product.php");
 	
 	 if(isset($_SESSION["user"])){  //checks if user is logged in
 		$user = unserialize($_SESSION["user"]);
