@@ -230,10 +230,62 @@ if(isset($_POST['newProduct'])){
 	
 		$mysqli->close ();
 	
-		completedProductAdd();
+		
+		untickCategories($product_id, $categories);
 	}
 	
 	
+	function untickCategories($product_id, $categories){
+		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+		
+		$mysqli = $db_con; //just for names sake
+		
+		$prod_cats = array();
+				
+		$stmt = $mysqli->prepare ( "SELECT * FROM product_categories" );
+		$stmt->bind_result ($product_id, $category_id);
+		
+		while($stmt->fetch()){
+			$prod_cats = array_push($product_id, $category_id);
+		}
+			
+		if ($stmt === false) {
+			trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+		}
+		
+		if(!($stmt->execute ())){
+			die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
+		}
+		
+		$stmt->close ();
+		
+		foreach ($prod_cats as $value){ //for every checkbox selected set to value
+			
+			if(in_array($value, $categories )=== false){
+				$id = array_search($value, $categories);
+				
+				$stmt = $mysqli->prepare ( "DELETE FROM product_categories WHERE product_id=? AND category_id=?" );
+				$stmt->bind_param ($product_id, $id);
+				
+				if ($stmt === false) {
+					trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+				}
+				
+				if(!($stmt->execute ())){
+					die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
+				}
+				
+			}
+			
+		}
+		$stmt->close ();
+
+		$mysqli->close ();
+		
+		completedProductAdd();
+		
+		
+	}
 	
 	function addToDB($name, $price, $description, $discount, $status, $img, $categories, $stock, $date_added){
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
