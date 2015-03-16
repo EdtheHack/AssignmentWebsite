@@ -239,7 +239,7 @@ function getCurrentOrderProducts($orderId){
 	return $rows;
 }
 
-function addProduct($orderId, $productId, $quantity){
+function addProductToDb($orderId, $productId, $quantity){
 	$mysqli = connect ();
 	
 	$rows = array();

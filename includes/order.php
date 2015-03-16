@@ -31,7 +31,7 @@
 		}
 		
 		public function addProduct($product){
-			addProduct($this->id(), $product->getId(), 1);
+			addProductToDb($this->id, $product->getId(), 1);
 			array_push($this->products, $product);
 		}
 		
