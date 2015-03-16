@@ -10,7 +10,7 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Home - Web Programming Assignment 2</title>
+		<title>Search Results - Web Programming Assignment 2</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="css/custom.css">
