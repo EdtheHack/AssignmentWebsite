@@ -93,7 +93,7 @@ include ("nav.php");
 						<label for="newProductName">Product Name</label> <input
 							type="text" class="form-control" name="newProductName"
 							placeholder="Enter product name"
-							<?php if(!empty($_POST["newProductName"])){ echo " value='".$_POST["newProductName"]."'"; } else { echo $product->getName();} ?>>
+							<?php if(!empty($_POST["newProductName"])){ echo " value='".$_POST["newProductName"]."'"; } else { echo  " value='".$product->getName()."'";} ?>>
 					</div>
 					<div class="form-group col-md-6">
 						<label for="newProductPrice">Price (£)</label> <input type="text"
