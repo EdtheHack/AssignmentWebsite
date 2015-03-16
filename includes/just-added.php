@@ -20,8 +20,7 @@
 				$percent = $product->getPercentage();
 				
 				//$sale_price_tmp = round($price * $percent / 100, 2);
-				//$sale_price =  round($price - $sale_price_tmp, 2);
-								
+				//$sale_price =  round($price - $sale_price_tmp, 2);			
 				$sale_price_tmp = number_format(($price * $percent / 100), 2, '.', '');
 				$sale_price =  number_format(($price - $sale_price_tmp), 2, '.', '');
 		?>
