@@ -175,11 +175,12 @@ include ("nav.php");
 						
 						if (in_array($category_id, $cat)) {
 							$check = "checked";
+							echo $check;
 						}else{
 							$check = "";
 						}
 							
-						echo ' <td><div class="checkbox"><label><input type="checkbox" name="categories[]" value="' . $id . '" '.$check.'/>' . $category_name . '</label></div</td>' . "";
+						echo ' <td><div class="checkbox"><label><input type="checkbox" name="categories[]" value="' . $id . '" '.$check.'>' . $category_name . '</label></div</td>' . "";
 																					
 						$tr_count ++;															
 						$id ++;
