@@ -343,7 +343,6 @@ if(isset($_POST['newProduct'])){
 			$stmt->close ();
 		}
 		
-		print_r ($img);
 		$mysqli->close ();
 
 		foreach ($files as $file){
@@ -351,7 +350,6 @@ if(isset($_POST['newProduct'])){
 			$file = "../img/".$file;
 									
 			if(in_array($file, $img )=== false){
-				echo "deleting".$file;
 				unlink($file); //add dir back in
 			}
 		}
