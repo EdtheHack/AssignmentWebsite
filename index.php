@@ -44,14 +44,18 @@ include ("includes/nav.php");
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner" role="listbox">
 							<div class="item active">
-								<img src="http://placehold.it/320x150" alt="">
-								<div class="carousel-caption">...</div>
+								<img src="http://placehold.it/735x300" alt="">
+								<div class="carousel-caption">Slide 1</div>
 							</div>
 							<div class="item">
-								<img src="http://placehold.it/320x150" alt="">
-								<div class="carousel-caption">...</div>
+								<img src="http://placehold.it/735x300" alt="">
+								<div class="carousel-caption">Slide 2</div>
 							</div>
-							...
+                            <div class="item">
+								<img src="http://placehold.it/735x300" alt="">
+								<div class="carousel-caption">Slide 3</div>
+							</div>
+							Hi hello
 						</div>
 
 						<!-- Controls -->
