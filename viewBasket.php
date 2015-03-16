@@ -31,6 +31,7 @@ error_reporting ( - 1 );
 		if(isset($_SESSION["product"])){   //checks if user came here from a product page
 			$addProduct = unserialize($_SESSION["product"]);
 			$user->getOrder()->addProduct($addProduct);
+			unset($_SESSION['product']);
 		}
 	} else {
 		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
