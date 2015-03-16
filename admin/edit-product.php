@@ -108,8 +108,7 @@ include ("nav.php");
 					<div class="form-group col-md-6">
 						<label for="newProductDiscount">Select discount (optional):</label>
 						<select class="form-control" name="newProductDiscount"
-							id="newProductDiscount"
-							<?php if(!empty($_POST["newProductDiscount"])){ echo " value='".$_POST["newProductDiscount"]."'"; }?>>
+							id="newProductDiscount">
 							<option>0</option>
 							<option>5</option>
 							<option>10</option>
@@ -123,7 +122,7 @@ include ("nav.php");
 						<script type="text/javascript">
   								document.getElementById('newProductDiscount').value = "<?php if(!empty($_POST["newProductDiscount"])){ 
   									echo $_POST["newProductDiscount"]; } else { $product->getPercentage();} ?>";
-							</script>
+						</script>
 					</div>
 					<div class="form-group">
 						<label for="productDescription">Description</label>
