@@ -152,7 +152,7 @@ if(isset($_POST['newProduct'])){
 	
 		$mysqli = $db_con;
 	
-		$stmt = $mysqli->prepare ( "UPDATE product SET name=?, price=? description=?, percentage_off=?, status=?, img=?, stock=? WHERE product_id=?" );
+		$stmt = $mysqli->prepare ( "UPDATE product SET name=?, price=?, description=?, percentage_off=?, status=?, img=?, stock=? WHERE product_id=?" );
 		
 			
 		if ($stmt === false) {
