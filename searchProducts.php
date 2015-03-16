@@ -27,7 +27,7 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	<div class="container">
      
 
-    <div class="col-md-9">
+    <div class="col-md-9, pull-right"> <!--pull right not needed once sidebar is working-->
 	<?php		
 		$currentPage = $_GET['currentPage'];
 		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
@@ -40,7 +40,7 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 		<div class="well">
 			<div class="row">
 				<div class="col-md-3">
-					<img src="<?php echo $product->getImg(); ?>" alt="Image of a product found from your search query" height="150" width="auto">
+					<img src="includes/<?php echo $product->getImg(); ?>" alt="Image of a product found from your search query" height="150" width="auto">
 				</div>
 				<div class="col-md-9">
 					<h4 class="pull-right">£<?php echo $product->getPrice(); ?></h4>
