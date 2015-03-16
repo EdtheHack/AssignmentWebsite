@@ -238,7 +238,7 @@ include ("nav.php");
        
        	$edit = true;
        
-		include ("admin-includes/add-product-functions.php");
+		include ("admin-includes/admin-product-functions.php");
 		?>
 			</div>
 		    </div>
