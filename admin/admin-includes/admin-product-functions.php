@@ -348,8 +348,8 @@ if(isset($_POST['newProduct'])){
 		
 
 		foreach ($files as $file){
-			$file.replaceAll("../img/", "");
-			
+			$file = str_replace("../img/", "", $file);
+						
 			if(in_array($img, $file )=== false){
 				echo "deleting".$file;
 				unlink($file);
