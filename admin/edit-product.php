@@ -99,7 +99,7 @@ include ("nav.php");
 						<label for="newProductPrice">Price (£)</label> <input type="text"
 							class="form-control" size="20" id="newProductPRice"
 							name="newProductPrice" placeholder="Enter product price"
-							<?php if(!empty($_POST["newProductPrice"])){ echo " value='".$_POST["newProductPrice"]."'"; }?>>
+							<?php if(!empty($_POST["newProductPrice"])){ echo " value='".$_POST["newProductPrice"]."'"; } else { echo  " value='".$product->getPrice()."'";} ?>>
 					</div>
 					<div class="form-group col-md-6">
 						<label for="newProductDiscount">Select discount (optional):</label>
@@ -123,7 +123,7 @@ include ("nav.php");
 					<div class="form-group">
 						<label for="productDescription">Description</label>
 						<textarea class="form-control" rows="5"
-							name="newProductDescription"><?php if(!empty($_POST["newProductDescription"])){ echo "".$_POST["newProductDescription"].""; }?>
+							name="newProductDescription"><?php if(!empty($_POST["newProductDescription"])){ echo "".$_POST["newProductDescription"].""; } else { echo  " value='".$product->getDescription()."'";} ?>
 </textarea>
 					</div>
 					<div class="form-group">
@@ -180,7 +180,7 @@ include ("nav.php");
 						<label for="newStockQuantity">Stock</label> <input type="text"
 							class="form-control" size="20" id="newStockQuantity"
 							name="newStockQuantity" placeholder="Enter Stock Quantity" value="0"
-							<?php if(!empty($_POST["newStockQuantity"])){ echo " value='".$_POST["newStockQuantity"]."'"; }?>>
+							<?php if(!empty($_POST["newStockQuantity"])){ echo " value='".$_POST["newStockQuantity"]."'"; } else { echo  " value='".$product->getStock()."'";} ?>>
 					</div>
 					<div class="form-group">
 						<label for="listProduct">Product Visibility Settings:</label> <select
