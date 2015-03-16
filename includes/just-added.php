@@ -55,13 +55,6 @@
 			</div>
 		
 		<?php
-		
-			//	if(isset($_GET['viewProduct'])){   //serialization does not work
-				//	$_SESSION["serializedProduct"] = serialize($product);
-				//	$_SESSION["name"] = $this->getName();
-				//	echo "<script type=\"text/javascript\">document.location.href=\"viewProduct.php\";</script>";
-			//	}
-
 		}
 		?>
 	</div>

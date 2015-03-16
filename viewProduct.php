@@ -7,10 +7,7 @@ error_reporting ( - 1 );
 include ("includes/product.php");
 include ("includes/common-functions.php");
 
-
-//$row = getItem ($_POST['itemId']);
-//$product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5], $row[6], $row[7], $row[8] );
-//$_SESSION['product'] = serialize($product);
+$_SESSION['product'] = serialize($product);  //serialize product object to pass to basket
 
 $pageId = $_SERVER[ 'QUERY_STRING' ];
 
@@ -80,7 +77,7 @@ if($row[5] == 1){
 					<br>
                     <p>Remaining Stock: <?php echo $product->getStock();?></p>
 					<form method="POST" action="viewBasket.php">  
-						<button type="submit" class="btn btn-default pull-right" name="product" value=\"<?php echo serialize($product); ?>\">
+						<button type="submit" class="btn btn-default pull-right">
 							<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
 						</button>
 						<?php include ("includes/quantitySpinner.php"); ?>

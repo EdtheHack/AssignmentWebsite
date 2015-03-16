@@ -33,8 +33,8 @@ error_reporting ( - 1 );
 	 if(isset($_SESSION["user"])){  //checks if user is logged in
 		$user = unserialize($_SESSION["user"]);
 		$order = unserialize($_SESSION["order"]);
-		if(isset($_POST["product"])){   //checks if user came here from a product page
-			$addProduct = unserialize($_POST["product"]);
+		if(isset($_SESSION["product"])){   //checks if user came here from a product page
+			$addProduct = unserialize($_SESSION["product"]);
 			echo "productId-> ".$addProduct->getId();
 			$order->addProduct($addProduct);
 			//addProduct($order->getId(), $addProduct->getId(), 1);
