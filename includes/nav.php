@@ -44,7 +44,7 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 
 					include ("includes/user.php");
 					include ("includes/order.php");
-					include ("includes/product.php");
+					//include ("includes/product.php");
 					
 						$fn = unserialize($_SESSION["user"])->getName();
 						
