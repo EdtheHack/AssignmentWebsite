@@ -123,7 +123,7 @@ include ("nav.php");
 					<div class="form-group">
 						<label for="productDescription">Description</label>
 						<textarea class="form-control" rows="5"
-							name="newProductDescription"><?php if(!empty($_POST["newProductDescription"])){ echo "".$_POST["newProductDescription"].""; } else { echo  " value='".$product->getDescription()."'";} ?>
+							name="newProductDescription"><?php if(!empty($_POST["newProductDescription"])){ echo "".$_POST["newProductDescription"].""; } else { echo  $product->getDescription();} ?>
 </textarea>
 					</div>
 					<div class="form-group">
