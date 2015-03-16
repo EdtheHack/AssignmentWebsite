@@ -265,7 +265,8 @@ if(isset($_POST['newProduct'])){
 		foreach ($prod_cats as $value){ //for every checkbox selected set to value
 			
 			if(in_array($value, $categories )=== false){
-				$id = array_search($value, $categories);
+				$key = array_search($value, $categories);
+				$cat_id = $categories[$key];
 				
 				$stmt = $mysqli->prepare ("DELETE FROM product_categories WHERE product_id=? AND category_id=?");
 				$stmt->bind_param ("ii", $product_id, $id);
