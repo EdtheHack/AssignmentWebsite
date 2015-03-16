@@ -17,7 +17,7 @@
 					<img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our newest products" height="150" width="auto">
 						<div class="caption">
 							<h4 class="pull-right">£<?php echo $product->getPrice(); ?></h4>
-							<h4><a href="#"><?php echo $product->getName(); ?></a></h4>
+							<h4><a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a></h4>
 							<p><?php echo $product->getDescription(); ?></p>
 						</div>
 						<div>

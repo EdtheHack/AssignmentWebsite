@@ -31,7 +31,7 @@
 					<img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our recently added products." height="150" width="auto">
 					<div class="caption">
 						<h4>
-							<a href="#"><?php echo $product->getName(); ?></a>
+							<a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a>
 						</h4>
 						<p> <?php echo $product->getDescription(); ?></p>
 						
