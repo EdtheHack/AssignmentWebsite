@@ -350,7 +350,7 @@ if(isset($_POST['newProduct'])){
 		foreach ($files as $file){
 			$file = str_replace("../img/", "", $file);
 						
-			if(in_array($img, $file )=== false){
+			if(in_array($file, $img )=== false){
 				echo "deleting".$file;
 				unlink($file);
 			}
