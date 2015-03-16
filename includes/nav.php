@@ -46,7 +46,7 @@ if(basename($_SERVER['PHP_SELF']) == 'viewProduct.php') {
 					
 						$fn = unserialize($_SESSION["user"])->getName();
 						
-						echo"<li><a href=\"viewBasket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".$user->getOrder()->getAmountOfProducts()."</b></a></li>";
+						echo"<li><a href=\"viewBasket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".unserialize($_SESSION["user"])->getOrder()->getAmountOfProducts()."</b></a></li>";
 						
 						//PHP INJECT HTML TO THE PAGE
 						echo"<li class=\"dropdown\"><a data-toggle=\"dropdown\"
