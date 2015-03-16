@@ -174,14 +174,14 @@ include ("nav.php");
 
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="newProductImage">Product Image</label> <br> <input
-							type="file" name="photo">
+						<label for="newProductImage">Product Image</label> <br> 
+						<input type="file" name="photo" value="<?php echo  " src='".$product->getStock()."'";?>>
 						<p class="help-block">Please upload an image of the product here.</p>
 						
 					</div>
 				</div>
 				<div class="col-md-6">
-					<label for="newProductImage">Current Image Preview</label> <br>
+					<label for="newProductImage">Current Image Preview </label> <br>
 					<img src="<?php echo $product->getImg(); ?>" alt="Product Image" height="100" width="auto">
 				</div><hr>
 				<br>
