@@ -236,7 +236,7 @@ include ("nav.php");
 				<br> <br> <br>
        <?php
        
-       	$edit = true;
+       	$edit = true; //edit is true as we're editing a product not adding one
        
 		include ("admin-includes/admin-product-functions.php");
 		?>

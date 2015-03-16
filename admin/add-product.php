@@ -186,13 +186,12 @@ include ("nav.php");
 					<script type="text/javascript">
   								document.getElementById('listProduct').value = "<?php echo $_POST['listProduct'];?>";
 							</script>
-					<button type="submit" name="newProduct" class="btn btn-default">Add
-						Product</button>
+					<button type="submit" name="newProduct" class="btn btn-default">Add Product</button>
 				</form>
 				<br> <br> <br>
        <?php
        
-       	$edit = false;
+       	$edit = false; //edit is false as we're adding a product not editing
        
 		include ("admin-includes/admin-product-functions.php");
 		?>

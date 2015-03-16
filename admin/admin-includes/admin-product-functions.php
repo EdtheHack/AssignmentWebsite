@@ -135,6 +135,8 @@ if(isset($_POST['newProduct'])){
 		 CORE FUNCTIONS
 	========================
 	- productCheck: Checks for existing products in the DB
+	- updateProduct: updates all variables even if they are not changed as the sql handles it
+	- updateCategories: changes the products associated category in the database
 	- addToDB: Adds the product to the database if all checks are passed
 	- addProductCategories: If the DB Add is a success then the new product will have associated categories added to it in this function 
 	- uploadPhoto: Handles the uploading of the files entered by the Admin and checks for the file input
@@ -307,6 +309,7 @@ if(isset($_POST['newProduct'])){
 		if(empty($errors)){ //only upload if no errors have occured
 			if (is_uploaded_file($_FILES['photo']['tmp_name'])) { // check to see if the file already exists
 				if(move_uploaded_file($_FILES['photo']['tmp_name'], $dest_file)) { //move file
+					checkUploads();
 					return $dest_file; //retrun the destination to be uploaded to the DB
 				} else {
 					$errors[]='Unable to upload or file already exists';
@@ -319,6 +322,40 @@ if(isset($_POST['newProduct'])){
 		}else{
 			return $errors; 
 		}
+	}
+	
+	function checkUploads(){
+		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+		$dir = "/var/www/html/assignment2/img/";
+		$files = scandir($dir);
+		
+		$mysqli = db_conn;
+		
+		$img = array();
+		
+		if ($stmt = $mysqli->prepare ("SELECT img FROM product")){
+			$stmt->execute ();
+			$stmt->bind_result ( $col0 );
+		
+			while($stmt->fetch()){
+				array_push($img, $col0);
+			}
+			$stmt->close ();
+		}
+		
+		$mysqli->close ();
+		
+		
+
+		foreach ($files as $file){
+			$file.replaceAll("../img/", "");
+			
+			if(in_array($img, $file )=== false){
+				echo "deleting".$file;
+				unlink($file);
+			}
+		}
+		
 	}
 	
 	
