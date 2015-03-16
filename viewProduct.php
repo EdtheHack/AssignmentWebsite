@@ -108,9 +108,13 @@ if($row[5] == 1){
 				?>
 						
 					<div class="col-md-4">
+                    <a href="viewProduct.php?<?php echo $product->getId(); ?>">
 						<img src="img/<?php echo $similarProduct->getImg(); ?>" alt="Similar Product Image" height="150" width="auto">
+                        </a>
 						<div class="caption">
+                        <a href="viewProduct.php?<?php echo $product->getId(); ?>">
 							<h3><?php echo $similarProduct->getName(); ?></h3>
+                            </a>
 							<p><?php echo $similarProduct->getDescription(); ?></p>
 						</div>
 						<form method="POST" action="basket.php">

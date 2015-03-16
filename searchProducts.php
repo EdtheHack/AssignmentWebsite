@@ -40,7 +40,9 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 		<div class="well">
 			<div class="row">
 				<div class="col-md-3">
+                <a href="viewProduct.php?<?php echo $product->getId(); ?>">
 					<img src="includes/<?php echo $product->getImg(); ?>" alt="Image of a product found from your search query" height="150" width="auto">
+                    </a>
 				</div>
 				<div class="col-md-9">
 					<h4 class="pull-right">£<?php echo $product->getPrice(); ?></h4>
