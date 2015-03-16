@@ -18,7 +18,7 @@
 		//icons:{down:"ui-icon-arrowthickstop-1-s" , up:"ui-icon-arrowthickstop-1-n"}
 		//incremental:false
 		min: 1,
-		max: 15
+		max: "<?php echo $product->getStock(); ?>"
 		}); 
 	})
 	
