@@ -67,7 +67,35 @@ include ("nav.php");
 				
 			return $rows;
 		}
-						
+
+	function checkOrders($product_id){
+		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+		
+		$orders = array();
+		
+		if ($stmt = $mysqli->prepare ("SELECT product_id FROM order_contents WHERE product_id=?" )) {
+		
+			if ($stmt === false) {
+				trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+			}
+			
+			$stmt->bind_param ("i", $product_id);
+			$stmt->bind_results($order_id);
+				
+			if(!($stmt->execute ())){
+				die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+			}
+			
+			while($stmt->fetch()){
+				array_push($orders, $order_id);
+			}
+			
+			$stmt->close ();				
+			$mysqli->close ();
+			
+			return $orders;
+		}
+	}
 ?>
     <div class="col-md-9">
 				<table class="table table-hover table-responsive">
@@ -89,9 +117,15 @@ include ("nav.php");
 						
 						$rows = getAllProducts();
 						
+						
 							for ($i = 0; $i < count($rows); $i++) { 
 							
 							$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6], $rows[$i][7], $rows[$i][8]);
+							
+							$orders = checkOrders($rows[$i][0]);
+							
+							
+						
 							
 							$status = $product->getStatus();
 							
@@ -103,6 +137,7 @@ include ("nav.php");
 								$status = "Not Listed";
 							}
 						
+						
 						?>									
 						<tr>
 							<td><?php echo $product->getId()?></td>
@@ -112,10 +147,14 @@ include ("nav.php");
                             <td><?php echo $product->getStock()?></td>
 							<td><?php echo $status;?></td>
 							<td><a href="edit-product.php?<?php echo $product->getId(); ?>" >Edit</a></td>
-							<td><a href="myModal" data-toggle="modal" data-target="#myModal">Delete</a></td>
-						</tr>
+							
+							<?php 	if (empty($orders)){
+										echo "<td><a href=\"myModal\" data-toggle=\"modal\" data-target=\"#myModal\">Delete</a></td>";
+									}else{
+										echo "<td><a href=\"cannotDel\" data-toggle=\"modal\" data-target=\"#cannotDel\">Cannot Delete</a></td>";
+									}
+					echo"</tr>";
 						
-						<?php
 							}
 						?>
 					</tbody>
@@ -140,6 +179,27 @@ include ("nav.php");
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					<button type="button" class="btn btn-danger">Delete Product</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="cannotDel" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">You Cannot Delete This Product</h4>
+				</div>
+				<div class="modal-body">It is not possible to delete this product as the product has been previously ordered, you can however prevent this product from being listed but editing it's settings</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					 <button type="button" class="btn btn-default" onClick="location.href='<?php echo "edit-product.php?".$product->getId(); ?>'" VALUE="Refresh">Review Changes</button>
+          
 				</div>
 			</div>
 		</div>
