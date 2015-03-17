@@ -49,15 +49,20 @@ include ("nav.php");
 
 ?>
     <div class="col-md-9">
-    <?php 
     
-    $alphabet  = array();
-    $alphabet  = range('A', 'Z');
-    
-    foreach ($alphabet as $letter ){
- 		echo "<a href=\"\">".$letter."</a>";
-    }
-    ?>
+    <table class="table table-hover table-responsive">
+   		<tbody>
+		    <?php 
+		    
+		    $alphabet  = array();
+		    $alphabet  = range('A', 'Z');
+		    
+		    foreach ($alphabet as $letter ){
+		 		echo "<tr><a href=\"view-users.php\">".$letter."</a></tr>";
+		    }
+		    ?>
+    	</tbody>
+    </table>
 				<table class="table table-hover table-responsive">
 					<thead>
 						<tr>
