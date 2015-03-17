@@ -32,7 +32,7 @@ function deleteProduct($product_id){
 	
 	$mysqli = $db_con; //just for names sake
 
-	$stmt = $mysqli->prepare ("DELETE FROM product WHERE product_id=?");
+	$stmt = $mysqli->prepare ("DELETE FROM `product` WHERE product_id=?");
 
 	if ($stmt === false) {
 		trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
@@ -46,7 +46,7 @@ function deleteProduct($product_id){
 	
 	$stmt->close ();
 
-	$stmt = $mysqli->prepare ("DELETE FROM product_categories WHERE product_id=?");
+	$stmt = $mysqli->prepare ("DELETE FROM `product_categories` WHERE product_id=?");
 	
 	if ($stmt === false) {
 		trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
