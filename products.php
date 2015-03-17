@@ -29,6 +29,7 @@ include ("includes/nav.php");
 <div class="container">
   <?php include ("includes/just-added.php")?>
   <div class="col-md-9">
+  <div class="well">
     <div class="row">
       <h3>Our Products</h3>
       <?php
@@ -53,6 +54,7 @@ include ("includes/nav.php");
       <?php
 				}
 			?>
+    </div>
     </div>
   </div>
 </div>
