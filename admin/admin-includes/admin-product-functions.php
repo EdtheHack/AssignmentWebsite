@@ -95,7 +95,7 @@ if(isset($_POST['newProduct'])){
 				$error_array[] = "No image selected"; //image wasnt selected in the firm place
 			}
 		}else{ //editing products nott adding new ones
-			if(!(empty($_FILES['photo']))){ //if no errors have oocured and a file has been uploaded do this (NOTE: USER DOES NOT HAVE TO ADD A PHOTO WHEN EDITING A PRODUCT)
+			if(!empty($_FILES['photo'])){ //if no errors have oocured and a file has been uploaded do this (NOTE: USER DOES NOT HAVE TO ADD A PHOTO WHEN EDITING A PRODUCT)
 				$output = uploadPhoto();
 
 				echo "i'm in here";
@@ -112,7 +112,7 @@ if(isset($_POST['newProduct'])){
 				$img = $product->getImg(); //no new image was uploaded to just add the old img string back to the db for simplicity 
 			
 				}else{
-					$img = "";
+					$error_array[] = "No image selected";
 				}
 			}
 		}
