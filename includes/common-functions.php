@@ -311,7 +311,7 @@ function getAllProducts(){
 
 	$rows = array();
 
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product" )) {
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE status=1 OR status=0" )) {
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
 		while($stmt->fetch()){
@@ -322,6 +322,23 @@ function getAllProducts(){
 	$mysqli->close ();
 	return $rows;
 }
+
+/* function get(){
+	$mysqli = connect ();
+
+	$rows = array();
+
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE status=1 OR status=0" )) {
+		$stmt->execute ();
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
+		while($stmt->fetch()){
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
+		}
+		$stmt->close ();
+	}
+	$mysqli->close ();
+	return $rows;
+} */
 
 
 /*
