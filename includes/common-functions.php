@@ -303,9 +303,24 @@ function fileUploads(){
 	$_FILES['field_name']['name'];
 	$_FILES['field_name']['size'];
 	$_FILES['field_name']['type'];
-	$_FILES['field_name']['tmp_name'];
-	
-	
+	$_FILES['field_name']['tmp_name'];	
+}
+
+function getAllProducts(){
+	$mysqli = connect ();
+
+	$rows = array();
+
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product" )) {
+		$stmt->execute ();
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
+		while($stmt->fetch()){
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
+		}
+		$stmt->close ();
+	}
+	$mysqli->close ();
+	return $rows;
 }
 
 
