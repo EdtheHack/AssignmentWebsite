@@ -228,7 +228,7 @@ include ("nav.php");
 						</select>
 					</div>
 					<script type="text/javascript">
-  								document.getElementById('listProduct').value = "<?php  if(!empty($_POST["listProduct"])){ echo " value='".$_POST["listProduct"]."'"; } else { echo $product->getStatus();}?>";
+  								document.getElementById('listProduct').value = "<?php  if(!empty($_POST["listProduct"])){ echo $_POST["listProduct"]; } else { echo $product->getStatus();}?>";
 					</script>
 					<button type="submit" name="newProduct" class="btn btn-default">Edit Product</button>
 				</form>
