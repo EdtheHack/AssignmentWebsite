@@ -51,10 +51,11 @@ include ("includes/nav.php");
           <button type="submit" class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b></button>
         </div>
       </div>
+      </div>
       <?php
 				}
 			?>
-    </div>
+
     </div>
   </div>
 </div>
