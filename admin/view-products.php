@@ -82,7 +82,7 @@ include ("nav.php");
 			}
 			
 			$stmt->bind_param ("i", $product_id);
-			$stmt->bind_results($order_id);
+			$stmt->bind_result($order_id);
 				
 			if(!($stmt->execute ())){
 				die('Error : ('. $mysqli->errno .') '. $mysqli->error);
