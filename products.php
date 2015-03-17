@@ -25,7 +25,6 @@ error_reporting ( - 1 );
 <body>
 <?php
 include ("includes/nav.php");
-$lol = getNumberOfListedProducts();
 ?>
 <div class="container">
   <?php include ("includes/just-added.php")?>
