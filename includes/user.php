@@ -1,6 +1,6 @@
 <?php	
 	
-if(basename(__FILE__) == "view-users.php"){
+if(basename(__DIR__) == "admin"){
 	include ("../includes/order.php");
 }else{
 	include ("includes/order.php");

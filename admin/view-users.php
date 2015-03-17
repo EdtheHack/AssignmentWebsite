@@ -111,6 +111,8 @@ include ("nav.php");
 		    }
 		    	
  
+		    }else{
+		    	echo "<script type=\"text/javascript\">document.location.href=\"view-users.php?name=A\";</script>";
 		    }
 		  
 		    ?>

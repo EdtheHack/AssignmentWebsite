@@ -11,7 +11,7 @@ error_reporting ( - 1 );
       <li><a href="view-orders.php">View All Orders</a></li>
       <li><a href="view-products.php">View/Edit All Products</a></li>
       <li><a href="add-product.php">Add New Product</a></li>
-      <li><a href="#">Edit Customer Account Details</a></li>
+      <li><a href="view-users.php?name=A">Edit Customer Account Details</a></li>
       <li><a href="#">Edit Your Account Details</a></li>
     </ul>
   </div>
