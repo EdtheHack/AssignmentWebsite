@@ -4,7 +4,7 @@ ini_set ( 'display_startup_errors', 1 );
 error_reporting ( - 1 );
 
 	include ("../includes/common-functions.php");
-	include ("../includes/product.php");
+	//include ("../includes/product.php");
 
 
 ?>

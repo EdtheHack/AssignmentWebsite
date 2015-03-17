@@ -1,6 +1,10 @@
 <?php	
+	
+if(__FILE__ == viewproducts.php){
+	include ("../includes/order.php");
+}else{
 	include ("includes/order.php");
-
+}
 	class user{	   //User object
 		private $id;
 		private $name;
