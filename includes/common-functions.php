@@ -264,12 +264,13 @@ function getProductQuantities($currentOrderId){
 		
 	   	while($stmt->fetch()) {
 			array_push($rows, $quantity);
+			echo "QUANTITY - >".$quantity;
     	}
 		$stmt->close ();
 	
 	$mysqli->close ();
 	
-	echo "QUANTITIES - >".$rows[0];
+	
 	
 	return $rows;
 }
