@@ -61,6 +61,8 @@ error_reporting ( - 1 );
 	<?php	
 	
 	$products = $user->getOrder()->getProducts();
+	$quantities = $user->getOrder()->getQuantities();
+	$count = 0;
 	foreach ($products as $product) {
 	?>
 
@@ -72,7 +74,7 @@ error_reporting ( - 1 );
 				<div class="col-md-6">
 					<h4 class="pull-right"><?php echo $product->getPrice(); ?></h4>
 					<h4>
-						<a href="#"><?php echo $product->getName(); ?></a>
+						<a href="#"><?php echo $quantities[$count]." -- ".$product->getName(); ?></a>
 					</h4>
 					<p> <?php echo $product->getDescription(); ?></p>
 				
@@ -89,6 +91,7 @@ error_reporting ( - 1 );
 			</div>
 		</div>
 		<?php
+		$count++;
 		}
 		?>
 	</div>

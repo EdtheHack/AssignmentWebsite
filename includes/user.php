@@ -21,7 +21,7 @@
 			$this->name = $name;
 			$this->currentOrderId = $currentOrderId;
 			$this->admin = $admin;
-			$this->order = new order($currentOrderId, getCurrentOrderProducts($currentOrderId), 0);
+			$this->order = new order($currentOrderId, getCurrentOrderProducts($currentOrderId), getProductQuantities($currentOrderId), 0);
 		}
 
 		/*public function __construct($id, $first_name, $second_name, $addr1, $addr1, $postcode, $mNo, $hNo, $blocked, $admin){
