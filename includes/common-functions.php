@@ -326,7 +326,7 @@ function getAllProducts(){
 function getNumberOfListedProducts(){
 	$mysqli = connect ();
 
-	if ($r = $mysqli->prepare ("SELECT * FROM product WHERE status=1 OR status=0" )) {
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE status=1 OR status=0" )) {
 		$stmt->execute ();
 		$row_count = $stmt->num_rows;
 		$stmt->close ();
