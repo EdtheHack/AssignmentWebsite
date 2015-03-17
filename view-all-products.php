@@ -28,18 +28,18 @@ include ("includes/nav.php");
 ?>
 <div class="container">
   <?php include ("includes/just-added.php");
-  $rows = getAllProducts();
 ?>
   <div class="col-md-9">
   <div class="well">
     <div class="row">
       <h3>All Products</h3>
       <?php
-				for($i = 0; $i < count($rows); $i ++) {
+	    		$rows = getAllProducts();
+				for($i = 0; $i < count($rows); $i++) {
 					
 				$product = new product ($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6], $rows[$i][7], $rows[$i][8]);
 			?>
-      <div class="thumbnail"> <a href="viewProduct.php?<?php echo $product->getId(); ?>"> <img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our products" height="150" width="150"> </a>
+      <div class="thumbnail"> <a href="viewProduct.php?<?php echo $product->getId(); ?>"> <img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our products" height="150" width="auto"> </a>
         <div class="caption">
           <h4 class="pull-right">£<?php echo $product->getPrice(); ?></h4>
           <h4><a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a></h4>
