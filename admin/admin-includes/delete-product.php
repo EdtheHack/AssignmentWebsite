@@ -6,10 +6,10 @@
 
 	if (empty($orders)){
 		deleteProductDB($product_id);
-		echo "<script type=\"text/javascript\">document.location.href=\"view-products.php\";</script>";
+		echo "<script type=\"text/javascript\">document.location.href=\"../view-products.php\";</script>";
 
 	}else{
-		echo "<script type=\"text/javascript\">document.location.href=\"view-products.php\";</script>";
+		echo "<script type=\"text/javascript\">document.location.href=\"../view-products.php\";</script>";
 	}
 
 
