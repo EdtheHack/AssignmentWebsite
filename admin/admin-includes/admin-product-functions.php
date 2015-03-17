@@ -280,10 +280,12 @@ if(isset($_POST['newProduct'])){
 					die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
 				}
 				
+				$stmt->close ();
+				
 			}
 			
 		}
-		$stmt->close ();
+		
 
 		$mysqli->close ();
 		
