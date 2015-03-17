@@ -24,7 +24,7 @@
 			$this->order = new order($currentOrderId, getCurrentOrderProducts($currentOrderId), 0);
 		}
 
-		public function __construct($id, $first_name, $second_name, $addr1, $addr1, $postcode, $mNo, $hNo, $blocked, $admin){
+		/*public function __construct($id, $first_name, $second_name, $addr1, $addr1, $postcode, $mNo, $hNo, $blocked, $admin){
 			$this->id = $id;
 			$this->firstname = $first_name;
 			$this->secondname = $second_name;
@@ -36,7 +36,7 @@
 			$this->blocked = $blocked;
 			$this->admin = $admin;
 		}
-		
+		*/
 		
 		public function getName(){
 			return $this->name;
