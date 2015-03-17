@@ -32,7 +32,7 @@ if(isset($_POST['attemptLogin'])){
 			if ($_SESSION['suggestReset'] == true){
 				echo "<script type=\"text/javascript\">document.location.href=\"suggestResetPassword.php\";</script>";
 			} else {
-				echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
+				//echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
 			}
 		}
 	}
