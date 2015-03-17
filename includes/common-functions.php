@@ -252,15 +252,12 @@ function getProductQuantities($currentOrderId){
 	
 		$stmt->bind_param ("i", $orderId);
 		//$stmt->execute ();
-		$stmt->bind_result ($quantity);
-		
-		
-		
 
 		if(!($stmt->execute ())){
 			die('Error : ('. $mysqli->errno .') '. $mysqli->error);
 		}
 		
+		$stmt->bind_result($quantity);
 		
 	   	while($stmt->fetch()) {
 			array_push($rows, $quantity);
