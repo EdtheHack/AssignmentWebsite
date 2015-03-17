@@ -95,7 +95,7 @@ if(isset($_POST['newProduct'])){
 				$error_array[] = "No image selected"; //image wasnt selected in the firm place
 			}
 		}else{ //editing products nott adding new ones
-			if(!empty($_FILES['photo'])){ //if no errors have oocured and a file has been uploaded do this (NOTE: USER DOES NOT HAVE TO ADD A PHOTO WHEN EDITING A PRODUCT)
+			if(is_uploaded_file($_FILES['photo'])){ //if no errors have oocured and a file has been uploaded do this (NOTE: USER DOES NOT HAVE TO ADD A PHOTO WHEN EDITING A PRODUCT)
 				$output = uploadPhoto();
 
 				echo "i'm in here";
