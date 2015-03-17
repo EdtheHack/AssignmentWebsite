@@ -243,7 +243,7 @@ if(isset($_POST['newProduct'])){
 		$prod_cats = array();
 				
 		if ($stmt = $mysqli->prepare ( "SELECT category_id FROM product_categories WHERE product_id=?" )){
-			$stmt->bing_param("i", $product_id);
+			$stmt->bind_param("i", $product_id);
 			$stmt->bind_result($category_id);
 			
 
