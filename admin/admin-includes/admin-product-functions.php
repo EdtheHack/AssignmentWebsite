@@ -242,8 +242,9 @@ if(isset($_POST['newProduct'])){
 		
 		$prod_cats = array();
 				
-		if ($stmt = $mysqli->prepare ( "SELECT * FROM product_categories" )){
-			$stmt->bind_result ($product_id, $category_id);
+		if ($stmt = $mysqli->prepare ( "SELECT category_id FROM product_categories WHERE product_id=?" )){
+			$stmt->bing_param("i", $product_id);
+			$stmt->bind_result($category_id);
 			
 
 			if ($stmt === false) {
@@ -255,7 +256,7 @@ if(isset($_POST['newProduct'])){
 			}
 			
 			while($stmt->fetch()){
-				 array_push($prod_cats, $product_id, $category_id);
+				 array_push($prod_cats, $category_id);
 			}
 			
 			
@@ -265,11 +266,9 @@ if(isset($_POST['newProduct'])){
 		foreach ($prod_cats as $value){ //for every checkbox selected set to value
 			
 			if(in_array($value, $categories )=== false){
-				$key = array_search($value, $categories);
-				$cat_id = $categories[$key];
 				
 				$stmt = $mysqli->prepare ("DELETE FROM product_categories WHERE product_id=? AND category_id=?");
-				$stmt->bind_param ("ii", $product_id, $id);
+				$stmt->bind_param ("ii", $product_id, $value);
 				
 				if ($stmt === false) {
 					trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
