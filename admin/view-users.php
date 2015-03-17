@@ -102,6 +102,7 @@ include ("nav.php");
 		    		<td><?php echo $user->getName()?></td>
 		    		<td><?php echo $user->getEmail()?></td>
 		    		<td><?php echo $user->getPostcode()?></td>
+		    		<td><?php echo $user->getBlocked()?></td>
 		    		<td><?php echo $user->getAdmin()?></td>
 		    		<td>EDIT</td>
 		    		<td>DELETE</td>
