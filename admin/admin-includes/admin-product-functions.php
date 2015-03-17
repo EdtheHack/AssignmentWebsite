@@ -267,6 +267,8 @@ if(isset($_POST['newProduct'])){
 			
 			if(in_array($value, $categories )=== false){
 				
+				echo "found ".$value;
+				
 				$stmt = $mysqli->prepare ("DELETE FROM product_categories WHERE product_id=? AND category_id=?");
 				$stmt->bind_param ("ii", $product_id, $value);
 				
