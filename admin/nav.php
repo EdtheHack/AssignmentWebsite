@@ -4,8 +4,7 @@ ini_set ( 'display_startup_errors', 1 );
 error_reporting ( - 1 );
 
 	include ("../includes/common-functions.php");
-	//include ("../includes/product.php");
-
+	include ("../includes/user.php");
 
 ?>
 <nav role="navigation" class="navbar navbar-default">
@@ -33,16 +32,14 @@ error_reporting ( - 1 );
 				</button>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-					<li><a href="../viewBasket.php"><i class="fa fa-shopping-cart fa-1x"></i> Basket <b>0</b></a></li>
+					
 				
 					<?php if(isset($_SESSION['loggedIn']) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
 						
-						include ("../includes/user.php");
 
-						
-						//$fn = $_SESSION["firstName"];
-						
 						$fn = unserialize($_SESSION["user"])->getName();
+						
+						echo"<li><a href=\"viewBasket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".$user->getOrder()->getAmountOfProducts()."</b></a></li>";
 						
 						//PHP INJECT HTML TO THE PAGE
 						echo"<li class=\"dropdown\"><a data-toggle=\"dropdown\"
