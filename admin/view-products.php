@@ -157,7 +157,7 @@ include ("nav.php");
 									}
 					echo"</tr>";
 						
-							}
+							//}
 						?>
 					</tbody>
 				</table>
@@ -200,12 +200,14 @@ include ("nav.php");
 				<div class="modal-body">It is not possible to delete this product as the product has been previously ordered, you can however prevent this product from being listed but editing it's settings</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					 <button type="button" class="btn btn-default" onClick="location.href='<?php echo "edit-product.php?".$product->getId(); ?>'" VALUE="Refresh">Review Changes</button>
+					 <button type="button" class="btn btn-default" onClick="location.href='<?php echo "edit-product.php?".$product->getId(); ?>'" VALUE="Refresh">Make Changes</button>
           
 				</div>
 			</div>
 		</div>
 	</div>
+	
+	<?php } ?>
 </div>
 </body>
 </html>
