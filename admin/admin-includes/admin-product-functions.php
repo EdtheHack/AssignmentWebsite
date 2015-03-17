@@ -269,7 +269,7 @@ if(isset($_POST['newProduct'])){
 				
 				echo "found ".$value;
 				
-				$stmt = $mysqli->prepare ("DELETE FROM product_categories WHERE product_id=? AND category_id=?");
+				$stmt = $mysqli->prepare ("DELETE FROM product_categories WHERE product_id=? AND category_id=? LIMIT 1");
 				$stmt->bind_param ("ii", $product_id, $value);
 				
 				if ($stmt === false) {
