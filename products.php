@@ -33,7 +33,7 @@ include ("includes/nav.php");
             		<h3>Our Products</h3>
                     
                <?php
-				$rows = getNewest ();
+				$rows = getAllProducts();
 					
 				for($i = 0; $i < 3; $i ++) {
 					
@@ -54,8 +54,10 @@ include ("includes/nav.php");
 							<button type="submit" class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b></button>
 						</div>
 					</div>
-
             </div>
+            			<?php
+				}
+			?>
 		</div>
 	</div>
 	</div>
