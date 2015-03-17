@@ -18,7 +18,7 @@ $product_id = $_SERVER[ 'QUERY_STRING' ];
 $orders = checkOrders($product_id); //force check
 
 if (empty($orders)){
-	delteProduct($product_id);
+	deleteProduct($product_id);
 	echo "<script type=\"text/javascript\">document.location.href=\"view-products.php\";</script>";
 
 }else{
