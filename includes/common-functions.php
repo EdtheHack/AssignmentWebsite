@@ -249,7 +249,7 @@ function getProductQuantities($currentOrderId){
 		$stmt->execute ();
 		$stmt->bind_result ($quantity);
 	   	while($stmt->fetch()) {
-			$rows[] = array($quantity);
+			array_push($rows, $quantity);
     	}
 		$stmt->close ();
 	}
