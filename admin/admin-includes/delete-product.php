@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_GET['del'])){
-	$product_id = $_SERVER[ 'QUERY_STRING' ];
+	$product_id = $_GET[ 'del' ];
 
 
 	$orders = checkOrders($product_id); //force check
