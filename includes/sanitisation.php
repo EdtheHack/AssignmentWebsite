@@ -20,8 +20,6 @@ function sanitiseInteger($int){
 function sanitiseCurrency ($input){
 
 	if (preg_match('/^[0-9]+(?:\.[0-9]{0,2})?$/', $input)) {    //format should be 1100.12
-		
-		echo $input;
 		return 1;
 	} else {
 		return 0;

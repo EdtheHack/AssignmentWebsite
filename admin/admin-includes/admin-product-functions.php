@@ -151,7 +151,6 @@ if(isset($_POST['newProduct'])){
 	- completedProductAdd: Only happens once everything has been added sucessfully, shows modal to confirm 	
 */
 
-	
 
 	function productCheck($name){ //this is a basic product check and could do with adding the search funcitonality to it
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
