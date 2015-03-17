@@ -94,6 +94,7 @@ error_reporting ( - 1 );
 		$count++;
 		}
 		?>
+		<a href="confirmPurchase.php"><button type="submit" class="btn btn-default "><i class="fa fa-eye "></i> <b> View </b> </button></a>
 	</div>
 
 </body>

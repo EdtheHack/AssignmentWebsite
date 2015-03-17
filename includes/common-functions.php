@@ -244,7 +244,7 @@ function getProductQuantities($currentOrderId){
 	
 	$rows = array();
 	
-	if ($stmt = $mysqli->prepare ("SELECT quantity FROM `order_contents` WHERE order_contents.order_id=?" )){ 
+	if ($stmt = $mysqli->prepare ("SELECT quantity FROM `order_contents` WHERE order_id=?" )){ 
 		$stmt->bind_param ("i", $orderId);
 		$stmt->execute ();
 		$stmt->bind_result ($quantity);
@@ -254,6 +254,8 @@ function getProductQuantities($currentOrderId){
 		$stmt->close ();
 	}
 	$mysqli->close ();
+	
+	echo "QUANTITIES - >".$rows[0];
 	
 	return $rows;
 }
