@@ -51,7 +51,7 @@ include ("nav.php");
     <div class="col-md-9">
     
     <table class="table table-hover table-responsive">
-   		<tbody>
+   		<thread>
 		    <?php 
 		    
 		    $alphabet  = array();
@@ -61,7 +61,7 @@ include ("nav.php");
 		 		echo "<tr><a href=\"view-users.php\">".$letter."</a></tr>";
 		    }
 		    ?>
-    	</tbody>
+    	</thread>
     </table>
 				<table class="table table-hover table-responsive">
 					<thead>
