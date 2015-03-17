@@ -151,9 +151,9 @@ include ("nav.php");
 							<td><a href="edit-product.php?<?php echo $product->getId(); ?>" >Edit</a></td>
 							
 							<?php 	if (empty($orders)){
-										echo "<td><a href=\"myModal\" data-toggle=\"modal\" data-target=\"#myModal\">Delete</a></td>";
+										echo "<td><a href=\"myModal".$product->getId()."\" data-toggle=\"modal\" data-target=\"#myModal".$product->getId()."\">Delete</a></td>";
 									}else{
-										echo "<td><a href=\"cannotDel".$product->getId()."\" data-toggle=\"modal".$product->getId()."\" data-target=\"#cannotDel".$product->getId()."\">Cannot Delete</a></td>";
+										echo "<td><a href=\"cannotDel\" data-toggle=\"modal\" data-target=\"#cannotDel\">Cannot Delete</a></td>";
 									}
 					echo"</tr>";
 						?>
