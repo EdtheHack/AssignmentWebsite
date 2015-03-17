@@ -32,11 +32,11 @@ $lol = getNumberOfListedProducts();
   <div class="col-md-9">
   <div class="well">
     <div class="row">
-      <h3>Our Products<?php echo $lol ?></h3>
+      <h3>Our Products<?php echo count($rows) ?></h3>
       <?php
 				$rows = getAllProducts();
 					
-				for($i = 0; $i < 17; $i ++) {
+				for($i = 0; $i < count($rows); $i ++) {
 					
 				$product = new product ($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6], $rows[$i][7], $rows[$i][8]);
 			?>
