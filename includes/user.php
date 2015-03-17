@@ -1,10 +1,13 @@
 <?php	
 	
+echo basename(__DIR__);
 if(basename(__DIR__) == "admin"){
 	include ("../includes/order.php");
 }else{
 	include ("includes/order.php");
 }
+
+
 	class user{	   //User object
 		private $id;
 		private $name;
