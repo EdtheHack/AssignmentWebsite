@@ -244,15 +244,29 @@ function getProductQuantities($currentOrderId){
 	
 	$rows = array();
 	
-	if ($stmt = $mysqli->prepare ("SELECT quantity FROM `order_contents` WHERE order_id=?" )){ 
+	$stmt = $mysqli->prepare ("SELECT quantity FROM `order_contents` WHERE order_id=?" );
+		
+	if ($stmt === false) {
+		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+	}
+	
 		$stmt->bind_param ("i", $orderId);
-		$stmt->execute ();
+		//$stmt->execute ();
 		$stmt->bind_result ($quantity);
+		
+		
+		
+
+		if(!($stmt->execute ())){
+			die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+		}
+		
+		
 	   	while($stmt->fetch()) {
 			array_push($rows, $quantity);
     	}
 		$stmt->close ();
-	}
+	
 	$mysqli->close ();
 	
 	echo "QUANTITIES - >".$rows[0];

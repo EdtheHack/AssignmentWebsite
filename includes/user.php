@@ -1,5 +1,5 @@
 <?php	
-	include ("/includes/order.php");
+	include ("includes/order.php");
 
 	class user{	   //User object
 		private $id;
