@@ -55,7 +55,7 @@ include ("nav.php");
     $alphabet  = range('A', 'Z');
     
     foreach ($alphabet as $letter ){
- 		echo "<a href=\"\">".$letter."/>";
+ 		echo "<a href=\"\">".$letter."</a>";
     }
     ?>
 				<table class="table table-hover table-responsive">
