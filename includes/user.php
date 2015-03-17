@@ -1,6 +1,6 @@
 <?php	
 	
-if(__FILE__ == viewproducts.php){
+if(__FILE__ == "viewproducts.php"){
 	include ("../includes/order.php");
 }else{
 	include ("includes/order.php");
