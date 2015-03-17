@@ -95,7 +95,7 @@ if(isset($_POST['newProduct'])){
 				$error_array[] = "No image selected"; //image wasnt selected in the firm place
 			}
 		}else{ //editing products nott adding new ones
-			if(!(isset($_FILES['photo']))){ //if no errors have oocured and a file has been uploaded do this (NOTE: USER DOES NOT HAVE TO ADD A PHOTO WHEN EDITING A PRODUCT)
+			if(isset($_FILES['photo'])){ //if no errors have oocured and a file has been uploaded do this (NOTE: USER DOES NOT HAVE TO ADD A PHOTO WHEN EDITING A PRODUCT)
 				$output = uploadPhoto();
 
 				echo "i'm in here";
@@ -359,6 +359,9 @@ if(isset($_POST['newProduct'])){
 		$dest = "../img/"; //where the file is going to 
 		$dest_file = $dest.basename($_FILES['photo']['name']);  //get the file name
 		$file_size = $_FILES['photo']['size']; //get the file size
+		
+		
+		echo $dest_file;
 		
 		$name = $_FILES['photo']['name'];
 		$ext = pathinfo($name, PATHINFO_EXTENSION); //get file extention
