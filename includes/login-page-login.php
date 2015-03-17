@@ -1,8 +1,8 @@
 <?php
 
-require_once "includes/common-functions.php";
-require_once "includes/order.php";
-require_once "includes/user.php";
+//require_once "includes/common-functions.php";
+//require_once "includes/order.php";
+//require_once "includes/user.php";
 
 if(isset($_POST['attemptLogin'])){
 	$email = $_POST['email'];
