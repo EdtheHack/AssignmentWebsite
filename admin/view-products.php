@@ -153,12 +153,12 @@ include ("nav.php");
 							<?php 	if (empty($orders)){
 										echo "<td><a href=\"myModal\" data-toggle=\"modal\" data-target=\"#myModal\">Delete</a></td>";
 									}else{
-										echo "<td><a href=\"cannotDel\" data-toggle=\"modal\" data-target=\"#cannotDel\">Cannot Delete</a></td>";
+										echo "<td><a href=\"cannotDel".$product->getId()."\" data-toggle=\"modal".$product->getId()."\" data-target=\"#cannotDel".$product->getId()."\">Cannot Delete</a></td>";
 									}
 					echo"</tr>";
 						?>
 					
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+						<div class="modal fade" id="myModal<?php echo $product->getId();?>" tabindex="-1" role="dialog"
 							aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
