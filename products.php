@@ -25,13 +25,14 @@ error_reporting ( - 1 );
 <body>
 <?php
 include ("includes/nav.php");
+$rows = getNumberOfListedProducts();
 ?>
 <div class="container">
   <?php include ("includes/just-added.php")?>
   <div class="col-md-9">
   <div class="well">
     <div class="row">
-      <h3>Our Products</h3>
+      <h3>Our Products<?php echo $rows ?></h3>
       <?php
 				$rows = getAllProducts();
 					
