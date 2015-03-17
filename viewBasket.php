@@ -28,7 +28,7 @@ error_reporting ( - 1 );
 	
 	 if(isset($_SESSION["user"])){  //checks if user is logged in
 		$user = unserialize($_SESSION["user"]);
-		if(isset($_SESSION["product"])){   //checks if user came here from a product page
+		if(isset($_SESSION["product"]) && isset($_POST["add"])){   //checks if user came here from a product page
 			$addProduct = unserialize($_SESSION["product"]);
 			$user->getOrder()->addProduct($addProduct);
 			unset($_SESSION['product']);

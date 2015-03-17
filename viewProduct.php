@@ -73,7 +73,7 @@ error_reporting ( - 1 );
 					<br>
                     <p>Remaining Stock: <?php echo $product->getStock();?></p>
 					<form method="POST" action="viewBasket.php">  
-						<button type="submit" class="btn btn-default pull-right">
+						<button type="submit" name="add" value="1" class="btn btn-default pull-right">
 							<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
 						</button>
 						<?php include ("includes/quantitySpinner.php"); ?>
