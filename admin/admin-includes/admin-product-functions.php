@@ -84,18 +84,18 @@ if(isset($_POST['newProduct'])){
 		if($edit == false){ //adding new not editing current
 			if(isset($_FILES['photo'])){ //if no errors have oocured now lets check the file upload (prevents uploading even when errors occur)
 				$output = uploadPhoto();  
-			
+				
 				if(is_array($output)){  //check to see if the ouput from function is an array, if it is an array then errors have occured
 					$error_array = array_merge($error_array, $output); //merge errors to the error array
 					$img = ""; //just to clear intilisation messages
 				}else{
 					$img = $output;  //if it's not a error then it can only be the file location of the picture which needs to be added to the db
 				}
-		}else{
-			$error_array[] = "No image selected"; //image wasnt selected in the firm place
-		}
+			}else{
+				$error_array[] = "No image selected"; //image wasnt selected in the firm place
+			}
 		}else{ //editing products nott adding new ones
-			if(isset($_FILES['photo'])){ //if no errors have oocured and a file has been uploaded do this (NOTE: USER DOES NOT HAVE TO ADD A PHOTO WHEN EDITING A PRODUCT)
+			if(isset($_FILES['editPhoto'])){ //if no errors have oocured and a file has been uploaded do this (NOTE: USER DOES NOT HAVE TO ADD A PHOTO WHEN EDITING A PRODUCT)
 				$output = uploadPhoto();
 
 				echo "i'm in here";
