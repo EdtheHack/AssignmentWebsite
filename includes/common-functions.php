@@ -242,9 +242,11 @@ function getCurrentOrderProducts($orderId){
 function getProductQuantities($currentOrderId){
 	$mysqli = connect ();
 	
+	echo "ID".$currentOrderId;
+	
 	$rows = array();
 	
-	$stmt = $mysqli->prepare ("SELECT quantity FROM `order_contents` WHERE order_id=?" );
+	$stmt = $mysqli->prepare ("SELECT quantity FROM order_contents WHERE order_id=?" );
 		
 	if ($stmt === false) {
 		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
