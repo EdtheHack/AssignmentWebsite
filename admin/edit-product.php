@@ -259,7 +259,7 @@ include ("nav.php");
                         <div class="modal-body">The producted has now updated in the product catalog, review changes or select another product to edit
                         </div>
                         <div class="modal-footer">
-                              <button type="button" class="btn btn-default" onClick="location.href='<?php echo basename($_SERVER['PHP_SELF']); ?>'" VALUE="Refresh">Review Changes</button>
+                              <button type="button" class="btn btn-default" onClick="location.href='<?php echo basename($_SERVER['PHP_SELF'."?".$product->getId()]); ?>'" VALUE="Refresh">Review Changes</button>
                               <button type="button" class="btn btn-default" onClick="location.href='view-products.php'" >View Products</button>
                         </div>
                   </div>
