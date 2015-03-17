@@ -52,15 +52,17 @@ include ("nav.php");
     
     <table class="table table-hover table-responsive">
    		<thread>
+   		<tr>
 		    <?php 
 		    
 		    $alphabet  = array();
 		    $alphabet  = range('A', 'Z');
 		    
 		    foreach ($alphabet as $letter ){
-		 		echo "<tr><a href=\"view-users.php\">".$letter."</a></tr>";
+		 		echo "<th><a href=\"view-users.php\">".$letter."</a></th>";
 		    }
 		    ?>
+		   </tr>
     	</thread>
     </table>
 				<table class="table table-hover table-responsive">
