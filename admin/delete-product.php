@@ -31,6 +31,22 @@ function deleteProduct($product_id){
 	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 	
 	$mysqli = $db_con; //just for names sake
+	
+	$stmt = $mysqli->prepare ("DELETE FROM `product_categories` WHERE product_id=?");
+	
+	if ($stmt === false) {
+		trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+	}
+	
+	$stmt->bind_param ("i", $product_id);
+	
+	if(!($stmt->execute ())){
+		die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
+	}
+	
+	$stmt->close ();
+	
+	
 
 	$stmt = $mysqli->prepare ("DELETE FROM `product` WHERE product_id=?");
 
@@ -46,19 +62,6 @@ function deleteProduct($product_id){
 	
 	$stmt->close ();
 
-	$stmt = $mysqli->prepare ("DELETE FROM `product_categories` WHERE product_id=?");
-	
-	if ($stmt === false) {
-		trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
-	}
-	
-	$stmt->bind_param ("i", $product_id);
-	
-	if(!($stmt->execute ())){
-		die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
-	}
-	
-	$stmt->close ();
 	
 	$mysqli->close();
 
