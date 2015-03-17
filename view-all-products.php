@@ -9,7 +9,7 @@ error_reporting ( - 1 );
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Products - Web Programming Assignment 2</title>
+<title>All Products - Web Programming Assignment 2</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/custom.css">
@@ -33,7 +33,7 @@ include ("includes/nav.php");
   <div class="col-md-9">
   <div class="well">
     <div class="row">
-      <h3>Our Products<?php echo count($rows) ?></h3>
+      <h3>All Products</h3>
       <?php
 				for($i = 0; $i < count($rows); $i ++) {
 					
