@@ -98,7 +98,7 @@ function listNames($letter){
 	$rows = array();
 	
 	if ($stmt = $mysqli->prepare ("SELECT user_id, email, firstName, lastName, addressLine1, addressLine2, postcode, mobileNo, homeNo, 
-			blocked, admin FROM user WHERE firstName LIKE ?%" )) {
+			blocked, admin FROM user WHERE firstName LIKE `?%`" )) {
 	
 		if ($stmt === false) {
 			trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
