@@ -55,11 +55,15 @@ include ("nav.php");
    		<tr>
 		    <?php 
 		    
+		    if(isset ($_GET['name'])){
+		    	echo $_GET['name']; 
+		    }
+		    
 		    $alphabet  = array();
 		    $alphabet  = range('A', 'Z');
 		    
 		    foreach ($alphabet as $letter ){
-		 		echo "<th><a href=\"view-users.php\">".$letter."</a></th>";
+		 		echo "<th><a href=\"view-users.php?name=".$letters."\"><strong>".$letter."</strong></a></th>";
 		    }
 		    ?>
 		   </tr>
