@@ -47,7 +47,7 @@ include ("nav.php");
 	include ("admin-nav.php");
 				
 	
-	function getAllProducts(){
+	function getAllViewProducts(){
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 			
 		$mysqli = $db_con;
@@ -117,7 +117,7 @@ include ("nav.php");
 					<tbody>
 						<?php 
 						
-						$rows = getAllProducts();
+						$rows = getAllViewProducts();
 						
 						
 							for ($i = 0; $i < count($rows); $i++) { 
