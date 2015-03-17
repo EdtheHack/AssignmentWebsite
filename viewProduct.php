@@ -51,7 +51,7 @@ error_reporting ( - 1 );
 			<div class="row">
 				<br>
 				<div class="col-md-6">
-					<img src="img/<?php echo $product->getImg(); ?>" alt="Product Image" height="450">
+					<img src="img/<?php echo $product->getImg(); ?>" alt="Product Image" style="width:450px;height:auto">
 				</div>
 
 				<div class="col-md-6">
