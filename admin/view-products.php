@@ -173,7 +173,7 @@ include ("nav.php");
 										product? This cannot be undone.</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-										<form method="POST">
+										<form method="POST" action="delete-product.php?<?php echo $product->getId();?>">
 											<button type="submit" name="del" class="btn btn-danger"  >Delete Product</button>
 										</form>
 									</div>
@@ -185,12 +185,6 @@ include ("nav.php");
 						
 					
 					<?php 
-							
-							
-							if(isset($_POST['del'])){
-								echo $product->getId();
-							}
-							
 							}
 							
 					?>
