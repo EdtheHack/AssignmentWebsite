@@ -246,14 +246,31 @@ function addOrderProductToDb($orderId, $productId, $quantity){
 		
 	//if ($stmt = $mysqli->prepare ("IF EXISTS (SELECT * FROM order_contents WHERE order_id=?) UPDATE order_contents SET (quantity = (quantity + ?)) WHERE product_id=? ELSE
     //INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){	
-		
-	if ($stmt = $mysqli->prepare ("INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){ 
-		//$stmt->bind_param ("sisssi", $orderId, $quantity, $orderId, $orderId, $productId, $quantity);
-		$stmt->bind_param ("ssi", $orderId, $productId, $quantity);
+	
+	if ($stmt = $mysqli->prepare ("SELECT quantity FROM order_contents WHERE order_id=? AND product_id=?;")){ 
+		$stmt->bind_param ("ii", $orderId, $productId);
 		$stmt->execute ();
-
+		$stmt->bind_result($result);
+		$stmt->fetch();
 		$stmt->close ();
 	}
+	
+	if ($result == null) {
+		if ($stmt = $mysqli->prepare ("INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){ 
+			//$stmt->bind_param ("sisssi", $orderId, $quantity, $orderId, $orderId, $productId, $quantity);
+			$stmt->bind_param ("ssi", $orderId, $productId, $quantity);
+			$stmt->execute ();
+			$stmt->close ();
+		}
+		
+	} else {
+		if ($stmt = $mysqli->prepare ("UPDATE order_contents SET quantity=('".$result."' + '".$quantity."') WHERE order_id=? AND product_id=?")){ 
+			$stmt->bind_param ("ii", $orderId, $productId);
+			$stmt->execute ();
+			$stmt->close ();
+		}
+	}
+	
 	$mysqli->close ();
 }
 
