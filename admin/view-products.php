@@ -174,7 +174,7 @@ include ("nav.php");
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 										<form action="POST">
-											<button type="submit" name="del" class="btn btn-danger" value="<?php $product_id ?>" >Delete Product</button>
+											<button type="submit" name="del" class="btn btn-danger" value="<?php $product->getId() ?>" >Delete Product</button>
 										</form>
 									</div>
 								</div>
