@@ -21,7 +21,7 @@ error_reporting ( - 1 );
 		</div>
 		<div id="navbarCollapse" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="../index.php"><i class="fa fa-home"></i> Home </a></li>
+				<li><a href="../index.php"><i class="fa fa-home"></i> Home </a></li>
 				<li><a href="../products.php"><i class="fa fa-square-o"></i> Products </a></li>
 			</ul>
 			<form method="POST" action="searchProducts.php?currentPage=1" class="navbar-form navbar-left">
