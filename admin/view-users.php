@@ -55,9 +55,15 @@ include ("nav.php");
    		<tr>
 		    <?php 
 		    
+		    include ("admin-includes/admin-common.php");
+		    
 		    if(isset ($_GET['name'])){
-		    	echo $_GET['name']; 
+		    	$letter = $_GET['name']; 
+		    	$row = listNames($letter);
+		    	$user = new user($row[0][0], $row[0][1], $row[0][2], $row[0][3], $row[0][4], $row[0][5], $row[0][6], $row[0][7], $row[0][8], $row[0][9], $row[0][10]);
 		    }
+		    
+		    $user->getFirstName();
 		    
 		    $alphabet  = array();
 		    $alphabet  = range('A', 'Z');
@@ -65,6 +71,8 @@ include ("nav.php");
 		    foreach ($alphabet as $letter ){
 		 		echo "<th><a href=\"view-users.php?name=".$letter."\"><strong>".$letter."</strong></a></th>";
 		    }
+		    
+		  
 		    ?>
 		   </tr>
     	</thread>
@@ -73,11 +81,12 @@ include ("nav.php");
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Product Name</th>
-							<th>Price</th>
-							<th>Discount</th>
-                            <th>Stock</th>
-							<th>Visbility</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Email</th>
+                            <th>Postcode</th>
+							<th>Blocked</th>
+							<th>Admin</th>
 							<th>Edit</th>
 							<th>Delete</th>
 							
