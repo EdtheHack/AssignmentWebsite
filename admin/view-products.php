@@ -71,6 +71,8 @@ include ("nav.php");
 	function checkOrders($product_id){
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 		
+		$mysqli = $db_con;
+		
 		$orders = array();
 		
 		if ($stmt = $mysqli->prepare ("SELECT product_id FROM order_contents WHERE product_id=?" )) {
