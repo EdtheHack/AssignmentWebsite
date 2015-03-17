@@ -63,7 +63,7 @@ include ("nav.php");
 		    $alphabet  = range('A', 'Z');
 		    
 		    foreach ($alphabet as $letter ){
-		 		echo "<th><a href=\"view-users.php?name=".$letters."\"><strong>".$letter."</strong></a></th>";
+		 		echo "<th><a href=\"view-users.php?name=".$letter."\"><strong>".$letter."</strong></a></th>";
 		    }
 		    ?>
 		   </tr>
