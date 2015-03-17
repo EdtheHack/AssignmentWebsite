@@ -1,5 +1,5 @@
 <?php	
-	include ("includes/product.php");
+	include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/product.php');
 
 	class order{	   //Order object
 		private $id;

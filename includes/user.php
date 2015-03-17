@@ -1,12 +1,6 @@
 <?php	
 	
-echo basename(__DIR__);
-if(basename(__DIR__) == "admin"){
-	include ("../includes/order.php");
-}else{
-	include ("includes/order.php");
-}
-
+include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 
 	class user{	   //User object
 		private $id;
