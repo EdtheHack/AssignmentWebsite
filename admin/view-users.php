@@ -91,7 +91,7 @@ include ("nav.php");
 
 		    for ($i = 0; $i < count($row); $i++){
 		    	$name = $row[0][3] ." ".  $row[0][4];
-		    	$user = new user($row[0][0], $name, $row[0][0], $row[0][13]);
+		    	$user = new user($row[0][0], $name, $row[0][0], $row[0][12]);
 		    	$user->additionalConstruct($row[0][1], $row[0][5], $row[0][6], $row[0][7], $row[0][8], $row[0][9], $row[0][10]);
 
 		    ?>	
