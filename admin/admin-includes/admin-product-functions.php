@@ -82,7 +82,7 @@ if(isset($_POST['newProduct'])){
 		die; //wrong input, do not proceed
 	}else{
 		if($edit == false){ //adding new not editing current
-			if(isset($_FILES['photo'])){ //if no errors have oocured now lets check the file upload (prevents uploading even when errors occur)
+			if(is_uploaded_file($_FILES['photo']['tmp_name'])){ //if no errors have oocured now lets check the file upload (prevents uploading even when errors occur)
 				$output = uploadPhoto();  
 				
 				if(is_array($output)){  //check to see if the ouput from function is an array, if it is an array then errors have occured
@@ -95,7 +95,7 @@ if(isset($_POST['newProduct'])){
 				$error_array[] = "No image selected"; //image wasnt selected in the firm place
 			}
 		}else{ //editing products nott adding new ones
-			if(is_uploaded_file($_FILES['photo'])){ //if no errors have oocured and a file has been uploaded do this (NOTE: USER DOES NOT HAVE TO ADD A PHOTO WHEN EDITING A PRODUCT)
+			if(is_uploaded_file($_FILES['photo']['tmp_name'])){ //if no errors have oocured and a file has been uploaded do this (NOTE: USER DOES NOT HAVE TO ADD A PHOTO WHEN EDITING A PRODUCT)
 				$output = uploadPhoto();
 
 				echo "i'm in here";

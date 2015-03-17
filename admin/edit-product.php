@@ -254,13 +254,13 @@ include ("nav.php");
                                           aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                     </button>
-                              <h4 class="modal-title" id="myModalLabel">Product Added Scuessfully</h4>
+                              <h4 class="modal-title" id="myModalLabel">Product Scuessfully Edited</h4>
                         </div>
-                        <div class="modal-body">The producted has now been added to the product catalog, add another or go back to Admin Home
+                        <div class="modal-body">The producted has now updated in the product catalog, review changes or select another product to edit
                         </div>
                         <div class="modal-footer">
-                              <button type="button" class="btn btn-default" onClick="location.href='add-product.php'" VALUE="Refresh">Add Another</button>
-                              <button type="button" class="btn btn-default" onClick="location.href='index.php'" >Admin Home</button>
+                              <button type="button" class="btn btn-default" onClick="location.href='<?php echo basename($_SERVER['PHP_SELF']); ?>'" VALUE="Refresh">Review Changes</button>
+                              <button type="button" class="btn btn-default" onClick="location.href='view-products.php'" >View Products</button>
                         </div>
                   </div>
               </div>
