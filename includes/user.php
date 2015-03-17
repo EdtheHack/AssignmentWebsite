@@ -1,6 +1,6 @@
 <?php	
 	
-if(__FILE__ == "view-users.php"){
+if(basename(__FILE__) == "view-users.php"){
 	include ("../includes/order.php");
 }else{
 	include ("includes/order.php");
@@ -27,7 +27,7 @@ if(__FILE__ == "view-users.php"){
 			$this->order = new order($currentOrderId, getCurrentOrderProducts($currentOrderId), getProductQuantities($currentOrderId), 0);
 		}
 
-		public function additionalConstruct($email, $addr1, $addr1, $postcode, $mNo, $hNo, $blocked){
+		public function additionalConstruct($email, $addr1, $addr2, $postcode, $mNo, $hNo, $blocked){
 			$this->email = $email;
 			$this->addr1 = $addr1;
 			$this->addr2 = $addr2;
