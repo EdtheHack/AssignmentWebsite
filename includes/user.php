@@ -7,14 +7,13 @@
 		private $currentOrderId;
 		private $admin;
 		private $order;
-		private $firstname;
-		private $lastname;
 		private $addr1;
 		private $addr2;
 		private $postcode;
 		private $home;
 		private $mobile;
 		private $blocked;
+		private $email;
 		
 		public function __construct($id, $name, $currentOrderId, $admin){
 			$this->id = $id;
@@ -24,19 +23,16 @@
 			$this->order = new order($currentOrderId, getCurrentOrderProducts($currentOrderId), getProductQuantities($currentOrderId), 0);
 		}
 
-		/*public function __construct($id, $first_name, $second_name, $addr1, $addr1, $postcode, $mNo, $hNo, $blocked, $admin){
-			$this->id = $id;
-			$this->firstname = $first_name;
-			$this->secondname = $second_name;
+		public function additionalConstruct($email, $addr1, $addr1, $postcode, $mNo, $hNo, $blocked){
+			$this->email = $email;
 			$this->addr1 = $addr1;
 			$this->addr2 = $addr2;
 			$this->postcode = $postcode;
 			$this->mobile = $mNo;
 			$this->home = $hNo;
 			$this->blocked = $blocked;
-			$this->admin = $admin;
 		}
-		*/
+		
 		
 		public function getName(){
 			return $this->name;
@@ -58,14 +54,10 @@
 			return $this->id;
 		}
 
-		public function getFirstName(){
-			return $this->firstname;
+		public function getEmail(){
+			return $this->email;
 		}
-
-		public function getSecondName(){
-			return $this->secondname;
-		}
-		public function getAddr1(){
+		function getAddr1(){
 			return $this->addr1;
 		}		
 		public function getAddr2(){
