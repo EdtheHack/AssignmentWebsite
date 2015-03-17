@@ -1,4 +1,6 @@
 <?php
+
+if(isset($_GET['del'])){
 	$product_id = $_SERVER[ 'QUERY_STRING' ];
 
 
@@ -11,6 +13,7 @@
 	}else{
 		echo "<script type=\"text/javascript\">document.location.href=\"../view-products.php\";</script>";
 	}
+}
 
 
 

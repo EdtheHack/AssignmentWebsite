@@ -343,14 +343,6 @@ function getAllProducts(){
 	
 	return $products[];
 }
-
-/*
- * GET HIGHEST DICOUNTED SQL IN ORDER
- * 1 SELECT * FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product)
- * 2 SELECT * FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product WHERE price - reduced_price < (select MAX(price - reduced_price) from product))
- * 3 SELECT * FROM product WHERE price - reduced_price = (select MAX(price - reduced_price) from product WHERE price - reduced_price < (select MAX(price - reduced_price) from product WHERE price - reduced_price < (select MAX(price - reduced_price) from product)))
- * 
- */
-
+*/
 
 ?>
