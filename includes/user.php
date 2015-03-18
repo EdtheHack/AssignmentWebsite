@@ -21,6 +21,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 		private $mobile;
 		private $blocked;
 		private $email;
+		private $lastname;
 		
 		public function __construct($id, $name, $currentOrderId, $admin){
 			$this->id = $id;
@@ -30,7 +31,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 			$this->order = new order($currentOrderId, getCurrentOrderProducts($currentOrderId), 0);
 		}
 
-		public function additionalConstruct($email, $addr1, $addr2, $postcode, $mNo, $hNo, $blocked){
+		public function additionalConstruct($email, $addr1, $addr2, $postcode, $mNo, $hNo, $blocked, $lastname){
 			$this->email = $email;
 			$this->addr1 = $addr1;
 			$this->addr2 = $addr2;
@@ -38,11 +39,16 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 			$this->mobile = $mNo;
 			$this->home = $hNo;
 			$this->blocked = $blocked;
+			$this->lastname = $lastname;
 		}
 		
 		
 		public function getName(){
 			return $this->name;
+		}
+		
+		public function getLastName(){
+			return $this->lastname;
 		}
 		
 		public function getAdmin(){
