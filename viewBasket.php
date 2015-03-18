@@ -54,7 +54,8 @@ error_reporting ( - 1 );
 					<h4><?php echo $user->getOrder()->getAmountOfProducts()." Products";?></h4>
 				</div>
 				<div class="col-md-4">
-					<h4><?php echo "Total Price: £".$user->getOrder()->getTotalPrice(); ?></h4>
+					<h4><?php echo "Total Price: £".$user->getOrder()->getTotalPrice(); ?></h4> 
+					<a href="confirmPurchase.php"><button type="submit" class="btn btn-default "> <b> Confirm Purchase </b> </button></a>
 				</div>
 			</div>
 		</div>
@@ -86,7 +87,7 @@ error_reporting ( - 1 );
 						You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em><br>";
 					} ?> </h5> <!-- PLEASE IGNORE HTML ERRORS -->
 					<h4>
-						<a href="#"><?php echo $quantities[$count]." X ".$product->getName(); ?></a>
+						<a href="#"><?php echo $quantities[$count]." x ".$product->getName(); ?></a>
 					</h4>
 					<p> <?php echo $product->getDescription(); ?></p>
 				
@@ -106,7 +107,6 @@ error_reporting ( - 1 );
 		$count++;
 		}
 		?>
-		<a href="confirmPurchase.php"><button type="submit" class="btn btn-default "> <b> Confirm Purchase </b> </button></a>
 	</div>
 
 </body>
