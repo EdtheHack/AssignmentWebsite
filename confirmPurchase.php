@@ -28,6 +28,7 @@ error_reporting ( - 1 );
 	if(isset($_SESSION["user"])){  //checks if user is logged in
 		$user = unserialize($_SESSION["user"]);
 	} else {
+		//echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
 	}
 	$user = unserialize($_SESSION["user"]);
 ?>
@@ -51,7 +52,7 @@ error_reporting ( - 1 );
 						<br> 
 						<input type="password" name="password" class="form-control" placeholder="Password" <?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>		
 						<br>
-						<p style="float: right"> <input type="submit" name="confirm" class="btn btn-default" value="Confirm"> <a data-toggle="tab" href="#sectionC" id="btn-next" ><input class="btn btn-default" value="Forgotten Password"></a></p>
+						<p style="float: right"> <input type="submit" name="confirm" class="btn btn-default" value="Confirm"> <a data-toggle="tab" href="#" id="btn-next" ><input class="btn btn-default" value="Forgotten Password"></a></p>
 					</div>
 				</form>
 			</div>
