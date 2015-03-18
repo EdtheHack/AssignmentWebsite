@@ -239,7 +239,7 @@ function getCurrentOrderProducts($orderId){
 	return $rows;
 }
 
-function getProductQuantities($currentOrderId){
+function getProductQuantities($orderId){
 	$mysqli = connect ();
 	
 	echo "ID".$currentOrderId;
