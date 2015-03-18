@@ -37,7 +37,7 @@ $count = count($rows);
 							$categories =($rows[$i]);
 							
   ?>
-				<li><a href="#"><?php echo $rows[$i]?></a></li>
+				<li><a href="#"><?php echo $categories[$i]?></a></li>
                 <?php
 						}
 						?>
