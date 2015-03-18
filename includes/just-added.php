@@ -17,6 +17,12 @@
 				//$sale_price =  round($price - $sale_price_tmp, 2);			
 				$sale_price_tmp = number_format(($price * $percent / 100), 2, '.', '');
 				$sale_price =  number_format(($price - $sale_price_tmp), 2, '.', '');
+				
+				
+				$des = $product->getDescription();
+				echo substr( $des, 0, strrpos( substr( $des, 0, 10), ' ' ) );
+				
+				
 		?>
 		
 			<div class="row">
