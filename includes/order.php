@@ -48,17 +48,17 @@
 			$count = 0;
 			foreach ($this->products as $currentProduct){
 				if ($currentProduct->getId() == $product->getId()){
-					addQuantityToDb($this->id, $product->getId(), $quantity);
+					addQuantityToDb($this->id, $product->getId(), $quantity, $this->quantities[$count]);
 					$this->quantities[$count] = $this->quantities[$count] + $quantity;
-					$exits = true;
+					$exists = true;
 				} 	
 				$count++;
 			}
 			
 			if ($exists == false){
 					array_push($this->products, $product);
-				array_push($this->quantities, $quantity);
-				addOrderProductToDb($this->id, $product->getId(), $quantity);
+					array_push($this->quantities, $quantity);
+					addOrderProductToDb($this->id, $product->getId(), $quantity);
 			}	
 		}
 		

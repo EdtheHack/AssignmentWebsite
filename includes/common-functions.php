@@ -272,10 +272,10 @@ function getProductQuantities($orderId){
 	return $rows;
 }
 
-function addQuantityToDb($orderId, $productId, $quantity){
+function addQuantityToDb($orderId, $productId, $quantity, $currentQuantity){
 	$mysqli = connect ();
 	
-	if ($stmt = $mysqli->prepare ("UPDATE order_contents SET quantity=('".$result."' + '".$quantity."') WHERE order_id=? AND product_id=?")){ 
+	if ($stmt = $mysqli->prepare ("UPDATE order_contents SET quantity=('".$currentQuantity."' + '".$quantity."') WHERE order_id=? AND product_id=?")){ 
 			$stmt->bind_param ("ii", $orderId, $productId);
 			$stmt->execute ();
 			$stmt->close ();
