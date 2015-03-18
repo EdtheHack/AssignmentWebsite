@@ -34,11 +34,11 @@ $count = count($rows);
           <?php
 		  				for($i = 0; $i < $count; $i ++) {
 							
-							$categories = array($rows[$i][0]);
-							echo $name = $rows[$i][1];
+							//$categories = array($rows[$i][0]);
+							$name = $rows[$i][1];
 							
   ?>
-				<li><a href="#"><?php echo $categories[$i]?></a></li>
+				<li><a href="#"><?php echo $name ?></a></li>
                 <?php
 						}
 						?>
