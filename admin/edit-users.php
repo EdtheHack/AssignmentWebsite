@@ -47,6 +47,7 @@ include ("nav.php");
 			</div>
   <?php
 	include ("admin-nav.php");
+	include ("admin-includes/admin-common.php");
 	
 	if(isset ($_GET['user'])){
 		$user_name = $_GET['user'];
