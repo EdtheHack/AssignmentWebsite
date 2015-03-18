@@ -67,35 +67,43 @@ include ("nav.php");
     	<form method="POST" action="">
 			<div class="form-group">
 		        <label for="email">Email:</label>
-				<input type="email" class="form-control" id="email" placeholder="Enter email" name="emailRegister"  <?php if(!empty($_POST["emailRegister"])){ echo " value='".$_POST["emailRegister"]."'"; }else{ echo $user->getEmail();}?>>
+				<input type="email" class="form-control" id="email" placeholder="Enter email" name="emailRegister"  
+				<?php if(!empty($_POST["emailRegister"])){ echo " value='".$_POST["emailRegister"]."'"; }else{ echo " value='".$user->getEmail()."'";}?>>
 			</div>
 			<div class="form-group">
 		        <label for="email">First Name:</label>			
-				<input type="text" name="firstName" class="form-control" placeholder="Enter First Name" <?php if(!empty($_POST["firstName"])){ echo " value='".$_POST["firstName"]."'"; } else { echo $user->getName(); } ?>>
+				<input type="text" name="firstName" class="form-control" placeholder="Enter First Name" 
+				<?php if(!empty($_POST["firstName"])){ echo " value='".$_POST["firstName"]."'"; } else { echo " value='".$user->getName()."'"; } ?>>
 			</div>
 			<div class="form-group">
 		        <label for="email">Last Name:</label>			
-				<input type="text" name="lastName" class="form-control" placeholder="Enter Last Name" <?php if(!empty($_POST["lastName"])){ echo " value='".$_POST["lastName"]."'"; }else {echo $user->getLastName(); } ?>>
+				<input type="text" name="lastName" class="form-control" placeholder="Enter Last Name" 
+				<?php if(!empty($_POST["lastName"])){ echo " value='".$_POST["lastName"]."'"; }else {echo " value='".$user->getLastName()."'"; } ?>>
 			</div>
 			<div class="form-group">
 		        <label for="email">Address Line 1:</label>	
-				<input type="text" name="addressLine1" class="form-control" placeholder="Enter Address Line 1" <?php if(!empty($_POST["addressLine1"])){ echo " value='".$_POST["addressLine1"]."'"; } else {echo $user->getAddr1();}?>>
+				<input type="text" name="addressLine1" class="form-control" placeholder="Enter Address Line 1" 
+				<?php if(!empty($_POST["addressLine1"])){ echo " value='".$_POST["addressLine1"]."'"; } else {echo " value='".$user->getAddr1()."'";}?>>
 			</div>
 			<div class="form-group">
 		        <label for="email">Address Line 2:</label>	
-				<input type="text" name="addressLine2" class="form-control" placeholder="Enter Address Line 2" <?php if(!empty($_POST["addressLine2"])){ echo " value='".$_POST["addressLine2"]."'"; } else { echo $user->getAddr2(); }?>>
+				<input type="text" name="addressLine2" class="form-control" placeholder="Enter Address Line 2" 
+				<?php if(!empty($_POST["addressLine2"])){ echo " value='".$_POST["addressLine2"]."'"; } else { echo " value='".$user->getAddr2()."'"; }?>>
 			</div>
 			<div class="form-group">
 		        <label for="email">Postcode :</label>	
-				<input type="text" name="postcode" class="form-control" placeholder="Enter postcode" <?php if(!empty($_POST["postcode"])){ echo " value='".$_POST["postcode"]."'"; } else { echo $user->getPostcode(); }?>>
+				<input type="text" name="postcode" class="form-control" placeholder="Enter postcode" 
+				<?php if(!empty($_POST["postcode"])){ echo " value='".$_POST["postcode"]."'"; } else { echo " value='".$user->getPostcode()."'"; }?>>
 			</div>
 			<div class="form-group">
 		        <label for="email">Mobile Number:</label>	
-				<input type="text" name="mobileNumber" class="form-control" placeholder="Enter Mobile Number " <?php if(!empty($_POST["mobileNumber"])){ echo " value='".$_POST["mobileNumber"]."'"; } else { echo $user->getMobile(); } ?>>
+				<input type="text" name="mobileNumber" class="form-control" placeholder="Enter Mobile Number " 
+				<?php if(!empty($_POST["mobileNumber"])){ echo " value='".$_POST["mobileNumber"]."'"; } else { echo " value='".$user->getMobile()."'"; } ?>>
 			</div>
 			<div class="form-group">
 		        <label for="email">Home Number:</label>	
-				<input type="text" name="homeNumber" class="form-control" placeholder="Enter Home Number "  <?php if(!empty($_POST["homeNumber"])){ echo " value='".$_POST["homeNumber"]."'"; } else { echo $user->getHome(); }?>>
+				<input type="text" name="homeNumber" class="form-control" placeholder="Enter Home Number "  
+				<?php if(!empty($_POST["homeNumber"])){ echo " value='".$_POST["homeNumber"]."'"; } else { echo $user->getHome(); }?>>
 			</div>			
 			<div class="form-group">
 						<label for="isAdmin">Product Visibility Settings:</label> <select
