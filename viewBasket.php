@@ -78,11 +78,15 @@ error_reporting ( - 1 );
 					<img src="includes/<?php echo $product->getImg(); ?>" alt="Product Image" height="150" width="auto">
 				</div>
 				<div class="col-md-6">
-					<h5 class=""><?php echo "<strong> Our Price: &pound;".$sale_price."</strong><br>
-															RRP: <strike>&pound;".$product->getPrice() ."</strike><br>
-															You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em><br>"?></h5> <!-- PLEASE IGNORE HTML ERRORS -->
+					<h5 class=""><?php if ($product->getPercentage() == 0){
+						echo "<strong> &pound;".$product->getPrice();
+					} else {
+						echo "<strong> Our Price: &pound;".$sale_price."</strong><br>
+						RRP: <strike>&pound;".$product->getPrice() ."</strike><br>
+						You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em><br>"
+					} ?> </h5> <!-- PLEASE IGNORE HTML ERRORS -->
 					<h4>
-						<a href="#"><?php echo $quantities[$count]." -- ".$product->getName(); ?></a>
+						<a href="#"><?php echo $quantities[$count]." X ".$product->getName(); ?></a>
 					</h4>
 					<p> <?php echo $product->getDescription(); ?></p>
 				
@@ -102,7 +106,7 @@ error_reporting ( - 1 );
 		$count++;
 		}
 		?>
-		<a href="confirmPurchase.php"><button type="submit" class="btn btn-default "><i class="fa fa-eye "></i> <b> View </b> </button></a>
+		<a href="confirmPurchase.php"><button type="submit" class="btn btn-default "> <b> Confirm Purchase </b> </button></a>
 	</div>
 
 </body>

@@ -31,14 +31,16 @@
 		
 		public function getTotalPrice(){
 			$total = 0;
+			$count = 0;
 			foreach ($this->products as $product) {
 				if ($product->getPercentage() == 0){
-					$total = $total + $product->getPrice();
+					$total = $total + ($product->getPrice() * $this->quantities[$i]);
 				} else {
 					$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
 					$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
-					$total = $total + $salePrice;
+					$total = $total + ($salePrice * $this->quantities[$i]);
 				}
+				$count++;
 			}
 			return $total;
 		}

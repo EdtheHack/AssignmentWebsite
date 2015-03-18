@@ -45,7 +45,6 @@ error_reporting ( - 1 );
 	}
 	?>
 	
-	
 	<div class="container">
 		<div class="well">
 			<div class="row">
