@@ -28,7 +28,6 @@ error_reporting ( - 1 );
 	if(isset($_SESSION["user"])){  //checks if user is logged in
 		$user = unserialize($_SESSION["user"]);
 	} else {
-		//echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
 	}
 	$user = unserialize($_SESSION["user"]);
 ?>
