@@ -104,7 +104,7 @@ include ("nav.php");
 		    		<td><?php echo $user->getPostcode()?></td>
 		    		<td><?php echo $user->getBlocked()?></td>
 		    		<td><?php echo $user->getAdmin()?></td>
-		    		<td><a href="edit-users.php?user=<?php echo $user->getName() ?>">Edit</a></td>
+		    		<td><a href="edit-users.php?user=<?php echo $user->getId() ?>">Edit</a></td>
 		    		<td>DELETE</td>
 		    	</tr>
 		    <?php 	

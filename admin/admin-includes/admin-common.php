@@ -125,6 +125,36 @@ function listNames($letter){
 	
 }
 
+function getUser($id){
+	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+
+	$mysqli = $db_con;
+
+	$stmt = $mysqli->prepare ("SELECT user_id, email, firstName, lastName, addressLine1, addressLine2, postcode, mobileNo, homeNo,
+			blocked, admin FROM user WHERE user_id=?" );
+
+	if ($stmt === false) {
+		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+	}
+
+		
+	$stmt->bind_param ("i", $id );
+	$stmt->bind_result( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8,  $col9,  $col10);
+
+	if(!($stmt->execute ())){
+		die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+	}
+		
+	$stmt->fetch();
+	$rows = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8,  $col9,  $col10);
+		
+	$stmt->close ();
+	$mysqli->close ();
+		
+	return $rows;
+
+}
+
 
 
 ?>

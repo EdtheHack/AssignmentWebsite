@@ -50,9 +50,9 @@ include ("nav.php");
 	include ("admin-includes/admin-common.php");
 	
 	if(isset ($_GET['user'])){
-		$user_name = $_GET['user'];
+		$user_id = $_GET['user'];
 		
-		$row = listNames($user_name);
+		$row = getUser($user_id);
 	
 			$name = $row[0][2] ." ".  $row[0][3];
 			$user = new user($row[0][0], $name, $row[0][0], $row[0][10]);
