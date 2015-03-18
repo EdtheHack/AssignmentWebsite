@@ -57,7 +57,7 @@ include ("includes/nav.php");
       <?php
      
       }  
-				}
+				
 			?>
     </div>
     </div>
