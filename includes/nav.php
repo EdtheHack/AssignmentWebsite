@@ -23,7 +23,7 @@ include ("includes/user.php");
 				<li><a href="index.php"><i class="fa fa-home"></i> Home </a></li>
 				<li><a href="view-all-products.php"><i class="fa fa-square-o"></i> Products </a></li>
                 <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" <i class="fa fa-chevron-down"></i>>Categories</a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
