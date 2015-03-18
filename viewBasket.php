@@ -26,11 +26,13 @@ error_reporting ( - 1 );
 <?php
 	include ("includes/nav.php");
 	
+	echo "added quantity".$_POST['quantity'];
+	
 	 if(isset($_SESSION["user"])){  //checks if user is logged in
 		$user = unserialize($_SESSION["user"]);
 		if(isset($_SESSION["product"]) && isset($_POST["add"])){   //checks if user came here from a product page
 			$addProduct = unserialize($_SESSION["product"]);
-			$user->getOrder()->addProduct($addProduct);
+			$user->getOrder()->addProduct($addProduct, $_POST['quantity']);
 			unset($_SESSION['product']);
 		}
 	} else {

@@ -37,9 +37,10 @@
 			return $total;
 		}
 		
-		public function addProduct($product){
+		public function addProduct($product, $quantity){
 			array_push($this->products, $product);
-			addOrderProductToDb($this->id, $product->getId(), 1);
+			array_push($this->quantities, $quantity);
+			addOrderProductToDb($this->id, $product->getId(), $quantity);
 		}
 		
 		public function removeProduct($removeId){

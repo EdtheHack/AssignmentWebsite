@@ -25,7 +25,7 @@
 </script>
 <body>
 <div id="test">
-	<input type=text" id="prodQtySpinner" value="1"/>
+	<input type=text" id="prodQtySpinner" name="quantity" value="1"/>
 </div>
 </body>
 </html>
