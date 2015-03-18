@@ -98,7 +98,7 @@ include ("nav.php");
 		    ?>	
 		    	<tr>
 		    		<td><?php echo $user->getId()?></td>
-		    		<td><?php echo $user->getName()?></td>
+		    		<td><?php echo $user->getName()." ".$user->getLastName();?></td>
 		    		<td><?php echo $user->getEmail()?></td>
 		    		<td><?php echo $user->getPostcode()?></td>
 		    		<td><?php echo $user->getBlocked()?></td>
