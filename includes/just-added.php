@@ -19,12 +19,9 @@
 				$sale_price =  number_format(($price - $sale_price_tmp), 2, '.', '');
 				
 				
-				
 				$length = 75;
 				$cut_off = 75;
 				$des = $product->getDescription();
-				
-				
 				$des = (strlen($des) > $length) ? substr($des,0,$cut_off).'...<a href="viewProduct.php?'.$product->getId().'">read more</a>' : $des;
 				
 		?>
