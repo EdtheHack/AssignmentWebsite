@@ -47,14 +47,16 @@ error_reporting ( - 1 );
 	<div class="container">
 		<div class="well">
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<h4><?php echo $user->getName()."'s Basket"; ?></h4>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<h4><?php echo $user->getOrder()->getAmountOfProducts()." Products";?></h4>
 				</div>
 				<div class="col-md-4">
 					<h4><?php echo "Total Price: £".$user->getOrder()->getTotalPrice(); ?></h4> 
+				</div>
+				<div class="col-md-2">
 					<a href="confirmPurchase.php"><button type="submit" class="btn btn-default "> <b> Confirm Purchase </b> </button></a>
 				</div>
 			</div>
@@ -106,6 +108,8 @@ error_reporting ( - 1 );
 		<?php
 		$count++;
 		}
+		
+		$_SESSION["user"] = serialize($user);
 		?>
 	</div>
 
