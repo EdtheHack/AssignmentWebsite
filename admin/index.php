@@ -39,7 +39,7 @@ include ("nav.php");
   <div class="col-md-12">
     <div class="row">
       <div class="jumbotron">
-        <h2> Hi, <?php echo $user->getName()?>. <small>Add, edit, and remove products, plus much more.</small> </h2>
+        <h2> Hi. <small>Add, edit, and remove products, plus much more.</small> </h2>
         <p></p>
       </div>
     </div>
