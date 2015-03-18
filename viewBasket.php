@@ -32,6 +32,7 @@ error_reporting ( - 1 );
 			$addProduct = unserialize($_SESSION["product"]);
 			$user->getOrder()->addProduct($addProduct, $_POST['quantity']);
 			unset($_SESSION['product']);
+			$_SESSION["user"] = serialize($user);
 		}
 	} else {
 		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
