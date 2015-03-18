@@ -108,8 +108,6 @@ error_reporting ( - 1 );
 		<?php
 		$count++;
 		}
-		
-		$_SESSION["user"] = serialize($user);
 		?>
 	</div>
 

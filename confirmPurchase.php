@@ -1,5 +1,9 @@
 <?php
 	session_start();
+	
+	ini_set ( 'display_errors', 1 );
+ini_set ( 'display_startup_errors', 1 );
+error_reporting ( - 1 );
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,8 +28,9 @@
 	if(isset($_SESSION["user"])){  //checks if user is logged in
 		$user = unserialize($_SESSION["user"]);
 	} else {
-		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
+		//echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
 	}
+	$user = unserialize($_SESSION["user"]);
 ?>
 	<div class="container">
 		<div class="well">
