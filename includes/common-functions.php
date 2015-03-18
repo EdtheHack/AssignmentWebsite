@@ -367,9 +367,9 @@ function getAllCategories(){
 
 	if ($stmt = $mysqli->prepare ("SELECT * FROM categories" )) {
 		$stmt->execute ();
-		$stmt->bind_result ( $col0 );
+		$stmt->bind_result ( $col0, $col1 );
 		while($stmt->fetch()){
-			$rows[] = array( $col0 );
+			$rows[] = array( $col0, $col1 );
 		}
 		$stmt->close ();
 	}
