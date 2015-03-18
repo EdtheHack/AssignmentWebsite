@@ -27,7 +27,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 			$this->name = $name;
 			$this->currentOrderId = $currentOrderId;
 			$this->admin = $admin;
-			$this->order = new order($currentOrderId, getCurrentOrderProducts($currentOrderId), getProductQuantities($currentOrderId), 0);
+			$this->order = new order($currentOrderId, getCurrentOrderProducts($currentOrderId), 0);
 		}
 
 		public function additionalConstruct($email, $addr1, $addr2, $postcode, $mNo, $hNo, $blocked){

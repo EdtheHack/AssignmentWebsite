@@ -224,13 +224,13 @@ function getCurrentOrderProducts($orderId){
 	
 	$rows = array();
 	
-	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN order_contents ON product.product_id = order_contents.product_id   
+	if ($stmt = $mysqli->prepare ("SELECT product.*, order_contents.quantity FROM `product` LEFT JOIN order_contents ON product.product_id = order_contents.product_id   
 									WHERE order_contents.order_id=?" )){ 
 		$stmt->bind_param ("i", $orderId);
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8, $col9);
 	   	while($stmt->fetch()) {
-			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8);
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8, $col9);
     	}
 		$stmt->close ();
 	}
@@ -241,9 +241,7 @@ function getCurrentOrderProducts($orderId){
 
 function getProductQuantities($orderId){
 	$mysqli = connect ();
-	
-	echo "ID".$currentOrderId;
-	
+		
 	$rows = array();
 	
 	$stmt = $mysqli->prepare ("SELECT quantity FROM order_contents WHERE order_id=?" );
