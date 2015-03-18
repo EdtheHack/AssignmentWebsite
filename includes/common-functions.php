@@ -104,8 +104,8 @@ function getSimilarItems($productId){  //NEEDS WORK
 		$rows = array();
 	
 	if ($stmt = $mysqli->prepare ("SELECT product.* FROM product LEFT JOIN product_categories ON product.product_id = product_categories.product_id   
-									WHERE product_categories.category_id = (SELECT category_id FROM product_categories WHERE product_id=?) LIMIT 3" )) {
-		$stmt->bind_param ("s", $productId);
+									WHERE product_categories.category_id = (SELECT category_id FROM product_categories WHERE product_id=?) AND NOT product_categories.product_id=? LIMIT 3" )) {
+		$stmt->bind_param ("ss", $productId, $productId);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
 	   	while($stmt->fetch()) {

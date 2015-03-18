@@ -44,45 +44,47 @@ error_reporting ( - 1 );
 					<h4><?php echo "Total Price: £".$user->getOrder()->getTotalPrice(); ?></h4>
 				</div>
 			</div>
+			<br>
 			<div class="row">
-				<table class="table table-hover table-responsive">
-					<thead>
-						<tr>
-							<th>Product</th>
-							<th>Price</th>
-							<th>Quantity</th>
-						</tr>
-					</thead>
-					<tbody>
-					<?php
-						$products = $user->getOrder()->getProducts();
-						$count = 0;
-						
-						foreach ($products as $product){
-							$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
-							$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
-					?>
-						<tr>
-							<td><?php echo $product->getName()?></td>
-							<td><?php echo "&pound;".$salePrice?></td>
-							<td><?php echo $user->getOrder()->getQuantity($count)?></td>
-						</tr>
-					<?php
-						}
-					?>
-					</tbody>
-				</table>
-			</div>
-			<div class="row">
-				<form method="POST" action="">
-					<div class="form-group">
-						<input type="email" name="email" class="form-control" placeholder="Email" <?php if(!empty($_POST["email"])){ echo " value='".$_POST["email"]."'"; }?>>							
-						<br> 
-						<input type="password" name="password" class="form-control" placeholder="Password" <?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>		
-						<br>
-						<p style="float: right"> <input type="submit" name="confirm" class="btn btn-default" value="Confirm"> <a data-toggle="tab" href="#" id="btn-next" ><input class="btn btn-default" value="Forgotten Password"></a></p>
-					</div>
-				</form>
+				<div class="col-md-6">
+					<table class="table table-hover table-responsive">
+						<thead>
+							<tr>
+								<th>Product</th>
+								<th>Price</th>
+								<th>Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+						<?php
+							$products = $user->getOrder()->getProducts();
+							$count = 0;
+							
+							foreach ($products as $product){
+								$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
+								$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
+						?>
+							<tr>
+								<td><?php echo $product->getName()?></td>
+								<td><?php echo "&pound;".$salePrice?></td>
+								<td><?php echo $user->getOrder()->getQuantity($count)?></td>
+							</tr>
+						<?php
+							}
+						?>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-6">
+					<p> Confirm your password to buy </p>
+					<form method="POST" action="">
+						<div class="form-group"> 
+							<input type="password" name="password" class="form-control" placeholder="Password" <?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>		
+							<br>
+							<p style="float: right"> <input type="submit" name="confirm" class="btn btn-default" value="Confirm"> <a data-toggle="tab" href="#" id="btn-next" ><input class="btn btn-default" value="Forgotten Password"></a></p>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
