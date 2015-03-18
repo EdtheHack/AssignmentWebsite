@@ -34,7 +34,7 @@ $count = count($rows);
           <?php
 		  				for($i = 0; $i < $count; $i ++) {
   ?>
-				<li><a href="#"><?php echo $row[i]?></a></li>
+				<li><a href="#"><?php echo $rows[i]?></a></li>
                 <?php
 						}
 						?>
