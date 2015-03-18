@@ -20,8 +20,7 @@
 				
 				
 				$des = $product->getDescription();
-				$string = (strlen($des) > 13) ? substr($des,0,10).'...readmore' : $des;
-				echo $string;
+				$des = (strlen($des) > 100) ? substr($des,0,10).'...<a href="viewProduct.php?<?php echo $product->getId(); ?>">read more</a>' : $des;
 				
 		?>
 		
@@ -35,7 +34,7 @@
 						<h4>
 							<a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a>
 						</h4>
-						<p> <?php echo $product->getDescription(); ?></p>
+						<p> <?php echo $des //$product->getDescription(); ?></p>
 						
 						<h5 class=""><?php echo "<strong> Our Price: &pound;".$sale_price."</strong><br>
 															RRP: <strike>&pound;".$price ."</strike><br>
