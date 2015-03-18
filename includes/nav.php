@@ -35,7 +35,7 @@ $count = count($rows);
 		  				for($i = 0; $i < $count; $i ++) {
 							
 							$categories = array($rows[$i][0]);
-							echo $name = $row[$i][1];
+							echo $name = $rows[$i][1];
 							
   ?>
 				<li><a href="#"><?php echo $categories[$i]?></a></li>
