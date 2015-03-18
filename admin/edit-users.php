@@ -41,7 +41,7 @@ include ("nav.php");
 		<div class="col-md-12">
 			<div class="row">
 				<div class="jumbotron">
-					<h2>Edit User <?php echo $user->getName(); ?> <small> Edit a users settings for them as an administrator.</small>
+					<h2>Edit User <?php echo $user->getName()." ".$user->getLastName(); ?> <small> Edit a users settings for them as an administrator.</small>
 					</h2>
 				</div>
 			</div>
