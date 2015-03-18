@@ -83,7 +83,7 @@ error_reporting ( - 1 );
 					} else {
 						echo "<strong> Our Price: &pound;".$salePrice."</strong><br>
 						RRP: <strike>&pound;".$product->getPrice() ."</strike><br>
-						You Save: <em>&pound;".$salePriceTmp." (".$percent."&#37;)</em><br>";
+						You Save: <em>&pound;".$salePriceTmp." (".$product->getPercentage()."&#37;)</em><br>";
 					} ?> </h5> <!-- PLEASE IGNORE HTML ERRORS -->
 					<h4>
 						<a href="#"><?php echo $user->getOrder()->getQuantity($count)." x ".$product->getName(); ?></a>

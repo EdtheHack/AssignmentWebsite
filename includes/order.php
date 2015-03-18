@@ -68,6 +68,7 @@
 			for ($i = 0; $i < count($this->products); $i++) {
 				if ($this->products[$i]->getId() == $removeId){
 					array_splice($this->products, $i, 1);
+					array_splice($this->quantities, $i, 1);
 					continue;
 				}			
 			}
