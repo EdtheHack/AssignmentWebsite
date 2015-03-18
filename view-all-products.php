@@ -34,10 +34,14 @@ include ("includes/nav.php");
       <h3>All Products</h3>
       <?php
 	    		$rows = getAllProducts();
+	    		$count = 0;
 				for($i = 0; $i < count($rows); $i++) {
 					
 				$product = new product ($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6], $rows[$i][7], $rows[$i][8]);
 				
+				if($count == 3){
+					echo "<div class=\"row\">";
+				}
 				
 				?>
 				<div class="col-md-4">
@@ -56,6 +60,10 @@ include ("includes/nav.php");
         </div>
        
       <?php
+      if($count == 3){
+      	echo "</div>";
+      	$count = 0;
+      }  
 				}
 			?>
     </div>
