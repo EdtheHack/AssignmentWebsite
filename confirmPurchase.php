@@ -28,9 +28,8 @@ error_reporting ( - 1 );
 	if(isset($_SESSION["user"])){  //checks if user is logged in
 		$user = unserialize($_SESSION["user"]);
 	} else {
-		//echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
+		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
 	}
-	$user = unserialize($_SESSION["user"]);
 ?>
 	<div class="container">
 		<div class="well">
@@ -44,6 +43,35 @@ error_reporting ( - 1 );
 				<div class="col-md-4">
 					<h4><?php echo "Total Price: £".$user->getOrder()->getTotalPrice(); ?></h4>
 				</div>
+			</div>
+			<div class="row">
+				<table class="table table-hover table-responsive">
+					<thead>
+						<tr>
+							<th>Product</th>
+							<th>Price</th>
+							<th>Quantity</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php
+						$products = $user->getOrder()->getProducts();
+						$count = 0;
+						
+						foreach ($products as $product){
+							$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
+							$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
+					?>
+						<tr>
+							<td><?php echo $product->getName()?></td>
+							<td><?php echo "&pound;".$salePrice?></td>
+							<td><?php echo $user->getOrder()->getQuantity($count)?></td>
+						</tr>
+					<?php
+						}
+					?>
+					</tbody>
+				</table>
 			</div>
 			<div class="row">
 				<form method="POST" action="">

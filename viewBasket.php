@@ -57,23 +57,19 @@ error_reporting ( - 1 );
 				<div class="col-md-4">
 					<h4><?php echo "Total Price: £".$user->getOrder()->getTotalPrice(); ?></h4> 
 				</div>
-				<div class="col-md-2">
-					<a href="confirmPurchase.php"><button type="submit" class="btn btn-default "> <b> Confirm Purchase </b> </button></a>
-				</div>
+				<div class="col-md-2"> <?php
+					if ($user->getOrder()->getAmountOfProducts() == 0) { echo "<a href=\"confirmPurchase.php\"><button type=\"submit\" class=\"btn btn-default \"> <b> Confirm Purchase </b> </button></a>"; }
+				?> </div>
 			</div>
 		</div>
 	
 	<?php	
 	
 	$products = $user->getOrder()->getProducts();
-	$quantities = $user->getOrder()->getQuantities();
 	$count = 0;
-	foreach ($products as $product) {
-		$price = $product->getPrice();
-		$percent = $product->getPercentage();
-						
-		$sale_price_tmp = number_format(($price * $percent / 100), 2, '.', '');
-		$sale_price =  number_format(($price - $sale_price_tmp), 2, '.', '');
+	foreach ($products as $product) {				
+		$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
+		$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
 	?>
 
 		<div class="well">
@@ -85,12 +81,12 @@ error_reporting ( - 1 );
 					<h5 class=""><?php if ($product->getPercentage() == 0){
 						echo "<strong> &pound;".$product->getPrice()."</strong>";
 					} else {
-						echo "<strong> Our Price: &pound;".$sale_price."</strong><br>
+						echo "<strong> Our Price: &pound;".$salePrice."</strong><br>
 						RRP: <strike>&pound;".$product->getPrice() ."</strike><br>
-						You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em><br>";
+						You Save: <em>&pound;".$salePriceTmp." (".$percent."&#37;)</em><br>";
 					} ?> </h5> <!-- PLEASE IGNORE HTML ERRORS -->
 					<h4>
-						<a href="#"><?php echo $quantities[$count]." x ".$product->getName(); ?></a>
+						<a href="#"><?php echo $user->getOrder()->getQuantity($count)." x ".$product->getName(); ?></a>
 					</h4>
 					<p> <?php echo $product->getDescription(); ?></p>
 				

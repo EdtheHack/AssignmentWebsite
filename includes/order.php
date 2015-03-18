@@ -21,8 +21,8 @@
 			return $this->products;
 		}
 		
-		public function getQuantities(){
-			return $this->quantities;
+		public function getQuantity($id){
+			return $this->quantities[$id];
 		}
 		
 		public function getAmountOfProducts(){
