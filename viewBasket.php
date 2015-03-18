@@ -58,7 +58,7 @@ error_reporting ( - 1 );
 					<h4><?php echo "Total Price: £".$user->getOrder()->getTotalPrice(); ?></h4> 
 				</div>
 				<div class="col-md-2"> <?php
-					if ($user->getOrder()->getAmountOfProducts() == 0) { echo "<a href=\"confirmPurchase.php\"><button type=\"submit\" class=\"btn btn-default \"> <b> Confirm Purchase </b> </button></a>"; }
+					if ($user->getOrder()->getAmountOfProducts() != 0) { echo "<a href=\"confirmPurchase.php\"><button type=\"submit\" class=\"btn btn-default \"> <b> Confirm Purchase </b> </button></a>"; }
 				?> </div>
 			</div>
 		</div>
