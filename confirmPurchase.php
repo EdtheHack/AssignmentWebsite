@@ -70,6 +70,7 @@ error_reporting ( - 1 );
 								<td><?php echo $user->getOrder()->getQuantity($count)?></td>
 							</tr>
 						<?php
+							$count++;
 							}
 						?>
 						</tbody>
