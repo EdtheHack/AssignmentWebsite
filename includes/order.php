@@ -32,10 +32,10 @@
 		public function getTotalPrice(){
 			$total = 0;
 			foreach ($this->products as $product) {
-				if ($product->getPercent() == 0){
+				if ($product->getPercentage() == 0){
 					$total = $total + $product->getPrice();
 				} else {
-					$salePriceTmp = number_format(($product->getPrice() * $product->getPercent() / 100), 2, '.', '');
+					$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
 					$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
 					$total = $total + $salePrice;
 				}
