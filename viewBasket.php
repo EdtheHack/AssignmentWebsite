@@ -79,11 +79,11 @@ error_reporting ( - 1 );
 				</div>
 				<div class="col-md-6">
 					<h5 class=""><?php if ($product->getPercentage() == 0){
-						echo "<strong> &pound;".$product->getPrice();
+						echo "<strong> &pound;".$product->getPrice()."</strong>";
 					} else {
 						echo "<strong> Our Price: &pound;".$sale_price."</strong><br>
 						RRP: <strike>&pound;".$product->getPrice() ."</strike><br>
-						You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em><br>"
+						You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em><br>";
 					} ?> </h5> <!-- PLEASE IGNORE HTML ERRORS -->
 					<h4>
 						<a href="#"><?php echo $quantities[$count]." X ".$product->getName(); ?></a>
