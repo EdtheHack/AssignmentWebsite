@@ -32,7 +32,13 @@
 		public function getTotalPrice(){
 			$total = 0;
 			foreach ($this->products as $product) {
-				$total = $total + $product->getPrice();
+				if ($product->getPercent() == 0){
+					$total = $total + $product->getPrice();
+				} else {
+					$salePriceTmp = number_format(($product->getPrice() * $product->getPercent() / 100), 2, '.', '');
+					$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
+					$total = $total + $salePrice;
+				}
 			}
 			return $total;
 		}
