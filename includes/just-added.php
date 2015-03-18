@@ -20,8 +20,8 @@
 				
 				
 				$des = $product->getDescription();
-				echo substr( $des, 0, strrpos( substr( $des, 0, 10), ' ' ) );
-				
+				$string = (strlen($des) > 13) ? substr($des,0,10).'...readmore' : $des;
+				echo $string;
 				
 		?>
 		
