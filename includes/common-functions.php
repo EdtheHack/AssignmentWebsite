@@ -360,26 +360,21 @@ function getAllProducts(){
 	return $rows;
 }
 
-/*
-
-function getAllProducts(){
-	
+function getAllCategories(){
 	$mysqli = connect ();
 
-	$products = array();
-	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product" )) {
+	$rows = array();
+
+	if ($stmt = $mysqli->prepare ("SELECT * FROM categories" )) {
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6 );
-	   	while($stmt->fetch()){
-     		$products[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6 );
-    	}
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
+		while($stmt->fetch()){
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
+		}
 		$stmt->close ();
 	}
 	$mysqli->close ();
-	
-	return $products[];
+	return $rows;
 }
-*/
 
 ?>

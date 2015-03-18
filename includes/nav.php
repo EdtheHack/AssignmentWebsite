@@ -6,6 +6,9 @@ error_reporting ( - 1 );
 include ("includes/common-functions.php");
 include ("includes/user.php");
 
+$rows = getAllCategories();
+$count = count($rows);
+
 ?>
 <nav role="navigation" class="navbar navbar-default">
 	<div class="container">
@@ -20,7 +23,7 @@ include ("includes/user.php");
 		</div>
 		<div id="navbarCollapse" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="index.php"><i class="fa fa-home"></i> Home </a></li>
+				<li><a href="index.php"><i class="fa fa-home"></i> Home <?php echo $count ?></a></li>
 				<li><a href="view-all-products.php"><i class="fa fa-square-o"></i> Products </a></li>
                 <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-chevron-down"></i> Categories</a>
