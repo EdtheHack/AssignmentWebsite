@@ -285,30 +285,12 @@ function addQuantityToDb($orderId, $productId, $quantity, $currentQuantity){
 
 function addOrderProductToDb($orderId, $productId, $quantity){
 	$mysqli = connect ();
-	
-	//if ($stmt = $mysqli->prepare ("SELECT quantity FROM order_contents WHERE order_id=? AND product_id=?;")){ 
-	//	$stmt->bind_param ("ii", $orderId, $productId);
-	//	$stmt->execute ();
-	//	$stmt->bind_result($result);
-	//	$stmt->fetch();
-	//	$stmt->close ();
-	//}
-	
-	//if ($result == null) {
+
 		if ($stmt = $mysqli->prepare ("INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){ 
 			$stmt->bind_param ("ssi", $orderId, $productId, $quantity);
 			$stmt->execute ();
 			$stmt->close ();
 		}
-		
-	//} else {
-	//	if ($stmt = $mysqli->prepare ("UPDATE order_contents SET quantity=('".$result."' + '".$quantity."') WHERE order_id=? AND product_id=?")){ 
-	//		$stmt->bind_param ("ii", $orderId, $productId);
-	//		$stmt->execute ();
-	//		$stmt->close ();
-	//	}
-	//}
-	
 	$mysqli->close ();
 }
 
