@@ -40,6 +40,7 @@ error_reporting ( - 1 );
 	
 	if(isset($_POST["removeItemId"])){ 
 		$user->getOrder()->removeProduct($_POST["removeItemId"]);
+		$_SESSION["user"] = serialize($user);
 	}
 
 	?>
