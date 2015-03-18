@@ -47,59 +47,63 @@ include ("nav.php");
 			</div>
   <?php
 	include ("admin-nav.php");
+	
+	if(isset ($_GET['user'])){
+		$user_name = $_GET['user'];
+		
+		$row = listNames($user_name);
+	
+			$name = $row[0][2] ." ".  $row[0][3];
+			$user = new user($row[0][0], $name, $row[0][0], $row[0][10]);
+			$user->additionalConstruct($row[0][1], $row[0][4], $row[0][5], $row[0][6], $row[0][7], $row[0][8], $row[0][9]);	
+			
+		echo $user->getName();
+		
+	}
 				
 
 ?>
     <div class="col-md-9">
-    	<form method="POST" action="">
-							<div class="form-group">
-		    			        <label for="email">Email:</label>
-								<input type="email" class="form-control" id="email" placeholder="Enter email" name="emailRegister"  <?php if(!empty($_POST["emailRegister"])){ echo " value='".$_POST["emailRegister"]."'"; }?>>
-							</div>
-							<div class="form-group">
-		    			        <label for="email">Password:</label>		
-								<input type="password" name="passwordRegister" placeholder="Enter Password" class="form-control" <?php if(!empty($_POST["passwordRegister"])){ echo " value='".$_POST["passwordRegister"]."'"; }?>>
-							</div>
-							<div class="form-group">
-		    			        <label for="email">Retype Password:</label>			
-		    			        <input type="password" name="passwordRegisterCheck" placeholder="Re-Enter Password" class="form-control" <?php if(!empty($_POST["passwordRegisterCheck"])){ echo " value='".$_POST["passwordRegisterCheck"]."'"; }?>>
-							</div>
-							<div class="form-group">
-		    			        <label for="email">First Name:</label>			
-								<input type="text" name="firstName" class="form-control" placeholder="Enter First Name" <?php if(!empty($_POST["firstName"])){ echo " value='".$_POST["firstName"]."'"; }?>>
-							</div>
-							<div class="form-group">
-		    			        <label for="email">Last Name:</label>			
-								<input type="text" name="lastName" class="form-control" placeholder="Enter Last Name" <?php if(!empty($_POST["lastName"])){ echo " value='".$_POST["lastName"]."'"; }?>>
-							</div>
-							<div class="form-group">
-		    			        <label for="email">Address Line 1:</label>	
-								<input type="text" name="addressLine1" class="form-control" placeholder="Enter Address Line 1" <?php if(!empty($_POST["addressLine1"])){ echo " value='".$_POST["addressLine1"]."'"; }?>>
-							</div>
-							<div class="form-group">
-		    			        <label for="email">Address Line 2:</label>	
-								<input type="text" name="addressLine2" class="form-control" placeholder="Enter Address Line 2" <?php if(!empty($_POST["addressLine2"])){ echo " value='".$_POST["addressLine2"]."'"; }?>>
-							</div>
-							<div class="form-group">
-		    			        <label for="email">Postcode :</label>	
-								<input type="text" name="postcode" class="form-control" placeholder="Enter postcode" <?php if(!empty($_POST["postcode"])){ echo " value='".$_POST["postcode"]."'"; }?>>
-							</div>
-							<div class="form-group">
-		    			        <label for="email">Mobile Number:</label>	
-								<input type="text" name="mobileNumber" class="form-control" placeholder="Enter Mobile Number " <?php if(!empty($_POST["mobileNumber"])){ echo " value='".$_POST["mobileNumber"]."'"; }?>>
-							</div>
-							<div class="form-group">
-		    			        <label for="email">Home Number:</label>	
-								<input type="text" name="homeNumber" class="form-control" placeholder="Enter Home Number "  <?php if(!empty($_POST["homeNumber"])){ echo " value='".$_POST["homeNumber"]."'"; }?>>
-							</div>
-										
-							<br>
-							<p style="text-align: center"> <input type="submit" name="attemptRegister" class="btn btn-default" value="Register"></p>
-						</form>
+    	<a href="#"  class="btn btn-default">Reset Password</a>
+    	<a href="#"  class="btn btn-default">Block User</a>
     
-   </div>
-   
-	
+    	<form method="POST" action="">
+			<div class="form-group">
+		        <label for="email">Email:</label>
+				<input type="email" class="form-control" id="email" placeholder="Enter email" name="emailRegister"  <?php if(!empty($_POST["emailRegister"])){ echo " value='".$_POST["emailRegister"]."'"; }?>>
+			</div>
+			<div class="form-group">
+		        <label for="email">First Name:</label>			
+				<input type="text" name="firstName" class="form-control" placeholder="Enter First Name" <?php if(!empty($_POST["firstName"])){ echo " value='".$_POST["firstName"]."'"; }?>>
+			</div>
+			<div class="form-group">
+		        <label for="email">Last Name:</label>			
+				<input type="text" name="lastName" class="form-control" placeholder="Enter Last Name" <?php if(!empty($_POST["lastName"])){ echo " value='".$_POST["lastName"]."'"; }?>>
+			</div>
+			<div class="form-group">
+		        <label for="email">Address Line 1:</label>	
+				<input type="text" name="addressLine1" class="form-control" placeholder="Enter Address Line 1" <?php if(!empty($_POST["addressLine1"])){ echo " value='".$_POST["addressLine1"]."'"; }?>>
+			</div>
+			<div class="form-group">
+		        <label for="email">Address Line 2:</label>	
+				<input type="text" name="addressLine2" class="form-control" placeholder="Enter Address Line 2" <?php if(!empty($_POST["addressLine2"])){ echo " value='".$_POST["addressLine2"]."'"; }?>>
+			</div>
+			<div class="form-group">
+		        <label for="email">Postcode :</label>	
+				<input type="text" name="postcode" class="form-control" placeholder="Enter postcode" <?php if(!empty($_POST["postcode"])){ echo " value='".$_POST["postcode"]."'"; }?>>
+			</div>
+			<div class="form-group">
+		        <label for="email">Mobile Number:</label>	
+				<input type="text" name="mobileNumber" class="form-control" placeholder="Enter Mobile Number " <?php if(!empty($_POST["mobileNumber"])){ echo " value='".$_POST["mobileNumber"]."'"; }?>>
+			</div>
+			<div class="form-group">
+		        <label for="email">Home Number:</label>	
+				<input type="text" name="homeNumber" class="form-control" placeholder="Enter Home Number "  <?php if(!empty($_POST["homeNumber"])){ echo " value='".$_POST["homeNumber"]."'"; }?>>
+			</div>						
+			<br>
+			<p style="text-align: center"> <input type="submit" name="attemptRegister" class="btn btn-default" value="Register"></p>
+		</form>
+    </div>
 </div>
 </body>
 </html>
