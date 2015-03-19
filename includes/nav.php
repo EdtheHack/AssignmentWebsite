@@ -30,7 +30,7 @@ $count = count($rows);
 						for($i = 0; $i < $count; $i ++) {							
 							$name = $rows[$i][1];		
 					?>
-						<li><a href="searchProducts.php?currentPage=1&category=$name"><?php echo $name ?></a></li>
+						<li><a href="searchProducts.php?currentPage=1&category=<?php echo $name; ?>"><?php echo $name ?></a></li>
 					<?php
 						}
 					?>
