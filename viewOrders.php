@@ -34,12 +34,7 @@ error_reporting ( - 1 );
 	<div class="container">
 		<div class="well">
 			<div class="row">
-				<div class="col-md-4">
-					<h4>Orders</h4>
-				</div>
-				<div class="col-md-4">
-					<h4><?php echo $user->getOrder()->getAmountOfProducts()." Products";?></h4>
-				</div>
+				<h4><?php echo $user->getName()."'s Orders";?></h4>
 			</div>
 			<br>
 			<?php
@@ -48,13 +43,14 @@ error_reporting ( - 1 );
 						
 				foreach ($orderIds as $orderId){
 			?>
+			<h4><?php echo "OrderId:".$orderId?></h4>
 			<div class="row">
 				<table class="table table-hover table-responsive">
 					<thead>
 						<tr>
-							<th><?php echo "OrderId:".$orderId?></th>
-							<th></th>
-							<th></th>
+							<th>Product</th>
+							<th>Description</th>
+							<th>Quantity</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -66,7 +62,7 @@ error_reporting ( - 1 );
 						<tr>
 							<td><?php echo $product[1]?></td>
 							<td><?php echo $product[3]?></td>
-							<td><?php echo $product[4]?></td>
+							<td><?php echo $product[8]?></td>
 						</tr>
 					<?php
 						}
