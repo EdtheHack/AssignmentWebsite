@@ -50,7 +50,7 @@ function sanitiseStringPunctuation ($string, $min, $max){ //allows for numbers a
 
 	 $string = trim ($string);
 
-	if (preg_match('/^[A-Z 0-9\'\,.?%-]{'.$min.','.$max.'}\s+', $string)) {
+	if (preg_match('/^[A-Z 0-9\'\,.?%-\s]{'.$min.','.$max.'}$/i', $string)) {
 		return 1;
 	} else {
 		return 0;
