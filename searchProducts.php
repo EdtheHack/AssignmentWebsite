@@ -21,22 +21,13 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	</head>
 <body>
 	
-	<?php
-		include ("includes/nav.php");
-	?>
+	<?php  include ("includes/nav.php"); ?>
+	
 	<div class="container"> 
 
-	  <?php include ("includes/just-added.php"); ?>
+	 <?php include ("includes/just-added.php"); ?>
+	  
     <div class="col-md-9">
-	<?php		
-		$currentPage = $_GET['currentPage'];
-		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
-		$pages = ceil((getAllSearchItems($_SESSION['searchItem']))/5);  //rounds up
-		
-		foreach ($rows as $row) {
-			
-		$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
-	?>
 		<div class="well">
 			<div class="row">
 				<div class="col-md-6">
@@ -46,7 +37,19 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 					<h4><?php echo "Page ".$currentPage." Products";?></h4>
 				</div>
 			</div>
-			<br>
+		</div>
+		
+	<?php		
+		$currentPage = $_GET['currentPage'];
+		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
+		$pages = ceil((getAllSearchItems($_SESSION['searchItem']))/5);  //rounds up
+		
+		foreach ($rows as $row) {
+			
+		$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
+	?>
+		
+		<div class="well">
 			<div class="row">
 				<div class="col-md-3">
                 <a href="viewProduct.php?<?php echo $product->getId(); ?>">
