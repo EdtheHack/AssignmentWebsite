@@ -39,11 +39,11 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	?>
 		<div class="well">
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-6">
 					<h4><?php echo "\"".$_SESSION['searchItem']."\" - ".getAllSearchItems($_SESSION['searchItem'])." Items"; ?></h4>
 				</div>
-				<div class="col-md-3">
-					<h4><?php echo "Page "$currentPage." Products";?></h4>
+				<div class="col-md-6">
+					<h4><?php echo "Page ".$currentPage." Products";?></h4>
 				</div>
 			</div>
 			<br>
