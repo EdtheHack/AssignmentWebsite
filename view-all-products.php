@@ -66,8 +66,9 @@ include ("includes/nav.php");
           </div>
         </div>
         
-        </div> 
-        
+<?php if ($noOfProducts % 3 == 0) { ?>
+					</div>
+				<?php } ?>        
        
       <?php
      
