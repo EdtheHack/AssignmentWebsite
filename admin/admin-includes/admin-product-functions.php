@@ -20,7 +20,7 @@ if(isset($_POST['newProduct'])){
 	$stock = $_POST['newStockQuantity'];
 		
 	if($name != null){
-		if(sanitiseString($name, 1, 100) != 1){  //not cleared
+		if(sanitiseString(2, $name, 1, 100) != 1){  //not cleared
 			$error_array[] = "Name field has illegial chars or is too short/long";
 		}
 	}else{
@@ -40,7 +40,7 @@ if(isset($_POST['newProduct'])){
 	}else
 		
 	if($description != null){
-		if(sanitiseString($description, 20, 1500) != 1){  //not cleared
+		if(sanitiseString(2, $description, 20, 1500) != 1){  //not cleared
 			$error_array[] = "Name field has illegial chars or is too short/long, the description must be between 20 and 1500 chars";
 		}
 	}else{
