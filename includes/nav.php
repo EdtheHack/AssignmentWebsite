@@ -10,58 +10,40 @@ $rows = getAllCategories();
 $count = count($rows);
 
 ?>
+
 <nav role="navigation" class="navbar navbar-default">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" data-target="#navbarCollapse"
-				data-toggle="collapse" class="navbar-toggle">
-				<span class="sr-only">Toggle navigation</span> <span
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" data-target="#navbarCollapse"
+				data-toggle="collapse" class="navbar-toggle"> <span class="sr-only">Toggle navigation</span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a href="index.php" class="navbar-brand"> eShop </a>
-		</div>
-		<div id="navbarCollapse" class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
-				<li><a href="view-all-products.php"><i class="fa fa-square-o"></i> Products </a></li>
-                
-                
-          <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-chevron-down"></i> Categories(<?php echo $count ?>)</a>
+					class="icon-bar"></span> </button>
+      <a href="index.php" class="navbar-brand"> eShop </a> </div>
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="view-all-products.php"><i class="fa fa-square-o"></i> Products </a></li>
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-chevron-down"></i> Categories(<?php echo $count ?>)</a>
           <ul class="dropdown-menu" role="menu">
-          
-          <?php
-		  				for($i = 0; $i < $count; $i ++) {
-							
-							//$categories = array($rows[$i][0]);
-							$name = $rows[$i][1];
-							
+            <?php
+		  		for($i = 0; $i < $count; $i ++) {							
+					$name = $rows[$i][1];		
   ?>
-				<li><a href="#"><?php echo $name ?></a></li>
-                <?php
+            <li><a href="#"><?php echo $name ?></a></li>
+            <?php
 						}
-						?>
-  
+				?>
           </ul>
         </li>
-        
-        
-			</ul>
-            
-            
-			<form method="POST" action="searchProducts.php?currentPage=1" class="navbar-form navbar-left">
-				<div class="form-group">
-					<input type="text" name="searchItem" class="form-control" placeholder="Search" <?php if(!empty($_SESSION["searchItem"])){ echo " value='".$_SESSION["searchItem"]."'"; }?>>
-				</div>
-				<button type="submit" class="btn btn-default">
-					<i class="fa fa-search"></i>
-				</button>
-			</form>
-			<ul class="nav navbar-nav navbar-right">
-					
-				
-					<?php if(isset($_SESSION["user"]) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
+      </ul>
+      <form method="POST" action="searchProducts.php?currentPage=1" class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" name="searchItem" class="form-control" placeholder="Search" <?php if(!empty($_SESSION["searchItem"])){ echo " value='".$_SESSION["searchItem"]."'"; }?>>
+        </div>
+        <button type="submit" class="btn btn-default"> <i class="fa fa-search"></i> </button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <?php if(isset($_SESSION["user"]) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
 					
 						$user = unserialize($_SESSION["user"]);
 						
@@ -96,8 +78,7 @@ $count = count($rows);
 					}
 					
 					?>
-				
-			</ul>
-		</div>
-	</div>
+      </ul>
+    </div>
+  </div>
 </nav>
