@@ -74,7 +74,7 @@ if (isset($_POST['editUser'])){
 	if($homeNo != null){
 		if(sanitisePhone($homeNo) != 1){  //not cleared
 			$error_array[] = "Home Number has illegial chars or is too short/long";
-		}
+		}	
 	}else{
 		$error_array[] = "Home Number field cannot be empty";
 	}
