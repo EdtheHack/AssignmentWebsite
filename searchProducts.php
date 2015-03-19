@@ -76,14 +76,16 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	
 		<ul class="pagination">
 			<?php 
+				$prevPage = $currentPage-1;
+				$nextPage = $currentPage+1;
 				if ($currentPage > 1) {
-					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=".$currentPage-1 ."'>&laquo;</a> </li>"; 
+					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$prevPage'>&laquo;</a> </li>"; 
 				}
 				for ($i = 1; $i <= $pages; $i++) {
 					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$i'>".$i."</a> </li>"; 
 				}
 				if ($currentPage < $pages) {
-					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=".$currentPage+1 ."'>&raquo;</a> </li>";
+					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$nextPage'>&raquo;</a> </li>";
 				}
 			?>
 			<!-- <li><a href="#">&raquo;</a></li> -->
