@@ -76,11 +76,11 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	
 		<ul class="pagination">
 			<?php 
-				echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$i-1'>".&laquo;."</a> </li>"; 
+				echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$i-1'>&laquo;</a> </li>"; 
 				for ($i = 1; $i <= $pages; $i++) {
 					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$i'>".$i."</a> </li>"; 
 				}
-				echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$i+1'>".&raquo;."</a> </li>";
+				echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$i+1'>&raquo;</a> </li>";
 			?>
 			<!-- <li><a href="#">&raquo;</a></li> -->
 		</ul>
