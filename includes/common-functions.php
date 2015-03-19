@@ -284,9 +284,10 @@ function addQuantityToDb($orderId, $productId, $quantity, $currentQuantity){
 
 function purchaseOrder($orderId){
 	$mysqli = connect ();
+	$date = date('Y/m/d');
 	
-	if ($stmt = $mysqli->prepare ("UPDATE `order` SET purchased=1 WHERE order_id=?")){ 
-			$stmt->bind_param ("i", $orderId);
+	if ($stmt = $mysqli->prepare ("UPDATE `order` SET purchased=1, date_purchased=? WHERE order_id=?")){ 
+			$stmt->bind_param ("si", $date, $orderId);
 			$stmt->execute ();
 			$stmt->close ();
 	}

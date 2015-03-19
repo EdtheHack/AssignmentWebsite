@@ -210,9 +210,9 @@ include ("nav.php");
                                           aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                     </button>
-                              <h4 class="modal-title" id="myModalLabel">Product Added Scuessfully</h4>
+                              <h4 class="modal-title" id="myModalLabel">Product Added Successfully</h4>
                         </div>
-                        <div class="modal-body">The producted has now been added to the product catalog, add another or go back to Admin Home
+                        <div class="modal-body">The product has now been added to the product catalogue, add another or go back to Admin Home
                         </div>
                         <div class="modal-footer">
                               <button type="button" class="btn btn-default" onClick="location.href='add-product.php'" VALUE="Refresh">Add Another</button>
