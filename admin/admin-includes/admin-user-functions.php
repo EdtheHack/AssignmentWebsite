@@ -88,20 +88,91 @@ if (isset($_POST['editUser'])){
 	}
 	
 	if($admin == 0 || $admin == 1){
-		echo "admin checked";
 	}else{
 		$error_array[] = "You cnanot input that into the admin field";
 	}
-	
-	echo "chekcing for errors";
-	
+
 	if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
 		echo $error = implode("<br>", $error_array);
 		echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
 		die; //wrong input, do not proceed
 	}else{
-		echo "all good here";
+		updateUser($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin);
+	}	
+}
+
+function updateUser($email,	$fn, $sn, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin){
+	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+	
+	$mysqli = $db_con;
+	
+	$stmt = $mysqli->prepare ( "UPDATE user SET email=?, firstName=?, lastName=?, addressLine1=?, addressLine2=?, 
+			postcode=?, mobileNo=?, homeNo=?, admin=?  WHERE user_id=?" );
+		
+	if ($stmt === false) {
+		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
 	}
 	
-	echo "done";
+	$stmt->bind_param ("ssssssssi", $email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin);
+		
+	if(!($stmt->execute ())){
+		die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+	}
+	
+	$stmt->close ();
+	$mysqli->close ();
+	
+	sendEmail($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin);
+	
+}
+
+
+function sendEmail($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin){
+	require '../PHPMailer/PHPMailerAutoload.php';
+	
+	
+		if ($admin == 1){
+			$admin = "Your account is an admin account";
+		}else{
+			$admin = "";
+		}
+	
+		$email = $_POST['resetEmail'];
+		$characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*_";
+		$password = substr(str_shuffle($characters), 0, 8);  //generate new password
+		if ($email != null){
+			if (checkEmail($email) == 1){
+				$mail = new PHPMailer;
+				$mail->IsSMTP();
+				$mail->Host = "localhost";
+	
+				$mail->setFrom('AdmindoNotReply@password.com', 'Accounts Administrator');
+				$mail->addAddress($email, '');
+				$mail->Subject = "Your Account Details Have been Changed";
+				$mail->isHTML(true);
+				$mail->Body = ('Hi '.$fn.',<br>Your account details have been changed after a Site Adinistrator changed them for you. Please see
+						below the amended account details<br>First Name: '.
+						$fn.'<br>Last Name: '.
+						$ln.'<br>Address Line 1: '.
+						$addr1.'<br>Address Line 2: '.
+						$addr2.'<br>Postcode: '.
+						$postcode.'<brHome Number: >'.
+						$homeNo.'<br>Mobile Number: '.
+						$mobileNo.'<br><br>'.$admin);
+	
+				if(!$mail->Send()) {
+					echo " Mailer Error: " . $mail->ErrorInfo;
+				} else {
+					forgottenPassword($email, $password);
+					echo "<div class=\"alert alert-success\">
+				     		<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+				      		<strong>Success!</strong> Your Password has now been reset, check your emails!
+				   		</div>";
+				}
+			} else {
+				echo "Email does not exist";
+			}
+		} else {
+			echo "Email can not be null";
+		}
 }
