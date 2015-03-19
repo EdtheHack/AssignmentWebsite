@@ -310,12 +310,12 @@ function getPurchasedOrders($userId){
 	
 	$rows = array();
 	
-	if ($stmt = $mysqli->prepare ("SELECT order_id FROM `order` WHERE user_id = ? AND purchased = 1" )){ 
+	if ($stmt = $mysqli->prepare ("SELECT order_id, date FROM `order` WHERE user_id = ? AND purchased = 1" )){ 
 		$stmt->bind_param ("i", $userId);
 		$stmt->execute ();
-		$stmt->bind_result ($id);
+		$stmt->bind_result ($id, $date);
 	   	while($stmt->fetch()) {
-			array_push($rows, $id);
+			$rows[] = array($id,  $date);
     	}
 		$stmt->close ();
 	}

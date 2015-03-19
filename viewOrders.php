@@ -38,13 +38,12 @@ error_reporting ( - 1 );
 			</div>
 			<br>
 			<?php
-				$orderIds = getPurchasedOrders($user->getId());
-				$purchaseDate = "not set yet";
+				$orderIdDates = getPurchasedOrders($user->getId());
 				$count = 0;
 						
-				foreach ($orderIds as $orderId){
+				foreach ($orderIdDates as $orderIdDate){
 			?>
-			<h4><?php echo "OrderId: ".$orderId." - Purchased: ".$purchaseDate;?></h4>
+			<h4><?php echo "OrderId: ".$orderIdDate[0]." - Purchased: ".$orderIdDate[1];?></h4>
 			<div class="row">
 				<table class="table table-hover table-responsive">
 					<thead>
