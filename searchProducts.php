@@ -30,6 +30,7 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	if(isset($_GET['currentPage'])){$currentPage = $_GET['currentPage'];}
 	if(isset($_GET['category'])){
 		$rows = getCategoryItems($_GET['category'], (($currentPage-1)*5));
+		unset($_SESSION['searchItem']);
 	} else {
 		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
 	}
