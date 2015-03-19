@@ -41,8 +41,8 @@ include ("includes/nav.php");
 				$product = new product ($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6], $rows[$i][7], $rows[$i][8]);
 				
 
-				$length = 75;
-				$cut_off = 75;
+				$length = 65;
+				$cut_off = 65;
 				$des = $product->getDescription();
 				$des = (strlen($des) > $length) ? substr($des,0,$cut_off).'...<a href="viewProduct.php?'.$product->getId().'">read more</a>' : $des;
 
