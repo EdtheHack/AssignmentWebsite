@@ -97,23 +97,23 @@ if (isset($_POST['editUser'])){
 		echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
 		die; //wrong input, do not proceed
 	}else{
-		updateUser($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin);
+		updateUser($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin, $user_id);
 	}	
 }
 
-function updateUser($email,	$fn, $sn, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin){
+function updateUser($email,	$fn, $sn, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin, $user_id){
 	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 	
 	$mysqli = $db_con;
 	
 	$stmt = $mysqli->prepare ( "UPDATE user SET email=?, firstName=?, lastName=?, addressLine1=?, addressLine2=?, 
-			postcode=?, mobileNo=?, homeNo=?, admin=?  WHERE user_id=?" );
+			postcode=?, mobileNo=?, homeNo=?, admin=? WHERE user_id=?" );
 		
 	if ($stmt === false) {
 		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
 	}
 	
-	$stmt->bind_param ("ssssssssi", $email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin);
+	$stmt->bind_param ("ssssssssii", $email, $fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin, $user_id);
 		
 	if(!($stmt->execute ())){
 		die('Error : ('. $mysqli->errno .') '. $mysqli->error);
