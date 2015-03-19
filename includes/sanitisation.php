@@ -50,7 +50,7 @@ function sanitiseBasicString ($string, $min, $max){ //only allows for A - Z
 	
 	echo $string = trim ($string);
 	
-	if (preg_match( '/^[A-Z \'.-]{'.$min.','.$max.'}$/i', $string)) { 
+	if (preg_match('/^[A-Z \'.-]{{$min,$max}}$/i', $string)) { 
 		return 1;
 	} else {
 		return 0;
@@ -61,7 +61,7 @@ function sanitiseStringPunctuation ($string, $min, $max){ //allows for numbers a
 
 	echo $string = trim ($string);
 	
-	if (preg_match( '/^[A-Z 0-9\'\,.?-]{'.$min.','.$max.'}$/i', $string)) {
+	if (preg_match('/^[A-Z 0-9\'\,.?-]{'.$min.','.$max.'}$/i', $string)) {
 		return 1;
 	} else {	
 		return 0;
@@ -72,7 +72,7 @@ function sanitiseEmailString ($string, $min, $max){ //allows for numbers and
 
 	$string = trim ($string);
 	
-	if (preg_match( '/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/', $string)) {
+	if (preg_match('/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/', $string)) {
 		return 1;
 	} else {
 		return 0;
