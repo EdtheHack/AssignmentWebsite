@@ -59,17 +59,14 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
                     </a>
 				</div>
 				<div class="col-md-9">
-					<h4 class="pull-right"><?php echo "<strong> Our Price: &pound;".$salePrice."</strong><br>
-															RRP: <strike>&pound;".$product->getPrice() ."</strike><br>
-															You Save: <em>&pound;".$salePriceTmp." (".$product->getPercentage()."&#37;)</em><br>"?></h4> <!-- PLEASE IGNORE HTML ERRORS -->
-					<h4>
-						<a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a>
-					</h4>
+					<h5 class=""><?php if ($product->getPercentage() == 0){
+						echo "<strong> &pound;".$product->getPrice()."</strong>";
+					} else {
+						echo "<strong> Our Price: &pound;".$salePrice."</strong> RRP: <strike>&pound;".$product->getPrice() ."</strike><br>";
+					} ?> </h5> <!-- PLEASE IGNORE HTML ERRORS -->
+					<h4><a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a></h4>
 					<p> <?php echo $product->getDescription(); ?></p>
-				
-					<div class="col-md-6">
-						<a href="viewProduct.php?<?php echo $product->getId(); ?>"><button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default right-margin"><i class="fa fa-eye"></i> <b> View </b> </button></a>	
-					</div>
+					<a href="viewProduct.php?<?php echo $product->getId(); ?>"><button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default right-margin"><i class="fa fa-eye"></i> <b> View </b> </button></a>	
 				</div>
 				<br>
 			</div>
