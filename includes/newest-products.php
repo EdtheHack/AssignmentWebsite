@@ -26,7 +26,9 @@
 							<h4><a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a></h4>
 							<p><?php echo $des ?></p>
 						</div>
-						
+						<div>
+							<a href="viewProduct.php?<?php echo $product->getId(); ?>"><button type="submit" class="btn btn-default"><i class="fa fa-eye"></i> <b> View </b></button></a>
+						</div>
 					</div>
 				</div>
 								
