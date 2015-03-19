@@ -48,7 +48,7 @@ function sanitisePostcode($input){
 	
 	$numbers = array_merge(range(15, 22), range(31, 41));
 	
-	if (preg_match('#^(GIR ?0AA|[A-PR-UWYZ]([0-9]{1,2}|([A-HK-Y][0-9]([0-9ABEHMNPRV-Y])?)|[0-9][A-HJKPS-UW]) ?[0-9][ABD-HJLNP-UW-Z]{2})$#', $input) && substr($input, 0, 2) == 'DN' && in_array(substr($input, 2, 2), $numbers)) {
+	if (preg_match('/^(GIR ?0AA|[A-PR-UWYZ]([0-9]{1,2}|([A-HK-Y][0-9]([0-9ABEHMNPRV-Y])?)|[0-9][A-HJKPS-UW]) ?[0-9][ABD-HJLNP-UW-Z]{2})$/', $input) && substr($input, 0, 2) == 'DN' && in_array(substr($input, 2, 2), $numbers)) {
 		return 1;
 	}else{
 		return 0;
@@ -70,7 +70,7 @@ function sanitiseBasicString ($string, $min, $max){ //only allows for A - Z
 	
 	echo $string = trim ($string);
 	
-	if (preg_match("/^[A-Z \'.-]{2, 100}$/i", $string)) { 
+	if (preg_match("/^[A-Z \'.-]{'.$min.','.$max.'}$/i", $string)) { 
 		return 1;
 	} else {
 		return 0;
