@@ -23,9 +23,10 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 		private $email;
 		private $lastname;
 		
-		public function __construct($id, $name, $currentOrderId, $admin){
+		public function __construct($id, $name, $email, $currentOrderId, $admin){
 			$this->id = $id;
 			$this->name = $name;
+			$this->email = $email;
 			$this->currentOrderId = $currentOrderId;
 			$this->admin = $admin;
 			$this->order = new order($currentOrderId, getCurrentOrderProducts($currentOrderId), 0);
@@ -42,6 +43,12 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 			$this->lastname = $lastname;
 		}
 		
+		public function purchaseCurrentOrder(){
+			purchaseOrder($currentOrderId);
+			addNewUserOrder($id);
+			getCurrentUserOrderId($id);
+			$this->order = new order($newOrderId, getCurrentOrderProducts($newOrderId), 0);
+		}
 		
 		public function getName(){
 			return $this->name;

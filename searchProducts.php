@@ -59,7 +59,7 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
                     </a>
 				</div>
 				<div class="col-md-9">
-					<h5 class=""><?php if ($product->getPercentage() == 0){
+					<h5 class="pull-right"><?php if ($product->getPercentage() == 0){
 						echo "<strong> &pound;".$product->getPrice()."</strong>";
 					} else {
 						echo "<strong> Our Price: &pound;".$salePrice."</strong> RRP: <strike>&pound;".$product->getPrice() ."</strike><br>";

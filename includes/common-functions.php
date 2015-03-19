@@ -283,6 +283,17 @@ function addQuantityToDb($orderId, $productId, $quantity, $currentQuantity){
 	$mysqli->close ();
 }
 
+function purchaseCurrentOrder($orderId){
+	$mysqli = connect ();
+	
+	if ($stmt = $mysqli->prepare ("UPDATE order SET purchased=1 WHERE order_id=?")){ 
+			$stmt->bind_param ("ii", $orderId);
+			$stmt->execute ();
+			$stmt->close ();
+	}
+	$mysqli->close ();
+}
+
 function addOrderProductToDb($orderId, $productId, $quantity){
 	$mysqli = connect ();
 
@@ -292,6 +303,26 @@ function addOrderProductToDb($orderId, $productId, $quantity){
 			$stmt->close ();
 		}
 	$mysqli->close ();
+}
+
+function getPurchasedOrders($user->getId()){
+	$mysqli = connect ();
+	
+	$rows = array();
+	
+	if ($stmt = $mysqli->prepare ("SELECT product.*, order_contents.quantity FROM `product` LEFT JOIN order_contents ON product.product_id = order_contents.product_id   
+									WHERE order_contents.user_id=?" )){ 
+		$stmt->bind_param ("i", $userId);
+		$stmt->execute ();
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8, $col9);
+	   	while($stmt->fetch()) {
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8, $col9);
+    	}
+		$stmt->close ();
+	}
+	$mysqli->close ();
+	
+	return $rows;
 }
 
 function removeOrderProductFromDb($orderId, $productId){

@@ -35,13 +35,10 @@ error_reporting ( - 1 );
 		<div class="well">
 			<div class="row">
 				<div class="col-md-4">
-					<h4><?php echo $user->getName()."'s Basket"; ?></h4>
+					<h4>Orders</h4>
 				</div>
 				<div class="col-md-4">
 					<h4><?php echo $user->getOrder()->getAmountOfProducts()." Products";?></h4>
-				</div>
-				<div class="col-md-4">
-					<h4><?php echo "Total Price: £".$user->getOrder()->getTotalPrice(); ?></h4>
 				</div>
 			</div>
 			<br>
@@ -57,17 +54,15 @@ error_reporting ( - 1 );
 						</thead>
 						<tbody>
 						<?php
-							$products = $user->getOrder()->getProducts();
+							$products = getPurchasedOrders($user->getId());
 							$count = 0;
 							
 							foreach ($products as $product){
-								$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
-								$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
 						?>
 							<tr>
-								<td><?php echo $product->getName()?></td>
-								<td><?php echo "&pound;".$salePrice?></td>
-								<td><?php echo $user->getOrder()->getQuantity($count)?></td>
+								<td><?php echo $product[1]?></td>
+								<td><?php echo $product[3]?></td>
+								<td><?php echo $product[4]?></td>
 							</tr>
 						<?php
 							$count++;
@@ -88,11 +83,9 @@ error_reporting ( - 1 );
 					<?php
 					if(isset($_POST["password"])){  //checks if user is logged in
 						if (validateUser($user->getEmail(), $_POST["password"]) == 1){
-							$user->purchaseCurrentOrder();
-							echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
-						} else {
-							echo "Incorrect Password";
-						}						
+							
+						}
+						echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
 					}
 					?>
 					

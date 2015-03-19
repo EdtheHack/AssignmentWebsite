@@ -7,7 +7,6 @@
 if(isset($_POST['attemptLogin'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
-	$stayLoggedIn = $_POST['stayLoggedIn'];
 	if ($password == null || $email == null){
 		echo "Login details cannot be empty";
 	} else {
@@ -17,15 +16,16 @@ if(isset($_POST['attemptLogin'])){
 			}else{
 				$_SESSION["stayLoggedIn"] = false;
 			}
-
 			
-			$user = new user($_SESSION["userID"], $_SESSION["firstName"], getCurrentUserOrderId($_SESSION["userID"]), $_SESSION["admin"]);
+			if (getCurrentUserOrderId($_SESSION["userID"]) == false){
+				addNewUserOrder($_SESSION["userID"]);
+			}
+			
+			$user = new user($_SESSION["userID"], $_SESSION["firstName"], $_SESSION['email'], getCurrentUserOrderId($_SESSION["userID"]), $_SESSION["admin"]);
 			$_SESSION['user'] = serialize($user);
 			$_SESSION["loggedIn"] = true;
 						
-			if (getCurrentUserOrderId($user->getId()) == false){
-				addNewUserOrder($user->getId());
-			}
+			
 			//$order = new order(getCurrentUserOrderId($user->getId()), getCurrentOrderProducts(getCurrentUserOrderId($user->getId())), 0);
 			//$_SESSION['order'] = serialize($order);
 			
