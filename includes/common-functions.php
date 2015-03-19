@@ -305,7 +305,7 @@ function addOrderProductToDb($orderId, $productId, $quantity){
 	$mysqli->close ();
 }
 
-function getPurchasedOrders($user->getId()){
+function getPurchasedOrders($userId){
 	$mysqli = connect ();
 	
 	$rows = array();
