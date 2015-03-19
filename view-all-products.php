@@ -51,14 +51,16 @@ include ("includes/nav.php");
                 
         <div class="thumbnail"> <a href="viewProduct.php?<?php echo $product->getId(); ?>"> <img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our products" style="width:150px;height:150px"> </a>
           <div class="caption">
-            <h4 class="pull-right">£<?php echo $product->getPrice(); ?></h4>
+
             <h4><a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a></h4>
-            
+            <p><?php echo $des ?></p>
           </div>
           <div> <a href="viewProduct.php?<?php echo $product->getId(); ?>">
             <button type="submit" class="btn btn-default"><i class="fa fa-eye"></i> <b> View </b></button>
             </a>
-            <button type="submit" class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b></button>
+            <button type="submit" class="btn btn-default"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b></button>
+                        <h4 class="pull-right">£<?php echo $product->getPrice(); ?></h4>
+
           </div>
         </div>
            </div>
