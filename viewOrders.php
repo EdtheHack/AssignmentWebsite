@@ -41,7 +41,6 @@ session_start();
 			?>
 			<div class="row">
 			<h4><?php echo "Order Id: ".$orderIdDate[0]." - Purchased: ".$orderIdDate[1];?></h4>
-			<br>
 				<table class="table table-hover table-responsive">
 					<thead>
 						<tr>
