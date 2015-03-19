@@ -49,11 +49,8 @@ include ("includes/nav.php");
 
 				?>
                 <div class="col-md-4">
-                
-                <?php if ($noOfProducts % 3 == 0) { ?>
-					<div class="row">
-				<?php } ?>				
-        <div class="thumbnail"> <a href="viewProduct.php?<?php echo $product->getId(); ?>"> <img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our products" style="width:150px;height:auto"> </a>
+                		
+        <div class="thumbnail"> <a href="viewProduct.php?<?php echo $product->getId(); ?>"> <img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our products" style="width:150px;height:150px"> </a>
           <div class="caption">
             <h4 class="pull-right">£<?php echo $product->getPrice(); ?></h4>
             <h4><a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a></h4>
@@ -66,10 +63,6 @@ include ("includes/nav.php");
           </div>
         </div>
         
-<?php if ($noOfProducts % 3 == 0) { ?>
-					</div>
-				<?php } ?>        
-       
       <?php
      
       }  
