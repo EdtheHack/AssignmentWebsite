@@ -28,6 +28,9 @@ error_reporting ( - 1 );
 	
 	if(isset($_SESSION["user"])){  //checks if user is logged in
 		$user = unserialize($_SESSION["user"]);
+		if ($user->getOrder()->getAmountOfProducts() == 0){
+			echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
+		}
 	} else {
 		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
 	}
