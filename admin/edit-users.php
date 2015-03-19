@@ -146,7 +146,7 @@ if(isset ($_GET['user'])){
   								document.getElementById('isAdmin').value = "<?php  if(!empty($_POST["isAdmin"])){ echo $_POST["isAdmin"]; } else { echo $user->getAdmin();}?>";
 					</script>			
 			<br>
-			<input type="submit" name="editUser" class="btn btn-default" value="Edit User">
+			<button type="submit" name="editUser" class="btn btn-default">Edit User</button>
 		</form>
     </div>
 </div>
