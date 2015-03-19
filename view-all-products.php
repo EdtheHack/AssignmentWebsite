@@ -35,6 +35,7 @@ include ("includes/nav.php");
       <?php
 	    		$rows = getAllProducts();
 	    		$count = 0;
+				$noOfProducts = 0;
 				
 				for($i = 0; $i < count($rows); $i++) {
 				
@@ -49,7 +50,10 @@ include ("includes/nav.php");
 
 				?>
                 <div class="col-md-4">
-                		
+                
+                <?php if ($noOfProducts % 3 == 0) { ?>
+					<div class="row">
+				<?php } ?>				
         <div class="thumbnail"> <a href="viewProduct.php?<?php echo $product->getId(); ?>"> <img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our products" style="width:150px;height:150px"> </a>
           <div class="caption">
             <h4 class="pull-right">£<?php echo $product->getPrice(); ?></h4>
@@ -63,6 +67,10 @@ include ("includes/nav.php");
           </div>
         </div>
         
+<?php if ($noOfProducts % 3 == 0) { ?>
+					</div>
+				<?php } ?>        
+       
       <?php
      
       }  
