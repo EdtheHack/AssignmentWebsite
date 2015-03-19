@@ -101,7 +101,7 @@ if (isset($_POST['editUser'])){
 	}	
 }
 
-function updateUser($email,	$fn, $sn, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin, $user_id){
+function updateUser($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin, $user_id){
 	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 	
 	$mysqli = $db_con;
