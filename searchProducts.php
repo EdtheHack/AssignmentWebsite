@@ -25,7 +25,12 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	
 	<div class="container"> 
 
-	 <?php include ("includes/just-added.php"); ?>
+	<?php 
+	include ("includes/just-added.php"); 
+	$currentPage = $_GET['currentPage'];
+	$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
+	$pages = ceil((getAllSearchItems($_SESSION['searchItem']))/5);  //rounds up
+	?>
 	  
     <div class="col-md-9">
 		<div class="well">
@@ -40,12 +45,7 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 		</div>
 		
 	<?php		
-		$currentPage = $_GET['currentPage'];
-		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
-		$pages = ceil((getAllSearchItems($_SESSION['searchItem']))/5);  //rounds up
-		
 		foreach ($rows as $row) {
-			
 		$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
 	?>
 		
