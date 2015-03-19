@@ -140,7 +140,6 @@ function getCategoryItems($category, $pageIndex){
 	$mysqli = connect ();
 
 		$rows = array();
-		$searchItem = '%'.$searchItem.'%';
 	
 	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN product_categories ON product.product_id = product_categories.product_id   
 									WHERE product_categories.category_id=(SELECT category_id FROM categories WHERE name=?)" )){
