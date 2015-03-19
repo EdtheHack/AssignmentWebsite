@@ -60,17 +60,13 @@ include ("includes/nav.php");
             </a>
             <button type="submit" class="btn btn-default"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b></button>
                         <h4 class="pull-right">£<?php echo $product->getPrice(); ?></h4>
-
-          </div>
         </div>
            </div>
       <?php
-     
-      }  
-				
-			?>
+      } ?>
 
     </div>
+  </div>
   </div>
 </body>
 </html>
