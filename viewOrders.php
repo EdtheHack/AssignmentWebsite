@@ -63,12 +63,15 @@ session_start();
 						</tr>
 					<?php
 						}
-						$count++;
-						}
 					?>
 					</tbody>
 				</table>
 			</div>
+			<?php
+			$count++;
+			}
+			?>
+			<br>
 		</div>
 	</div>
 </body>
