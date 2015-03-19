@@ -43,7 +43,7 @@ error_reporting ( - 1 );
 						
 				foreach ($orderIdDates as $orderIdDate){
 			?>
-			<h4><?php echo "OrderId: ".$orderIdDate[0]." - Purchased: ".$orderIdDate[1];?></h4>
+			<h4><?php echo "Order Id: ".$orderIdDate[0]." - Purchased: ".$orderIdDate[1];?></h4>
 			<div class="row">
 				<table class="table table-hover table-responsive">
 					<thead>
@@ -55,7 +55,7 @@ error_reporting ( - 1 );
 					</thead>
 					<tbody>
 					<?php
-						$products = getOrderProducts($orderId);
+						$products = getOrderProducts($orderIdDate[0]);
 						
 						foreach ($products as $product){
 					?>
