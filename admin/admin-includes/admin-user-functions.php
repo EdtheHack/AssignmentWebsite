@@ -139,39 +139,32 @@ function sendEmail($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobile
 	
 		$characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*_";
 		$password = substr(str_shuffle($characters), 0, 8);  //generate new password
-		if ($email != null){
-			if (checkEmail($email) == 1){
-				$mail = new PHPMailer;
-				$mail->IsSMTP();
-				$mail->Host = "localhost";
+		
+		$mail = new PHPMailer;
+		$mail->IsSMTP();
+		$mail->Host = "localhost";
 	
-				$mail->setFrom('AdmindoNotReply@password.com', 'Accounts Administrator');
-				$mail->addAddress($email, '');
-				$mail->Subject = "Your Account Details Have been Changed";
-				$mail->isHTML(true);
-				$mail->Body = ('Hi '.$fn.',<br>Your account details have been changed after a Site Adinistrator changed them for you. Please see
-						below the amended account details<br>First Name: '.
-						$fn.'<br>Last Name: '.
-						$ln.'<br>Address Line 1: '.
-						$addr1.'<br>Address Line 2: '.
-						$addr2.'<br>Postcode: '.
-						$postcode.'<brHome Number: >'.
-						$homeNo.'<br>Mobile Number: '.
-						$mobileNo.'<br><br>'.$admin);
+		$mail->setFrom('AdmindoNotReply@password.com', 'Accounts Administrator');
+		$mail->addAddress($email, '');
+		$mail->Subject = "Your Account Details Have been Changed";
+		$mail->isHTML(true);
+		$mail->Body = ('Hi '.$fn.',<br>Your account details have been changed after a Site Adinistrator changed them for you. Please see
+				below the amended account details<br>First Name: '.
+				$fn.'<br>Last Name: '.
+				$ln.'<br>Address Line 1: '.
+				$addr1.'<br>Address Line 2: '.
+				$addr2.'<br>Postcode: '.
+				$postcode.'<brHome Number: >'.
+				$homeNo.'<br>Mobile Number: '.
+				$mobileNo.'<br><br>'.$admin);
 	
-				if(!$mail->Send()) {
-					echo " Mailer Error: " . $mail->ErrorInfo;
-				} else {
-					forgottenPassword($email, $password);
-					echo "<div class=\"alert alert-success\">
-				     		<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-				      		<strong>Success!</strong> Your Password has now been reset, check your emails!
-				   		</div>";
-				}
-			} else {
-				echo "Email does not exist";
-			}
+		if(!$mail->Send()) {
+			echo " Mailer Error: " . $mail->ErrorInfo;
 		} else {
-			echo "Email can not be null";
+			forgottenPassword($email, $password);
+			echo "<div class=\"alert alert-success\">
+				<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+				<strong>Success!</strong> Your Password has now been reset, check your emails!
+				</div>";
 		}
 }
