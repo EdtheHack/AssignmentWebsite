@@ -55,6 +55,7 @@ session_start ();
 include ("nav.php");
 
 include ("admin-includes/admin-common.php");
+include ("admin-includes/admin-user-functions.php");
 
 if(isset ($_GET['user'])){
 	$user_id = $_GET['user'];
@@ -83,13 +84,13 @@ if(isset ($_GET['user'])){
     <div id="print_errors"></div>
     
     <div class="well">
-    	<br>
+    	
     	<a href="#"  class="btn btn-default">Reset Password</a>
     	<p class="help-block">Force a password reset and send the user a new passwword via thier account email.</p>
     	<br>
     	<a href="#"  class="btn btn-default">Block User</a>
     	<p class="help-block">Block the users account.</p>
-    	<br>
+    
     </div>
     <br>
     
