@@ -261,7 +261,6 @@ function getProductQuantities($orderId){
 		
 	   	while($stmt->fetch()) {
 			array_push($rows, $quantity);
-			echo "QUANTITY - >".$quantity;
     	}
 		$stmt->close ();
 	
@@ -313,9 +312,9 @@ function getPurchasedOrders($userId){
 	if ($stmt = $mysqli->prepare ("SELECT order_id FROM `order` WHERE user_id = ? AND purchased = 1" )){ 
 		$stmt->bind_param ("i", $userId);
 		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8, $col9);
+		$stmt->bind_result ($id);
 	   	while($stmt->fetch()) {
-			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8, $col9);
+			array_push($rows, $id);
     	}
 		$stmt->close ();
 	}
