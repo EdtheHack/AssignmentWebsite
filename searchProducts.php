@@ -27,8 +27,13 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 
 	<?php 
 	include ("includes/just-added.php"); 
-	$currentPage = $_GET['currentPage'];
-	$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
+	if(isset($_GET['currentPage'])){$currentPage = $_GET['currentPage'];}
+	if(isset($_GET['category'])){
+		$currentPage = $_GET['category'];
+		$rows = getCategoryItems($_SESSION['searchItem'], (($currentPage-1)*5));
+	} else {
+		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
+	}
 	$pages = ceil((getAllSearchItems($_SESSION['searchItem']))/5);  //rounds up
 	?>
 	  

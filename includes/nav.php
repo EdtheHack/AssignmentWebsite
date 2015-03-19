@@ -30,20 +30,20 @@ $count = count($rows);
 						for($i = 0; $i < $count; $i ++) {							
 							$name = $rows[$i][1];		
 					?>
-						<li><a href="#"><?php echo $name ?></a></li>
+						<li><a href="searchProducts.php?currentPage=1&category=$name"><?php echo $name ?></a></li>
 					<?php
 						}
 					?>
 					</ul>
 				</li>
 			</ul>
-		<form method="POST" action="searchProducts.php?currentPage=1" class="navbar-form navbar-left">
-			<div class="form-group">
-				<input type="text" name="searchItem" class="form-control" placeholder="Search" <?php if(!empty($_SESSION["searchItem"])){ echo " value='".$_SESSION["searchItem"]."'"; }?>>
-			</div>
-        <button type="submit" class="btn btn-default"> <i class="fa fa-search"></i> </button>
-		</form>
-		<ul class="nav navbar-nav navbar-right">
+			<form method="POST" action="searchProducts.php?currentPage=1" class="navbar-form navbar-left">
+				<div class="form-group">
+					<input type="text" name="searchItem" class="form-control" placeholder="Search" <?php if(!empty($_SESSION["searchItem"])){ echo " value='".$_SESSION["searchItem"]."'"; }?>>
+				</div>
+				<button type="submit" class="btn btn-default"> <i class="fa fa-search"></i> </button>
+			</form>
+			<ul class="nav navbar-nav navbar-right">
 			<?php 
 				if(isset($_SESSION["user"]) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
 					$user = unserialize($_SESSION["user"]);
