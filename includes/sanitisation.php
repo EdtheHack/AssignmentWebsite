@@ -50,7 +50,7 @@ function sanitiseBasicString ($string, $min, $max){ //only allows for A - Z
 	
 	echo $string = trim ($string);
 	
-	if (preg_match('/^[A-Z \'.-]{{$min,$max}}$/i', $string)) { 
+	if (preg_match('/^[A-Z \'.-]{2, 100}}$/i', $string)) { 
 		return 1;
 	} else {
 		return 0;
