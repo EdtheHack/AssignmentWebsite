@@ -3,14 +3,19 @@
 function sanitiseString ($func_select, $string, $min, $max){
 
 	if($func_select == 1){
+		echo "1";
 		sanitiseBasicString ($string, $min, $max);
 	}else if ($func_select == 2){
+		echo "2";
 		sanitiseStringPunctuation ($string, $min, $max);
 	}else if ($func_select == 3){
+		echo "3";
 		sanitiseEmailString ($string, $min, $max);
 	}else if ($func_select == 4){
+		echo "4";
 		sanitiseLettersNumbers ($string, $min, $max);
 	}else if ($func_select == 5){
+		echo "5";
 		sanitisePostcode ($string);
 	}
 	

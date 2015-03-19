@@ -9,6 +9,8 @@ include ("../includes/sanitisation.php");
 $error_array = array();
 
 if (isset($_POST['editUser'])){
+	
+	echo "edit";
 
 	$email = $_POST['email'];
 	$fn = $_POST['firstName'];
