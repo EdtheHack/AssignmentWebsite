@@ -47,6 +47,8 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	<?php		
 		foreach ($rows as $row) {
 		$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
+		$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
+		$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
 	?>
 		
 		<div class="well">
@@ -57,22 +59,16 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
                     </a>
 				</div>
 				<div class="col-md-9">
-					<h4 class="pull-right">£<?php echo $product->getPrice(); ?></h4>
+					<h4 class="pull-right"><?php echo "<strong> Our Price: &pound;".$salePrice."</strong><br>
+															RRP: <strike>&pound;".$product->getPrice() ."</strike><br>
+															You Save: <em>&pound;".$salePriceTmp." (".$product->getPercentage()."&#37;)</em><br>"?></h4> <!-- PLEASE IGNORE HTML ERRORS -->
 					<h4>
 						<a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a>
 					</h4>
 					<p> <?php echo $product->getDescription(); ?></p>
 				
 					<div class="col-md-6">
-						<!-- <form method="POST" action="viewProduct.php"> -->
-							<a href="viewProduct.php?<?php echo $product->getId(); ?>"><button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button></a>	
-						<!--</form>-->
-					</div>
-					<div class="col-md-6">
-						<form method="POST" action="viewProduct.php">  
-						
-							<button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default pull-right"><i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b> </button>	
-						</form>
+						<a href="viewProduct.php?<?php echo $product->getId(); ?>"><button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default right-margin"><i class="fa fa-eye"></i> <b> View </b> </button></a>	
 					</div>
 				</div>
 				<br>
