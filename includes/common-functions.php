@@ -283,7 +283,7 @@ function addQuantityToDb($orderId, $productId, $quantity, $currentQuantity){
 	$mysqli->close ();
 }
 
-function purchaseCurrentOrder($orderId){
+function purchaseOrder($orderId){
 	$mysqli = connect ();
 	
 	if ($stmt = $mysqli->prepare ("UPDATE order SET purchased=1 WHERE order_id=?")){ 
