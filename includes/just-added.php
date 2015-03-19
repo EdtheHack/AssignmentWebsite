@@ -3,7 +3,6 @@
 		<h3>Biggest Deals</h3>
 		<br>
 		<?php	
-			
 		$rows = getMostDiscounted();
 		
 		for ($i = 0; $i < 3; $i++) {  //loop through most discounted items	
@@ -13,12 +12,11 @@
 				$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
 				$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
 				
-				$length = 75;
-				$cut_off = 75;
+				$cutOff = 75;
 				$des = $product->getDescription();
-				$des = (strlen($des) > $length) ? substr($des,0,$cut_off).'...<a href="viewProduct.php?'.$product->getId().'">read more</a>' : $des;
-				
+				$des = (strlen($des) > $cutOff) ? substr($des,0,$cutOff).'...<a href="viewProduct.php?'.$product->getId().'">read more</a>' : $des;
 		?>	
+		
 			<div class="row">
 				<div class="thumbnail">
                 	<a href="viewProduct.php?<?php echo $product->getId(); ?>">
@@ -28,7 +26,7 @@
 						<h4>
 							<a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a>
 						</h4>
-						<p> <?php echo $des //$product->getDescription(); ?></p>
+						<p> <?php echo $des ?></p>
 						
 						<h5 class=""><?php echo "<strong> Our Price: &pound;".$salePrice."</strong><br>
 															RRP: <strike>&pound;".$product->getPrice() ."</strike><br>
@@ -37,7 +35,7 @@
 					</div>
 				</div>
 			</div>
-		
+			
 		<?php
 		}
 		?>

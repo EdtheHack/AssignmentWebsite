@@ -1,9 +1,5 @@
 <?php
-	session_start();
-	
-	ini_set ( 'display_errors', 1 );
-ini_set ( 'display_startup_errors', 1 );
-error_reporting ( - 1 );
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,8 +39,8 @@ error_reporting ( - 1 );
 						
 				foreach ($orderIdDates as $orderIdDate){
 			?>
-			<h4><?php echo "Order Id: ".$orderIdDate[0]." - Purchased: ".$orderIdDate[1];?></h4>
 			<div class="row">
+			<h4><?php echo "Order Id: ".$orderIdDate[0]." - Purchased: ".$orderIdDate[1];?></h4>
 				<table class="table table-hover table-responsive">
 					<thead>
 						<tr>

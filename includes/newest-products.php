@@ -11,10 +11,9 @@
 					
 					$product = new product ($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6], $rows[$i][7], $rows[$i][8]);
 					
-					$length = 75;
-					$cut_off = 75;
+					$cutOff = 75;
 					$des = $product->getDescription();
-					$des = (strlen($des) > $length) ? substr($des,0,$cut_off).'...<a href="viewProduct.php?'.$product->getId().'">read more</a>' : $des;
+					$des = (strlen($des) > $cutOff) ? substr($des,0,$cutOff).'...<a href="viewProduct.php?'.$product->getId().'">read more</a>' : $des;
 				
 			?> 
 				<div class="col-md-4">
@@ -37,9 +36,6 @@
 			<?php
 				}
 			?>
-					
-				
-		
 		</div>
 	</div>
 </div>
