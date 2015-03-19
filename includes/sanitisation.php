@@ -6,7 +6,7 @@ function sanitiseString ($func_select, $string, $min, $max){
 		echo "1";
 		sanitiseBasicString ($string, $min, $max);
 	}else if ($func_select == 2){
-		echo "2";
+		echo "2" . $string . " ". $min . " ". $max;
 		sanitiseStringPunctuation ($string, $min, $max);
 	}else if ($func_select == 3){
 		echo "3";
