@@ -47,6 +47,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 			purchaseOrder($this->currentOrderId);
 			addNewUserOrder($this->id);
 			$newOrderId = getCurrentUserOrderId($this->id);
+			unset($this->order);
 			$this->order = new order($newOrderId, getCurrentOrderProducts($newOrderId), 0);
 		}
 		
