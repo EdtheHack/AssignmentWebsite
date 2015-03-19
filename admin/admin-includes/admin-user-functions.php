@@ -137,7 +137,6 @@ function sendEmail($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobile
 			$admin = "";
 		}
 	
-		$email = $_POST['resetEmail'];
 		$characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*_";
 		$password = substr(str_shuffle($characters), 0, 8);  //generate new password
 		if ($email != null){
