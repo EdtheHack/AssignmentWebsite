@@ -88,7 +88,7 @@ if (isset($_POST['editUser'])){
 	}
 	
 	if($admin == 0 || $admin == 1){
-		
+		echo "admin checked";
 	}else{
 		$error_array[] = "You cnanot input that into the admin field";
 	}
@@ -96,9 +96,9 @@ if (isset($_POST['editUser'])){
 	echo "chekcing for errors";
 	
 	if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
-		$error = implode("<br>", $error_array);
+		echo $error = implode("<br>", $error_array);
 		echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
-		die; //wrong input, do not proceed
+		//die; //wrong input, do not proceed
 	}else{
 		echo "all good here";
 	}
