@@ -161,7 +161,6 @@ function sendEmail($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobile
 		if(!$mail->Send()) {
 			echo " Mailer Error: " . $mail->ErrorInfo;
 		} else {
-			forgottenPassword($email, $password);
 			echo "<div class=\"alert alert-success\">
 				<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
 				<strong>Success!</strong> Your Password has now been reset, check your emails!
