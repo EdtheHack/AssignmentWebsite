@@ -47,7 +47,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 			purchaseOrder($this->currentOrderId);
 			addNewUserOrder($this->id);
 			$this->currentOrderId = getCurrentUserOrderId($this->id);
-			$this->order = new order($currentOrderId, getOrderProducts($currentOrderId), 0);
+			$this->order = new order($this->currentOrderId, getOrderProducts($this->currentOrderId), 0);
 		}
 		
 		public function getName(){
