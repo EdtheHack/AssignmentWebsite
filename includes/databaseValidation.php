@@ -330,13 +330,13 @@
 	function validateMobileNumber($mobileNumber){
 		$con = connect();
 			
-		if (preg_match( '/^[0-9 \'.-]{2,15}$/i', $mobileNumber)) {
+		if (preg_match( '/^[0-9 \'.-]{11}$/i', $mobileNumber)) {
 			$_SESSION["mobileNumber"] = mysqli_escape_string ($con, $mobileNumber);
 			return 1;
 		} else {
 			echo "<div class=\"alert alert-danger\">
 					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					   		<strong>Error!</strong> Mobile number cannot contain letters and must be longer than 2 characters.
+					   		<strong>Error!</strong> Mobile number cannot contain letters and must 11 characters.
 						</div>";
 			return 0;
 		}
@@ -345,13 +345,13 @@
 	function validateHomeNumber($homeNumber){
 		$con = connect();
 			
-		if (preg_match( '/^[0-9 \'.-]{2,15}$/i', $homeNumber)) {
+		if (preg_match( '/^[0-9 \'.-]{11}$/i', $homeNumber)) {
 			$_SESSION["homeNumber"] = mysqli_escape_string ($con, $homeNumber);
 			return 1;
 		} else {
 			echo "<div class=\"alert alert-danger\">
 					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					   		<strong>Error!</strong> Home number cannot contain letters and must be longer than 2 characters.
+					   		<strong>Error!</strong> Home number cannot contain letters and must be 11 characters.
 						</div>";
 			return 0;
 		}
