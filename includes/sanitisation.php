@@ -106,6 +106,7 @@ function sanitiseListProduct($listProduct){
 }
 
 function sanitisePhone($number){
+	echo "phone";
 	if (preg_match( '/^[0-9 \'.-]{11}$/i', $number)) {
 		return 1;
 	} else {

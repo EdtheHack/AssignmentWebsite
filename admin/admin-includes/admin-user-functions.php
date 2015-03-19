@@ -93,6 +93,8 @@ if (isset($_POST['editUser'])){
 		$error_array[] = "You cnanot input that into the admin field";
 	}
 	
+	echo "chekcing for errors";
+	
 	if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
 		$error = implode("<br>", $error_array);
 		echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
@@ -101,4 +103,5 @@ if (isset($_POST['editUser'])){
 		echo "all good here";
 	}
 	
+	echo "done";
 }
