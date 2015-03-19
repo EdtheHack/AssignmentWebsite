@@ -3,35 +3,30 @@
 function sanitiseString ($func_select, $string, $min, $max){
 
 	if($func_select == 1){
-		echo "1";
 		if(sanitiseBasicString ($string, $min, $max) == 1){
 			return 1;
 		}else{
 			return 0;
 		}
 	}else if ($func_select == 2){
-		echo "2" . $string . " ". $min . " ". $max;
 		if(sanitiseStringPunctuation ($string, $min, $max) == 1){
 			return 1;
 		}else{
 			return 0;
 		}
 	}else if ($func_select == 3){
-		echo "3";
 		if(sanitiseEmailString ($string, $min, $max)== 1){
 			return 1;
 		}else{
 			return 0;
 		}
 	}else if ($func_select == 4){
-		echo "4";
 		if(sanitiseLettersNumbers ($string, $min, $max) == 1){
 			return 1;
 		}else{
 			return 0;
 		}
 	}else if ($func_select == 5){
-		echo "5";
 		if(sanitisePostcode ($string) == 1){
 			return 1;
 		}else{
@@ -53,9 +48,9 @@ function sanitiseBasicString ($string, $min, $max){ //only allows for A - Z
 
 function sanitiseStringPunctuation ($string, $min, $max){ //allows for numbers and
 
-	echo $string = trim ($string);
+	 $string = trim ($string);
 
-	if (preg_match('/^[A-Z 0-9\'\,.?-]{'.$min.','.$max.'}$/i', $string)) {
+	if (preg_match('/^[A-Z 0-9\'\,.?%-]{'.$min.','.$max.'}\s+', $string)) {
 		return 1;
 	} else {
 		return 0;
@@ -64,7 +59,7 @@ function sanitiseStringPunctuation ($string, $min, $max){ //allows for numbers a
 
 function sanitiseLettersNumbers ($string, $min, $max){
 
-	echo $string = trim ($string);
+	 $string = trim ($string);
 
 	if(preg_match('/^[a-zA-Z0-9]{'.$min.','.$max.'}+$/', $string)){
 		return 1;
@@ -75,7 +70,7 @@ function sanitiseLettersNumbers ($string, $min, $max){
 
 function sanitisePostcode($input){
 	
-	echo $input = trim ($input);
+	 $input = trim ($input);
 	//http://webarchive.nationalarchives.gov.uk/+/http://www.cabinetoffice.gov.uk/media/254290/GDS%20Catalogue%20Vol%202.pdf page 11
 	
 	if (preg_match('/^[A-Z 0-9\'\,.-]{7,8}$/i', $input)) {
@@ -84,9 +79,6 @@ function sanitisePostcode($input){
 		return 0;
 	}
 }
-
-
-
 
 
 function sanitiseEmailString ($string, $min, $max){ //allows for numbers and

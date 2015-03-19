@@ -98,7 +98,7 @@ if (isset($_POST['editUser'])){
 	if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
 		echo $error = implode("<br>", $error_array);
 		echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
-		//die; //wrong input, do not proceed
+		die; //wrong input, do not proceed
 	}else{
 		echo "all good here";
 	}

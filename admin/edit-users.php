@@ -55,7 +55,7 @@ session_start ();
 include ("nav.php");
 
 include ("admin-includes/admin-common.php");
-include ("admin-includes/admin-user-functions.php");
+
 
 if(isset ($_GET['user'])){
 	$user_id = $_GET['user'];
@@ -152,6 +152,8 @@ if(isset ($_GET['user'])){
 </div>
 
 <?php 
+	include ("admin-includes/admin-user-functions.php");
+
 	}else{
 		echo "<script type=\"text/javascript\">document.location.href=\"view-users.php\";</script>";
 	}

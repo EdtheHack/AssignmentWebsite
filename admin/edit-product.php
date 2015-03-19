@@ -49,13 +49,6 @@ include ("../includes/sanitation.php");
           })(jQuery);
  </script>  
  
-<!-- <style>
- .borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
-    border: none;
-}
- 
- </style> -->
-
 </head>
 <body>
 <?php
