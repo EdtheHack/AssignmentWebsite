@@ -44,9 +44,9 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 		}
 		
 		public function purchaseCurrentOrder(){
-			purchaseOrder($currentOrderId);
-			addNewUserOrder($id);
-			getCurrentUserOrderId($id);
+			purchaseOrder($this->currentOrderId);
+			addNewUserOrder($this->id);
+			$newOrderId = getCurrentUserOrderId($this->id);
 			$this->order = new order($newOrderId, getCurrentOrderProducts($newOrderId), 0);
 		}
 		
