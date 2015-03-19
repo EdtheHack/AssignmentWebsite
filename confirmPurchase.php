@@ -90,6 +90,7 @@ error_reporting ( - 1 );
 					if(isset($_POST["password"])){  //checks if user is logged in
 						if (validateUser($user->getEmail(), $_POST["password"]) == 1){
 							$user->purchaseCurrentOrder();
+							$_SESSION["user"] = serialize($user);
 							echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
 						} else {
 							echo "Incorrect Password";
