@@ -46,7 +46,7 @@ include ("includes/nav.php");
 				$des = (strlen($des) > $length) ? substr($des,0,$cut_off).'...<a href="viewProduct.php?'.$product->getId().'">read more</a>' : $des;
 
 				?>
-                <div class="col-md-3">
+                <div class="col-md-4">
         <div class="thumbnail"> <a href="viewProduct.php?<?php echo $product->getId(); ?>"> <img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our products" style="width:150px;height:auto"> </a>
           <div class="caption">
             <h4 class="pull-right">£<?php echo $product->getPrice(); ?></h4>
