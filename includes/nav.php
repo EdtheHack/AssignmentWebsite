@@ -72,7 +72,7 @@ $count = count($rows);
 						class=\"dropdown-toggle\" href=\"#\"><i class=\"fa fa-wrench\"></i> ".$user->getName()."'s   
 						 Account <b class=\"caret\"></b></a>
 						<ul role=\"menu\" class=\"dropdown-menu\">
-						<li><a href=\"#\">Orders</a></li>
+						<li><a href=\"viewOrders.php\">Orders</a></li>
 						<li><a href=\"change-account-details.php\">Account Settings</a></li>
 						<li><a href=\"viewBasket.php\">Basket</a></li>
 						</ul></li>" ;
