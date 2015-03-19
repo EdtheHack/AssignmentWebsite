@@ -23,7 +23,7 @@ function sanitiseString ($func_select, $string, $min, $max){
 
 function sanitisePostcode($input){
 	
-	$input = $trim ($input);
+	$input = trim ($input);
 	//http://webarchive.nationalarchives.gov.uk/+/http://www.cabinetoffice.gov.uk/media/254290/GDS%20Catalogue%20Vol%202.pdf page 11
 	
 	$numbers = array_merge(range(15, 22), range(31, 41));
@@ -37,7 +37,7 @@ function sanitisePostcode($input){
 
 function sanitiseLettersNumbers ($string, $min, $max){
 	
-	$string = $trim ($string);
+	$string = trim ($string);
 	
 	if(preg_match("/^[a-zA-Z0-9]{'.$min.','.$max.'}+$/", $string)){
 		return 1;
@@ -48,7 +48,7 @@ function sanitiseLettersNumbers ($string, $min, $max){
 
 function sanitiseBasicString ($string, $min, $max){ //only allows for A - Z
 	
-	$string = $trim ($string);
+	$string = trim ($string);
 	
 	if (preg_match( '/^[A-Z \'.-]{'.$min.','.$max.'}$/i', $string)) { 
 		return 1;
@@ -59,7 +59,7 @@ function sanitiseBasicString ($string, $min, $max){ //only allows for A - Z
 
 function sanitiseStringPunctuation ($string, $min, $max){ //allows for numbers and 
 
-	$string = $trim ($string);
+	$string = trim ($string);
 	
 	if (preg_match( '/^[A-Z 0-9\'\,.?-]{'.$min.','.$max.'}$/i', $string)) {
 		return 1;
@@ -70,7 +70,7 @@ function sanitiseStringPunctuation ($string, $min, $max){ //allows for numbers a
 
 function sanitiseEmailString ($string, $min, $max){ //allows for numbers and
 
-	$string = $trim ($string);
+	$string = trim ($string);
 	
 	if (preg_match( '/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/', $string)) {
 		return 1;
