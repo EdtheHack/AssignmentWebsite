@@ -24,10 +24,6 @@ if(isset($_POST['attemptLogin'])){
 			$user = new user($_SESSION["userID"], $_SESSION["firstName"], $_SESSION['email'], getCurrentUserOrderId($_SESSION["userID"]), $_SESSION["admin"]);
 			$_SESSION['user'] = serialize($user);
 			$_SESSION["loggedIn"] = true;
-						
-			
-			//$order = new order(getCurrentUserOrderId($user->getId()), getCurrentOrderProducts(getCurrentUserOrderId($user->getId())), 0);
-			//$_SESSION['order'] = serialize($order);
 			
 			if ($_SESSION['suggestReset'] == true){
 				echo "<script type=\"text/javascript\">document.location.href=\"suggestResetPassword.php\";</script>";
