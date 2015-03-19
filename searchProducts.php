@@ -32,13 +32,21 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 		$currentPage = $_GET['currentPage'];
 		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
 		$pages = ceil((getAllSearchItems($_SESSION['searchItem']))/5);  //rounds up
-		echo getAllSearchItems($_SESSION['searchItem']);
+		
 		foreach ($rows as $row) {
 			
 		$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
 	?>
-	
 		<div class="well">
+			<div class="row">
+				<div class="col-md-3">
+					<h4><?php echo "\"".$_SESSION['searchItem']."\" - ".getAllSearchItems($_SESSION['searchItem'])." Items"; ?></h4>
+				</div>
+				<div class="col-md-3">
+					<h4><?php echo "Page "$currentPage." Products";?></h4>
+				</div>
+			</div>
+			<br>
 			<div class="row">
 				<div class="col-md-3">
                 <a href="viewProduct.php?<?php echo $product->getId(); ?>">
