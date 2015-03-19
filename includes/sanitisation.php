@@ -78,9 +78,7 @@ function sanitisePostcode($input){
 	echo $input = trim ($input);
 	//http://webarchive.nationalarchives.gov.uk/+/http://www.cabinetoffice.gov.uk/media/254290/GDS%20Catalogue%20Vol%202.pdf page 11
 	
-	$numbers = array_merge(range(15, 22), range(31, 41));
-	
-	if (preg_match('/^(GIR ?0AA|[A-PR-UWYZ]([0-9]{1,2}|([A-HK-Y][0-9]([0-9ABEHMNPRV-Y])?)|[0-9][A-HJKPS-UW]) ?[0-9][ABD-HJLNP-UW-Z]{2})$/', $input) && substr($input, 0, 2) == 'DN' && in_array(substr($input, 2, 2), $numbers)) {
+	if (preg_match('/^[A-Z 0-9\'\,.-]{7,8}$/i', $input)) {
 		return 1;
 	}else{
 		return 0;
