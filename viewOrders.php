@@ -39,11 +39,12 @@ error_reporting ( - 1 );
 			<br>
 			<?php
 				$orderIds = getPurchasedOrders($user->getId());
+				$purchaseDate = "not set yet";
 				$count = 0;
 						
 				foreach ($orderIds as $orderId){
 			?>
-			<h4><?php echo "OrderId:".$orderId?></h4>
+			<h4><?php echo "OrderId: ".$orderId." - Purchased: ".$purchaseDate;?></h4>
 			<div class="row">
 				<table class="table table-hover table-responsive">
 					<thead>
@@ -62,7 +63,7 @@ error_reporting ( - 1 );
 						<tr>
 							<td><?php echo $product[1]?></td>
 							<td><?php echo $product[3]?></td>
-							<td><?php echo $product[8]?></td>
+							<td><?php echo $product[9]?></td>
 						</tr>
 					<?php
 						}
