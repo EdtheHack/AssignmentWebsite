@@ -5,6 +5,8 @@ error_reporting ( - 1 );
 
 	include ("../includes/common-functions.php");
 
+$rows = getAllCategories();
+$count = count($rows);
 
 ?>
 <nav role="navigation" class="navbar navbar-default">
@@ -22,6 +24,18 @@ error_reporting ( - 1 );
 			<ul class="nav navbar-nav">
 				<li><a href="../index.php"><i class="fa fa-home"></i> Home </a></li>
 				<li><a href="../view-all-products.php"><i class="fa fa-square-o"></i> Products </a></li>
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-chevron-down"></i> Categories(<?php echo $count ?>)</a>
+          <ul class="dropdown-menu" role="menu">
+            <?php
+		  		for($i = 0; $i < $count; $i ++) {							
+					$name = $rows[$i][1];		
+  ?>
+            <li><a href="#"><?php echo $name ?></a></li>
+            <?php
+						}
+				?>
+          </ul>
+        </li>
 			</ul>
 			<form method="POST" action="searchProducts.php?currentPage=1" class="navbar-form navbar-left">
 				<div class="form-group">
