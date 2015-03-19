@@ -118,24 +118,6 @@ function getSimilarItems($productId){  //NEEDS WORK
 	return $rows;
 }
 
-function getAllSearchItems($searchItem){  //NEEDS WORK
-	$mysqli = connect ();
-	
-		$rows = array();
-		$searchItem = '%'.$searchItem.'%';
-	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) LIKE UPPER (?) OR UPPER (description) LIKE UPPER (?)")) {
-		$stmt->bind_param ("ss", $searchItem, $searchItem);
-		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
-	   	while($stmt->fetch()) {
-			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8);
-    	}
-		$stmt->close ();
-	}
-	$mysqli->close ();
-	return count($rows);
-}
 function getCategoryItems($category, $pageIndex){
 	$mysqli = connect ();
 
