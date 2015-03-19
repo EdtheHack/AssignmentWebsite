@@ -41,7 +41,7 @@ include ("nav.php");
 		<div class="col-md-12">
 			<div class="row">
 				<div class="jumbotron">
-					<h2>View/Edit Products <small> A complete list of all produts, across the store.</small>
+					<h2>View/Edit Customers <small> A collection of all users with accounts with the store.</small>
 					</h2>
 				</div>
 			</div>
