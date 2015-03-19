@@ -58,7 +58,7 @@ function sanitiseStringPunctuation ($string, $min, $max){ //allows for numbers a
 
 function sanitiseEmailString ($string, $min, $max){ //allows for numbers and
 
-	if (preg_match( '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$', $string)) {
+	if (preg_match( '/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/', $string)) {
 		return 1;
 	} else {
 		return 0;
