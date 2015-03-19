@@ -219,7 +219,7 @@ function addNewUserOrder($userId){
 	$mysqli->close ();
 }
 	
-function getCurrentOrderProducts($orderId){
+function getOrderProducts($orderId){
 	$mysqli = connect ();
 	
 	$rows = array();
@@ -310,8 +310,7 @@ function getPurchasedOrders($userId){
 	
 	$rows = array();
 	
-	if ($stmt = $mysqli->prepare ("SELECT product.*, order_contents.quantity FROM `product` LEFT JOIN order_contents ON product.product_id = order_contents.product_id   
-									WHERE order_contents.user_id=?" )){ 
+	if ($stmt = $mysqli->prepare ("SELECT order_id FROM `order` WHERE user_id = ? AND purchased = 1" )){ 
 		$stmt->bind_param ("i", $userId);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8, $col9);

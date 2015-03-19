@@ -42,54 +42,39 @@ error_reporting ( - 1 );
 				</div>
 			</div>
 			<br>
+			<?php
+				$orderIds = getPurchasedOrders($user->getId());
+				$count = 0;
+						
+				foreach ($orderIds as $orderId){
+			?>
 			<div class="row">
-				<div class="col-md-6">
-					<table class="table table-hover table-responsive">
-						<thead>
-							<tr>
-								<th>Product</th>
-								<th>Price</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-						<?php
-							$products = getPurchasedOrders($user->getId());
-							$count = 0;
-							
-							foreach ($products as $product){
-						?>
-							<tr>
-								<td><?php echo $product[1]?></td>
-								<td><?php echo $product[3]?></td>
-								<td><?php echo $product[4]?></td>
-							</tr>
-						<?php
-							$count++;
-							}
-						?>
-						</tbody>
-					</table>
-				</div>
-				<div class="col-md-6">
-					<p> Confirm your password to buy </p>
-					<form method="POST" action="">
-						<div class="form-group"> 
-							<input type="password" name="password" class="form-control" placeholder="Password" <?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>		
-							<br>
-							<p style="float: right"> <input type="submit" name="confirm" class="btn btn-default" value="Confirm"> <a data-toggle="tab" href="#" id="btn-next" ><input class="btn btn-default" value="Forgotten Password"></a></p>
-						</div>
-					</form>
+				<table class="table table-hover table-responsive">
+					<thead>
+						<tr>
+							<th><?php echo "OrderId:".$orderId?></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
 					<?php
-					if(isset($_POST["password"])){  //checks if user is logged in
-						if (validateUser($user->getEmail(), $_POST["password"]) == 1){
-							
-						}
-						echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
-					}
+						$products = getOrderProducts($orderId);
+						
+						foreach ($products as $product){
 					?>
-					
-				</div>
+						<tr>
+							<td><?php echo $product[1]?></td>
+							<td><?php echo $product[3]?></td>
+							<td><?php echo $product[4]?></td>
+						</tr>
+					<?php
+						}
+						$count++;
+						}
+					?>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
