@@ -68,6 +68,7 @@ session_start();
 					</tbody>
 				</table>
 			</div>
+			<br>
 		</div>
 	</div>
 </body>
