@@ -2,28 +2,19 @@
 session_start ();
   
 include '../includes/databaseValidation.php';
-/*include ("../includes/common-functions.php");
 
- if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
- 	if (($_SESSION["loggedIn"] == true) && ($_SESSION["adminChecked"] == true)){
-  		echo "<script type=\"text/javascript\">document.location.href=\"confirm-admin.php\";</script>";
-  	} else {
-  		$twostep = false; //initilise
-  		$_SESSION["adminChecked"] = $twostep;
-  	}
-  }else{
-  	echo "<script type=\"text/javascript\">document.location.href=\"../index.php\";</script>";
+include ("../includes/common-functions.php");
+
+if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
+	if (($_SESSION["loggedIn"] == true) && ($_SESSION["adminChecked"] == true)){
+			
+	} else {
+		echo "<script type=\"text/javascript\">document.location.href=\"confirm-admin.php\";</script>";
 	}
- /*
-  if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1 && ($_SESSION["adminChecked"] == true){
-  //admin is logged in
-  }else{
-  echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
-  //FORCE USER TO LOG IN OR NOT ADMIN, IF LOGGED IN AND NOT ADMIN THEN THE LOGIN PAGE WILL SEND TO INDEX
-  //(bit scrubby)
- }
- 
- */
+}else{
+	echo "<script type=\"text/javascript\">document.location.href=\"../index.php\";</script>";
+}
+
 
 ?>
 

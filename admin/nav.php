@@ -3,18 +3,7 @@ ini_set ( 'display_errors', 1 );
 ini_set ( 'display_startup_errors', 1 );
 error_reporting ( - 1 );
 
-	include ("../includes/common-functions.php");
 	
-	if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
-		if (($_SESSION["loggedIn"] == true) && ($_SESSION["adminChecked"] == true)){
-			
-		} else {
-			echo "<script type=\"text/javascript\">document.location.href=\"confirm-admin.php\";</script>";
-		}
-	}else{
-		echo "<script type=\"text/javascript\">document.location.href=\"../index.php\";</script>";
-	}
-
 $rows = getAllCategories();
 $count = count($rows);
 
