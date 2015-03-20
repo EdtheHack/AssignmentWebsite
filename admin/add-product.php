@@ -128,10 +128,9 @@ include ("nav.php");
           <?php
 			include ($_SERVER ['DOCUMENT_ROOT'] . '/dbconn.php');
 																			
-				if ($stmt = $db_con->prepare ( "SELECT name FROM categories ORDER BY category_id ASC" )) {
+				if ($stmt = $db_con->prepare ( "SELECT category_id, name FROM categories ORDER BY category_id ASC" )) {
 					$stmt->execute ();
-					$stmt->bind_result ( $category_name );
-					$id = 1;
+					$stmt->bind_result ($category_id, $category_name );
 					$tr_count = 0;
 					while ( $stmt->fetch () ) {
 																			
@@ -141,11 +140,9 @@ include ("nav.php");
 					$tr_count = 0;
 				}
 																					
-				echo ' <td><div class="checkbox"><label><input type="checkbox" name="categories[]" value="' . $id . '"/>' . $category_name . '</label></div</td>' . "";
+				echo ' <td><div class="checkbox"><label><input type="checkbox" name="categories[]" value="' . $category_id . '"/>' . $category_name . '</label></div</td>' . "";
 																					
 				$tr_count ++;
-																					
-				$id ++;
 			}
 			$stmt->close ();
 		}

@@ -156,7 +156,7 @@ include ("nav.php");
 				if ($stmt = $db_con->prepare ( "SELECT category_id, name FROM categories ORDER BY category_id ASC" )) {
 					$stmt->execute ();
 					$stmt->bind_result ( $category_id, $category_name );
-					$id = 1;
+					//$id = 1;
 					$tr_count = 0;
 					while ( $stmt->fetch () ) {
 																			
@@ -172,10 +172,10 @@ include ("nav.php");
 							$check = "";
 						}
 							
-						echo ' <td><div class="checkbox"><label><input type="checkbox" name="categories[]" value="' . $id . '" '.$check.'>' . $category_name . '</label></div</td>' . "";
+						echo ' <td><div class="checkbox"><label><input type="checkbox" name="categories[]" value="' . $category_id . '" '.$check.'>' . $category_name . '</label></div</td>' . "";
 																					
 						$tr_count ++;															
-						$id ++;
+						//$id ++;
 					}
 					$stmt->close ();
 				}
