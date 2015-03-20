@@ -88,13 +88,13 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 				$prevPage = $currentPage-1;
 				$nextPage = $currentPage+1;
 				if ($currentPage > 1) {
-					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$prevPage".if(isset($_GET['category'])){ echo "&category="$_GET['category'];."'>&laquo;</a> </li>"; 
+					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$prevPage".if(isset($_GET['category'])){ echo "&category="$_GET['category'];}."'>&laquo;</a> </li>"; 
 				}
 				for ($i = 1; $i <= $pages; $i++) {
-					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$i".if(isset($_GET['category'])){ echo "&category="$_GET['category'];."'>".$i."</a> </li>"; 
+					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$i".if(isset($_GET['category'])){ echo "&category="$_GET['category'];}."'>".$i."</a> </li>"; 
 				}
 				if ($currentPage < $pages) {
-					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$nextPage".if(isset($_GET['category'])){ echo "&category="$_GET['category'];."'>&raquo;</a> </li>";
+					echo " <li><a href='{$_SERVER['PHP_SELF']}?currentPage=$nextPage".if(isset($_GET['category'])){ echo "&category="$_GET['category'];}."'>&raquo;</a> </li>";
 				}
 			?>
 			<!-- <li><a href="#">&raquo;</a></li> -->
