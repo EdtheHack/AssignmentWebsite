@@ -18,7 +18,7 @@ $count = count($rows);
 				<span class="icon-bar"></span> <span class="icon-bar"></span> 
 				<span class="icon-bar"></span> 
 			</button>
-			<a href="index.php" class="navbar-brand"> eShop </a> 
+			<a href="index.php" class="navbar-brand"> NutzAndBoltz </a> 
 		</div>
 		<div id="navbarCollapse" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
