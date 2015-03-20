@@ -16,27 +16,27 @@ $count = count($rows);
 				<span class="icon-bar"></span> <span class="icon-bar"></span> 
 				<span class="icon-bar"></span> 
 			</button>
-			<a href="index.php" class="navbar-brand"> NutzAndBoltz </a> 
+			<a href="../index.php" class="navbar-brand"> NutzAndBoltz </a> 
 		</div>
 		<div id="navbarCollapse" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
+				<li><a href="../index.php"><i class="fa fa-home"></i> Home</a></li>
 				<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-chevron-down"></i> Our Products</a>
 					<ul class="dropdown-menu" role="menu">
-					<li><a href="view-all-products.php">View All Products </a></li>
+					<li><a href="../view-all-products.php">View All Products </a></li>
 					<li class="divider"></li>
             <?php
 		  		for($i = 0; $i < $count; $i ++) {							
 					$name = $rows[$i][1];		
   ?>
-            <li><a href="#"><?php echo $name ?></a></li>
+            <li><a href="../searchProducts.php?currentPage=1&category="><?php echo $name ?></a></li>
             <?php
 						}
 				?>
           </ul>
         </li>
 			</ul>
-			<form method="POST" action="searchProducts.php?currentPage=1" class="navbar-form navbar-left">
+			<form method="POST" action="../searchProducts.php?currentPage=1" class="navbar-form navbar-left">
 				<div class="form-group">
 					<input type="text" name="searchItem" class="form-control" placeholder="Search" <?php if(!empty($_SESSION["searchItem"])){ echo " value='".$_SESSION["searchItem"]."'"; }?>>
 				</div>
@@ -67,6 +67,7 @@ $count = count($rows);
 						</ul></li>" ;
 					
 						if(checkAdmin() == 1){ //check for admin user 
+							$_SESSION["adminChecked"];
 							echo "<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"index.php\" style=\"color: blue;\" ><i class=\"fa fa-cogs\"></i> <b> Admin Panel </b></a></li></ul>";
 						}
 					
