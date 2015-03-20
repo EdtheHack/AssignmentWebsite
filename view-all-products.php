@@ -52,7 +52,7 @@ session_start ();
 							<h4><a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a></h4>
 							<p><?php echo $des ?></p>
 						</div>
-						<span class="pull-right"></span><h5><?php if ($product->getPercentage() == 0){
+						<span class="pull-right"><h5><?php if ($product->getPercentage() == 0){
 							echo "<strong> &pound;".$product->getPrice()."</strong>";
 						} else {
 							$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
