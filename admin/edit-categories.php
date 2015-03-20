@@ -47,8 +47,8 @@ include ("../includes/sanitation.php");
                   }
               });
           })(jQuery);
- </script>  
- 
+ </script>
+
 </head>
 <body>
 <?php
@@ -67,200 +67,82 @@ include ("nav.php");
 			</div>
 
      <?php
-		include ("admin-nav.php");
+					include ("admin-nav.php");
 					
-
-		$pageId = $_SERVER[ 'QUERY_STRING' ];
-
-		if($pageId == ""){
-			echo "<script type=\"text/javascript\">document.location.href=\"view-products.php\";</script>";
-		}
-		
-		$row = getPage($pageId);
-					
-		$product = new product ( $row [0], $row [1], $row [2], $row [3], $row[4], $row[5], $row[6], $row[7], $row[8] );
-						
-		?>
+					?>
      <div class="col-md-9">
 				<br>
 				<div id="print_errors"></div>
 				<br>
-				<form method="POST" action="" enctype="multipart/form-data">
-					<div class="form-group">
-						<label for="newProductName">Product Name</label> <input
-							type="text" class="form-control" name="newProductName"
-							placeholder="Enter product name"
-							<?php if(!empty($_POST["newProductName"])){ echo " value='".$_POST["newProductName"]."'"; } else { echo  " value='".$product->getName()."'";} ?>>
-					</div>
-					<div class="form-group col-md-6">
-						<label for="newProductPrice">Price (£)</label> <input type="text"
-							class="form-control" size="20" id="newProductPRice"
-							name="newProductPrice" placeholder="Enter product price"
-							<?php if(!empty($_POST["newProductPrice"])){ echo " value='".$_POST["newProductPrice"]."'"; } else { echo  " value='".$product->getPrice()."'";} ?>>
-					</div>
-					<div class="form-group col-md-6">
-						<label for="newProductDiscount">Select discount (optional):</label>
-						<select class="form-control" name="newProductDiscount"
-							id="newProductDiscount">
-							<option>0</option>
-							<option>5</option>
-							<option>10</option>
-							<option>15</option>
-							<option>20</option>
-							<option>25</option>
-							<option>40</option>
-							<option>50</option>
-							<option>75</option>
-						</select>
+				<ul class="nav nav-tabs" id="myTab">
+					<li class="active"><a data-toggle="tab" href="#sectionA">Sign In</a></li>
+					<li><a data-toggle="tab" href="#sectionB">Create a Category</a></li>
+					<li><a data-toggle="tab" href="#sectionC">Remove Categories</a></li>
+				</ul>
+				<div class="tab-content">
+					<div id="sectionA" class="tab-pane fade in active">
+						<div>
+							<h3>Add a Category</h3>
 
-					</div>
-					
-					<script type="text/javascript">
-  								document.getElementById('newProductDiscount').value = "<?php if(!empty($_POST["newProductDiscount"])){ 
-  									echo $_POST["newProductDiscount"]; } else { echo $product->getPercentage();} ?>";
-					</script>
-						
-					<div class="form-group">
-						<label for="productDescription">Description</label>
-						<textarea class="form-control" rows="5"
-							name="newProductDescription"><?php if(!empty($_POST["newProductDescription"])){ echo "".$_POST["newProductDescription"].""; } else { echo  $product->getDescription();} ?>
-</textarea>
-					</div>
-					<div class="form-group">
-						<hr>
-						<label for="productCategories">Associated Product Categories</label>
-						<div class="table-responsive">
-							<table class="table borderless">
-								<tbody>
-									<tr>
-            <?php
-			include ($_SERVER ['DOCUMENT_ROOT'] . '/dbconn.php');
-					
-
-			$cat = array();
-			
-			if ($stmt = $db_con->prepare ( "SELECT category_id FROM product_categories WHERE product_id=?" )) {
-				$stmt->bind_param ("i", $pageId);
-				$stmt->execute ();
-				$stmt->bind_result ( $category_name );
-
-				while ( $stmt->fetch ()) {	
-					array_push($cat, $category_name);
-				}
-				$stmt->close ();
-			}	
-			
-			$cat = array_reverse($cat);
-			
-			
-				if ($stmt = $db_con->prepare ( "SELECT category_id, name FROM categories ORDER BY category_id ASC" )) {
-					$stmt->execute ();
-					$stmt->bind_result ( $category_id, $category_name );
-					$id = 1;
-					$tr_count = 0;
-					while ( $stmt->fetch () ) {
-																			
-						if ($tr_count == 5) {
-						echo '</tr>';
-						echo '<tr>';
-						$tr_count = 0;
-						}
-						
-						if (in_array($category_id, $cat)) {
-							$check = "checked";
-						}else{
-							$check = "";
-						}
-							
-						echo ' <td><div class="checkbox"><label><input type="checkbox" name="categories[]" value="' . $id . '" '.$check.'>' . $category_name . '</label></div</td>' . "";
-																					
-						$tr_count ++;															
-						$id ++;
-					}
-					$stmt->close ();
-				}
-				$db_con->close ();
-			?>
-               								
-								</tbody>
-							</table>
+							<form method="POST" action="" enctype="multipart/form-data">
+								<div class="form-group">
+									<label for="newProductName">Category Name</label> <input
+										type="text" class="form-control" name="newCategoryName"
+										placeholder="Enter product name"
+										<?php if(!empty($_POST["newCategoryName"])){ echo " value='".$_POST["newCategoryName"]."'"; } ?>>
+								</div>
+								<button type="submit" name="newCategory" class="btn btn-default">Create Cetegory</button>
+							</form>
+							<br>
 						</div>
-						<hr>
 					</div>
-
-
-				<div class="col-md-6">
-					<div class="form-group">
-						<label for="newProductImage">Product Image</label> <br> 
-						<input type="file" name="photo" >
-						<p class="help-block">Please upload an image of the product here.</p>
-						<p class="help-block">NOTE: By not uploading another photo by clicking browse, the current photo below will be kept as the desired product photo in the catelogue.</p>						
+					<div id="sectionB" class="tab-pane fade">
+						<h3>Remove Categories</h3>
+						<br>
+						<table class="table table-hover table-responsive">
+							<thead>
+								<tr>
+									<th>Category ID</th>
+									<th>Category Name</th>
+									<th>Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>Memory</td>
+									<td><a href"myModal" data-toggle="modal" data-target="#myModal">Delete</a></td>
+								</tr>
+							</tbody>
+						</table>
+						
 					</div>
 				</div>
-				<div class="col-md-6">
-					<label for="newProductImage">Current Image Preview </label> <br>
-					<img src="<?php echo $product->getImg(); ?>" alt="Product Image" height="150" width="auto">
-				</div><hr>
-				<br>
-				
-				<div class="col-md-12">
-					<div class="form-group">
-						<label for="newStockQuantity">Stock</label> <input type="text"
-							class="form-control" size="20" id="newStockQuantity"
-							name="newStockQuantity" placeholder="Enter Stock Quantity" 
-							<?php if(!empty($_POST["newStockQuantity"])){ echo " value='".$_POST["newStockQuantity"]."'"; } else { echo  " value='".$product->getStock()."'";} ?>>
-					</div>
-					
-					<div class="form-group">
-						<label for="listProduct">Product Visibility Settings:</label> <select
-							class="form-control" name="listProduct" id="listProduct"
-							<?php if(!empty($_POST["listProduct"])){ echo " value='".$_POST["listProduct"]."'"; }?>>
-							<option value="0">List Product (Not on sale)</option>
-							<option value="1">List Product (On sale)</option>
-							<option value="2">Save but do not list the product</option>
-						</select>
-					</div>
-					<script type="text/javascript">
-  								document.getElementById('listProduct').value = "<?php  if(!empty($_POST["listProduct"])){ echo $_POST["listProduct"]; } else { echo $product->getStatus();}?>";
-					</script>
-					<button type="submit" name="newProduct" class="btn btn-default">Edit Product</button>
-				</form>
-				<br> <br> <br>
-       <?php
-       
-       	$edit = true; //edit is true as we're editing a product not adding one
-       
-		include ("admin-includes/admin-product-functions.php");
-		?>
-			</div>
-		    </div>
-            </div>
-      </div> <!-- CONTAINER DIV -->
-            
-            
-            <div class="modal fade" id="CompletedAdd" tabindex="-1" role="dialog"
-            aria-labelledby="myModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                  <div class="modal-content">
-                        <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal"
-                                          aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                    </button>
-                              <h4 class="modal-title" id="myModalLabel">Product Scuessfully Edited</h4>
-                        </div>
-                        <div class="modal-body">The producted has now updated in the product catalog, review changes or select another product to edit
-                        </div>
-                        <div class="modal-footer">
-                              <button type="button" class="btn btn-default" onClick="location.href='<?php echo basename($_SERVER['PHP_SELF'."?".$product->getId()]); ?>'" VALUE="Refresh">Review Changes</button>
-                              <button type="button" class="btn btn-default" onClick="location.href='view-products.php'" >View Products</button>
-                        </div>
-                  </div>
-              </div>
-            </div>
-            
+				</div>
+				</div>
+				</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+											 
+<script>				//-----#-----#-----#---- REFERENCE FOR THIS CODE http://stackoverflow.com/questions/18999501/bootstrap-3-keep-selected-tab-on-page-refresh
+						//include this code in all tabbed sections 
+													
+       $('#myTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
 
+    // store the currently selected tab in the hash value
+    $("ul.nav-tabs > li > a").on("shown.bs.tab", function (e) {
+        var id = $(e.target).attr("href").substr(1);
+        window.location.hash = id;
+    });
+
+    // on load of the page: switch to the currently selected tab
+    var hash = window.location.hash;
+    $('#myTab a[href="' + hash + '"]').tab('show');
+</script>
+				
 
 </body>
 </html>
-		
