@@ -1,6 +1,17 @@
 <?php
 include '../includes/databaseValidation.php';
 
+include_once '../includes/databaseValidation.php';
+if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
+	if (($_SESSION["loggedIn"] == true) && ($_SESSION["adminChecked"] == true)){
+		echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
+	} else {
+		$twostep = false; //initilise
+		$_SESSION["adminChecked"] = $twostep;
+	}
+}else{
+	echo "<script type=\"text/javascript\">document.location.href=\"../index.php\";</script>";
+}
 
 ?>
 
