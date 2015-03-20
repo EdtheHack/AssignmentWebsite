@@ -97,11 +97,11 @@ if (isset($_POST['editUser'])){
 		echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
 		die; //wrong input, do not proceed
 	}else{
-		updateUser($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin, $user_id);
+		adminUpdateUser($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin, $user_id);
 	}	
 }
 
-function updateUser($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin, $user_id){
+function adminUpdateUser($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin, $user_id){
 	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 	
 	$mysqli = $db_con;
