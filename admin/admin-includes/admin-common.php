@@ -130,6 +130,10 @@ function removeOrders($user_id){
 	$stmt->close ();
 	
 	$mysqli->close ();
+	
+	echo "<script type=\"text/javascript\">document.location.href=\"../view-users.php\";</script>";
+	
+	
 
 }
 
