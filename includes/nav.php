@@ -75,6 +75,7 @@ $count = count($rows);
 						echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>"; //dirty stinking refresh 
 					}
 				}else{
+					$_SESSION["loggedIn"];
 					echo"<li><a href=\"login-page.php\"><i class=\"fa fa-sign-in\"></i> <b> Login </b></a></li>"; //if a user is not logged in show the login button
 				}
 			?>
