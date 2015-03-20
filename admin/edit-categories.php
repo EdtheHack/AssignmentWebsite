@@ -60,7 +60,7 @@ include ("nav.php");
 			<div class="row">
 				<div class="jumbotron">
 					<h2>
-						Edit Categories <small> Edit existing products</small>
+						Edit Categories <small> Create and remove categories</small>
 					</h2>
 					<p></p>
 				</div>
