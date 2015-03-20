@@ -29,6 +29,25 @@ function getPage($pageId){
 
 }
 
+// get number of unlisted items
+
+function getNoOfUnlistedItems(){  
+	$mysqli = connect ();
+	$rows = array();
+	
+	if ($stmt = $mysqli->prepare ("SELECT product_id FROM product WHERE status=2")) {
+		$stmt->execute ();
+		$stmt->bind_result ( $procuct);
+	   	while($stmt->fetch()) {
+			$rows[] = array( $procuct);
+    	}
+		$stmt->close ();
+	}
+	
+	$mysqli->close ();
+	return count($rows);
+}
+
 // number of customer accounts
 
 function getNoOfCustomers() {
@@ -173,7 +192,7 @@ function getNoOfCategoryItems($category){
 
 // gets items with names containing the $searchItem variable
 
-function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
+function getSearchItems($searchItem, $pageIndex){  //COULD BE SMARTER
 	$mysqli = connect ();
 
 		$rows = array();
@@ -195,7 +214,7 @@ function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
 
 // returns number of items retrieved by the search
 
-function getNoOfSearchItems($searchItem){  //COULD BE SMARTER
+function getNoOfSearchItems($searchItem){  
 	$mysqli = connect ();
 
 		$rows = array();
