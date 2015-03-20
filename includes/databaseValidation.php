@@ -174,7 +174,7 @@
 		$con = connect();
 		
 		$_SESSION["email"] = mysqli_real_escape_string($con, "$email");
-		$password = mysqli_real_escape_string($con, "$password");
+		//$password = mysqli_real_escape_string($con, "$password");
 		
 		$query = "SELECT * FROM user WHERE email = '".$_SESSION['email']."';";
 		
@@ -314,7 +314,7 @@
 	function validatePostcode($postcode){
 		$con = connect();
 			
-		if (preg_match( '/^[A-Z 0-9\'\,.-]{7,8}$/i', $postcode)) {
+		if (preg_match( '/^[A-Z 0-9\'\,.-]{6,8}$/i', $postcode)) {
 			$_SESSION["postcode"] = mysqli_escape_string ($con, $postcode);
 			return 1;
 		} else {
