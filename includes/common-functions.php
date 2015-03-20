@@ -115,8 +115,8 @@ function getCategoryItems($category, $pageIndex){
 		$rows = array();
 	
 	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN product_categories ON product.product_id = product_categories.product_id   
-									WHERE product_categories.category_id=(SELECT category_id FROM categories WHERE name=?)" )){
-		$stmt->bind_param ("s", $category);
+									WHERE product_categories.category_id=(SELECT category_id FROM categories WHERE name=?) LIMIT ?, 5" )){
+		$stmt->bind_param ("si", $category, $pageIndex);
 		$stmt->execute ();
 		$stmt->bind_result ($col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
 	   	while($stmt->fetch()) {
@@ -129,6 +129,28 @@ function getCategoryItems($category, $pageIndex){
 	return $rows;
 }
 
+// gets number of returned items from a selected category
+
+function getNoOfCategoryItems($category, $pageIndex){
+	$mysqli = connect ();
+
+		$rows = array();
+	
+	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN product_categories ON product.product_id = product_categories.product_id   
+									WHERE product_categories.category_id=(SELECT category_id FROM categories WHERE name=?)" )){
+		$stmt->bind_param ("si", $category, $pageIndex);
+		$stmt->execute ();
+		$stmt->bind_result ($col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
+	   	while($stmt->fetch()) {
+			$rows[] = array($col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8);
+    	}
+		$stmt->close ();
+	}
+	
+	$mysqli->close ();
+	return count($rows);
+}
+
 // gets items with names containing the $searchItem variable
 
 function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
@@ -138,7 +160,7 @@ function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
 		$searchItem = '%'.$searchItem.'%';
 	
 	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) LIKE UPPER (?) OR UPPER (description) LIKE UPPER (?) LIMIT ?, 5")) {
-		$stmt->bind_param ("sss", $searchItem, $searchItem, $pageIndex);
+		$stmt->bind_param ("ssi", $searchItem, $searchItem, $pageIndex);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
 	   	while($stmt->fetch()) {
@@ -149,6 +171,28 @@ function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
 	
 	$mysqli->close ();
 	return $rows;
+}
+
+// returns number of items retrieved by the search
+
+function getNoOfSearchItems($searchItem){  //NEEDS WORK
+	$mysqli = connect ();
+
+		$rows = array();
+		$searchItem = '%'.$searchItem.'%';
+	
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) LIKE UPPER (?) OR UPPER (description) LIKE UPPER (?)")) {
+		$stmt->bind_param ("ss", $searchItem, $searchItem);
+		$stmt->execute ();
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
+	   	while($stmt->fetch()) {
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8);
+    	}
+		$stmt->close ();
+	}
+	
+	$mysqli->close ();
+	return count($rows);
 }
 
 // gets the sale items and orders by highest percentage off

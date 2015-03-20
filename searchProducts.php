@@ -30,18 +30,21 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	if(isset($_GET['currentPage'])){$currentPage = $_GET['currentPage'];}
 	if(isset($_GET['category'])){
 		$rows = getCategoryItems($_GET['category'], (($currentPage-1)*5));
+		$noOfItems = getNoOfCategoryItems($_SESSION['searchItem']);
 		unset($_SESSION['searchItem']);
 	} else {
 		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
+		$noOfItems = getNoOfSearchItems($_SESSION['searchItem']);
 	}
-	$pages = ceil((count($rows))/5);  //rounds up
+	
+	$pages = ceil(($noOfItems)/5);  //rounds up
 	?>
 	  
 	<div class="col-md-9">
 		<div class="well">
 			<div class="row">
 				<div class="col-md-4">
-					<h4><?php if(isset($_GET['category'])){echo "'".$_GET['category'];} else {echo "'".$_SESSION['searchItem']; }echo "' - ".count($rows)." Items";?></h4>
+					<h4><?php if(isset($_GET['category'])){echo "'".$_GET['category'];} else {echo "'".$_SESSION['searchItem']; }echo "' - ".$noOfItems." Items";?></h4>
 				</div>
 				<div class="col-md-4">
 					<h4><?php include ("includes/searchPagination.php");?></h4>
