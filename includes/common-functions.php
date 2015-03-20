@@ -1,14 +1,14 @@
 <?php
 
-ini_set ( 'display_errors', 1 );
-ini_set ( 'display_startup_errors', 1 );
-error_reporting ( - 1 );
+// code reuse for cdatabase connection
 
-function connect() { // code reuse for cdatabase connection
+function connect() {  
 	include ($_SERVER ['DOCUMENT_ROOT'] . '/dbconn.php');
 	$db_con;
 	return $db_con;
 }
+
+//  what does this do...
 
 function getPage($pageId){
 	$mysqli = connect ();
@@ -29,6 +29,7 @@ function getPage($pageId){
 
 }
 
+// checks whether a user has admin permissions
 
 function checkAdmin() {
 	$mysqli = connect ();
@@ -45,23 +46,7 @@ function checkAdmin() {
 	$mysqli->close ();
 }
 
-
-function getNewestItem($itemNumber){  //potentially redundant?
-	$mysqli = connect ();
-
-	$rows = array();
-	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product ORDER BY price DESC" )) {
-		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
-	   	while($stmt->fetch()){
-     		$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
-    	}
-		$stmt->close ();
-	}
-	$mysqli->close ();
-	return $rows[$itemNumber];
-}
+// gets the newest items based upon the time they were added to the database
 
 function getNewest(){
 	$mysqli = connect ();
@@ -79,6 +64,8 @@ function getNewest(){
 	$mysqli->close ();
 	return $rows;
 }
+
+// gets item with selected itemId
 
 function getItem($productId){
 	$mysqli = connect ();
@@ -98,13 +85,15 @@ function getItem($productId){
 	return $row;
 }
 
+// gets items from the same category based on one item 
+
 function getSimilarItems($productId){  //NEEDS WORK
 	$mysqli = connect ();
 	
 		$rows = array();
 	
-	if ($stmt = $mysqli->prepare ("SELECT product.* FROM product LEFT JOIN product_categories ON product.product_id = product_categories.product_id   
-									WHERE product_categories.category_id = (SELECT category_id FROM product_categories WHERE product_id=?) AND NOT product_categories.product_id=? LIMIT 3" )) {
+	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN product_categories ON product.product_id = product_categories.product_id   
+									WHERE product_categories.category_id=(SELECT category_id FROM product_categories WHERE product_id=?) AND NOT product_categories.product_id=? LIMIT 3" )) {
 		$stmt->bind_param ("ss", $productId, $productId);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
@@ -117,6 +106,8 @@ function getSimilarItems($productId){  //NEEDS WORK
 	
 	return $rows;
 }
+
+// gets items from a selected category
 
 function getCategoryItems($category, $pageIndex){
 	$mysqli = connect ();
@@ -138,6 +129,8 @@ function getCategoryItems($category, $pageIndex){
 	return $rows;
 }
 
+// gets items with names containing the $searchItem variable
+
 function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
 	$mysqli = connect ();
 
@@ -158,6 +151,8 @@ function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
 	return $rows;
 }
 
+// gets the sale items and orders by highest percentage off
+
 function getMostDiscounted(){
 	$mysqli = connect ();
 	
@@ -175,6 +170,8 @@ function getMostDiscounted(){
 	$mysqli->close ();	
 	return $rows;
 }
+
+// get the active orderId of a user
 
 function getCurrentUserOrderId($userId){
 	$mysqli = connect ();
@@ -197,6 +194,8 @@ function getCurrentUserOrderId($userId){
 	}
 }
 
+// add a new active order to a user in the database
+
 function addNewUserOrder($userId){
 	$mysqli = connect();
 		
@@ -218,6 +217,8 @@ function addNewUserOrder($userId){
 	}
 	$mysqli->close ();
 }
+
+// gets the products inside an order
 	
 function getOrderProducts($orderId){
 	$mysqli = connect ();
@@ -239,6 +240,8 @@ function getOrderProducts($orderId){
 	return $rows;
 }
 
+// gets the quantities of the products in an order
+
 function getProductQuantities($orderId){
 	$mysqli = connect ();
 		
@@ -250,26 +253,22 @@ function getProductQuantities($orderId){
 		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
 	}
 	
-		$stmt->bind_param ("i", $orderId);
-		//$stmt->execute ();
-
-		if(!($stmt->execute ())){
-			die('Error : ('. $mysqli->errno .') '. $mysqli->error);
-		}
+	$stmt->bind_param ("i", $orderId);
+	if(!($stmt->execute ())){
+		die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+	}
+	$stmt->bind_result($quantity);
 		
-		$stmt->bind_result($quantity);
-		
-	   	while($stmt->fetch()) {
-			array_push($rows, $quantity);
-    	}
-		$stmt->close ();
-	
+	while($stmt->fetch()) {
+		array_push($rows, $quantity);
+    }
+	$stmt->close ();
 	$mysqli->close ();
-	
-	
 	
 	return $rows;
 }
+
+// adds a quantity to an existing order
 
 function addQuantityToDb($orderId, $productId, $quantity, $currentQuantity){
 	$mysqli = connect ();
@@ -281,6 +280,8 @@ function addQuantityToDb($orderId, $productId, $quantity, $currentQuantity){
 	}
 	$mysqli->close ();
 }
+
+// confirm an order and remove the stock from the product
 
 function purchaseOrder($orderId){
 	$mysqli = connect ();
@@ -301,16 +302,7 @@ function purchaseOrder($orderId){
 	$mysqli->close ();
 }
 
-function addOrderProductToDb($orderId, $productId, $quantity){
-	$mysqli = connect ();
-
-		if ($stmt = $mysqli->prepare ("INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){ 
-			$stmt->bind_param ("ssi", $orderId, $productId, $quantity);
-			$stmt->execute ();
-			$stmt->close ();
-		}
-	$mysqli->close ();
-}
+// gets all the products from every purchased order from a user
 
 function getPurchasedOrders($userId){
 	$mysqli = connect ();
@@ -331,6 +323,21 @@ function getPurchasedOrders($userId){
 	return $rows;
 }
 
+// adds a product to a user order in the database
+
+function addOrderProductToDb($orderId, $productId, $quantity){
+	$mysqli = connect ();
+
+	if ($stmt = $mysqli->prepare ("INSERT INTO order_contents (order_id, product_id, quantity) VALUES (?,?,?);")){ 
+		$stmt->bind_param ("ssi", $orderId, $productId, $quantity);
+		$stmt->execute ();
+		$stmt->close ();
+	}
+	$mysqli->close ();
+}
+
+// removes a product from a user order in the database
+
 function removeOrderProductFromDb($orderId, $productId){
 	$mysqli = connect ();
 	
@@ -343,6 +350,8 @@ function removeOrderProductFromDb($orderId, $productId){
 	}
 	$mysqli->close ();
 }
+
+// uploads a picture to the database
 
 function fileUploads(){
 	//if they DID upload a file...
@@ -380,6 +389,8 @@ function fileUploads(){
 	$_FILES['field_name']['tmp_name'];	
 }
 
+// get all the products in the products table
+
 function getAllProducts(){
 	$mysqli = connect ();
 
@@ -397,6 +408,8 @@ function getAllProducts(){
 	return $rows;
 }
 
+// get all products on deal
+
 function getDealProducts(){
 	$mysqli = connect ();
 
@@ -413,6 +426,8 @@ function getDealProducts(){
 	$mysqli->close ();
 	return $rows;
 }
+
+// lists all the categories
 
 function getAllCategories(){
 	$mysqli = connect ();
