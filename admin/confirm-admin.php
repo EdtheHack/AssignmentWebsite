@@ -1,6 +1,5 @@
 <?php
 include '../includes/databaseValidation.php';
-include ("../includes/common-functions.php");
 
  if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 	if (($_SESSION["loggedIn"] == true) && ($_SESSION["adminChecked"] == true)){
@@ -27,7 +26,7 @@ include ("../includes/common-functions.php");
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
 <body>
-	<?php //include ("nav.php");?>
+	<?php include ("nav.php");?>
 	
 <div class="container">
 <br>	
