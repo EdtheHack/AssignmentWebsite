@@ -138,7 +138,7 @@ function getNoOfCategoryItems($category){
 	
 	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN product_categories ON product.product_id = product_categories.product_id   
 									WHERE product_categories.category_id=(SELECT category_id FROM categories WHERE name=?) AND NOT product.status=2" )){
-		$stmt->bind_param ("i", $category);
+		$stmt->bind_param ("s", $category);
 		$stmt->execute ();
 		$stmt->bind_result ($col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
 	   	while($stmt->fetch()) {
