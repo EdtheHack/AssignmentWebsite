@@ -30,7 +30,7 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	if(isset($_GET['currentPage'])){$currentPage = $_GET['currentPage'];}
 	if(isset($_GET['category'])){
 		$rows = getCategoryItems($_GET['category'], (($currentPage-1)*5));
-		$noOfItems = getNoOfCategoryItems($_SESSION['searchItem']);
+		$noOfItems = getNoOfCategoryItems($_GET['category']);
 		unset($_SESSION['searchItem']);
 	} else {
 		$rows = getSearchItems($_SESSION['searchItem'], (($currentPage-1)*5));
@@ -45,14 +45,13 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 			<div class="row">
 				<div class="col-md-4">
 					<h4><?php if(isset($_GET['category'])){echo "'".$_GET['category'];} else {echo "'".$_SESSION['searchItem']; }echo "' - ".$noOfItems." Items";?></h4>
-				</div>
-				<div class="col-md-4">
-					<h4><?php include ("includes/searchPagination.php");?></h4>
-				</div>
-				
+				</div>		
 				<div class="col-md-4">
 					<h4><?php echo "Page ".$currentPage;?></h4>
 				</div>
+			</div>
+			<div class="row">
+				<h4><?php include ("includes/searchPagination.php");?></h4>
 			</div>
 		</div>
 		
