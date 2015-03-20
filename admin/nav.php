@@ -12,20 +12,20 @@ $count = count($rows);
 <nav role="navigation" class="navbar navbar-default">
 	<div class="container">
 		<div class="navbar-header">
-			<button type="button" data-target="#navbarCollapse"
-				data-toggle="collapse" class="navbar-toggle">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
+			<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle"> 
+				<span class="sr-only">Toggle navigation</span> 
+				<span class="icon-bar"></span> <span class="icon-bar"></span> 
+				<span class="icon-bar"></span> 
 			</button>
-			<a href="../index.php" class="navbar-brand"> eShop </a>
+			<a href="index.php" class="navbar-brand"> NutzAndBoltz </a> 
 		</div>
 		<div id="navbarCollapse" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="../index.php"><i class="fa fa-home"></i> Home </a></li>
-				<li><a href="../view-all-products.php"><i class="fa fa-square-o"></i> Products </a></li>
-                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-chevron-down"></i> Categories(<?php echo $count ?>)</a>
-          <ul class="dropdown-menu" role="menu">
+				<li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
+				<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-chevron-down"></i> Our Products</a>
+					<ul class="dropdown-menu" role="menu">
+					<li><a href="view-all-products.php">View All Products </a></li>
+					<li class="divider"></li>
             <?php
 		  		for($i = 0; $i < $count; $i ++) {							
 					$name = $rows[$i][1];		
