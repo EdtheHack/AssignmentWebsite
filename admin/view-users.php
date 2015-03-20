@@ -114,14 +114,14 @@ include ("nav.php");
 											aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>
-										<h4 class="modal-title" id="myModalLabel">Delete Product</h4>
+										<h4 class="modal-title" id="myModalLabel">Delete User</h4>
 									</div>
 									<div class="modal-body">Are you sure you want to delete this
 										user? This cannot be undone, all associated orders will also been removed.</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 										<form method="POST" action="admin-includes/admin-common.php?delUser=<?php echo $user->getId();?>">
-											<button type="submit" name="del" class="btn btn-danger"  >Delete Product</button>
+											<button type="submit" name="del" class="btn btn-danger"  >Delete User</button>
 										</form>
 									</div>
 								</div>

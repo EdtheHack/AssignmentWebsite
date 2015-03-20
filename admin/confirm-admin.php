@@ -44,7 +44,7 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
  ?>
 	
 <div class="container">
-<div class="col-md-5 col-md-offset-5">
+<div class="col-md-6 col-md-offset-3">
 <br>	
 	<h3>For security before accessing the admin pages we need to check your pasword</h3>
 	<br>

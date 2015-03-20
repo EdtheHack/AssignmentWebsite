@@ -94,7 +94,7 @@ function removeOrders($user_id){
 
 	$mysqli = $db_con;
 	
-	$stmt = $mysqli->prepare ("SELECT order_id FROM order WHERE user_id=?" );
+	$stmt = $mysqli->prepare ("SELECT `order_id` FROM `order` WHERE user_id=?" );
 	
 	if ($stmt === false) {
 		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
@@ -106,8 +106,14 @@ function removeOrders($user_id){
 	if(!($stmt->execute ())){
 		die('Error : ('. $mysqli->errno .') '. $mysqli->error);
 	}
+	
+	while($stmt->fetch()){
+		removeEachOrder($order_id);
+	}
 		
 	$stmt->close ();
+	
+	// ------
 
 	$stmt = $mysqli->prepare ("DELETE FROM order WHERE user_id=?" );
 
@@ -122,23 +128,32 @@ function removeOrders($user_id){
 	}
 			
 	$stmt->close ();
-		
-	$stmt = $mysqli->prepare ("DELETE FROM order_contents WHERE order_id=?"); //then delete the product
-		
-	if ($stmt === false) {
-		trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
-	}
-		
-	$stmt->bind_param ("i", $order_id);
-		
-	if(!($stmt->execute ())){
-		die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
-	}
-		
-	$stmt->close ();
 	
 	$mysqli->close ();
 
+}
+
+function removeEachOrder($order_id){
+	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+	
+	$mysqli = $db_con;
+	
+	$stmt = $mysqli->prepare ("DELETE FROM order_contents WHERE order_id=?"); //then delete the product
+	
+	if ($stmt === false) {
+		trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+	}
+	
+	$stmt->bind_param ("i", $order_id);
+	
+	if(!($stmt->execute ())){
+		die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
+	}
+	
+	$stmt->close ();
+	
+	$mysqli->close ();
+	
 }
 
 function checkOrders($product_id){
