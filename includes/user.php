@@ -44,10 +44,17 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 		}
 		
 		public function purchaseCurrentOrder(){
-			purchaseOrder($this->currentOrderId);
-			addNewUserOrder($this->id);
-			$this->currentOrderId = getCurrentUserOrderId($this->id);
-			$this->order = new order($this->currentOrderId, getOrderProducts($this->currentOrderId), 0);
+			$attemptPurchase = purchaseOrder($this->currentOrderId);
+			if ($attemptPurchase == true){
+				addNewUserOrder($this->id);
+				$this->currentOrderId = getCurrentUserOrderId($this->id);
+				$this->order = new order($this->currentOrderId, getOrderProducts($this->currentOrderId), 0);
+			} else {
+			echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					  		<strong>Error!</strong> Sorry! ".$attemptPurchase." has run out of stock!!
+						</div>";
+			}
 		}
 		
 		public function getName(){

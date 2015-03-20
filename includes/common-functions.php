@@ -115,7 +115,7 @@ function getCategoryItems($category, $pageIndex){
 		$rows = array();
 	
 	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN product_categories ON product.product_id = product_categories.product_id   
-									WHERE product_categories.category_id=(SELECT category_id FROM categories WHERE name=?) LIMIT ?, 5" )){
+									WHERE product_categories.category_id=(SELECT category_id FROM categories WHERE name=?) AND NOT product.status=2 LIMIT ?, 5" )){
 		$stmt->bind_param ("si", $category, $pageIndex);
 		$stmt->execute ();
 		$stmt->bind_result ($col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
@@ -137,7 +137,7 @@ function getNoOfCategoryItems($category, $pageIndex){
 		$rows = array();
 	
 	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN product_categories ON product.product_id = product_categories.product_id   
-									WHERE product_categories.category_id=(SELECT category_id FROM categories WHERE name=?)" )){
+									WHERE product_categories.category_id=(SELECT category_id FROM categories WHERE name=?) AND NOT product.status=2" )){
 		$stmt->bind_param ("si", $category, $pageIndex);
 		$stmt->execute ();
 		$stmt->bind_result ($col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
@@ -159,7 +159,7 @@ function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
 		$rows = array();
 		$searchItem = '%'.$searchItem.'%';
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) LIKE UPPER (?) OR UPPER (description) LIKE UPPER (?) LIMIT ?, 5")) {
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE (UPPER (name) LIKE UPPER (?) OR UPPER (description) LIKE UPPER (?)) AND NOT status=2 LIMIT ?, 5")) {
 		$stmt->bind_param ("ssi", $searchItem, $searchItem, $pageIndex);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
@@ -175,13 +175,13 @@ function getSearchItems($searchItem, $pageIndex){  //NEEDS WORK
 
 // returns number of items retrieved by the search
 
-function getNoOfSearchItems($searchItem){  //NEEDS WORK
+function getNoOfSearchItems($searchItem){  //COULD BE SMARTER
 	$mysqli = connect ();
 
 		$rows = array();
 		$searchItem = '%'.$searchItem.'%';
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE UPPER (name) LIKE UPPER (?) OR UPPER (description) LIKE UPPER (?)")) {
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE (UPPER (name) LIKE UPPER (?) OR UPPER (description) LIKE UPPER (?)) AND NOT status=2")) {
 		$stmt->bind_param ("ss", $searchItem, $searchItem);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
@@ -318,9 +318,9 @@ function addQuantityToDb($orderId, $productId, $quantity, $currentQuantity){
 	$mysqli = connect ();
 	
 	if ($stmt = $mysqli->prepare ("UPDATE order_contents SET quantity=('".$currentQuantity."' + '".$quantity."') WHERE order_id=? AND product_id=?")){ 
-			$stmt->bind_param ("ii", $orderId, $productId);
-			$stmt->execute ();
-			$stmt->close ();
+		$stmt->bind_param ("ii", $orderId, $productId);
+		$stmt->execute ();
+		$stmt->close ();
 	}
 	$mysqli->close ();
 }
@@ -331,19 +331,33 @@ function purchaseOrder($orderId){
 	$mysqli = connect ();
 	$date = date('Y/m/d');
 	
+	if ($stmt = $mysqli->prepare ("SELECT product.name, product.stock-order_contents.quantity FROM product LEFT JOIN order_contents ON product.product_id = order_contents.product_id 
+									WHERE order_contents.order_id=?")){ 
+		$stmt->bind_param ("i", $orderId);
+		$stmt->execute ();
+		$stmt->bind_result($name, $stockLeft);
+		while($stmt->fetch()) {
+			if ($stockLeft < 0){
+				return $name;
+			}
+		}
+		$stmt->close ();
+	}
+	
 	if ($stmt = $mysqli->prepare ("UPDATE `order` SET purchased=1, date_purchased=? WHERE order_id=?")){ 
-			$stmt->bind_param ("si", $date, $orderId);
-			$stmt->execute ();
-			$stmt->close ();
+		$stmt->bind_param ("si", $date, $orderId);
+		$stmt->execute ();
+		$stmt->close ();
 	}
 	
 	if ($stmt = $mysqli->prepare ("UPDATE `product` LEFT JOIN order_contents ON product.product_id = order_contents.product_id SET product.stock=product.stock-order_contents.quantity
 									WHERE order_contents.order_id=?")){ 
-			$stmt->bind_param ("i", $orderId);
-			$stmt->execute ();
-			$stmt->close ();
+		$stmt->bind_param ("i", $orderId);
+		$stmt->execute ();
+		$stmt->close ();
 	}
 	$mysqli->close ();
+	return 1;
 }
 
 // gets all the products from every purchased order from a user
