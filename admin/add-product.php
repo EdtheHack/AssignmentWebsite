@@ -125,10 +125,10 @@ include ("nav.php");
 							<table class="table borderless">
 								<tbody>
 									<tr>
-                   <?php
+          <?php
 			include ($_SERVER ['DOCUMENT_ROOT'] . '/dbconn.php');
 																			
-				if ($stmt = $db_con->prepare ( "SELECT name FROM categories" )) {
+				if ($stmt = $db_con->prepare ( "SELECT name FROM categories ORDER BY category_id ASC" )) {
 					$stmt->execute ();
 					$stmt->bind_result ( $category_name );
 					$id = 1;
@@ -136,21 +136,21 @@ include ("nav.php");
 					while ( $stmt->fetch () ) {
 																			
 					if ($tr_count == 5) {
-																						echo '</tr>';
-																						echo '<tr>';
-																						$tr_count = 0;
-																					}
+					echo '</tr>';
+					echo '<tr>';
+					$tr_count = 0;
+				}
 																					
-																					echo ' <td><div class="checkbox"><label><input type="checkbox" name="categories[]" value="' . $id . '"/>' . $category_name . '</label></div</td>' . "";
+				echo ' <td><div class="checkbox"><label><input type="checkbox" name="categories[]" value="' . $id . '"/>' . $category_name . '</label></div</td>' . "";
 																					
-																					$tr_count ++;
+				$tr_count ++;
 																					
-																					$id ++;
-																				}
-																				$stmt->close ();
-																			}
-																			$db_con->close ();
-																			?>
+				$id ++;
+			}
+			$stmt->close ();
+		}
+		$db_con->close ();
+		?>
                
 								
 								
