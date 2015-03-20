@@ -62,7 +62,6 @@ $count = count($rows);
 							</ul></li>" ;
 						
 					if(checkAdmin() == 1){ //check for admin user 
-						$_SESSION["adminChecked"];
 						echo "<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"admin/\" style=\"color: blue;\" ><i class=\"fa fa-cogs\"></i> <b> Admin Panel </b></a></li></ul>";
 					}
 						
