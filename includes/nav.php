@@ -26,6 +26,7 @@ $count = count($rows);
 				<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-chevron-down"></i> Our Products</a>
 					<ul class="dropdown-menu" role="menu">
 					<li><a href="view-all-products.php">View All Products </a></li>
+					<li><a href="view-all-products.php?deals">View All Deals </a></li>
 					<li class="divider"></li>
 					<?php
 						for($i = 0; $i < $count; $i ++) {							
