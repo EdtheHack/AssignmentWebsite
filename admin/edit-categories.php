@@ -75,9 +75,8 @@ include ("nav.php");
 				<div id="print_errors"></div>
 				<br>
 				<ul class="nav nav-tabs" id="myTab">
-					<li class="active"><a data-toggle="tab" href="#sectionA">Sign In</a></li>
-					<li><a data-toggle="tab" href="#sectionB">Create a Category</a></li>
-					<li><a data-toggle="tab" href="#sectionC">Remove Categories</a></li>
+					<li  class="active"><a data-toggle="tab" href="#sectionA">Create a Category</a></li>
+					<li><a data-toggle="tab" href="#sectionB">Remove Categories</a></li>
 				</ul>
 				<div class="tab-content">
 					<div id="sectionA" class="tab-pane fade in active">
