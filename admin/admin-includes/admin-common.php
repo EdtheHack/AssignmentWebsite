@@ -20,6 +20,14 @@ if(isset($_GET['del'])){ //if there is a deletion id
 }
 
 
+if(isset($_GET['delUser'])){ //if there is a deletion id
+	$user_id = $_GET[ 'delUser' ]; //get the deletion id
+
+	removeOrders($user_id); 
+	removeUser($user_id);
+}
+
+
 function deleteProductDB($product_id){
 	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 
@@ -58,6 +66,80 @@ function deleteProductDB($product_id){
 
 }
 
+function removeUser($user_id){
+
+	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+	
+	$mysqli = $db_con;
+	
+	$stmt = $mysqli->prepare ("DELETE FROM user WHERE user_id=?" );
+	
+	if ($stmt === false) {
+		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+	}
+	
+	$stmt->bind_param ("i", $user_id);
+	
+	if(!($stmt->execute ())){
+		die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+	}
+			
+	$stmt->close ();
+	
+	$mysqli->close();
+}
+
+function removeOrders($user_id){
+	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+
+	$mysqli = $db_con;
+	
+	$stmt = $mysqli->prepare ("SELECT order_id FROM order WHERE user_id=?" );
+	
+	if ($stmt === false) {
+		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+	}
+		
+	$stmt->bind_param ("i", $user_id);
+	$stmt->bind_result ($order_id);
+	
+	if(!($stmt->execute ())){
+		die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+	}
+		
+	$stmt->close ();
+
+	$stmt = $mysqli->prepare ("DELETE FROM order WHERE user_id=?" );
+
+	if ($stmt === false) {
+		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+	}
+		
+	$stmt->bind_param ("i", $user_id);
+
+	if(!($stmt->execute ())){
+		die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+	}
+			
+	$stmt->close ();
+		
+	$stmt = $mysqli->prepare ("DELETE FROM order_contents WHERE order_id=?"); //then delete the product
+		
+	if ($stmt === false) {
+		trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+	}
+		
+	$stmt->bind_param ("i", $order_id);
+		
+	if(!($stmt->execute ())){
+		die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
+	}
+		
+	$stmt->close ();
+	
+	$mysqli->close ();
+
+}
 
 function checkOrders($product_id){
 	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
@@ -155,6 +237,34 @@ function getUser($id){
 
 }
 
+function deletionEmail($user_id){
+	
+	
+	require '../PHPMailer/PHPMailerAutoload.php';
+	
+	$rows = getUser($user_id);
 
+	
+	$mail = new PHPMailer;
+	$mail->IsSMTP();
+	$mail->Host = "localhost";
+	
+	$mail->setFrom('AdmindoNotReply@password.com', 'Accounts Administrator');
+	$mail->addAddress($rows[0][1], '');
+	$mail->Subject = "Your Account Details Have been Changed";
+	$mail->isHTML(true);
+	$mail->Body = ('Hi '.$rows[0][2].',<br>Your account with us has been removed by an admin, if you wish to continue to use our service again please register');
+	
+	if(!$mail->Send()) {
+		echo " Mailer Error: " . $mail->ErrorInfo;
+	} else {
+		echo "<div class=\"alert alert-success\">
+				<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+				<strong>Success!</strong> Your Password has now been reset, check your emails!
+				</div>";
+	}
+	
+	
+}
 
 ?>

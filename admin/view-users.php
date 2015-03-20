@@ -104,8 +104,32 @@ include ("nav.php");
 		    		<td><?php echo $user->getBlocked()?></td>
 		    		<td><?php echo $user->getAdmin()?></td>
 		    		<td><a href="edit-users.php?user=<?php echo $user->getId() ?>">Edit</a></td>
-		    		<td>DELETE</td>
+		    		<td><a href="myModal<?php echo $user->getId();?>" data-toggle="modal" data-target="#myModal<?php echo $user->getId();?>">Delete</a></td>
 		    	</tr>
+		    	
+						<div class="modal fade" id="myModal<?php echo $user->getId();?>" tabindex="-1" role="dialog"
+							aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										<h4 class="modal-title" id="myModalLabel">Delete Product</h4>
+									</div>
+									<div class="modal-body">Are you sure you want to delete this
+										user? This cannot be undone, all associated orders will also been removed.</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										<form method="POST" action="admin-includes/admin-common.php?delUser=<?php echo $user->getId();?>">
+											<button type="submit" name="del" class="btn btn-danger"  >Delete Product</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						
 		    <?php 	
 		    }
 		    	
