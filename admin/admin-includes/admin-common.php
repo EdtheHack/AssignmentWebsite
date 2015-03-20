@@ -115,7 +115,7 @@ function removeOrders($user_id){
 	
 	// ------
 
-	$stmt = $mysqli->prepare ("DELETE FROM order WHERE user_id=?" );
+	$stmt = $mysqli->prepare ("DELETE FROM `order` WERE user_id=?" );
 
 	if ($stmt === false) {
 		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
@@ -138,7 +138,7 @@ function removeEachOrder($order_id){
 	
 	$mysqli = $db_con;
 	
-	$stmt = $mysqli->prepare ("DELETE FROM order_contents WHERE order_id=?"); //then delete the product
+	$stmt = $mysqli->prepare ("DELETE FROM `order_contents` WHERE order_id=?"); //then delete the product
 	
 	if ($stmt === false) {
 		trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
