@@ -18,7 +18,6 @@
 		
 		$email = mysqli_real_escape_string($con, $email);
 		$password = mysqli_real_escape_string($con, $password);
-		
 		$password = hash("sha256", $password);		//hash user entered password
 		
 		$query = "SELECT * FROM user WHERE email = '".$email."' AND password = '".$password."';";
@@ -46,7 +45,7 @@
 					}
 						$_SESSION["userID"] = "$row[0]";
 						$_SESSION["email"] = "$row[1]";
-						$_SESSION["password"] = "$row[2]";
+						//$_SESSION["password"] = "$row[2]";
 						$_SESSION["firstName"] = "$row[3]";
 						$_SESSION["lastName"] = "$row[4]";
 						$_SESSION["addressLine1"] = "$row[5]";
@@ -102,11 +101,14 @@
 		return 0;
 	}
 	
-	function createUser(){
+	function createUser($password){
 		$con = connect();
+		
+		$password = mysqli_real_escape_string($con, $password);
+		$password = hash("sha256", $password);
 				
 		$query = "INSERT INTO user (email, password, firstName, lastName, addressLine1, addressLine2, postcode, mobileNo, homeNo)
-		VALUES ('".$_SESSION['email']."', '".$_SESSION['password']."', '".$_SESSION['firstName']."', '".$_SESSION['lastName']."', '".$_SESSION['addressLine1']."',
+		VALUES ('".$_SESSION['email']."', '".$password."', '".$_SESSION['firstName']."', '".$_SESSION['lastName']."', '".$_SESSION['addressLine1']."',
 				 '".$_SESSION['addressLine2']."', '".$_SESSION['postcode']."', '".$_SESSION['mobileNumber']."', '".$_SESSION['homeNumber']."');";
 				
 		if ($result = mysqli_query($con, $query)) {
@@ -172,7 +174,7 @@
 		$con = connect();
 		
 		$_SESSION["email"] = mysqli_real_escape_string($con, "$email");
-		$_SESSION["password"] = mysqli_real_escape_string($con, "$password");
+		$password = mysqli_real_escape_string($con, "$password");
 		
 		$query = "SELECT * FROM user WHERE email = '".$_SESSION['email']."';";
 		
@@ -230,10 +232,7 @@
 		}
 		if(validateHomeNumber($homeNumber) != 1){
 			return 0;
-		}
-		
-		$_SESSION["password"] = hash("sha256", $_SESSION['password']);
-		
+		}		
 		return 1;
 	}
 	
@@ -241,7 +240,7 @@
 		$con = connect();
 			
 		if (preg_match( '/^[A-Z 0-9 \'!@#$%&*_]{2,30}$/i', $password)) {
-			$_SESSION["password"] = mysqli_escape_string($con, $password);
+			$password = mysqli_escape_string($con, $password);
 			return 1;
 		} else {
 			echo "<div class=\"alert alert-danger\">

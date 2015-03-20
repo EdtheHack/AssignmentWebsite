@@ -14,7 +14,7 @@ if(isset($_POST['attemptRegister'])){
 
 	if ($password == $passwordCheck){
 		if (validateDetails($email, $password, $firstName, $lastName, $addressLine1, $addressLine2, $postcode, $mobileNumber, $homeNumber) == 1){
-			if (createUser() == 1){
+			if (createUser($password) == 1){
 				if (validateUser($email, $password) == 1){
 					$_SESSION["loggedIn"] = true;
 					echo "<div class=\"alert alert-success\">
