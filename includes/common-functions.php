@@ -8,7 +8,7 @@ function connect() {
 	return $db_con;
 }
 
-//  what does this do...
+//  gets a product based on it's id
 
 function getPage($pageId){
 	$mysqli = connect ();
