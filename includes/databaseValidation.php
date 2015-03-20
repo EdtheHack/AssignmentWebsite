@@ -209,30 +209,33 @@
 			return 0;
 		}
 		
-		if(validatePassword($password) != 1){
+		if(validatePassword($password) != 1 || validateFirstName($firstName) != 1 || validateLastName($lastName) != 1 ||
+		validateAddressLine1($addressLine1) != 1 || validateAddressLine2($addressLine2) != 1 || validatePostcode($postcode) != 1 ||
+		validateMobileNumber($mobileNumber) != 1 || validateHomeNumber($homeNumber) != 1){
 			return 0;
 		}
-		if(validateFirstName($firstName) != 1){
-			return 0;
-		}
-		if(validateLastName($lastName) != 1){
-			return 0;
-		}
-		if(validateAddressLine1($addressLine1) != 1){
-			return 0;
-		}
-		if(validateAddressLine2($addressLine2) != 1){
-			return 0;
-		}
-		if(validatePostcode($postcode) != 1){
-			return 0;
-		}
-		if(validateMobileNumber($mobileNumber) != 1){
-			return 0;
-		}
-		if(validateHomeNumber($homeNumber) != 1){
-			return 0;
-		}		
+
+		//if(validateFirstName($firstName) != 1){
+		//	return 0;
+		//}
+		//if(validateLastName($lastName) != 1){
+		//	return 0;
+		//}
+		//if(validateAddressLine1($addressLine1) != 1){
+		//	return 0;
+		//}
+		//if(validateAddressLine2($addressLine2) != 1){
+	//		return 0;
+		//}
+		//if(validatePostcode($postcode) != 1){
+		//	return 0;
+	//	}
+		//if(validateMobileNumber($mobileNumber) != 1){
+			//return 0;
+	//	}
+		//if(validateHomeNumber($homeNumber) != 1){
+			//return 0;
+		//}		
 		return 1;
 	}
 	
