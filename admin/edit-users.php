@@ -85,7 +85,7 @@ if(isset ($_GET['user'])){
     
     <div class="well">
     	 <form method="POST" action="">	
-	    	<a href="#"  class="btn btn-default"><button type="submit" name="editUser" >Force Password Reset</button>></a>
+	    	<button type="submit" class="btn btn-default" name="forceReset">Force Password Reset</button>
 	    	<p class="help-block">Force a password reset and send the user a new passwword via thier account email.</p>
 	    	<br>
 	    	<a href="#"  class="btn btn-default">Block User</a>
