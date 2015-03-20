@@ -7,8 +7,7 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 	if (($_SESSION["loggedIn"] == true) && ($_SESSION["adminChecked"] == true)){
 		echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
 	} else {
-		$twostep = false; //initilise
-		$_SESSION["adminChecked"] = $twostep;
+		$_SESSION["adminChecked"] = false;
 	}
 }else{
 	echo "<script type=\"text/javascript\">document.location.href=\"../index.php\";</script>";
@@ -45,6 +44,7 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
  ?>
 	
 <div class="container">
+<div class="col-md-5 col-md-offset-5">
 <br>	
 	<h3>For security before accessing the admin pages we need to check your pasword</h3>
 	<br>
