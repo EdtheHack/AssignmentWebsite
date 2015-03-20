@@ -130,7 +130,6 @@ function updateUser($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobil
 function sendEmail($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin){
 	require '../PHPMailer/PHPMailerAutoload.php';
 	
-	
 		if ($admin == 1){
 			$admin = "Your account is an admin account";
 		}else{
@@ -154,7 +153,7 @@ function sendEmail($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobile
 				$ln.'<br>Address Line 1: '.
 				$addr1.'<br>Address Line 2: '.
 				$addr2.'<br>Postcode: '.
-				$postcode.'<brHome Number: >'.
+				$postcode.'<br> Home Number: '.
 				$homeNo.'<br>Mobile Number: '.
 				$mobileNo.'<br><br>'.$admin);
 	
@@ -167,3 +166,43 @@ function sendEmail($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobile
 				</div>";
 		}
 }
+
+
+
+if(isset($_POST['forceReset'])){
+	passwordResetbyAdmin();
+}
+
+function passwordResetbyAdmin(){
+	require '../PHPMailer/PHPMailerAutoload.php';
+	include ("../includes/databaseValidation.php");
+	
+	$email = $row[0][1];
+	$characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*_";
+	$password = substr(str_shuffle($characters), 0, 8);  //generate new password
+	if ($email != null){
+		if (checkEmail($email) == 1){
+			$mail = new PHPMailer;
+			$mail->IsSMTP();
+			$mail->Host = "localhost";
+	
+			$mail->setFrom('doNotReply@password.com', 'Admin Password Reset');
+			$mail->addAddress($email, '');
+			$mail->Subject = "Admin Has Reset Your Password";
+			$mail->isHTML(true);
+			$mail->Body = ('An admin has reset your password, your new password is: '.$password.'.');
+	
+			if(!$mail->Send()) {
+				echo " Mailer Error: " . $mail->ErrorInfo;
+			} else {
+				forgottenPassword($email, $password);
+			}
+		} else {
+			echo "Email does not exist";
+		}
+	} else {
+		echo "Email can not be null";
+	}
+}
+	
+

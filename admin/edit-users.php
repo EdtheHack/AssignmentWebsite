@@ -84,17 +84,18 @@ if(isset ($_GET['user'])){
     <div id="print_errors"></div>
     
     <div class="well">
-    	
-    	<a href="#"  class="btn btn-default">Reset Password</a>
-    	<p class="help-block">Force a password reset and send the user a new passwword via thier account email.</p>
-    	<br>
-    	<a href="#"  class="btn btn-default">Block User</a>
-    	<p class="help-block">Block the users account.</p>
-    
+    	 <form method="POST" action="">	
+	    	<a href="#"  class="btn btn-default"><button type="submit" name="editUser" >Force Password Reset</button>></a>
+	    	<p class="help-block">Force a password reset and send the user a new passwword via thier account email.</p>
+	    	<br>
+	    	<a href="#"  class="btn btn-default">Block User</a>
+	    	<p class="help-block">Block the users account.</p>
+	    </form>
+  
     </div>
     <br>
     
-    	<form method="POST" action="">
+    <form method="POST" action="">	
 			<div class="form-group">
 		        <label for="email">Email:</label>
 				<input type="email" class="form-control" id="email" placeholder="Enter email" name="email"  
