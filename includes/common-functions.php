@@ -291,6 +291,13 @@ function purchaseOrder($orderId){
 			$stmt->execute ();
 			$stmt->close ();
 	}
+	
+	if ($stmt = $mysqli->prepare ("UPDATE `product` LEFT JOIN order_contents ON product.product_id = order_contents.product_id SET product.stock=product.stock-order_contents.quantity
+									WHERE order_contents.order_id=?")){ 
+			$stmt->bind_param ("i", $orderId);
+			$stmt->execute ();
+			$stmt->close ();
+	}
 	$mysqli->close ();
 }
 
