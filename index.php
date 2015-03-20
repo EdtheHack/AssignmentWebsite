@@ -40,15 +40,15 @@ include ("includes/nav.php");
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role="listbox">
 						<div class="item active">
-							<img src="/img/man_looking.jpg" alt="Image of one of our recently added products." height="300" width="735">
+							<img src="img/man_looking.jpg" alt="Image of one of our recently added products." height="300" width="735">
 							<div class="carousel-caption">Slide 1</div>
 						</div>
 						<div class="item">
-							<img src="/img/onlooking.jpg" alt="Image of one of our recently added products." height="300" width="auto">
+							<img src="img/onlooking.jpg" alt="Image of one of our recently added products." height="300" width="auto">
 							<div class="carousel-caption">Slide 2</div>
 						</div>
                         <div class="item">
-							<img src="/img/big_ben.jpg" alt="Image of one of our recently added products." height="300" width="auto">
+							<img src="img/table.png" alt="Image of one of our recently added products." height="300" width="auto">
 							<div class="carousel-caption">Slide 3</div>
 						</div>
 					</div>
