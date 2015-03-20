@@ -52,8 +52,6 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 	<?php		
 		foreach ($rows as $row) {
 		$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
-		$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
-		$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
 	?>
 		
 		<div class="well">
@@ -67,6 +65,8 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 					<h5 class="pull-right"><?php if ($product->getPercentage() == 0){
 						echo "<strong> &pound;".$product->getPrice()."</strong>";
 					} else {
+						$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
+						$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
 						echo "<strong> Our Price: &pound;".$salePrice."</strong> RRP: <strike>&pound;".$product->getPrice() ."</strike><br>";
 					} ?> </h5> <!-- PLEASE IGNORE HTML ERRORS -->
 					<h4><a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a></h4>
