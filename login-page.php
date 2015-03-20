@@ -14,8 +14,8 @@
 		<link rel="stylesheet" href="css/custom.css">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
 <body>
 	<?php include ("includes/nav.php");?>
@@ -139,7 +139,7 @@
 <script>				//-----#-----#-----#---- REFERENCE FOR THIS CODE http://stackoverflow.com/questions/18999501/bootstrap-3-keep-selected-tab-on-page-refresh
 						//include this code in all tabbed sections 
 													
-    $('#myTab a').click(function (e) {
+       $('#myTab a').click(function (e) {
         e.preventDefault();
         $(this).tab('show');
     });
@@ -153,14 +153,6 @@
     // on load of the page: switch to the currently selected tab
     var hash = window.location.hash;
     $('#myTab a[href="' + hash + '"]').tab('show');
-
-
-    $('ul.nav-tabs > li > a').click( function(e) {
-        history.pushState( null, null, $(this).attr('href') );
-    });
-
-  
-    });
 </script>
 				
 	
