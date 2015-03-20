@@ -7,11 +7,9 @@ error_reporting ( - 1 );
 	
 	if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 		if (($_SESSION["loggedIn"] == true) && ($_SESSION["adminChecked"] == true)){
-			;
+			
 		} else {
 			echo "<script type=\"text/javascript\">document.location.href=\"confirm-admin.php\";</script>";
-			$twostep = false; //initilise
-			$_SESSION["adminChecked"] = $twostep;
 		}
 	}else{
 		echo "<script type=\"text/javascript\">document.location.href=\"../index.php\";</script>";
