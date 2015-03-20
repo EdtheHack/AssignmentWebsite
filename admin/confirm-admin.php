@@ -1,6 +1,6 @@
 <?php
 include '../includes/databaseValidation.php';
-
+include ("../includes/common-functions.php");
 
  if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 	if (($_SESSION["loggedIn"] == true) && ($_SESSION["adminChecked"] == true)){
