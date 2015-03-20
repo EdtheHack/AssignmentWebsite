@@ -51,7 +51,7 @@ session_start ();
 						} else {
 							$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
 							$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
-							echo "<strike>&pound;".$product->getPrice()."</strike> ".$product->getPercentage." off! <strong> Our Price: &pound;".$salePrice."</strong> <br>";
+							echo "<strike>&pound;".$product->getPrice()." </strike> ".$product->getPercentage()." off! <br> <strong> Our Price: &pound;".$salePrice."</strong> <br>";
 						} ?> </h5>
 						<a href="viewProduct.php?<?php echo $product->getId(); ?>"> <img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our products" style="width:150px;height:150px"> </a>
 						<div class="caption">
