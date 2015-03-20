@@ -115,7 +115,7 @@ function removeOrders($user_id){
 	
 	// ------
 
-	$stmt = $mysqli->prepare ("DELETE FROM `order` WERE `user_id=?`" );
+	$stmt = $mysqli->prepare ("DELETE FROM `order` WERE `user_id`=?" );
 
 	if ($stmt === false) {
 		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
