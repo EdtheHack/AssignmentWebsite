@@ -25,7 +25,7 @@ $count = count($rows);
 				<li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
 				<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-chevron-down"></i> Our Products</a>
 					<ul class="dropdown-menu" role="menu">
-					<li><a href="view-all-products.php"><i class="fa fa-square-o"></i>View All Products </a></li>
+					<li><a href="view-all-products.php">View All Products </a></li>
 					<li class="divider"></li>
 					<?php
 						for($i = 0; $i < $count; $i ++) {							
