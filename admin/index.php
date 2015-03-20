@@ -61,7 +61,7 @@ include ("admin-nav.php");
             <p class="text-muted text-center">Number of products listed.</p>
           </div>
           <div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4 class="text-center"><?php echo getNoOfSearchItems("");?></h4>
+            <h4 class="text-center"><?php echo getNoOfCustomers("");?></h4>
             <p class="text-muted text-center">Number of customer accounts opened.</p>
           </div>
           <div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
