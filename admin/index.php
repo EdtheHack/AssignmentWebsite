@@ -69,8 +69,8 @@ include ("admin-nav.php");
             <p class="text-muted text-center">Number of products unlisted.</p>
           </div>
           <div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4 class="text-center">Label</h4>
-            <p class="text-muted text-center">Something else</p>
+            <h4 class="text-center"><?php echo getNoOfOutOfStockItems();?></h4>
+            <p class="text-muted text-center">Number of products out of stock</p>
           </div>
         </div>
       </div>

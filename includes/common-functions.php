@@ -29,6 +29,25 @@ function getPage($pageId){
 
 }
 
+// out of stock items
+
+function getNoOfOutOfStockItems(){  
+	$mysqli = connect ();
+	$rows = array();
+	
+	if ($stmt = $mysqli->prepare ("SELECT product_id FROM product WHERE stock=0")) {
+		$stmt->execute ();
+		$stmt->bind_result ( $procuct);
+	   	while($stmt->fetch()) {
+			$rows[] = array( $procuct);
+    	}
+		$stmt->close ();
+	}
+	
+	$mysqli->close ();
+	return count($rows);
+}
+
 // get number of unlisted items
 
 function getNoOfUnlistedItems(){  
