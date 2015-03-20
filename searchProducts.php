@@ -58,7 +58,7 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 			<div class="row">
 				<div class="col-md-3">
                 <a href="viewProduct.php?<?php echo $product->getId(); ?>">
-					<img src="includes/<?php echo $product->getImg(); ?>" alt="Image of a product found from your search query" height="150" width="auto">
+					<img src="includes/<?php echo $product->getImg(); ?>" alt="Image of a product found from your search query" height="150" width="150">
                     </a>
 				</div>
 				<div class="col-md-9">
