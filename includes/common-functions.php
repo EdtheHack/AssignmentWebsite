@@ -36,14 +36,14 @@ function getNoOfCustomers() {
 		
 	$rows = array();
 	
-	$stmt = $mysqli->prepare ("SELECT user_id FROM user WHERE NOT admin=1" );
-	$stmt->execute ()
-	$stmt->bind_result($account);
-		
-	while($stmt->fetch()) {
-		array_push($rows, $account);
-    }
-	$stmt->close ();
+	if ($stmt = $mysqli->prepare ("SELECT user_id FROM user WHERE NOT admin=1" )){
+		$stmt->execute ()
+		$stmt->bind_result($account);
+		while($stmt->fetch()) {
+			array_push($rows, $account);
+		}
+		$stmt->close ();
+	}
 	$mysqli->close ();
 	
 	return count($rows);
