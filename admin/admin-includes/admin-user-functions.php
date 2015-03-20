@@ -170,14 +170,14 @@ function sendEmail($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobile
 
 
 if(isset($_POST['forceReset'])){
-	passwordResetbyAdmin();
+	$email = $row[0][1];
+	passwordResetbyAdmin($email);
 }
 
-function passwordResetbyAdmin(){
+function passwordResetbyAdmin($email){
 	require '../PHPMailer/PHPMailerAutoload.php';
 	include ("../includes/databaseValidation.php");
 	
-	$email = $row[0][1];
 	$characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*_";
 	$password = substr(str_shuffle($characters), 0, 8);  //generate new password
 	if ($email != null){
