@@ -1,16 +1,7 @@
 <?php
 include '../includes/databaseValidation.php';
 
- if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
-	if (($_SESSION["loggedIn"] == true) && ($_SESSION["adminChecked"] == true)){
-		echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
-	} else {
-		$twostep = false; //initilise 
-		$_SESSION["adminChecked"] = $twostep;
-	}
- }else{
- 	echo "<script type=\"text/javascript\">document.location.href=\"../index.php\";</script>";
- }
+
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +17,20 @@ include '../includes/databaseValidation.php';
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
 <body>
-	<?php include ("nav.php");?>
+	<?php include ("nav.php");
+	
+	 if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
+	if (($_SESSION["loggedIn"] == true) && ($_SESSION["adminChecked"] == true)){
+		echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
+	} else {
+		$twostep = false; //initilise 
+		$_SESSION["adminChecked"] = $twostep;
+	}
+ }else{
+ 	echo "<script type=\"text/javascript\">document.location.href=\"../index.php\";</script>";
+ }
+ 
+ ?>
 	
 <div class="container">
 <br>	
@@ -39,7 +43,7 @@ include '../includes/databaseValidation.php';
 				<input type="password" name="passwordCheck" class="form-control" <?php if(!empty($_POST["passwordCheck"])){ echo " value='".$_POST["passwordCheck"]."'"; }?>>
 			</div>
 			<br>
-			<p style="text-align: center"> <input type="submit" name="back" class="btn btn-default" value="No Thanks"> <input type="submit" name="checkAdmin" class="btn btn-default" value="Save"></p>
+			<p style="text-align: center"> <input type="submit" name="back" class="btn btn-default" value="Go Back"> <input type="submit" name="checkAdmin" class="btn btn-default" value="Submit"></p>
 		</form>	
 		<?php 
 				if(isset($_POST["checkAdmin"])){  //checks if user submit a password
