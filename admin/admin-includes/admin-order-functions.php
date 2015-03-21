@@ -17,14 +17,14 @@ function listOrders(){
 		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
 	}
 
-	$stmt->bind_result( $col0,  $col1);
+	$stmt->bind_result($col0,  $col1, $col2, $col3);
 
 	if(!($stmt->execute ())){
 		die('Error : ('. $mysqli->errno .') '. $mysqli->error);
 	}
 		
 	while($stmt->fetch()){
-		$rows[] = array( $col0,  $col1);
+		$rows[] = array( $col0, $col1, $col2, $col3);
 			
 	}
 		
