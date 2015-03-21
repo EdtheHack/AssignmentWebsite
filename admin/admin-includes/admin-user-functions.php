@@ -24,7 +24,12 @@ if (isset($_POST['editUser'])){
 	
 	if($email != null){
 		if(sanitiseString(3, $email, 0, 0) != 1){  //not cleared
+			
 			$error_array[] = "The Email field has illegial chars or is too short/long";
+		}else{
+			if(checkNewEmail($email) !=1 ){
+				$error_array[] = "The Email is already in use";
+			}
 		}
 	}else{
 		$error_array[] = "Email cannot be empty";
@@ -99,6 +104,41 @@ if (isset($_POST['editUser'])){
 	}else{
 		adminUpdateUser($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin, $user_id);
 	}	
+}
+
+
+function checkNewEmail($email){
+	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+	
+	$mysqli = $db_con;
+	
+	$stmt = $mysqli->prepare ( "SELECT email FROM user WHERE email=?" );
+	
+	
+	if ($stmt === false) {
+		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+	}
+	
+	$stmt->bind_param ("s", $email);
+	$stmt->bind_result ($returned_email);
+	
+	if(!($stmt->execute ())){
+		die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+	}
+	
+	$stmt->fetch();
+	
+	$stmt->close ();
+	
+	$mysqli->close ();
+	
+	
+	if($returned_email == $email){
+		return 0;
+	}else{
+		return 1;
+	}
+	
 }
 
 function adminUpdateUser($email,	$fn, $ln, $addr1, $addr2, $postcode, $homeNo, $mobileNo, $admin, $user_id){
