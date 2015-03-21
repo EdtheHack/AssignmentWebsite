@@ -53,15 +53,14 @@ function checkCateName($name){
 	
 	$stmt->close ();
 
-	echo $returned_name;
+	$mysqli->close ();
 	
+
 	if($returned_name == $name){
 		return 0;
 	}else{
 		return 1;
 	}
-	
-	$mysqli->close ();
 
 }
 

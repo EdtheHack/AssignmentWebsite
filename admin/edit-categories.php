@@ -33,21 +33,7 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-<script type="text/javascript"> //needs reference here please 
-                (function($){
-                    $.fn.extend({
-                        bs_alert: function(message, title){
-                            var cls='alert-danger';
-                            var html='<div class="alert '+cls+' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-                            if(typeof title!=='undefined' &&  title!==''){
-                             html+='<h4>'+title+'</h4>';
-                      }
-                     html+='<span>'+message+'</span></div>';
-                     $(this).html(html);
-                  }
-              });
-          })(jQuery);
- </script>
+
 
 </head>
 <body>
@@ -144,6 +130,21 @@ include ("admin-includes/admin-category-functions.php");
     $('#myTab a[href="' + hash + '"]').tab('show');
 </script>
 				
-
+<script type="text/javascript"> //needs reference here please 
+                (function($){
+                    $.fn.extend({
+                        bs_alert: function(message, title){
+                            var cls='alert-danger';
+                            var html='<div class="alert '+cls+' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+                            if(typeof title!=='undefined' &&  title!==''){
+                             html+='<h4>'+title+'</h4>';
+                      }
+                     html+='<span>'+message+'</span></div>';
+                     $(this).html(html);
+                  }
+              });
+          })(jQuery);
+ </script>
+ 
 </body>
 </html>
