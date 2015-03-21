@@ -136,7 +136,7 @@ include ("nav.php");
 												category? This cannot be undone and will remove all categories associated to products</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-												<form method="POST" action="admin-includes/admin-common.php?delCat=<?php echo $row[$i][0];?>">
+												<form method="POST" action="admin-includes/admin-category-functions.php?delCat=<?php echo $row[$i][0];?>">
 													<button type="submit" name="del" class="btn btn-danger"  >Delete Category</button>
 												</form>
 											</div>
