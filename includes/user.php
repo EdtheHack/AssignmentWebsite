@@ -49,17 +49,17 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 			
 				require 'PHPMailer/PHPMailerAutoload.php';
 				
-				$message = "Your order has been confirmed! Order ID: '.$this->currentOrderId.'.<br> -- Order Contents -- <br>";
+				$message = "Your order has been confirmed! Order ID: $this->currentOrderId <br><br> -- Order Contents -- <br>";
 				foreach ($this->order->getProducts() as $product) {
 					$message .= $product->getName()."<br>";
 				}
-				$message .= "Order Total: ".$this->order->getTotalPrice();
+				$message .= "<br>Order Total: ".$this->order->getTotalPrice();
 				
 				$mail = new PHPMailer;
 				$mail->IsSMTP();
 				$mail->Host = "localhost";
 
-				$mail->setFrom('doNotReply@password.com', 'i7212753 Password Reset');
+				$mail->setFrom('doNotReply@order.com', 'i7212753 Order Confirmation');
 				$mail->addAddress($this->email, '');
 				$mail->Subject = "i7212753 - Order Confirmed";
 				$mail->isHTML(true);
