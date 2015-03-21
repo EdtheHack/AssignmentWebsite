@@ -10,7 +10,7 @@ function deleteOrder($order_id){
 	
 	$mysqli = $db_con; //just for names sake
 	
-	$stmt = $mysqli->prepare ("DELETE FROM `order_contents` WHERE order_id=?");  //delete the categories associated with the product first
+	$stmt = $mysqli->prepare ("DELETE FROM `order_contents` WHERE order_id=?");  //delete the order contents associated with the order first
 	
 	if ($stmt === false) {
 		trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
@@ -24,7 +24,7 @@ function deleteOrder($order_id){
 	
 	$stmt->close ();
 	
-	$stmt = $mysqli->prepare ("DELETE FROM `order` WHERE order_id=?"); //then delete the category
+	$stmt = $mysqli->prepare ("DELETE FROM `order` WHERE order_id=?"); //then delete the order
 	
 	if ($stmt === false) {
 		trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);

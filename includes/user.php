@@ -46,6 +46,34 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 		public function purchaseCurrentOrder(){
 			$attemptPurchase = purchaseOrder($this->currentOrderId);
 			if ($attemptPurchase == true){
+			
+				require 'PHPMailer/PHPMailerAutoload.php';
+				
+				$message = "Your order has been confirmed! Order ID: '.$this->currentOrderId.'.<br> -- Order Contents -- <br>";
+				foreach ($this->order.getProducts() as $product) {
+					$message .= $product->getName()."<br>";
+				}
+				$message .= "Order Total: ".$this->order->getTotalPrice();
+				
+				$mail = new PHPMailer;
+				$mail->IsSMTP();
+				$mail->Host = "localhost";
+
+				$mail->setFrom('doNotReply@password.com', 'i7212753 Password Reset');
+				$mail->addAddress($email, '');
+				$mail->Subject = "i7212753 - Order Confirmed";
+				$mail->isHTML(true);
+				$mail->Body = ($message);
+
+				if(!$mail->Send()) {
+					echo " Mailer Error: " . $mail->ErrorInfo;
+				} else {
+						echo "<div class=\"alert alert-success\">
+								<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+								<strong>Success!</strong> Your order has been confirmed!
+							</div>";
+				}
+				
 				addNewUserOrder($this->id);
 				$this->currentOrderId = getCurrentUserOrderId($this->id);
 				$this->order = new order($this->currentOrderId, getOrderProducts($this->currentOrderId), 0);

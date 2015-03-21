@@ -103,7 +103,7 @@ include ("admin-nav.php");
 								order? This cannot be undone.</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								<form method="POST" action="">
+								<form method="POST" action="view-orders.php">
 									<button type="button" name="delete" value="<?php $order[0]?>" class="btn btn-danger">Delete Order</button>
 								</form>
 							</div>
