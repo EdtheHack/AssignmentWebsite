@@ -53,8 +53,6 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 <body>
 <?php
 include ("nav.php");
-
-include ("admin-includes/admin-category-functions.php");
 ?>
 <div class="container">
 
@@ -94,6 +92,9 @@ include ("admin-includes/admin-category-functions.php");
 								</div>
 								<button type="submit" name="newCategory" class="btn btn-default">Create Cetegory</button>
 							</form>
+							<?php 
+include ("admin-includes/admin-category-functions.php");
+?>
 							<br>
 						</div>
 					</div>
