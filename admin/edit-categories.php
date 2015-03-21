@@ -118,10 +118,10 @@ include ("nav.php");
 								<tr>
 									<td><?php echo $row[$i][0]?></td>
 									<td><?php echo $row[$i][1]?></td>
-									<td><a href="deleteModal<?php echo $row[$i][0]?>" data-toggle="modal" data-target="#deleteModal<?php echo $row[$i][0]?>">Delete</a></td>
+									<td><a href="myModal<?php echo $row[$i][0];?>" data-toggle="modal" data-target="#myModal<?php echo $row[$i][0];?>">Delete</a></td>
 								</tr>
 								
-								<div class="modal fade" id="deleteModal<?php  echo $row[$i][0]?>" tabindex="-1" role="dialog"
+								<div class="modal fade" id="myModal<?php  echo $row[$i][0];?>" tabindex="-1" role="dialog"
 									aria-labelledby="myModalLabel" aria-hidden="true">
 									<div class="modal-dialog">
 										<div class="modal-content">
@@ -137,7 +137,7 @@ include ("nav.php");
 											<div class="modal-footer">
 												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 												<form method="POST" action="admin-includes/admin-common.php?delCat=<?php echo $row[$i][0];?>">
-													<button type="submit" name="del" class="btn btn-danger"  >Delete Product</button>
+													<button type="submit" name="del" class="btn btn-danger"  >Delete Category</button>
 												</form>
 											</div>
 										</div>
