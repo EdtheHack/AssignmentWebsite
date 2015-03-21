@@ -57,7 +57,7 @@ function deleteCategories($category_id){
 	
 	$stmt->close ();
 	
-	$stmt = $mysqli->prepare ("DELETE FROM `category` WHERE category_id=?"); //then delete the product
+	$stmt = $mysqli->prepare ("DELETE FROM `product_categories` WHERE category_id=?"); //then delete the product
 	
 	if ($stmt === false) {
 		trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
