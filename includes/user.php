@@ -60,7 +60,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 				$mail->Host = "localhost";
 
 				$mail->setFrom('doNotReply@password.com', 'i7212753 Password Reset');
-				$mail->addAddress($email, '');
+				$mail->addAddress($this->email, '');
 				$mail->Subject = "i7212753 - Order Confirmed";
 				$mail->isHTML(true);
 				$mail->Body = ($message);
