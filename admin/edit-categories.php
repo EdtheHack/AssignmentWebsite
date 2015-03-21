@@ -54,7 +54,7 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 <?php
 include ("nav.php");
 
-include ("admin-includes/admin-category-functions.php.php");
+include ("admin-includes/admin-category-functions.php");
 ?>
 <div class="container">
 
