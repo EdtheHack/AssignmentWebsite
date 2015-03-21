@@ -50,7 +50,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 				require 'PHPMailer/PHPMailerAutoload.php';
 				
 				$message = "Your order has been confirmed! Order ID: '.$this->currentOrderId.'.<br> -- Order Contents -- <br>";
-				foreach (($this->order).getProducts() as $product) {
+				foreach ($this->order->getProducts() as $product) {
 					$message .= $product->getName()."<br>";
 				}
 				$message .= "Order Total: ".$this->order->getTotalPrice();
