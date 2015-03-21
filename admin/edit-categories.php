@@ -32,7 +32,21 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
+<script type="text/javascript"> //needs reference here please 
+                (function($){
+                    $.fn.extend({
+                        bs_alert: function(message, title){
+                            var cls='alert-danger';
+                            var html='<div class="alert '+cls+' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+                            if(typeof title!=='undefined' &&  title!==''){
+                             html+='<h4>'+title+'</h4>';
+                      }
+                     html+='<span>'+message+'</span></div>';
+                     $(this).html(html);
+                  }
+              });
+          })(jQuery);
+ </script>
 
 
 </head>
@@ -108,7 +122,7 @@ include ("admin-includes/admin-category-functions.php");
 				</div>
 				</div>
 				</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 											 
 <script>				//-----#-----#-----#---- REFERENCE FOR THIS CODE http://stackoverflow.com/questions/18999501/bootstrap-3-keep-selected-tab-on-page-refresh
@@ -129,22 +143,8 @@ include ("admin-includes/admin-category-functions.php");
     var hash = window.location.hash;
     $('#myTab a[href="' + hash + '"]').tab('show');
 </script>
-				
-<script type="text/javascript"> //needs reference here please 
-                (function($){
-                    $.fn.extend({
-                        bs_alert: function(message, title){
-                            var cls='alert-danger';
-                            var html='<div class="alert '+cls+' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-                            if(typeof title!=='undefined' &&  title!==''){
-                             html+='<h4>'+title+'</h4>';
-                      }
-                     html+='<span>'+message+'</span></div>';
-                     $(this).html(html);
-                  }
-              });
-          })(jQuery);
- </script>
+				-->
+
  
 </body>
 </html>
