@@ -93,8 +93,8 @@ include ("nav.php");
 								<button type="submit" name="newCategory" class="btn btn-default">Create Cetegory</button>
 							</form>
 							<?php 
-include ("admin-includes/admin-category-functions.php");
-?>
+								include ("admin-includes/admin-category-functions.php");
+							?>
 							<br>
 						</div>
 					</div>
@@ -123,13 +123,13 @@ include ("admin-includes/admin-category-functions.php");
 				</div>
 				</div>
 				</div>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 											 
 <script>				//-----#-----#-----#---- REFERENCE FOR THIS CODE http://stackoverflow.com/questions/18999501/bootstrap-3-keep-selected-tab-on-page-refresh
 						//include this code in all tabbed sections 
 													
-       $('#myTab a').click(function (e) {
+     $('#myTab a').click(function (e) {
         e.preventDefault();
         $(this).tab('show');
     });
@@ -144,8 +144,6 @@ include ("admin-includes/admin-category-functions.php");
     var hash = window.location.hash;
     $('#myTab a[href="' + hash + '"]').tab('show');
 </script>
-				-->
-
  
 </body>
 </html>
