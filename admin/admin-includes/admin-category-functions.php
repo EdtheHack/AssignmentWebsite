@@ -43,6 +43,7 @@ function checkCateName($name){
 	}
 	
 	$stmt->bind_param ("s", $name);
+	$returned_name = "";
 	$stmt->bind_result ($returned_name);
 		
 	if(!($stmt->execute ())){
