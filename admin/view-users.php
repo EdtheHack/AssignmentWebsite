@@ -102,7 +102,7 @@ include ("nav.php");
 		    		<td><?php echo $user->getBlocked()?></td>
 		    		<td><?php echo $user->getAdmin()?></td>
 		    		<td><a href="edit-users.php?user=<?php echo $user->getId() ?>">Edit</a></td>
-		    		<td><a href="myModal<?php echo $user->getId();?>" data-toggle="modal" data-target="#myModal<?php echo $user->getId();?>">Delete</a></td>
+		    		<td><a href="#" data-toggle="modal" data-target="#myModal<?php echo $user->getId();?>">Delete</a></td>
 		    	</tr>
 		    	
 						<div class="modal fade" id="myModal<?php echo $user->getId();?>" tabindex="-1" role="dialog"
