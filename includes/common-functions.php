@@ -388,6 +388,7 @@ function addQuantityToDb($orderId, $productId, $quantity, $currentQuantity){
 function purchaseOrder($orderId){
 	$mysqli = connect ();
 	$date = date('Y/m/d');
+	$halt = false;
 	
 	if ($stmt = $mysqli->prepare ("SELECT product.name, product.stock-order_contents.quantity FROM product LEFT JOIN order_contents ON product.product_id = order_contents.product_id 
 									WHERE order_contents.order_id=?")){ 
@@ -397,25 +398,29 @@ function purchaseOrder($orderId){
 		while($stmt->fetch()) {
 			if ($stockLeft < 0){
 				return $name;
+				echo "Too many products in order";
+				$halt = true;
 			}
 		}
 		$stmt->close ();
 	}
 	
-	if ($stmt = $mysqli->prepare ("UPDATE `order` SET purchased=1, date_purchased=? WHERE order_id=?")){ 
-		$stmt->bind_param ("si", $date, $orderId);
-		$stmt->execute ();
-		$stmt->close ();
+	if ($halt != true){
+		if ($stmt = $mysqli->prepare ("UPDATE `order` SET purchased=1, date_purchased=? WHERE order_id=?")){ 
+			$stmt->bind_param ("si", $date, $orderId);
+			$stmt->execute ();
+			$stmt->close ();
+		}
+		
+		if ($stmt = $mysqli->prepare ("UPDATE `product` LEFT JOIN order_contents ON product.product_id = order_contents.product_id SET product.stock=product.stock-order_contents.quantity
+										WHERE order_contents.order_id=?")){ 
+			$stmt->bind_param ("i", $orderId);
+			$stmt->execute ();
+			$stmt->close ();
+		}
+		$mysqli->close ();
+		return true;
 	}
-	
-	if ($stmt = $mysqli->prepare ("UPDATE `product` LEFT JOIN order_contents ON product.product_id = order_contents.product_id SET product.stock=product.stock-order_contents.quantity
-									WHERE order_contents.order_id=?")){ 
-		$stmt->bind_param ("i", $orderId);
-		$stmt->execute ();
-		$stmt->close ();
-	}
-	$mysqli->close ();
-	return 1;
 }
 
 // gets all the products from every purchased order from a user
