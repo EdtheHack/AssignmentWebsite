@@ -110,11 +110,19 @@ include ("nav.php");
 								</tr>
 							</thead>
 							<tbody>
+							<?php 
+							$row = listCategories();
+
+		   					 for ($i = 0; $i < count($row); $i++){
+		    	?>
+		   
 								<tr>
-									<td>1</td>
-									<td>Memory</td>
+									<td><?php echo $row[i][0]?></td>
+									<td><?php echo $row[i][1]?></td>
 									<td><a href"myModal" data-toggle="modal" data-target="#myModal">Delete</a></td>
 								</tr>
+								<?php }
+								?>
 							</tbody>
 						</table>
 						
