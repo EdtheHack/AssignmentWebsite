@@ -397,7 +397,7 @@ function purchaseOrder($orderId){
 		$stmt->bind_result($name, $stockLeft);
 		while($stmt->fetch()) {
 			if ($stockLeft < 0){
-				return $name;
+				$problem = $name;
 				echo "Too many products in order";
 				$halt = true;
 			}
@@ -419,7 +419,9 @@ function purchaseOrder($orderId){
 			$stmt->close ();
 		}
 		$mysqli->close ();
-		return true;
+		return 1;
+	} else {
+		return $problem;
 	}
 }
 

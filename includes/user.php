@@ -45,7 +45,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 		
 		public function purchaseCurrentOrder(){
 			$attemptPurchase = purchaseOrder($this->currentOrderId);
-			if ($attemptPurchase == true){
+			if ($attemptPurchase == 1){
 			
 				require 'PHPMailer/PHPMailerAutoload.php';
 				
