@@ -43,7 +43,6 @@ function checkCateName($name){
 	}
 	
 	$stmt->bind_param ("s", $name);
-	$returned_name = false;
 	$stmt->bind_result ($returned_name);
 		
 	if(!($stmt->execute ())){
@@ -54,7 +53,7 @@ function checkCateName($name){
 
 	$mysqli->close ();
 	
-	if($returned_name == false){
+	if($returned_name != $name){
 		return 1;
 	}else{
 		return 0;

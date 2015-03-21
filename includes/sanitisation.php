@@ -37,7 +37,7 @@ function sanitiseString ($func_select, $string, $min, $max){
 
 function sanitiseBasicString ($string, $min, $max){ //only allows for A - Z
 
-	echo $string = trim ($string);
+	$string = trim ($string);
 
 	if (preg_match('/^[A-Z \'.-]{'.$min.','.$max.'}$/i', $string)) {
 		return 1;
