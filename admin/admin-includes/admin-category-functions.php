@@ -43,7 +43,6 @@ function checkCateName($name){
 	}
 	
 	$stmt->bind_param ("s", $name);
-	$returned_name = "";
 	$stmt->bind_result ($returned_name);
 		
 	if(!($stmt->execute ())){
@@ -53,6 +52,7 @@ function checkCateName($name){
 	$stmt->close ();
 
 	$mysqli->close ();
+	echo $returned_name;
 	
 	if($returned_name == $name){
 		echo "already in the db";
