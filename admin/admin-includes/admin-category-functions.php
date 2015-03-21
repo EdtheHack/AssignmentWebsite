@@ -43,7 +43,7 @@ function checkCateName($name){
 	}
 	
 	$stmt->bind_param ("s", $name);
-	$stmt->bin_result ($returned_name);
+	$stmt->bind_result ($returned_name);
 		
 	if(!($stmt->execute ())){
 		die('Error : ('. $mysqli->errno .') '. $mysqli->error);
