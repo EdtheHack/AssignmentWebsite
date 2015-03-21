@@ -92,9 +92,6 @@ include ("nav.php");
 								</div>
 								<button type="submit" name="newCategory" class="btn btn-default">Create Cetegory</button>
 							</form>
-							<?php 
-								include ("admin-includes/admin-category-functions.php");
-							?>
 							<br>
 						</div>
 					</div>
@@ -111,6 +108,7 @@ include ("nav.php");
 							</thead>
 							<tbody>
 							<?php 
+								include ("admin-includes/admin-category-functions.php");
 								$row = listCategories();
 
 		   						 for ($i = 0; $i < count($row); $i++){

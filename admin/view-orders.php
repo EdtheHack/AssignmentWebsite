@@ -48,7 +48,8 @@ include ("nav.php");
 include ("admin-nav.php");
 ?>
     <div class="col-md-9">
-		<?php
+		<?php									
+				include ("admin-includes/admin-order-functions.php");
 				$orders = listOrders($user->getId());
 				$count = 0;
 						
