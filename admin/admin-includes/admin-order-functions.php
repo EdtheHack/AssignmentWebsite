@@ -11,7 +11,7 @@ function listOrders(){
 
 	$rows = array();
 
-	$stmt = $mysqli->prepare ("SELECT * FROM `order`");
+	$stmt = $mysqli->prepare ("SELECT * FROM `order` ORDER BY order_id ASC");
 
 	if ($stmt === false) {
 		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);

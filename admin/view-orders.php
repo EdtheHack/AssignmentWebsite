@@ -67,7 +67,7 @@ include ("admin-nav.php");
 					</thead>
 					<tbody>
 					<?php
-						$products = getOrderProducts($orderIdDate[0]);
+						$products = getOrderProducts($order[0]);
 						
 						foreach ($products as $product){
 					?>
@@ -83,6 +83,7 @@ include ("admin-nav.php");
 					</tbody>
 				</table>
 			</div>
+			<br>
 			<?php
 			
 			$count++;
@@ -99,11 +100,7 @@ include ("admin-nav.php");
 						</tr>
 					</thead>
 					<tbody>
-					<?php 
-						$rows = listOrders();
-						
-						for ($i = 0; $i < count($row); $i++){
-					?>
+					
 						<tr>
 							<td>1</td>
 							<td>Customer 1</td>
