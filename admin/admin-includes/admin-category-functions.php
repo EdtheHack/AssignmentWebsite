@@ -12,11 +12,11 @@ if(isset($_POST['newCategory'])){
 		if(sanitiseString(1, $name, 1, 40) != 1){  //not cleared
 			$error_array[] = "Name field has illegial chars or is too short/long";
 		}else{
-			checkCateName($name);//){
-				
-			//}else{
-				//$error_array[] = "Category Name already exits.";
-		//	}
+			if(checkCateName($name) == 1){
+				addCategory($name);
+			}else{
+				$error_array[] = "Category Name already exits.";
+			}
 		}
 	}else{
 		$error_array[] = "Category name field cannot be empty";
@@ -49,14 +49,16 @@ function checkCateName($name){
 		die('Error : ('. $mysqli->errno .') '. $mysqli->error);
 	}
 
+	$stmt->fetch();
+	
 	$stmt->close ();
 
 	echo $returned_name;
 	
 	if($returned_name == $name){
-		echo "already in the db";
+		return 0;
 	}else{
-		//addCategory($name);
+		return 1;
 	}
 	
 	$mysqli->close ();
