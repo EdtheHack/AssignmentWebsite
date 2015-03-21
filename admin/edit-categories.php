@@ -118,7 +118,7 @@ include ("nav.php");
 								<tr>
 									<td><?php echo $row[$i][0]?></td>
 									<td><?php echo $row[$i][1]?></td>
-									<td><a href="myModal<?php echo $row[$i][0];?>" data-toggle="modal" data-target="#myModal<?php echo $row[$i][0];?>">Delete</a></td>
+									<td><a href="#" data-toggle="modal" data-target="#myModal<?php echo $row[$i][0];?>">Delete</a></td>
 								</tr>
 								
 								<div class="modal fade" id="myModal<?php  echo $row[$i][0];?>" tabindex="-1" role="dialog"
