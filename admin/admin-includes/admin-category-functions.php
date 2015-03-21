@@ -51,7 +51,6 @@ function checkCateName($name){
 
 	$stmt->close ();
 
-	$mysqli->close ();
 	echo $returned_name;
 	
 	if($returned_name == $name){
@@ -59,6 +58,9 @@ function checkCateName($name){
 	}else{
 		addCategory($name);
 	}
+	
+	$mysqli->close ();
+
 }
 
 function addCategory($name){
