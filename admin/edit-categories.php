@@ -118,8 +118,32 @@ include ("nav.php");
 								<tr>
 									<td><?php echo $row[$i][0]?></td>
 									<td><?php echo $row[$i][1]?></td>
-									<td><a href"myModal" data-toggle="modal" data-target="#myModal">Delete</a></td>
+									<td><a href="deleteModal<?php echo $row[$i][0]?>" data-toggle="modal" data-target="#deleteModal<?php echo $row[$i][0]?>">Delete</a></td>
 								</tr>
+								
+								<div class="modal fade" id="deleteModal<?php  echo $row[$i][0]?>" tabindex="-1" role="dialog"
+									aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+												<h4 class="modal-title" id="myModalLabel">Delete Category</h4>
+											</div>
+											<div class="modal-body">Are you sure you want to delete this
+												category? This cannot be undone and will remove all categories associated to products</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+												<form method="POST" action="admin-includes/admin-common.php?delCat=<?php echo $row[$i][0];?>">
+													<button type="submit" name="del" class="btn btn-danger"  >Delete Product</button>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+						
 								<?php }
 								?>
 							</tbody>

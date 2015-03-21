@@ -31,6 +31,52 @@ if(isset($_POST['newCategory'])){
 
 }
 
+if(isset($_GET['delCat'])){ //if there is a deletion id
+	$category_id = $_GET[ 'delCat' ]; //get the deletion id
+
+	deleteCategories($category_id);
+}
+
+function deleteCategories($category_id){
+	
+	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+	
+	$mysqli = $db_con; //just for names sake
+	
+	$stmt = $mysqli->prepare ("DELETE FROM `product_categories` WHERE category_id=?");  //delete the categories associated with the product first
+	
+	if ($stmt === false) {
+		trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+	}
+	
+	$stmt->bind_param ("i", $category_id);
+	
+	if(!($stmt->execute ())){
+		die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
+	}
+	
+	$stmt->close ();
+	
+	$stmt = $mysqli->prepare ("DELETE FROM `category` WHERE category_id=?"); //then delete the product
+	
+	if ($stmt === false) {
+		trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+	}
+	
+	$stmt->bind_param ("i", $category_id);
+	
+	if(!($stmt->execute ())){
+		die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
+	}
+	
+	$stmt->close ();
+	
+	
+	$mysqli->close();
+	
+}
+
+
 function checkCateName($name){
 	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 	
@@ -72,7 +118,7 @@ function listCategories(){
 
 	$rows = array();
 
-	$stmt = $mysqli->prepare ("SELECT category_id, name FROM categories");
+	$stmt = $mysqli->prepare ("SELECT category_id, name FROM categories ORDER BY category_id ASC");
 
 	if ($stmt === false) {
 		trigger_error('Statement failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
