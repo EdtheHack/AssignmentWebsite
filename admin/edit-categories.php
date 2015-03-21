@@ -87,7 +87,7 @@ include ("nav.php");
 								<div class="form-group">
 									<label for="newProductName">Category Name</label> <input
 										type="text" class="form-control" name="newCategoryName"
-										placeholder="Enter product name"
+										placeholder="Enter category name"
 										<?php if(!empty($_POST["newCategoryName"])){ echo " value='".$_POST["newCategoryName"]."'"; } ?>>
 								</div>
 								<button type="submit" name="newCategory" class="btn btn-default">Create Cetegory</button>

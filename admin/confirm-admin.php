@@ -29,19 +29,7 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 	</head>
 <body>
 	<?php include ("nav.php");
-	
-	 if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
-	if (($_SESSION["loggedIn"] == true) && ($_SESSION["adminChecked"] == true)){
-		echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
-	} else {
-		$twostep = false; //initilise 
-		$_SESSION["adminChecked"] = $twostep;
-	}
- }else{
- 	echo "<script type=\"text/javascript\">document.location.href=\"../index.php\";</script>";
- }
- 
- ?>
+	?>
 	
 <div class="container">
 <div class="col-md-6 col-md-offset-3">
