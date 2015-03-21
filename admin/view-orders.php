@@ -48,15 +48,61 @@ include ("nav.php");
 include ("admin-nav.php");
 ?>
     <div class="col-md-9">
+		<?php
+				$orders = listOrders($user->getId());
+				$count = 0;
+						
+				foreach ($orders as $order){
+			?>
+			<div class="row">
+			<h4><?php echo "Order Id: ".$order[0]." - User Id: ".$order[1]; if($order[2] == 0){ echo " - Purchased: NO";} else { echo " - Purchased: YES - Purchase Date - ".$order[3];}?></h4>
+				<table class="table table-hover table-responsive">
+					<thead>
+						<tr>
+							<th>Product</th>
+							<th>Description</th>
+							<th>Quantity</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php
+						$products = getOrderProducts($orderIdDate[0]);
+						
+						foreach ($products as $product){
+					?>
+						<tr>
+							<td><?php echo $product[1]?></td>
+							<td><?php echo $product[3]?></td>
+							<td><?php echo $product[9]?></td>
+							<td><a href"myModal" data-toggle="modal" data-target="#myModal">Delete Order</a></td>
+						</tr>
+					<?php
+						}
+					?>
+					</tbody>
+				</table>
+			</div>
+			<?php
+			
+			$count++;
+			}
+			?>
+			<!--
 <table class="table table-hover table-responsive">
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>Customer ID</th>
+							<th>Order ID</th>
+							<th>Order ID</th>
 							<th>Order Total</th>
 						</tr>
 					</thead>
 					<tbody>
+					<?php 
+						$rows = listOrders();
+						
+						for ($i = 0; $i < count($row); $i++){
+					?>
 						<tr>
 							<td>1</td>
 							<td>Customer 1</td>
@@ -65,24 +111,10 @@ include ("admin-nav.php");
 							<td><a href"myModal" data-toggle="modal" data-target="#myModal">Delete
 									Order</a></td>
 						</tr>
-						<tr>
-							<td>2</td>
-							<td>Customer 2 2</td>
-							<th>£0.00</th>
-							<td>Edit Order</td>
-							<td>Delete Order</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>Customer 3</td>
-							<th>£0.00</th>
-							<td>Edit Order</td>
-							<td>Delete Order</td>
-						</tr>
 					</tbody>
 				</table>
     </div>
-  </div>
+  </div> -->
   
   	<!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -105,6 +137,8 @@ include ("admin-nav.php");
 			</div>
 		</div>
 	</div>
+	<?php }
+	?>
 </div>
 </body>
 </html>
