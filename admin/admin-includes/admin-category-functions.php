@@ -56,7 +56,7 @@ function checkCateName($name){
 	if($returned_name == $name){
 		echo "already in the db";
 	}else{
-		addCategory($name);
+		//addCategory($name);
 	}
 	
 	$mysqli->close ();
