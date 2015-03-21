@@ -398,7 +398,6 @@ function purchaseOrder($orderId){
 		while($stmt->fetch()) {
 			if ($stockLeft < 0){
 				$problem = $name;
-				echo "Too many products in order";
 				$halt = true;
 			}
 		}

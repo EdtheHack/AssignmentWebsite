@@ -81,7 +81,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 			} else {
 			echo "<div class=\"alert alert-danger\">
 					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					  		<strong>Error!</strong> Sorry! ".$attemptPurchase." has run out of stock!!
+					  		<strong>Error!</strong> Sorry! ".$attemptPurchase." does not have enough stock!!
 						</div>";
 			}
 		}
