@@ -54,10 +54,11 @@ function checkCateName($name){
 
 	$mysqli->close ();
 	
-	if($returned_name != $name){
-		return 1;
-	}else{
+	if($returned_name == $name){
+		echo "already in the db";
 		return 0;
+	}else{
+		return 1;
 	}
 }
 
