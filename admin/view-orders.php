@@ -50,13 +50,19 @@ include ("admin-nav.php");
     <div class="col-md-9">
 		<?php									
 				include ("admin-includes/admin-order-functions.php");
+				
+				if(isset($_POST['delete'])){
+					deleteOrder($_POST['delete']);
+				}
+				
 				$orders = listOrders($user->getId());
 				$count = 0;
 						
 				foreach ($orders as $order){
 			?>
 			<div class="row">
-			<h4><?php echo "Order Id: ".$order[0]." - User Id: ".$order[1]; if($order[2] == 0){ echo " - Purchased: NO";} else { echo " - Purchased: YES - Purchase Date - ".$order[3];}?></h4>
+			<h4><?php echo "Order Id: ".$order[0]." - User Id: ".$order[1]; if($order[2] == 0){ echo " - Purchased: NO";} else { echo " - Purchased: YES - Purchase Date - ".$order[3]." 
+			- <a href\"myModal\" data-toggle=\"modal\" data-target=\"#myModal".$order[0]."\">Delete Order</a>";}?></h4>
 				<table class="table table-hover table-responsive">
 					<thead>
 						<tr>
@@ -75,7 +81,6 @@ include ("admin-nav.php");
 							<td><?php echo $product[1]?></td>
 							<td><?php echo $product[3]?></td>
 							<td><?php echo $product[9]?></td>
-							<td><a href"myModal" data-toggle="modal" data-target="#myModal">Delete Order</a></td>
 						</tr>
 					<?php
 						}
@@ -83,7 +88,7 @@ include ("admin-nav.php");
 					</tbody>
 				</table>
 				  	<!-- Modal -->
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+				<div class="modal fade" id="myModal<?php  echo $order[0];?>" tabindex="-1" role="dialog"
 					aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
@@ -98,7 +103,9 @@ include ("admin-nav.php");
 								order? This cannot be undone.</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								<button type="button" class="btn btn-danger">Delete Order</button>
+								<form method="POST" action="">
+									<button type="button" name="delete" value="<?php $order[0]?>" class="btn btn-danger">Delete Order</button>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -110,30 +117,6 @@ include ("admin-nav.php");
 			$count++;
 			}
 			?>
-			<!--
-<table class="table table-hover table-responsive">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Order ID</th>
-							<th>Order ID</th>
-							<th>Order Total</th>
-						</tr>
-					</thead>
-					<tbody>
-					
-						<tr>
-							<td>1</td>
-							<td>Customer 1</td>
-							<th>£0.00</th>
-							<td>Edit Order</td>
-							<td><a href"myModal" data-toggle="modal" data-target="#myModal">Delete
-									Order</a></td>
-						</tr>
-					</tbody>
-				</table>
-    </div>
-  </div> -->
 </div>
 </body>
 </html>

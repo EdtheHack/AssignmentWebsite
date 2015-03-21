@@ -4,6 +4,42 @@ include ("../includes/sanitisation.php");
 
 $error_array = array();
 
+function deleteOrder($order_id){
+	
+	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
+	
+	$mysqli = $db_con; //just for names sake
+	
+	$stmt = $mysqli->prepare ("DELETE FROM `order_contents` WHERE order_id=?");  //delete the categories associated with the product first
+	
+	if ($stmt === false) {
+		trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+	}
+	
+	$stmt->bind_param ("i", $order_id);
+	
+	if(!($stmt->execute ())){
+		die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
+	}
+	
+	$stmt->close ();
+	
+	$stmt = $mysqli->prepare ("DELETE FROM `order` WHERE order_id=?"); //then delete the category
+	
+	if ($stmt === false) {
+		trigger_error('Statement 2 failed! ' . htmlspecialchars(mysqli_error($mysqli)), E_USER_ERROR);
+	}
+	
+	$stmt->bind_param ("i", $order_id);
+	
+	if(!($stmt->execute ())){
+		die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
+	}
+	
+	$stmt->close ();
+	$mysqli->close();
+}
+
 function listOrders(){
 	include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 
