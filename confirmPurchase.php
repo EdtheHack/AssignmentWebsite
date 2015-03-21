@@ -94,7 +94,6 @@ error_reporting ( - 1 );
 						if (validateUser($user->getEmail(), $_POST["password"]) == 1){
 							$user->purchaseCurrentOrder();
 							$_SESSION["user"] = serialize($user);
-							echo "<script type=\"text/javascript\">document.location.href=\"viewOrders.php\";</script>";
 						} else {
 							echo "Incorrect Password";
 						}						
