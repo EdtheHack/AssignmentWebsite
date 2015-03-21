@@ -2,9 +2,10 @@
 
 include ("../includes/sanitisation.php");
 
+$error_array = array();
+
 if(isset($_POST['newCategory'])){
 	
-	$error_array = array();
 	
 	$name = $_POST['newCategoryName'];
 
