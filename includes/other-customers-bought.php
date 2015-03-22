@@ -1,18 +1,19 @@
 <?php 
-	$products = $user->getOrder()->getProducts();
-	$rows = getOtherCustomersBought($user->getCurrentOrderId(), $products[0]->getId());
+	$user = unserialize($_SESSION["user"]);
+	$rows = getOtherCustomersBought($user->getCurrentOrderId(), $user->getOrder()->getProducts()[0]->getId());
 ?>
 <div class="row">
 	<div class="well">
-		<h3>You have <?php echo $products[0]->getName();?></h3><br>
+		<h3>You Have <?php echo $user->getOrder()->getProducts()[0]->getName();?></h3>
 		<h3>Other Customers also Bought</h3>
 		<div class="row">
 			<br>
 
 			<?php	
-				for($i = 0; $i < 3; $i ++) {
+				$count = 0;
+				foreach ($rows as $row) {
 					
-					$product = new product ($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6], $rows[$i][7], $rows[$i][8]);
+					$product = new product ($row[$count][0], $row[$count][1], $row[$count][2], $row[$count][3], $row[$count][4], $row[$count][5], $row[$count][6], $row[$count][7], $row[$count][8]);
 					
 					$cutOff = 75;
 					$des = $product->getDescription();
@@ -36,6 +37,7 @@
 				</div>
 								
 			<?php
+				$count++;
 				}
 			?>
 		</div>
