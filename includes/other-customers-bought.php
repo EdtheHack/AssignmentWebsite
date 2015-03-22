@@ -1,9 +1,9 @@
 <?php 
-	$rows = getOtherCustomersBought($user->getCurrentOrderId(), $user->getOrder()->getProducts()[0]->getId());
+	$rows = getOtherCustomersBought($user->getCurrentOrderId(), ($user->getOrder()->getProducts())[0]->getId());
 ?>
 <div class="row">
 	<div class="well">
-		<h3>You Bought <?php $user->getOrder()->getProducts()[0]->getName()?></h3>
+		<h3>You Bought <?php ($user->getOrder()->getProducts())[0]->getName()?></h3>
 		<h3>Other Customers also Bought</h3>
 		<div class="row">
 			<br>
