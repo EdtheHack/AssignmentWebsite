@@ -20,11 +20,14 @@ session_start ();
 </head>
 <body>
 	<?php	
-	 if(isset($_SESSION["user"])){  //checks if user is logged in
+	include ("includes/nav.php");
+	
+	if(isset($_SESSION["user"])){  //checks if user is logged in
 		$user = unserialize($_SESSION["user"]);
 		if(isset($_SESSION["product"]) && isset($_POST["add"])){   //checks if user came here from a product page
 			$addProduct = unserialize($_SESSION["product"]);
 			$user->getOrder()->addProduct($addProduct, $_POST['quantity']);
+			setBasket($user->getOrder()->getAmountOfProducts());
 			unset($_SESSION['product']);
 			$_SESSION["user"] = serialize($user);
 		}
@@ -34,10 +37,9 @@ session_start ();
 	
 	if(isset($_POST["removeItemId"])){ 
 		$user->getOrder()->removeProduct($_POST["removeItemId"]);
+		setBasket($user->getOrder()->getAmountOfProducts());
 		$_SESSION["user"] = serialize($user);
 	}
-	
-	include ("includes/nav.php");
 	?>
 	
 	<div class="container">
