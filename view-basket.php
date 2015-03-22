@@ -54,7 +54,7 @@ session_start ();
 					<h4><?php echo "Total Price: £".$user->getOrder()->getTotalPrice(); ?></h4> 
 				</div>
 				<div class="col-md-2"> <?php
-					if ($user->getOrder()->getAmountOfProducts() != 0) { echo "<a href=\"confirmPurchase.php\"><button type=\"submit\" class=\"btn btn-default \"> <b> Confirm Purchase </b> </button></a>"; }
+					if ($user->getOrder()->getAmountOfProducts() != 0) { echo "<a href=\"confirm-purchase.php\"><button type=\"submit\" class=\"btn btn-default \"> <b> Confirm Purchase </b> </button></a>"; }
 				?> </div>
 			</div>
 		</div>
@@ -64,7 +64,7 @@ session_start ();
 		$count = 0;
 		$basketItem = true;
 		foreach ($products as $product) {				
-			include ("includes/horizontal-item.php");
+			include ("includes/row-item.php");
 			$count++;
 		}	
 		unset($basketItem);
@@ -79,7 +79,6 @@ session_start ();
 				<div class="row">
 					<br>
 					<?php include ("includes/product-bar.php"); ?>
-					
 				</div>
 			</div>
 		</div>

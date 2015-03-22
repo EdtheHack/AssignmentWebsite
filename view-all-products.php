@@ -32,38 +32,11 @@ session_start ();
 					$rows = getAllProducts();
 				}			
 	    		
-	    		$count = 0;
-				
-				for($i = 0; $i < count($rows); $i++) {
-				
-				$product = new product ($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6], $rows[$i][7], $rows[$i][8]);
-
-				$length = 65;
-				$cut_off = 65;
-				$des = $product->getDescription();
-				$des = (strlen($des) > $length) ? substr($des,0,$cut_off).'...<a href="viewProduct.php?'.$product->getId().'">read more</a>' : $des;
-
+				foreach ($rows as $row) {
+					$product = new product ($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
 				?>
 				<div class="col-md-4">
-					<div class="thumbnail"> 
-						
-						<a href="viewProduct.php?<?php echo $product->getId(); ?>"> <img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our products" style="width:150px;height:150px"> </a>
-						<div class="caption">
-							<h4><a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a></h4>
-							<p><?php echo $des ?></p>
-						</div>
-						
-						<div> 
-							<span class="pull-right"><a href="viewProduct.php?<?php echo $product->getId(); ?>"> <button type="submit" class="btn btn-default"><i class="fa fa-eye"></i> <b> View </b></button></a></span>
-						</div>
-						<h5><?php if ($product->getPercentage() == 0){
-							echo "<strong> &pound;".$product->getPrice()."</strong>";
-						} else {
-							$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
-							$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
-							echo "<strike>&pound;".$product->getPrice()."</strike>  ".$product->getPercentage()."% off! <br> <strong> Our Price: &pound;".$salePrice."</strong> <br>";
-						} ?> </h5>
-					</div>  
+					<?php include ("includes/block-item.php"); ?> 
 				</div>
 				<?php
 				} 
