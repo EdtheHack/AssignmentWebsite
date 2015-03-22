@@ -73,7 +73,7 @@ include ("includes/nav.php");
 					<br>
 					<?php 
 					$rows = getNewest ();
-					include ("includes/newest-products.php")?>
+					include ("includes/product-bar.php")?>
 					</div>
 				</div>
 			</div>

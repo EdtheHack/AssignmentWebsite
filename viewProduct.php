@@ -92,7 +92,7 @@ error_reporting ( - 1 );
 				
 			<?php
 				$rows = getSimilarItems($product->getId());
-				include ("includes/newest-products.php"); 
+				include ("includes/product-bar.php"); 
 			}
 			?>
 			</div>

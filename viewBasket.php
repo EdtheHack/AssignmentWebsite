@@ -116,7 +116,7 @@ error_reporting ( - 1 );
 				<h3>Other Customers also Bought</h3>
 				<div class="row">
 					<br>
-					<?php include ("includes/newest-products.php"); ?>
+					<?php include ("includes/product-bar.php"); ?>
 					
 				</div>
 			</div>
