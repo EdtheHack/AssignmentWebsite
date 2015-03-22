@@ -51,13 +51,20 @@ $count = count($rows);
 					$_SESSION["adminChecked"] = false; //as soon as you navigate away from amdin pages set to false and force password entry
 					$user = unserialize($_SESSION["user"]);
 					
-					if(!isset($_POST["removeItemId"]) || !isset($_POST["add"])){
-						echo"<li><a href=\"view-basket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".$user->getOrder()->getAmountOfProducts()."</b></a></li>";
-					} 
-					
-					function setBasket($items){
-						echo"<li><a href=\"view-basket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".$items."</b></a></li>";
+					if(isset($_POST["removeItemId"])){   //checks if user wants to remove a basket item
+						$user->getOrder()->removeProduct($_POST["removeItemId"]);
+						$_SESSION["user"] = serialize($user);
 					}
+					
+					if(isset($_SESSION["product"]) && isset($_POST["add"])){   //checks if user came from a product page
+						$addProduct = unserialize($_SESSION["product"]);
+						$user->getOrder()->addProduct($addProduct, $_POST['quantity']);
+						unset($_SESSION['product']);
+						$_SESSION["user"] = serialize($user);
+					}
+					
+					echo"<li><a href=\"view-basket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".$user->getOrder()->getAmountOfProducts()."</b></a></li>";
+					
 							
 					//PHP INJECT HTML TO THE PAGE
 					echo"<li class=\"dropdown\"><a data-toggle=\"dropdown\"

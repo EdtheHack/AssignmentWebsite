@@ -1,5 +1,9 @@
 <?php
 session_start ();
+
+if(!isset($_SESSION["user"])){  //checks if user is logged in
+	echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,28 +23,7 @@ session_start ();
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<?php	
-	include ("includes/nav.php");
-	
-	if(isset($_SESSION["user"])){  //checks if user is logged in
-		$user = unserialize($_SESSION["user"]);
-		if(isset($_SESSION["product"]) && isset($_POST["add"])){   //checks if user came here from a product page
-			$addProduct = unserialize($_SESSION["product"]);
-			$user->getOrder()->addProduct($addProduct, $_POST['quantity']);
-			setBasket($user->getOrder()->getAmountOfProducts());
-			unset($_SESSION['product']);
-			$_SESSION["user"] = serialize($user);
-		}
-	} else {
-		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
-	}
-	
-	if(isset($_POST["removeItemId"])){ 
-		$user->getOrder()->removeProduct($_POST["removeItemId"]);
-		setBasket($user->getOrder()->getAmountOfProducts());
-		$_SESSION["user"] = serialize($user);
-	}
-	?>
+	<?php include ("includes/nav.php"); ?>
 	
 	<div class="container">
 		<div class="well">
