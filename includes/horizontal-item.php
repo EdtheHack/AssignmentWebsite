@@ -16,7 +16,7 @@
 			<?php if(isset($basketItem)){
 				echo "<h4>".$user->getOrder()->getQuantity($count)." x ".$product->getName();</a>."</h4>";
 			} else {
-				echo "<h4><a href=\"view-product.php?".$product->getId().">".$product->getName()."</a></h4>";
+				echo "<h4><a href=\"view-product.php?".$product->getId()."\">".$product->getName()."</a></h4>";
 			}
 			?>
 			<p> <?php echo $product->getDescription(); ?></p>
