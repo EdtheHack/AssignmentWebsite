@@ -125,7 +125,7 @@ error_reporting ( - 1 );
 							<tr>
 								<td><?php echo $user->getOrder()->getAmountOfProducts(); ?></td>
 								<td><?php echo "&pound;".$user->getOrder()->getTotalPrice();?></td>
-								<td><?php echo "&pound;".$delivery_fee ?></td>
+								<td><?php if($delivery_fee == 0){ echo "FREE!"; }else{ echo "&pound;".$delivery_fee; }?></td>
 								<td><?php $total = $user->getOrder()->getTotalPrice() + $delivery_fee; echo "&pound;".$total?></td>
 								
 							</tr>
@@ -138,28 +138,27 @@ error_reporting ( - 1 );
 					<br>
 					<h4>Delivery Address</h4>
 					<br>
-					<table class="table table-hover table-responsive pull-right">
-						<thead>
-							<tr>
-								<th></th>
-								<th></th>
-							</tr>
-						</thead>
+					<table class="table table-responsive pull-right">
 						<tbody>
 							<tr>
 								<td>Name</td>
-								<td><?php echo $user->getName()." ".$user->getLastname();?></td>
+								<td><?php echo $user->getName()." ".$_SESSION["lastName"];?></td>
 							</tr>
 							<tr>
 								<td>Address Line 1</td>
-								<td><?php echo $user->getAddr1();?></td>
+								<td><?php echo $_SESSION["addressLine1"]?></td>
 							</tr>
 							<tr>
 								<td>Address Line 2</td>
-								<td><?php echo $user->getAddr2();?></td>
+								<td><?php echo $_SESSION["addressLine2"]?></td>
+							</tr>
+							<tr>
+								<td>Postcode</td>
+								<td><?php echo $_SESSION["postcode"]?></td>
 							</tr>
 						</tbody>
 					</table>
+					<a href="change-account-details.php#sectionC">Change Details</a>
 				
 				
 					<p> Confirm your password to buy </p>
