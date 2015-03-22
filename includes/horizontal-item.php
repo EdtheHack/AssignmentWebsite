@@ -14,7 +14,7 @@
 				echo "<strong> Our Price: &pound;".$salePrice."</strong> RRP: <strike>&pound;".$product->getPrice() ."</strike><br>";
 			} ?> </h5> <!-- PLEASE IGNORE HTML ERRORS -->
 			<?php if(isset($basketItem)){
-				echo "<h4>".$user->getOrder()->getQuantity($count)." x ".$product->getName();</a>."</h4>";
+				echo "<h4>".$user->getOrder()->getQuantity($count)." x ".$product->getName()</a>."</h4>";
 			} else {
 				echo "<h4><a href=\"view-product.php?".$product->getId()."\">".$product->getName()."</a></h4>";
 			}
