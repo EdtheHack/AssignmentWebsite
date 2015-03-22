@@ -131,9 +131,11 @@ error_reporting ( - 1 );
 							</tr>
 						</tbody>
 					</table>
+				</div
 				</div>
 				
 				<div class="col-md-6">
+				<div class="well>
 					<p> Confirm your password to buy </p>
 					<form method="POST" action="">
 						<div class="form-group"> 
@@ -153,6 +155,7 @@ error_reporting ( - 1 );
 					}
 					?>
 					
+				</div>
 				</div>
 			</div>
 		</div>
