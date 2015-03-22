@@ -9,7 +9,7 @@
 
 <div class="thumbnail">
 	<a href="view-product.php?<?php echo $product->getId(); ?>">
-		<img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our recently added products." height="150" width="auto">
+		<img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our recently added products." height="150" width="150">
 	</a>
 	<div class="caption">
 		<h4>
