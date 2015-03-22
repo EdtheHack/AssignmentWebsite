@@ -143,6 +143,28 @@ function getItem($productId){
 	return $row;
 }
 
+// gets items bought by other users
+
+function getOtherCustomersBought($orderId, $productId){  //NEEDS WORK
+	$mysqli = connect ();
+	
+		$rows = array();
+	
+	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN order_contents ON product.product_id = order_contents.product_id   
+									WHERE order_contents.order_id=(SELECT order_id FROM order_contents WHERE NOT order_id=? AND product_id=?) AND NOT order_contents.product_id=? LIMIT 3" )) {
+		$stmt->bind_param ("iii", $orderId, $productId, $productId);
+		$stmt->execute ();
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
+	   	while($stmt->fetch()) {
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8);
+    	}
+		$stmt->close ();
+	}
+	$mysqli->close ();
+	
+	return $rows;
+}
+
 // gets items from the same category based on one item 
 
 function getSimilarItems($productId){  //NEEDS WORK

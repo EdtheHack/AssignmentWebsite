@@ -26,7 +26,11 @@
 		}
 		
 		public function getAmountOfProducts(){
-			return count($this->products);
+			$total = 0;
+			foreach ($this->quantities as $quantity){
+				$total += $quantity;
+			}
+			return $total;
 		}
 		
 		public function getTotalPrice(){
