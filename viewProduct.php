@@ -86,36 +86,13 @@ error_reporting ( - 1 );
 		<?php
 			if(count(getSimilarItems($product->getId()) != 0)){
 		?>
-			<div class="well">
-				<h3>Similar Products</h3>
-				<div class="row">
+		<div class="well">
+			<h3>Similar Products</h3>
+			<div class="row">
 				
-				<?php
-				$rows = getSimilarItems($product->getId());
-				
-				for ($i = 0; $i < count($rows); $i++) {
-					$similarProduct = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6], $rows[$i][7], $rows[$i][8]);
-					
-										
-				?>
-						
-					<div class="col-md-4">
-                    <a href="viewProduct.php?<?php echo $product->getId(); ?>">
-						<img src="img/<?php echo $similarProduct->getImg(); ?>" alt="Similar Product Image" height="150" width="auto">
-                        </a>
-						<div class="caption">
-                        <a href="viewProduct.php?<?php echo $product->getId(); ?>">
-							<h3><?php echo $similarProduct->getName(); ?></h3>
-                            </a>
-							<p><?php echo $similarProduct->getDescription(); ?></p>
-						</div>
-						<form method="POST" action="basket.php">
-							<button type="submit" name='itemId' value='<?php echo $similarProduct->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> View </b> </button>	
-						</form>
-					</div>
-
 			<?php
-				}
+				$rows = getSimilarItems($product->getId());
+				include ("includes/newest-products.php"); 
 			}
 			?>
 			</div>
