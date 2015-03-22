@@ -36,7 +36,17 @@ error_reporting ( - 1 );
 	}
 	
 	
-	//delivery logic 
+/*==================
+ *  Delivery Logic
+ *==================
+ *
+ *Free delivery over £75
+ *For first products delivery is £3.80
+ *For every product after that it's plus £2.80 
+ *
+ *The delivery price is then added to the total price and is what the user pays
+ */
+	
 	$product_total = $user->getOrder()->getAmountOfProducts(); //int 
 	$order_total = $user->getOrder()->getTotalPrice(); 
 	$delivery_fee = 0; //default delivery price
@@ -68,7 +78,7 @@ error_reporting ( - 1 );
 					<h4><?php echo $user->getOrder()->getAmountOfProducts()." Products";?></h4>
 				</div>
 				<div class="col-md-4">
-					<h4><?php echo "Total Price: Â£".$user->getOrder()->getTotalPrice(); ?></h4>
+					<h4><?php echo "Total Price: Â£".$user->getOrder()->getTotalPrice() + $delivery_fee; ?></h4>
 				</div>
 			</div>
 			<br>
@@ -103,6 +113,59 @@ error_reporting ( - 1 );
 						</tbody>
 					</table>
 				</div>
+				
+				
+				<table class="table table-hover table-responsive">
+						<thead>
+							<tr>
+								<th>Product</th>
+								<th>Price</th>
+								<th>Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+						<?php
+							$products = $user->getOrder()->getProducts();
+							$count = 0;
+							
+							foreach ($products as $product){
+								$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
+								$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
+						?>
+							<tr>
+								<td><?php echo $product->getName()?></td>
+								<td><?php echo "&pound;".$salePrice?></td>
+								<td><?php echo $user->getOrder()->getQuantity($count)?></td>
+							</tr>
+						<?php
+							$count++;
+							}
+						?>
+						</tbody>
+					</table>
+					
+					<h5>Order Break Down</h5>
+					<table class="table table-hover table-responsive pull-right">
+						<thead>
+							<tr>
+								<th>Items ordered</th>
+								<th>Item Total</th>
+								<th>Postage and Packing</th>
+								<th>Order Total</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><?php echo $user->getOrder()->getAmountOfProducts(); ?></td>
+								<td><?php echo "&pound;".$user->getOrder()->getTotalPrice();?></td>
+								<td><?php echo "&pound;".$delivery_fee ?></td>
+								<td><?php echo "&pound;".$user->getOrder()->getTotalPrice() + $delivery_fee?></td>
+								
+							</tr>
+						</tbody>
+					</table>
+				
+				
 				<div class="col-md-6">
 					<p> Confirm your password to buy </p>
 					<form method="POST" action="">
