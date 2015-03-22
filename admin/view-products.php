@@ -39,7 +39,7 @@ include ("nav.php");
 		<div class="col-md-12">
 			<div class="row">
 				<div class="jumbotron">
-					<h2>View/Edit Products <small> A complete list of all produts, across the store.</small>
+					<h2>View/Edit Products <small> A complete list of all products, across the store.</small>
 					</h2>
 				</div>
 			</div>
@@ -174,7 +174,7 @@ include ("nav.php");
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 										<form method="POST" action="admin-includes/admin-common.php?del=<?php echo $product->getId();?>">
-											<button type="submit" name="del" class="btn btn-danger"  >Delete Product</button>
+										<button type="submit" name="del" class="btn btn-danger">Delete Product</button>
 										</form>
 									</div>
 								</div>
@@ -203,7 +203,7 @@ include ("nav.php");
 							</button>
 						<h4 class="modal-title" id="myModalLabel">You Cannot Delete This Product</h4>
 						</div>
-						<div class="modal-body">It is not possible to delete this product as the product has been previously ordered, you can however prevent this product from being listed but editing it's settings</div>
+						<div class="modal-body">It is not possible to delete this product as the product has been previously ordered. However, you can modify this products listing visibility by modifying its settings.</div>
 						<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								</div>
