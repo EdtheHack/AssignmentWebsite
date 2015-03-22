@@ -132,10 +132,36 @@ error_reporting ( - 1 );
 						</tbody>
 					</table>
 				</div>
-				</div>
 				
 				<div class="col-md-6">
-				<div class="well>
+					
+					<br>
+					<h4>Delivery Address</h4>
+					<br>
+					<table class="table table-hover table-responsive pull-right">
+						<thead>
+							<tr>
+								<th></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Name</td>
+								<td><?php echo $user->getName()." ".$user->getLastname();?></td>
+							</tr>
+							<tr>
+								<td>Address Line 1</td>
+								<td><?php echo $user->getAddr1();?></td>
+							</tr>
+							<tr>
+								<td>Address Line 2</td>
+								<td><?php echo $user->getAddr2();?></td>
+							</tr>
+						</tbody>
+					</table>
+				
+				
 					<p> Confirm your password to buy </p>
 					<form method="POST" action="">
 						<div class="form-group"> 
@@ -156,8 +182,7 @@ error_reporting ( - 1 );
 					?>
 					
 				</div>
-				</div>
-		
+			</div>
 		</div>
 	</div>
 </body>
