@@ -81,7 +81,6 @@ error_reporting ( - 1 );
 		</div
 			<br>
 			<hr>
-			<br>
 			<div class="well">
 			<div class="row">
 				<div class="col-md-6">
