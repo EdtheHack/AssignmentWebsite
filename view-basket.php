@@ -91,7 +91,7 @@ error_reporting ( - 1 );
 					<p> <?php echo $product->getDescription(); ?></p>
 				
 					<div class="col-md-6">
-						<a href="viewProduct.php?<?php echo $product->getId(); ?>"><button type="submit" class="btn btn-default "><i class="fa fa-eye "></i> <b> View </b> </button></a>
+						<a href="view-product.php?<?php echo $product->getId(); ?>"><button type="submit" class="btn btn-default "><i class="fa fa-eye "></i> <b> View </b> </button></a>
 					</div>
 					<div class="col-md-6">
 						<form method="POST" action="view-basket.php">

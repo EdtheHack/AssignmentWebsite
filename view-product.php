@@ -51,9 +51,9 @@ error_reporting ( - 1 );
 				<div class="col-md-6">
 					<div class="col-md-5 pull-right" >
 						<h4 class="pull-left"><?php if($row[5] == 1){
-														echo "<strong> Our Price: &pound;".$sale_price."</strong><br>
+														echo "<strong> Our Price: &pound;".$salePrice."</strong><br>
 															RRP: <strike>&pound;".$price ."</strike><br>
-															You Save: <em>&pound;".$sale_price_tmp." (".$percent."&#37;)</em><br>";
+															You Save: <em>&pound;".$salePriceTmp." (".$product->getPercentage()."&#37;)</em><br>";
 													}else{
 														echo "&pound;".round($product->getPrice(), 2);
 													}?></h4>

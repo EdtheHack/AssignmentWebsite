@@ -1,7 +1,7 @@
 <div class="well">
 	<div class="row">
 		<div class="col-md-3">
-		<a href="viewProduct.php?<?php echo $product->getId(); ?>">
+		<a href="view-product.php?<?php echo $product->getId(); ?>">
 			<img src="includes/<?php echo $product->getImg(); ?>" alt="Image of a product found from your search query" height="150" width="150">
 			</a>
 		</div>
@@ -13,9 +13,9 @@
 				$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
 				echo "<strong> Our Price: &pound;".$salePrice."</strong> RRP: <strike>&pound;".$product->getPrice() ."</strike><br>";
 			} ?> </h5> <!-- PLEASE IGNORE HTML ERRORS -->
-			<h4><a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a></h4>
+			<h4><a href="view-product.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a></h4>
 			<p> <?php echo $product->getDescription(); ?></p>
-			<a href="viewProduct.php?<?php echo $product->getId(); ?>"><button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default right-margin"><i class="fa fa-eye"></i> <b> View </b> </button></a>	
+			<a href="view-product.php?<?php echo $product->getId(); ?>"><button type="submit" name='itemId' value='<?php echo $product->getId(); ?>' class="btn btn-default right-margin"><i class="fa fa-eye"></i> <b> View </b> </button></a>	
 		</div>
 		<br>
 	</div>

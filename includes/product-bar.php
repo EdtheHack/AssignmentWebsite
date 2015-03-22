@@ -8,13 +8,13 @@
 ?> 
 	<div class="col-md-4">
 		<div class="thumbnail"> 
-			<a href="viewProduct.php?<?php echo $product->getId(); ?>"> <img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our products" style="width:150px;height:150px"> </a>
+			<a href="view-product.php?<?php echo $product->getId(); ?>"> <img src="img/<?php echo $product->getImg(); ?>" alt="Image of one of our products" style="width:150px;height:150px"> </a>
 			<div class="caption">
-				<h4><a href="viewProduct.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a></h4>
+				<h4><a href="view-product.php?<?php echo $product->getId(); ?>"><?php echo $product->getName(); ?></a></h4>
 				<p><?php echo $des ?></p>
 			</div>
 			<div> 
-				<span class="pull-right"><a href="viewProduct.php?<?php echo $product->getId(); ?>"> <button type="submit" class="btn btn-default"><i class="fa fa-eye"></i> <b> View </b></button></a></span>
+				<span class="pull-right"><a href="view-product.php?<?php echo $product->getId(); ?>"> <button type="submit" class="btn btn-default"><i class="fa fa-eye"></i> <b> View </b></button></a></span>
 			</div>
 			<h5><?php if ($product->getPercentage() == 0){
 				echo "<strong> &pound;".$product->getPrice()."</strong>";

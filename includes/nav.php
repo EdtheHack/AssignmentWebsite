@@ -59,7 +59,7 @@ $count = count($rows);
 							<ul role=\"menu\" class=\"dropdown-menu\">
 							<li><a href=\"view-orders.php\">Orders</a></li>
 							<li><a href=\"change-account-details.php\">Account Settings</a></li>
-							<li><a href=\"viewBasket.php\">Basket</a></li>
+							<li><a href=\"view-basket.php\">Basket</a></li>
 							</ul></li>" ;
 						
 					if(checkAdmin() == 1){ //check for admin user 
