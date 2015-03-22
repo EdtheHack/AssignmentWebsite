@@ -44,11 +44,11 @@ include ("includes/nav.php");
 							<div class="carousel-caption">Slide 1</div>
 						</div>
 						<div class="item">
-							<img src="banner/banner2.png" alt="Image of one of our recently added products." height="300" width="auto">
+							<img src="banner/banner2.png" alt="Image of one of our recently added products." height="300" width="735">
 							<div class="carousel-caption">Slide 2</div>
 						</div>
                         <div class="item">
-							<img src="img/big_ben.JPG" alt="Image of one of our recently added products." height="300" width="auto">
+							<img src="banner/banner4.png" alt="Image of one of our recently added products." height="300" width="735">
 							<div class="carousel-caption">Slide 3</div>
 						</div>
 					</div>
