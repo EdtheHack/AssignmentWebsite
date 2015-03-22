@@ -66,7 +66,17 @@ include ("includes/nav.php");
 				</div>
 			</div>
 		</div>
-    <?php include ("includes/newest-products.php")?>
+		<div class="row">
+			<div class="well">
+				<h3>Our Newest Products</h3>
+				<div class="row">
+					<br>
+					<?php 
+					$rows = getNewest ();
+					include ("includes/newest-products.php")?>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	</div>

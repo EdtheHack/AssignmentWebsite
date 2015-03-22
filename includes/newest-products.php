@@ -1,12 +1,4 @@
-<div class="row">
-	<div class="well">
-		<h3>Our Newest Products</h3>
-		<div class="row">
-			<br>
-
-			<?php
-				$rows = getNewest ();
-					
+		<?php	
 				for($i = 0; $i < 3; $i ++) {
 					
 					$product = new product ($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6], $rows[$i][7], $rows[$i][8]);
@@ -35,6 +27,3 @@
 			<?php
 				}
 			?>
-		</div>
-	</div>
-</div>

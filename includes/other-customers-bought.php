@@ -1,5 +1,4 @@
 <?php 
-	//$user = unserialize($_SESSION["user"]);
 	$products = $user->getOrder()->getProducts();
 	$rows = getOtherCustomersBought($user->getCurrentOrderId(), $products[0]->getId());
 ?>
