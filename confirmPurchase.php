@@ -158,7 +158,7 @@ error_reporting ( - 1 );
 							</tr>
 						</tbody>
 					</table>
-					<a href="change-account-details.php#sectionC">Change Details</a>
+					<a href="change-account-details.php#sectionC?purchase">Change Details</a>
 				
 				
 					<p> Confirm your password to buy </p>

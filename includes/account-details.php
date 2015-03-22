@@ -12,6 +12,11 @@ if (isset ($_POST['changeDetails'])) {
 		   		<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
 		   		<strong>Success!</strong> Your details has been changed!
 			</div>";
+		
+		if(isset( $_GET['purchase'])){
+			echo "<script type=\"text/javascript\">document.location.href=\"confirmPurchase.php\";</script>";
+		}
+		
 	} else {
 		echo "<div class=\"alert alert-danger\">
 					        		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
