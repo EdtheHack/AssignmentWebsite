@@ -52,13 +52,13 @@ error_reporting ( - 1 );
 	$delivery_fee = 0; //default delivery price
 	
 	if ($order_total >= 75){
-		$delivery_fee = 0;
+	$delivery_fee = number_format(( $delivery_fee = 0), 2, '.', '');
 	}else{
 		for ($i = 0; $i < $product_total; $i++){
 			if($i == 0){
-				$delivery_fee = $delivery_fee + 3.80; 
+				$delivery_fee = number_format(( $delivery_fee + 3.80), 2, '.', ''); 
 			}else{
-				$delivery_fee = $delivery_fee + 2.80;
+				$delivery_fee = number_format(( $delivery_fee + 2.80), 2, '.', '');
 			}
 		}
 	}
@@ -112,37 +112,6 @@ error_reporting ( - 1 );
 						?>
 						</tbody>
 					</table>
-				</div>
-				
-				
-				<table class="table table-hover table-responsive">
-						<thead>
-							<tr>
-								<th>Product</th>
-								<th>Price</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-						<?php
-							$products = $user->getOrder()->getProducts();
-							$count = 0;
-							
-							foreach ($products as $product){
-								$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
-								$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
-						?>
-							<tr>
-								<td><?php echo $product->getName()?></td>
-								<td><?php echo "&pound;".$salePrice?></td>
-								<td><?php echo $user->getOrder()->getQuantity($count)?></td>
-							</tr>
-						<?php
-							$count++;
-							}
-						?>
-						</tbody>
-					</table>
 					
 					<h5>Order Break Down</h5>
 					<table class="table table-hover table-responsive pull-right">
@@ -164,7 +133,7 @@ error_reporting ( - 1 );
 							</tr>
 						</tbody>
 					</table>
-				
+				</div>
 				
 				<div class="col-md-6">
 					<p> Confirm your password to buy </p>
