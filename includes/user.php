@@ -77,7 +77,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 				addNewUserOrder($this->id);
 				$this->currentOrderId = getCurrentUserOrderId($this->id);
 				$this->order = new order($this->currentOrderId, getOrderProducts($this->currentOrderId), 0);
-				echo "<script type=\"text/javascript\">document.location.href=\"viewOrders.php\";</script>";
+				echo "<script type=\"text/javascript\">document.location.href=\"view-orders.php\";</script>";
 			} else {
 			echo "<div class=\"alert alert-danger\">
 					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>

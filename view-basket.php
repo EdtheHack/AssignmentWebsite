@@ -94,7 +94,7 @@ error_reporting ( - 1 );
 						<a href="viewProduct.php?<?php echo $product->getId(); ?>"><button type="submit" class="btn btn-default "><i class="fa fa-eye "></i> <b> View </b> </button></a>
 					</div>
 					<div class="col-md-6">
-						<form method="POST" action="viewBasket.php">
+						<form method="POST" action="view-basket.php">
 							<button type="submit" name='removeItemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> Remove </b> </button>	
 						</form>
 					</div>
@@ -103,12 +103,12 @@ error_reporting ( - 1 );
 			</div>
 		</div>
 		<?php
-		$count++;
+			$count++;
 		}	
 		
-		$products = $user->getOrder()->getProducts();
-		$rows = getOtherCustomersBought($user->getCurrentOrderId(), $products[0]->getId());
 		if ($user->getOrder()->getAmountOfProducts() != 0 && count($rows) != 0){
+			$products = $user->getOrder()->getProducts();
+			$rows = getOtherCustomersBought($user->getCurrentOrderId(), $products[0]->getId());
 		?>
 		<div class="row">
 			<div class="well">

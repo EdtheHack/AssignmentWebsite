@@ -50,14 +50,14 @@ $count = count($rows);
 				if(isset($_SESSION["user"]) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
 					$user = unserialize($_SESSION["user"]);
 							
-					echo"<li><a href=\"viewBasket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".$user->getOrder()->getAmountOfProducts()."</b></a></li>";
+					echo"<li><a href=\"view-basket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".$user->getOrder()->getAmountOfProducts()."</b></a></li>";
 							
 					//PHP INJECT HTML TO THE PAGE
 					echo"<li class=\"dropdown\"><a data-toggle=\"dropdown\"
 							class=\"dropdown-toggle\" href=\"#\"><i class=\"fa fa-wrench\"></i> ".$user->getName()."'s   
 							 Account <b class=\"caret\"></b></a>
 							<ul role=\"menu\" class=\"dropdown-menu\">
-							<li><a href=\"viewOrders.php\">Orders</a></li>
+							<li><a href=\"view-orders.php\">Orders</a></li>
 							<li><a href=\"change-account-details.php\">Account Settings</a></li>
 							<li><a href=\"viewBasket.php\">Basket</a></li>
 							</ul></li>" ;

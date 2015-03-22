@@ -35,13 +35,8 @@ error_reporting ( - 1 );
 	$_SESSION['product'] = serialize($product);  //serialize product object to pass to basket
 
 	if($row[5] == 1){			
-		$price = $product->getPrice();
-		$percent = $product->getPercentage();
-			
-		//$sale_price_tmp = round($price * $percent / 100, 2);
-		//$sale_price =  round($price - $sale_price_tmp, 2);
-		$sale_price_tmp = number_format(($price * $percent / 100), 2, '.', '');
-		$sale_price =  number_format(($price - $sale_price_tmp), 2, '.', '');
+		$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
+		$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
 	}
 	?>
 	
@@ -71,11 +66,11 @@ error_reporting ( - 1 );
 					<p><?php echo $product->getDescription();?></p>
 					<br>
                     <p>Remaining Stock: <?php echo $product->getStock();?></p>
-					<form method="POST" action="viewBasket.php">  
+					<form method="POST" action="view-basket.php">  
 						<button type="submit" name="add" value="1" class="btn btn-default pull-right">
 							<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
 						</button>
-						<?php include ("includes/quantitySpinner.php"); ?>
+						<?php include ("includes/quantity-spinner.php"); ?>
 					</form>
 					<br>
 					
