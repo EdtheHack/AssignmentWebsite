@@ -82,8 +82,8 @@ error_reporting ( - 1 );
 			<br>
 			<hr>
 			<br>
-			<div class="row">
 			<div class="well">
+			<div class="row">
 				<div class="col-md-6">
 				<h4>Order Contents</h4>
 				<br>
