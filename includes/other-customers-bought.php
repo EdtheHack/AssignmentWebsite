@@ -5,16 +5,15 @@
 ?>
 <div class="row">
 	<div class="well">
-		<h3>You Have <?php echo $products[0]->getName();?></h3>
+		<h4>You Have <?php echo $products[0]->getName();?></h4>
 		<h3>Other Customers also Bought</h3>
 		<div class="row">
 			<br>
 
 			<?php	
-				$count = 0;
 				foreach ($rows as $row) {
 					
-					$product = new product ($row[$count][0], $row[$count][1], $row[$count][2], $row[$count][3], $row[$count][4], $row[$count][5], $row[$count][6], $row[$count][7], $row[$count][8]);
+					$product = new product ($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
 					
 					$cutOff = 75;
 					$des = $product->getDescription();
@@ -38,7 +37,6 @@
 				</div>
 								
 			<?php
-				$count++;
 				}
 			?>
 		</div>
