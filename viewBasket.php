@@ -106,7 +106,7 @@ error_reporting ( - 1 );
 		$count++;
 		}	
 		if ($user->getOrder()->getAmountOfProducts() != 0){
-			include ("includes/other-customers-bought.php")
+			include ("includes/other-customers-bought.php");
 		}
 		?>
 	</div>
