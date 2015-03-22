@@ -169,7 +169,7 @@ error_reporting ( - 1 );
 						<div class="form-group"> 
 							<input type="password" name="password" class="form-control" placeholder="Password" <?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>		
 							<br>
-							<p style="float: right"> <input type="submit" name="confirm" class="btn btn-default" value="Confirm"> <a data-toggle="tab" href="#" id="btn-next" ><input class="btn btn-default" value="Forgotten Password"></a></p>
+							<p style="float: right"> <input type="submit" name="confirm" class="btn btn-info" value="Confirm"> <a data-toggle="tab" href="#" id="btn-next" ><input class="btn btn-default" value="Forgotten Password"></a></p>
 						</div>
 					</form>
 					<?php
