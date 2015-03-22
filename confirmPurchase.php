@@ -34,6 +34,29 @@ error_reporting ( - 1 );
 	} else {
 		echo "<script type=\"text/javascript\">document.location.href=\"login-page.php\";</script>";
 	}
+	
+	
+	//delivery logic 
+	$product_total = $user->getOrder()->getAmountOfProducts(); //int 
+	$order_total = $user->getOrder()->getTotalPrice(); 
+	$delivery_fee = 0; //default delivery price
+	
+	if ($order_total >= 75){
+		$delivery_fee = 0;
+	}else{
+		for ($i = 0; $i < $product_total; $i++){
+			if($i = 0){
+				$delivery_fee = $delivery_fee + 3.80; 
+			}else{
+				$delivery_fee = $delivery_fee + 2.80;
+			}
+		}
+	}
+	
+	echo $delivery_fee;
+	
+	
+	
 ?>
 	<div class="container">
 		<div class="well">
