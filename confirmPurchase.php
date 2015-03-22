@@ -131,7 +131,7 @@ error_reporting ( - 1 );
 							</tr>
 						</tbody>
 					</table>
-				</div
+				</div>
 				</div>
 				
 				<div class="col-md-6">
@@ -157,7 +157,7 @@ error_reporting ( - 1 );
 					
 				</div>
 				</div>
-			</div>
+		
 		</div>
 	</div>
 </body>
