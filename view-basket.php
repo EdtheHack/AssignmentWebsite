@@ -19,9 +19,7 @@ session_start ();
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<?php
-	include ("includes/nav.php");
-		
+	<?php	
 	 if(isset($_SESSION["user"])){  //checks if user is logged in
 		$user = unserialize($_SESSION["user"]);
 		if(isset($_SESSION["product"]) && isset($_POST["add"])){   //checks if user came here from a product page
@@ -38,7 +36,8 @@ session_start ();
 		$user->getOrder()->removeProduct($_POST["removeItemId"]);
 		$_SESSION["user"] = serialize($user);
 	}
-
+	
+	include ("includes/nav.php");
 	?>
 	
 	<div class="container">
