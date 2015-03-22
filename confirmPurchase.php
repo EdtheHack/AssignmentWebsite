@@ -45,7 +45,7 @@ error_reporting ( - 1 );
 		$delivery_fee = 0;
 	}else{
 		for ($i = 0; $i < $product_total; $i++){
-			if($i = 0){
+			if($i == 0){
 				$delivery_fee = $delivery_fee + 3.80; 
 			}else{
 				$delivery_fee = $delivery_fee + 2.80;
@@ -53,7 +53,7 @@ error_reporting ( - 1 );
 		}
 	}
 	
-	echo $delivery_fee;
+	echo $delivery_fee; 
 	
 	
 	
