@@ -79,8 +79,11 @@ error_reporting ( - 1 );
 				</div>
 			</div>
 			<br>
+			<hr>
 			<div class="row">
 				<div class="col-md-6">
+				<h4>Order Contents</h4>
+				<br>
 					<table class="table table-hover table-responsive">
 						<thead>
 							<tr>
@@ -134,8 +137,6 @@ error_reporting ( - 1 );
 				</div>
 				
 				<div class="col-md-6">
-					
-					<br>
 					<h4>Delivery Address</h4>
 					<br>
 					<table class="table table-responsive pull-right">
@@ -158,7 +159,7 @@ error_reporting ( - 1 );
 							</tr>
 						</tbody>
 					</table>
-					<a href="change-account-details.php?purchase#sectionC">Change Details</a>
+					<a href="change-account-details.php?purchase#sectionC" class="pull-right">Change Details</a>
 				
 				
 					<p> Confirm your password to buy </p>
