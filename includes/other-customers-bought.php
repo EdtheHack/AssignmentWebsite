@@ -4,7 +4,7 @@
 ?>
 <div class="row">
 	<div class="well">
-		<h3>You Bought <?php ($products[0]->getName()?></h3>
+		<h3>You have <?php echo $products[0]->getName();?></h3><br>
 		<h3>Other Customers also Bought</h3>
 		<div class="row">
 			<br>

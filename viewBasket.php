@@ -52,7 +52,7 @@ error_reporting ( - 1 );
 					<h4><?php echo $user->getName()."'s Basket"; ?></h4>
 				</div>
 				<div class="col-md-3">
-					<h4><?php echo $user->getOrder()->getAmountOfProducts()." Products";?></h4>
+					<h4><?php echo $user->getOrder()->getAmountOfProducts()." Items";?></h4>
 				</div>
 				<div class="col-md-4">
 					<h4><?php echo "Total Price: £".$user->getOrder()->getTotalPrice(); ?></h4> 
