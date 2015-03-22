@@ -75,7 +75,7 @@ error_reporting ( - 1 );
 					<h4><?php echo $user->getName()."'s Basket"; ?></h4>
 				</div>
 				<div class="col-md-4">
-					<h4><?php echo $user->getOrder()->getAmountOfProducts()." Products";?></h4>
+					<h4><?php echo "Purchasing" .$user->getOrder()->getAmountOfProducts()." Items";?></h4>
 				</div>
 				<div class="col-md-4">
 					<h4><?php $total = $user->getOrder()->getTotalPrice() + $delivery_fee; echo "Total Price: £".$total?></h4>
@@ -112,8 +112,8 @@ error_reporting ( - 1 );
 						?>
 						</tbody>
 					</table>
-					
-					<h5>Order Break Down</h5>
+					<br>
+					<h4>Order Break Down</h4>
 					<table class="table table-hover table-responsive pull-right">
 						<thead>
 							<tr>
