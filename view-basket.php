@@ -67,45 +67,14 @@ error_reporting ( - 1 );
 	
 	$products = $user->getOrder()->getProducts();
 	$count = 0;
+	$basketItem = true;
 	foreach ($products as $product) {				
 		$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
 		$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
-	?>
-
-		<div class="well">
-			<div class="row">
-				<div class="col-md-6">
-					<img src="includes/<?php echo $product->getImg(); ?>" alt="Product Image" height="150" width="auto">
-				</div>
-				<div class="col-md-6">
-					<h5 class=""><?php if ($product->getPercentage() == 0){
-						echo "<strong> &pound;".$product->getPrice()."</strong>";
-					} else {
-						echo "<strong> Our Price: &pound;".$salePrice."</strong><br>
-						RRP: <strike>&pound;".$product->getPrice() ."</strike><br>
-						You Save: <em>&pound;".$salePriceTmp." (".$product->getPercentage()."&#37;)</em><br>";
-					} ?> </h5> <!-- PLEASE IGNORE HTML ERRORS -->
-					<h4>
-						<a href="#"><?php echo $user->getOrder()->getQuantity($count)." x ".$product->getName(); ?></a>
-					</h4>
-					<p> <?php echo $product->getDescription(); ?></p>
-				
-					<div class="col-md-6">
-						<a href="view-product.php?<?php echo $product->getId(); ?>"><button type="submit" class="btn btn-default "><i class="fa fa-eye "></i> <b> View </b> </button></a>
-					</div>
-					<div class="col-md-6">
-						<form method="POST" action="view-basket.php">
-							<button type="submit" name='removeItemId' value='<?php echo $product->getId(); ?>' class="btn btn-default left-margin"><i class="fa fa-eye"></i> <b> Remove </b> </button>	
-						</form>
-					</div>
-				</div>
-				<br>
-			</div>
-		</div>
-		<?php
-			$count++;
-		}	
-		
+		include ("includes/horizontal-item.php");
+		$count++;
+	}	
+		unset($basketItem);
 		if ($user->getOrder()->getAmountOfProducts() != 0 && count($rows) != 0){
 			$products = $user->getOrder()->getProducts();
 			$rows = getOtherCustomersBought($user->getCurrentOrderId(), $products[0]->getId());

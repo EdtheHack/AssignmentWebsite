@@ -47,17 +47,15 @@ error_reporting ( - 1 );
 				<div class="col-md-6">
 					<img src="img/<?php echo $product->getImg(); ?>" alt="Product Image" style="width:450px;height:auto">
 				</div>
-
 				<div class="col-md-6">
 					<div class="col-md-5 pull-right" >
 						<h4 class="pull-left"><?php if($row[5] == 1){
-														echo "<strong> Our Price: &pound;".$salePrice."</strong><br>
-															RRP: <strike>&pound;".$price ."</strike><br>
-															You Save: <em>&pound;".$salePriceTmp." (".$product->getPercentage()."&#37;)</em><br>";
-													}else{
-														echo "&pound;".round($product->getPrice(), 2);
-													}?></h4>
-					
+							echo "<strong> Our Price: &pound;".$salePrice."</strong><br>
+								RRP: <strike>&pound;".$product->getPrice()."</strike><br>
+								You Save: <em>&pound;".$salePriceTmp." (".$product->getPercentage()."&#37;)</em><br>";
+						}else{
+							echo "&pound;".round($product->getPrice(), 2);
+						}?></h4>
 					</div>
 					<h4>
 					
