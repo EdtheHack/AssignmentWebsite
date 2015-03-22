@@ -34,7 +34,7 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 <div class="container">
 <div class="col-md-6 col-md-offset-3">
 <br>	
-	<h3>For security before accessing the admin pages we need to check your pasword</h3>
+	<h3>Just a sec! Looks like you're trying to access the admin pages. For security reasons, please confirm your password. </h3>
 	<br>
 		<form method="POST" action="">
 			<br>
