@@ -64,12 +64,14 @@ error_reporting ( - 1 );
 					<p><?php echo $product->getDescription();?></p>
 					<br>
                     <p>Remaining Stock: <?php echo $product->getStock();?></p>
+					<?php if($product->getStock() >= 1) { //only allow purchase if there is stock?>  
 					<form method="POST" action="view-basket.php">  
 						<button type="submit" name="add" value="1" class="btn btn-default pull-right">
 							<i class="fa fa-shopping-cart fa-1x"></i> <b> Add </b>
 						</button>
 						<?php include ("includes/quantity-spinner.php"); ?>
 					</form>
+					<?php }?>
 					<br>
 					
 				</div>

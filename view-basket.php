@@ -63,19 +63,19 @@ error_reporting ( - 1 );
 			</div>
 		</div>
 	
-	<?php	
-	
-	$products = $user->getOrder()->getProducts();
-	$count = 0;
-	$basketItem = true;
-	foreach ($products as $product) {				
-		$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
-		$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
-		include ("includes/horizontal-item.php");
-		$count++;
-	}	
+		<?php	
+		$products = $user->getOrder()->getProducts();
+		$count = 0;
+		$basketItem = true;
+		foreach ($products as $product) {				
+			$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
+			$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
+			include ("includes/horizontal-item.php");
+			$count++;
+		}	
 		unset($basketItem);
-		if ($user->getOrder()->getAmountOfProducts() != 0 && count($rows) != 0){
+		
+		if ($user->getOrder()->getAmountOfProducts() != 0 || count($rows) != 0){
 			$products = $user->getOrder()->getProducts();
 			$rows = getOtherCustomersBought($user->getCurrentOrderId(), $products[0]->getId());
 		?>
