@@ -50,8 +50,14 @@ $count = count($rows);
 				if(isset($_SESSION["user"]) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
 					$_SESSION["adminChecked"] = false; //as soon as you navigate away from amdin pages set to false and force password entry
 					$user = unserialize($_SESSION["user"]);
-							
-					echo"<li><a href=\"view-basket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".if(!isset($_POST["removeItemId"]) || !isset($_POST["add"])){$user->getOrder()->getAmountOfProducts()} function setBasket($items){$items}."</b></a></li>";
+					
+					if(!isset($_POST["removeItemId"]) || !isset($_POST["add"])){
+						echo"<li><a href=\"view-basket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".$user->getOrder()->getAmountOfProducts()."</b></a></li>";
+					} 
+					
+					function setBasket($items){
+						echo"<li><a href=\"view-basket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".$items."</b></a></li>";
+					}
 							
 					//PHP INJECT HTML TO THE PAGE
 					echo"<li class=\"dropdown\"><a data-toggle=\"dropdown\"
