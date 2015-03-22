@@ -105,8 +105,23 @@ error_reporting ( - 1 );
 		<?php
 		$count++;
 		}	
-		if ($user->getOrder()->getAmountOfProducts() != 0){
-			include ("includes/other-customers-bought.php");
+		
+		$products = $user->getOrder()->getProducts();
+		$rows = getOtherCustomersBought($user->getCurrentOrderId(), $products[0]->getId());
+		if ($user->getOrder()->getAmountOfProducts() != 0 && count($rows) != 0){
+		?>
+		<div class="row">
+			<div class="well">
+				<h4>You Have <?php echo $products[0]->getName();?></h4>
+				<h3>Other Customers also Bought</h3>
+				<div class="row">
+					<br>
+					<?php include ("includes/newest-products.php"); ?>
+					
+				</div>
+			</div>
+		</div>
+		<?php
 		}
 		?>
 	</div>

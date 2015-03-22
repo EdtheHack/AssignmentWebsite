@@ -1,15 +1,5 @@
 <?php 
-	$products = $user->getOrder()->getProducts();
-	$rows = getOtherCustomersBought($user->getCurrentOrderId(), $products[0]->getId());
-?>
-<div class="row">
-	<div class="well">
-		<h4>You Have <?php echo $products[0]->getName();?></h4>
-		<h3>Other Customers also Bought</h3>
-		<div class="row">
-			<br>
-
-			<?php	
+	
 				foreach ($rows as $row) {
 					
 					$product = new product ($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
@@ -38,6 +28,3 @@
 			<?php
 				}
 			?>
-		</div>
-	</div>
-</div>
