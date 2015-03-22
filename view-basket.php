@@ -1,9 +1,5 @@
 <?php
 session_start ();
-
-ini_set ( 'display_errors', 1 );
-ini_set ( 'display_startup_errors', 1 );
-error_reporting ( - 1 );
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +19,7 @@ error_reporting ( - 1 );
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<?php
+	<?php
 	include ("includes/nav.php");
 		
 	 if(isset($_SESSION["user"])){  //checks if user is logged in
@@ -68,16 +64,13 @@ error_reporting ( - 1 );
 		$count = 0;
 		$basketItem = true;
 		foreach ($products as $product) {				
-			$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
-			$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
 			include ("includes/horizontal-item.php");
 			$count++;
 		}	
 		unset($basketItem);
 		
-		if ($user->getOrder()->getAmountOfProducts() != 0 || count($rows) != 0){
-			$products = $user->getOrder()->getProducts();
-			$rows = getOtherCustomersBought($user->getCurrentOrderId(), $products[0]->getId());
+		$rows = getOtherCustomersBought($user->getCurrentOrderId(), $products[0]->getId());
+		if ($user->getOrder()->getAmountOfProducts() > 0 || count($rows) > 0){	
 		?>
 		<div class="row">
 			<div class="well">
