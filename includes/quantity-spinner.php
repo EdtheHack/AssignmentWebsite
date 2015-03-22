@@ -17,7 +17,7 @@
    $( "#prodQtySpinner" ).spinner({
 		//icons:{down:"ui-icon-arrowthickstop-1-s" , up:"ui-icon-arrowthickstop-1-n"}
 		//incremental:false
-		min: 1,
+		min: 0,
 		max: "<?php echo $product->getStock(); ?>"
 		}); 
 	})
@@ -25,7 +25,7 @@
 </script>
 <body>
 <div id="test">
-	<input type=text" id="prodQtySpinner" name="quantity" value="1"/>
+	<input type=text" id="prodQtySpinner" name="quantity" value="<?php if($product->getStock() <= 0) { echo "0";} else { echo "1";}?>"/>
 </div>
 </body>
 </html>
