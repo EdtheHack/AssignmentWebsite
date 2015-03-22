@@ -78,9 +78,12 @@ error_reporting ( - 1 );
 					<h4><?php $total = $user->getOrder()->getTotalPrice() + $delivery_fee; echo "Total Price: £".$total?></h4>
 				</div>
 			</div>
+		</div
 			<br>
 			<hr>
+			<br>
 			<div class="row">
+			<div class="well">
 				<div class="col-md-6">
 				<h4>Order Contents</h4>
 				<br>
@@ -161,7 +164,7 @@ error_reporting ( - 1 );
 					</table>
 					<a href="change-account-details.php?purchase#sectionC" class="pull-right">Change Details</a>
 				
-				
+					<br>
 					<p> Confirm your password to buy </p>
 					<form method="POST" action="">
 						<div class="form-group"> 
