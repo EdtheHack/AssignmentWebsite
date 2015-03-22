@@ -8,6 +8,72 @@ function connect() {
 	return $db_con;
 }
 
+// ---------------------------------
+//		PRODUCT BAR QUERIES
+// ---------------------------------
+// gets the newest items based upon the time they were added to the database
+
+function getNewest(){
+	$mysqli = connect ();
+
+	$rows = array();
+
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product ORDER BY date_added DESC LIMIT 3" )) {
+		$stmt->execute ();
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
+		while($stmt->fetch()){
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
+		}
+		$stmt->close ();
+	}
+	$mysqli->close ();
+	return $rows;
+}
+
+// gets items from the same category based on one item 
+
+function getSimilarItems($productId){  //NEEDS WORK
+	$mysqli = connect ();
+	
+		$rows = array();
+	
+	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN product_categories ON product.product_id = product_categories.product_id   
+									WHERE product_categories.category_id=(SELECT category_id FROM product_categories WHERE product_id=?) AND NOT product_categories.product_id=? LIMIT 3" )) {
+		$stmt->bind_param ("ss", $productId, $productId);
+		$stmt->execute ();
+		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
+	   	while($stmt->fetch()) {
+			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8);
+    	}
+		$stmt->close ();
+	}
+	$mysqli->close ();
+	
+	return $rows;
+}
+
+// gets the sale items and orders by highest percentage off
+
+function getMostDiscounted(){
+	$mysqli = connect ();
+	
+	$rows = array();
+	
+	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE status=1 ORDER BY percentage_off DESC LIMIT 3")){ //get the most 
+		
+		$stmt->execute ();
+		$stmt->bind_result ( $col0,  $col1,  $col2, $col3, $col4,  $col5, $col6,  $col7,  $col8 );
+		while($stmt->fetch()) {
+			$rows[] = array( $col0,  $col1,  $col2, $col3 , $col4,  $col5, $col6,  $col7,  $col8 );
+		}
+		$stmt->close ();
+	}
+	$mysqli->close ();	
+	return $rows;
+}
+// ---------------------------------
+//		OTHER*
+// ---------------------------------
 //  gets a product based on it's id
 
 function getPage($pageId){
@@ -104,25 +170,6 @@ function checkAdmin() {
 	$mysqli->close ();
 }
 
-// gets the newest items based upon the time they were added to the database
-
-function getNewest(){
-	$mysqli = connect ();
-
-	$rows = array();
-
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product ORDER BY date_added DESC" )) {
-		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
-		while($stmt->fetch()){
-			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8 );
-		}
-		$stmt->close ();
-	}
-	$mysqli->close ();
-	return $rows;
-}
-
 // gets item with selected itemId
 
 function getItem($productId){
@@ -153,28 +200,6 @@ function getOtherCustomersBought($orderId, $productId){  //NEEDS WORK
 	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN order_contents ON product.product_id = order_contents.product_id   
 									WHERE order_contents.order_id=(SELECT order_id FROM order_contents WHERE NOT order_id=? AND product_id=?) AND NOT order_contents.product_id=? LIMIT 3" )) {
 		$stmt->bind_param ("iii", $orderId, $productId, $productId);
-		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
-	   	while($stmt->fetch()) {
-			$rows[] = array( $col0,  $col1,  $col2,  $col3,  $col4,  $col5,  $col6,  $col7,  $col8);
-    	}
-		$stmt->close ();
-	}
-	$mysqli->close ();
-	
-	return $rows;
-}
-
-// gets items from the same category based on one item 
-
-function getSimilarItems($productId){  //NEEDS WORK
-	$mysqli = connect ();
-	
-		$rows = array();
-	
-	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN product_categories ON product.product_id = product_categories.product_id   
-									WHERE product_categories.category_id=(SELECT category_id FROM product_categories WHERE product_id=?) AND NOT product_categories.product_id=? LIMIT 3" )) {
-		$stmt->bind_param ("ss", $productId, $productId);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
 	   	while($stmt->fetch()) {
@@ -273,26 +298,6 @@ function getNoOfSearchItems($searchItem){
 	
 	$mysqli->close ();
 	return count($rows);
-}
-
-// gets the sale items and orders by highest percentage off
-
-function getMostDiscounted(){
-	$mysqli = connect ();
-	
-	$rows = array();
-	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE status=1 ORDER BY percentage_off DESC ")){ //get the most 
-		
-		$stmt->execute ();
-		$stmt->bind_result ( $col0,  $col1,  $col2, $col3, $col4,  $col5, $col6,  $col7,  $col8 );
-		while($stmt->fetch()) {
-			$rows[] = array( $col0,  $col1,  $col2, $col3 , $col4,  $col5, $col6,  $col7,  $col8 );
-		}
-		$stmt->close ();
-	}
-	$mysqli->close ();	
-	return $rows;
 }
 
 // get the active orderId of a user
