@@ -78,7 +78,7 @@ error_reporting ( - 1 );
 					<h4><?php echo $user->getOrder()->getAmountOfProducts()." Products";?></h4>
 				</div>
 				<div class="col-md-4">
-					<h4><?php echo "Total Price: £".$user->getOrder()->getTotalPrice() + $delivery_fee; ?></h4>
+					<h4><?php $total = $user->getOrder()->getTotalPrice() + $delivery_fee; echo "Total Price: £".$total?></h4>
 				</div>
 			</div>
 			<br>
@@ -159,7 +159,7 @@ error_reporting ( - 1 );
 								<td><?php echo $user->getOrder()->getAmountOfProducts(); ?></td>
 								<td><?php echo "&pound;".$user->getOrder()->getTotalPrice();?></td>
 								<td><?php echo "&pound;".$delivery_fee ?></td>
-								<td><?php echo "&pound;".$user->getOrder()->getTotalPrice() + $delivery_fee?></td>
+								<td><?php $total = $user->getOrder()->getTotalPrice() + $delivery_fee; echo "&pound;".$total?></td>
 								
 							</tr>
 						</tbody>
