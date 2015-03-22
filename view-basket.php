@@ -69,9 +69,8 @@ session_start ();
 		}	
 		unset($basketItem);
 		
-		if ($user->getOrder()->getAmountOfProducts() > 0 && count($rows) > 0){
-			$products = $user->getOrder()->getProducts();
-			$rows = getOtherCustomersBought($user->getCurrentOrderId(), $products[0]->getId());
+		if (count($products) > 0){ $rows = getOtherCustomersBought($user->getCurrentOrderId(), $products[0]->getId()); }
+		if ($user->getOrder()->getAmountOfProducts() > 0 && count($rows) > 0){			
 		?>
 		<div class="row">
 			<div class="well">
