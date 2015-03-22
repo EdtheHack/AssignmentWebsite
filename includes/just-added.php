@@ -5,9 +5,9 @@
 		<?php	
 		$rows = getMostDiscounted();
 		
-		for ($i = 0; $i < 3; $i++) {  //loop through most discounted items	
+		foreach ($rows as $row) {  //loop through most discounted items	
 				
-				$product = new product($rows[$i][0], $rows[$i][1], $rows[$i][2], $rows[$i][3], $rows[$i][4], $rows[$i][5], $rows[$i][6], $rows[$i][7], $rows[$i][8]);
+				$product = new product($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
 				
 				$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
 				$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
