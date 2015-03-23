@@ -37,16 +37,16 @@ if ($_SESSION["loggedIn"] == true){
 						<br>
 							<form method="POST" action="">
 								<div class="form-group">
-							     	<label for="email">Old Password :</label>
+							     	<label for="email">Old Password:</label>
 									<input type="password" name="oldPassword" class="form-control" placeholder="Enter old password" <?php if(!empty($_POST["oldPassword"])){ echo " value='".$_POST["oldPassword"]."'"; }?>>
 								</div>			
 								<br>
 								<div class="form-group">
-							     	<label for="email">New Password :</label>
+							     	<label for="email">New Password:</label>
 									<input type="password" name="newPassword" class="form-control" placeholder="Enter new password" <?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
 								</div>
 								<div class="form-group">
-							     	<label for="email">Confirm New Password :</label>
+							     	<label for="email">Confirm New Password:</label>
 									<input type="password" name="newPasswordCheck" class="form-control" placeholder="Confirm new password"  <?php if(!empty($_POST["passwordCheck"])){ echo " value='".$_POST["passwordCheck"]."'"; }?>>
 								</div>
 								<br>
