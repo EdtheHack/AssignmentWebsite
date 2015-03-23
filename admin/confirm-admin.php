@@ -43,9 +43,10 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 				<input type="password" name="passwordCheck" class="form-control" <?php if(!empty($_POST["passwordCheck"])){ echo " value='".$_POST["passwordCheck"]."'"; }?>>
 			</div>
 			<br>
-			<p style="text-align: center"> <input type="submit" name="back" class="btn btn-default" value="Go Back"> <input type="submit" name="checkAdmin" class="btn btn-default" value="Submit"></p>
+			<input type="submit" name="back" class="btn btn-default pull-left" value="Go Back"> 
+			<input type="submit" name="checkAdmin" class="btn btn-default pull-right" value="Submit">
 		</form>	
-		<?php 
+			<?php 
 				if(isset($_POST["checkAdmin"])){  //checks if user submit a password
 						if (validateUser($user->getEmail(), $_POST["passwordCheck"]) == 1){
 							
@@ -54,12 +55,13 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 							echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
 							
 						} else {
-								echo "<div class=\"alert alert-danger\">
+							echo "<div class=\"alert alert-danger\">
 					        		<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
 					        		<strong>Error!</strong> Pasword invalid!
 					    		</div>";
 						}						
-					}?>
+					}
+				?>
 		</div>
 
 	
