@@ -42,7 +42,7 @@ function deleteOrder($order_id){
 	$stmt->close ();
 	$mysqli->close();
 	
-	echo "<script type=\"text/javascript\">document.location.href=\"./view-orders.php\";</script>";
+	echo "<script type=\"text/javascript\">document.location.href=\"../view-orders.php\";</script>";
 }
 
 function listOrders(){
