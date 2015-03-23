@@ -2,7 +2,10 @@
 
 include ("../includes/sanitisation.php");
 
-$error_array = array();
+if(isset ($_GET['delOrder'])){
+	$order_id = $_GET['delOrder'];
+	deleteOrder($order_id);
+}
 
 function deleteOrder($order_id){
 	
@@ -38,6 +41,8 @@ function deleteOrder($order_id){
 	
 	$stmt->close ();
 	$mysqli->close();
+	
+	echo "<script type=\"text/javascript\">document.location.href=\"./view-orders.php\";</script>";
 }
 
 function listOrders(){

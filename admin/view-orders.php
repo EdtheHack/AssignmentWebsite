@@ -50,11 +50,7 @@ include ("admin-nav.php");
     <div class="col-md-9">
 		<?php									
 				include ("admin-includes/admin-order-functions.php");
-				
-				if(isset($_POST['delete'])){
-					deleteOrder($_POST['delete']);
-				}
-				
+
 				$orders = listOrders($user->getId());
 				$count = 0;
 						
@@ -103,9 +99,7 @@ include ("admin-nav.php");
 								order? This cannot be undone.</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								<form method="POST" action="">
-									<button type="button" name="delete" value="<?php echo $order[0]?>" class="btn btn-danger">Delete Order</button>
-								</form>
+								<a href="includes/admin-order-functions.php?delOrder=<?php echo $order[0]; ?>" class="btn btn-danger">Delete Order</a>
 							</div>
 						</div>
 					</div>
@@ -113,10 +107,7 @@ include ("admin-nav.php");
 			</div>
 			<br>
 			<?php
-			if(isset ($_POST['delete'])){
-				echo $order_id = $_POST['delete'];
-				deleteOrder($order_id);
-			}
+
 			
 			$count++;
 			}
