@@ -105,7 +105,7 @@ function checkCateName($name){
 	$mysqli->close ();
 	
 
-	if($returned_name == $name){
+	if(strcasecmp($returned_name, $name) == 0){
 		return 0;
 	}else{
 		return 1;
