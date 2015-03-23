@@ -25,8 +25,8 @@ $count = count($rows);
 				<li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
 				<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-chevron-down"></i> Our Products</a>
 					<ul class="dropdown-menu" role="menu">
-					<li><a href="view-all-products.php">View All Products </a></li>
-					<li><a href="view-all-products.php?deals">View All Deals </a></li>
+					<li><a href="view-all-products.php">View All Products</a></li>
+					<li><a href="view-all-products.php?deals">View All Deals</a></li>
 					<li class="divider"></li>
 					<?php
 						for($i = 0; $i < $count; $i ++) {							
@@ -48,7 +48,7 @@ $count = count($rows);
 			<ul class="nav navbar-nav navbar-right">
 			<?php 
 				if(isset($_SESSION["user"]) == true){ //IF A USER IS LOGGED IN SHOW THESE UI FEATURES
-					$_SESSION["adminChecked"] = false; //as soon as you navigate away from amdin pages set to false and force password entry
+					$_SESSION["adminChecked"] = false; //as soon as you navigate away from admin pages, set to false and force password entry
 					$user = unserialize($_SESSION["user"]);
 					
 					if(isset($_POST["removeItemId"])){   //checks if user wants to remove a basket item

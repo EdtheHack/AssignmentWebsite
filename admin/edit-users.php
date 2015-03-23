@@ -18,7 +18,7 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>View/Edit Users - Web Programming Assignment 2</title>
+<title>Edit Users - Web Programming Assignment 2</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/custom.css">

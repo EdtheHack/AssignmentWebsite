@@ -49,13 +49,6 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
           })(jQuery);
  </script>  
  
-<!-- <style>
- .borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
-    border: none;
-}
- 
- </style> -->
-
 </head>
 <body>
 <?php
@@ -148,13 +141,7 @@ include ("nav.php");
 		}
 		$db_con->close ();
 		?>
-               
-								
-								
-								
-								
-								
-								</tbody>
+					</tbody>
 							</table>
 						</div>
 						<hr>
@@ -209,7 +196,7 @@ include ("nav.php");
                                     </button>
                               <h4 class="modal-title" id="myModalLabel">Product Added Successfully</h4>
                         </div>
-                        <div class="modal-body">The product has now been added to the product catalogue, add another or go back to Admin Home
+                        <div class="modal-body">The product has now been added to the product catalogue, add another or go back to Admin Home.
                         </div>
                         <div class="modal-footer">
                               <button type="button" class="btn btn-default" onClick="location.href='add-product.php'" VALUE="Refresh">Add Another</button>

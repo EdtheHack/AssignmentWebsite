@@ -19,25 +19,25 @@ if(isset($_POST['attemptRegister'])){
 					$_SESSION["loggedIn"] = true;
 					echo "<div class=\"alert alert-success\">
 					        		<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					        		<strong>Success!</strong> You have been registered, you can now sign in!
+					        		<strong>Success!</strong> You have been successfully registered and can now sign in.
 					    		</div>";
 				} else {
 					echo "<div class=\"alert alert-danger\">
 					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					  		<strong>Error!</strong> There was a problem registering !
+					  		<strong>Error!</strong> Sorry. There was a problem registering. Please check back soon.
 						</div>";
 				}
 			} else {
 				echo "<div class=\"alert alert-danger\">
 					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					  		<strong>Error!</strong> There was a problem registering !
+					  		<strong>Error!</strong> Sorry. There was a problem registering. Please check back soon.
 						</div>";
 			}
 		}
 	} else {
 		echo "<div class=\"alert alert-danger\">
 			  		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-			 		<strong>Error!</strong> Passwords do not maatch !
+			 		<strong>Error!</strong> Your passwords do not match. Please try again.
 			</div>";
 	}
 }

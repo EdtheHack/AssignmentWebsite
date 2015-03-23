@@ -11,21 +11,21 @@ if(isset($_POST['newCategory'])){
 
 	if($name != null){
 		if(sanitiseString(1, $name, 1, 40) != 1){  //not cleared
-			$error_array[] = "Name field has illegial chars or is too short/long";
+			$error_array[] = "Name field has illegal characters or is an incorrect length.";
 		}else{
 			if(checkCateName($name) == 1){
 				addCategory($name);
 			}else{
-				$error_array[] = "Category Name already exits.";
+				$error_array[] = "Category name already exits. Please select another.";
 			}
 		}
 	}else{
-		$error_array[] = "Category name field cannot be empty";
+		$error_array[] = "Category name cannot be empty.";
 	}
 	
-	if(!(empty($error_array))){  //check for an none emprty error array (meaning the array has errors and something bad has happened)
+	if(!(empty($error_array))){  //check for an none empty error array (meaning the array has errors and something bad has happened)
 		$error = implode("<br>", $error_array);
-		echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in nice BS
+		echo "<script> $('#print_errors').bs_alert('$error', 'ERROR'); </script>"; //print and show in BS
 		//die; //wrong input, do not proceed
 	}
 
@@ -52,7 +52,7 @@ function deleteCategories($category_id){
 	$stmt->bind_param ("i", $category_id);
 	
 	if(!($stmt->execute ())){
-		die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
+		die('Error: please contact a system admin, following error occurred : ('. $mysqli->errno .') '. $mysqli->error);
 	}
 	
 	$stmt->close ();
@@ -66,7 +66,7 @@ function deleteCategories($category_id){
 	$stmt->bind_param ("i", $category_id);
 	
 	if(!($stmt->execute ())){
-		die('Error: please contact a system admin, following error occured : ('. $mysqli->errno .') '. $mysqli->error);
+		die('Error: please contact a system admin, following error occurred : ('. $mysqli->errno .') '. $mysqli->error);
 	}
 	
 	$stmt->close ();

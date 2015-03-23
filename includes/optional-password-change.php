@@ -10,10 +10,16 @@ if (isset ( $_POST ['saveDetails'] )) {
 				echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
 			}
 		} else {
-			echo "passwords do not match!";
+			echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					  		<strong>Error!</strong> Sorry. Passwords do not match.
+						</div>";
 		}
 	} else {
-		echo "Password can not be null";
+		echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					  		<strong>Error!</strong> Sorry. Password cannot be empty.
+						</div>";
 	}
 }
 
