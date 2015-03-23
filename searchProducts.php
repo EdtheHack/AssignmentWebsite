@@ -25,7 +25,7 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 		<div class="container"> 
 		
 			<?php 
-			include ("includes/just-added.php"); 
+			include ("includes/biggest-deals.php"); 
 			
 			if(isset($_GET['currentPage'])){$currentPage = $_GET['currentPage'];}
 			if(isset($_GET['category'])){

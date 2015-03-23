@@ -9,7 +9,7 @@ if ($_SESSION["loggedIn"] == true){
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Home - Web Programming Assignment 2</title>
+		<title>Change Account Details - Web Programming Assignment 2</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="css/custom.css">
@@ -22,7 +22,7 @@ if ($_SESSION["loggedIn"] == true){
 	<?php include ("includes/nav.php");?>
 	
 <div class="container">
-	<?php include ("includes/just-added.php")?>
+	<?php include ("includes/biggest-deals.php")?>
 	
 	<div class="col-md-9">
 		<div class="bs-example">

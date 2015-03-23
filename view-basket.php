@@ -9,7 +9,7 @@ if(!isset($_SESSION["user"])){  //checks if user is logged in
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Home - Web Programming Assignment 2</title>
+<title>Your Basket - Web Programming Assignment 2</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/custom.css">

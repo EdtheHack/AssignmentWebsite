@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Home - Web Programming Assignment 2</title>
+		<title>Please Change Your Password - Web Programming Assignment 2</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="css/custom.css">
@@ -23,16 +23,16 @@
 	
 <div class="container">
 <br>	
-	<h3>For security we suggest you change your password</h3>
+	<h3>For security reasons, please change your password.</h3>
 	<br>
 		<form method="POST" action="">
 			<div class="form-group">
-				<label for="password">New password</label>
+				<label for="password">New Password</label>
 				<input type="password" name="password" class="form-control" <?php if(!empty($_POST["password"])){ echo " value='".$_POST["password"]."'"; }?>>
 			</div>
 			<br>
 			<div class="form-group">
-				<label for="password">Confirm password</label>
+				<label for="password">Confirm Password</label>
 				<input type="password" name="passwordCheck" class="form-control" <?php if(!empty($_POST["passwordCheck"])){ echo " value='".$_POST["passwordCheck"]."'"; }?>>
 			</div>
 			<br>

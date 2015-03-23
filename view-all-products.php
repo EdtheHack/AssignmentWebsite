@@ -21,7 +21,7 @@ session_start ();
 <body>
 	<?php include ("includes/nav.php"); ?>
 	<div class="container">
-		<?php include ("includes/just-added.php");?>
+		<?php include ("includes/biggest-deals.php");?>
 		<div class="col-md-9">
 			<div class="well">
 				<h3>All Products</h3>
