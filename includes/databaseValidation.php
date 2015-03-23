@@ -6,7 +6,7 @@
 	error_reporting(-1);
 	
 	
-	function DBconnect(){				// code reuse for cdatabase connection
+	function DBconnect(){				// code reuse for database connection
 		include ($_SERVER['DOCUMENT_ROOT'] . '/dbconn.php');
 		
 		$con = $db_con;
@@ -263,7 +263,7 @@
 		} else {
 			echo "<div class=\"alert alert-danger\">
 					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					   		<strong>Error!</strong> Frst name must not contain numbers and be longer than 2 characters.
+					   		<strong>Error!</strong> First name must not contain numbers and be longer than 2 characters.
 						</div>";
 			return 0;
 		}
@@ -293,7 +293,7 @@
 		} else {
 			echo "<div class=\"alert alert-danger\">
 					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					   		<strong>Error!</strong> Address line 1 must be longer than 2 characters.!
+					   		<strong>Error!</strong> Address line 1 must be longer than 2 characters.
 						</div>";
 			return 0;
 		}
@@ -394,37 +394,37 @@
 							$_SESSION['email'] = $newEmail;
 							echo "<div class=\"alert alert-success\">
 					   				<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					   				<strong>Thankyou!</strong> Email changed successfully.
+					   				<strong>Thankyou!</strong> Thanks. Email changed successfully.
 								</div>";
 							return 1;
 						} else {
 							echo "<div class=\"alert alert-danger\">
 					   				<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					   				<strong>Error!</strong> Problem setting your email, contact admin!
+					   				<strong>Error!</strong> Sorry. There was a problem setting your email. Please try again later.
 								</div>";
 						}
 					} else {
 						echo "<div class=\"alert alert-danger\">
 					   				<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					   				<strong>Error!</strong> That email already exists with us!
+					   				<strong>Error!</strong> Sorry. That email already has already been registered.
 								</div>";
 					}
 				} else {
 					echo "<div class=\"alert alert-danger\">
 					   				<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					   				<strong>Error!</strong> You must enter a new email!
+					   				<strong>Error!</strong> Please enter a new email address.
 								</div>";
 				}
 			} else {
 				echo "<div class=\"alert alert-danger\">
 					<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					<strong>Error!</strong> Email entered does not match!
+					<strong>Error!</strong> Email address entered does not match.
 				</div>";
 			}
 		} else {
 				echo "<div class=\"alert alert-danger\">
 					<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					<strong>Error!</strong> Incorrect password!
+					<strong>Error!</strong> Incorrect password.
 				</div>";
 		}
 		return 0;
@@ -444,12 +444,12 @@
 			$_SESSION["suggestReset"] = true;
 			echo "<div class=\"alert alert-sucess\">
 					<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					<strong>Sucess!</strong> Password has been reset!
+					<strong>Sucess!</strong> Thanks. Your password has been reset.
 				</div>";
 		} else {
 			echo "<div class=\"alert alert-danger\">
 					<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					<strong>Error!</strong> Problem resetting password!
+					<strong>Error!</strong> Sorry. There was a problem resetting your password.
 				</div>";
 		}
 	}
@@ -480,21 +480,21 @@
 					} else {
 						echo "<div class=\"alert alert-danger\">
 					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					   		<strong>Error!</strong> Problem setting your new password, contact admin!
+					   		<strong>Error!</strong> Sorry. There was a problem setting your new password.
 						</div>";
 						return 0;
 					}
 				} else {
 					echo "<div class=\"alert alert-danger\">
 					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					   		<strong>Error!</strong> New passwords don't match!
+					   		<strong>Error!</strong> Please make sure your new passwords match.
 						</div>";
 					return 0;
 				}
 			} else {
 					echo "<div class=\"alert alert-danger\">
 					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					   		<strong>Error!</strong> Incorrect old password!
+					   		<strong>Error!</strong> Your current password is incorrect.
 						</div>";
 				return 0;
 			}

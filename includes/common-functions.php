@@ -32,7 +32,7 @@ function getNewest(){
 
 // gets items from the same category based on one item 
 
-function getSimilarItems($productId){  //NEEDS WORK
+function getSimilarItems($productId){  //Could be improved
 	$mysqli = connect ();
 	
 		$rows = array();
@@ -74,7 +74,7 @@ function getMostDiscounted(){
 
 // gets items bought by other users
 
-function getOtherCustomersBought($orderId, $productId){  //NEEDS WORK
+function getOtherCustomersBought($orderId, $productId){  //Could be improved
 	$mysqli = connect ();
 	
 		$rows = array();
@@ -97,7 +97,7 @@ function getOtherCustomersBought($orderId, $productId){  //NEEDS WORK
 // ---------------------------------
 //		   ADMIN DASHBOARD
 // ---------------------------------
-//  gets a product based on it's id
+//  gets a product based on its id
 
 function getPage($pageId){
 	$mysqli = connect ();
@@ -262,7 +262,7 @@ function getNoOfCategoryItems($category){
 
 // gets items with names containing the $searchItem variable
 
-function getSearchItems($searchItem, $pageIndex){  //COULD BE SMARTER
+function getSearchItems($searchItem, $pageIndex){  //Could be improved.
 	$mysqli = connect ();
 
 		$rows = array();

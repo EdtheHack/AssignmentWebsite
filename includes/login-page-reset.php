@@ -28,10 +28,16 @@ if(isset($_POST['sendMail'])){
 				   		</div>";
 			}
 		} else {
-			echo "Sorry. We cannot find that email address on record. Please try again.";
+			echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					  		<strong>Error!</strong> Sorry. We cannot find that email address on record. Please try again.
+						</div>";
 		}
 	} else {
-		echo "Email can not be empty. Please try again.";
+		echo "<div class=\"alert alert-danger\">
+					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+					  		<strong>Error!</strong> Email cannot be empty. Please try again.
+						</div>";
 	}
 }
 

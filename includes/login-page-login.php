@@ -26,7 +26,7 @@ if(isset($_POST['attemptLogin'])){
 			$_SESSION["loggedIn"] = true;
 			
 			if ($_SESSION['suggestReset'] == true){
-				echo "<script type=\"text/javascript\">document.location.href=\"suggestResetPassword.php\";</script>";
+				echo "<script type=\"text/javascript\">document.location.href=\"suggest-reset-password.php\";</script>";
 			} else {
 				echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
 			}
