@@ -29,7 +29,7 @@ $count = count($rows);
 		  		for($i = 0; $i < $count; $i ++) {							
 					$name = $rows[$i][1];		
   ?>
-            <li><a href="../searchProducts.php?currentPage=1&category="><?php echo $name ?></a></li>
+            <li><a href="../search-products.php?currentPage=1&category="><?php echo $name ?></a></li>
             <?php
 						}
 				?>
@@ -61,9 +61,9 @@ $count = count($rows);
 						class=\"dropdown-toggle\" href=\"#\"><i class=\"fa fa-wrench\"></i> ".$user->getName()."'s   
 						 Account <b class=\"caret\"></b></a>
 						<ul role=\"menu\" class=\"dropdown-menu\">
-						<li><a href=\"#\">Orders</a></li>
+						<li><a href=\"../view-orders.php\">Orders</a></li>
 						<li><a href=\"../change-account-details.php\">Account Settings</a></li>
-						<li><a href=\"../viewBasket.php\">Basket</a></li>
+						<li><a href=\"../view-basket.php\">Basket</a></li>
 						</ul></li>" ;
 					
 						if(checkAdmin() == 1){ //check for admin user 
