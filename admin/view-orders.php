@@ -116,6 +116,11 @@ include ("admin-nav.php");
 			
 			$count++;
 			}
+			
+			if(isset ($_POST['delete'])){
+				$order_id = $_POST['delete'];
+				deleteOrder($order_id);
+			}
 			?>
 </div>
 </body>
