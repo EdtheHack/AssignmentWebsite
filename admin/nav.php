@@ -36,7 +36,7 @@ $count = count($rows);
           </ul>
         </li>
 			</ul>
-			<form method="POST" action="../searchProducts.php?currentPage=1" class="navbar-form navbar-left">
+			<form method="POST" action="../search-products.php?currentPage=1" class="navbar-form navbar-left">
 				<div class="form-group">
 					<input type="text" name="searchItem" class="form-control" placeholder="Search" <?php if(!empty($_SESSION["searchItem"])){ echo " value='".$_SESSION["searchItem"]."'"; }?>>
 				</div>
@@ -53,7 +53,7 @@ $count = count($rows);
 
 						$user = unserialize($_SESSION["user"]);
 						
-						echo"<li><a href=\"viewBasket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".$user->getOrder()->getAmountOfProducts()."</b></a></li>";
+						echo"<li><a href=\"view-basket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".$user->getOrder()->getAmountOfProducts()."</b></a></li>";
 						
 						
 						//PHP INJECT HTML TO THE PAGE
