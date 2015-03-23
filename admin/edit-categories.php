@@ -174,6 +174,6 @@ include ("nav.php");
     $('#myTab a[href="' + hash + '"]').tab('show');
 </script>
  -->
- 	<?php include ("includes/footer.php")?>
+ 	<?php include ("../includes/footer.php")?>
 </body>
 </html>

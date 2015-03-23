@@ -154,7 +154,7 @@ if(isset ($_GET['user'])){
 	}else{
 		echo "<script type=\"text/javascript\">document.location.href=\"view-users.php\";</script>";
 	}
-	include ("includes/footer.php")
+	include ("../includes/footer.php")
 ?>
 </body>
 </html>
