@@ -1,5 +1,5 @@
-<div style="height:50px; background-color: #DDDDDD;">
+<div style="height:50px; background-color: #EEEEEE;">
 	<div class="container">
-		<p>&copy; i7212753 - i7219174 - i7261127 - Jeremys NUmber</p>
+		<p style="align: center">&copy;   i7212753 - i7219174 - i7261127 - i7259457</p>
 	</div>
 </div>

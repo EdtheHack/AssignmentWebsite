@@ -66,5 +66,6 @@ if (isset($_POST['searchItem'])){$_SESSION['searchItem'] = $_POST['searchItem'];
 				
 			</div>
 		</div>
+		<?php include ("includes/footer.php")?>
 	</body>
 </html>

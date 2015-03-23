@@ -70,6 +70,6 @@ if(!isset($_SESSION["user"])){  //checks if user is logged in
 		}
 		?>
 	</div>
-
+	<?php include ("includes/footer.php")?>
 </body>
 </html>
