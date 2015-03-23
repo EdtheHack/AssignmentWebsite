@@ -41,7 +41,6 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 		public function purchaseCurrentOrder(){
 			$attemptPurchase = purchaseOrder($this->currentOrderId);
 			if ($attemptPurchase == 1){
-			
 				require 'PHPMailer/PHPMailerAutoload.php';
 				
 				$message = "Your order has been confirmed! Order ID: $this->currentOrderId <br><br> -- Order Contents -- <br>";

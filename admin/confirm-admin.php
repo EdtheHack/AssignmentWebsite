@@ -58,7 +58,8 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 			}
 		?>
 		</div>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-		<?php include ("../includes/footer.php")?>
+	</div>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>	
+	<?php include ("../includes/footer.php")?>
 	</body>
 </html>

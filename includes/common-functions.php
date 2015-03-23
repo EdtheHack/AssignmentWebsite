@@ -337,9 +337,7 @@ function getCurrentUserOrderId($userId){
 
 function addNewUserOrder($userId){
 	$mysqli = connect();
-		
-	echo"id - >".$userId;
-		
+				
 	if ($stmt = $mysqli->prepare ("INSERT INTO `order` (`user_id`, `purchased`) VALUES (?, 0);" )){
 		$stmt->bind_param("i", $userId);
 			
