@@ -43,16 +43,19 @@ if(!isset($_SESSION["user"])){  //checks if user is logged in
 			</div>
 		</div>
 	
-		<?php
+		<?php	
 		$products = $user->getOrder()->getProducts();
 		$count = 0;
 		$basketItem = true;
 		foreach ($products as $product) {				
 			include ("includes/row-item.php");
-			$rows = array_push($rows, getOtherCustomersBought($user->getCurrentOrderId(), $product->getId()));
 			$count++;
 		}	
 		unset($basketItem);
+		
+
+		if (count($products) > 0){ $rows = getOtherCustomersBought($user->getCurrentOrderId(), $products[0]->getId()); }
+		if (count($products) > 1){ array_push($rows,getOtherCustomersBought($user->getCurrentOrderId(), $products[1]->getId())); }
 		
 		if ($user->getOrder()->getAmountOfProducts() > 0 && count($rows) > 0){			
 		?>
