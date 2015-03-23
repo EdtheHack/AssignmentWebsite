@@ -51,31 +51,32 @@ include ("nav.php");
 include ("admin-nav.php");
 ?>
     <div class="col-md-9">
-      <div class="page-header">
-        <h1>Statistics <small>At a glance..</small></h1>
-      </div>
-      <div class="row">
-        <div class="row placeholders">
-          <div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4 class="text-center"><?php echo getNoOfSearchItems("");?></h4>
-            <p class="text-muted text-center">Number of products listed.</p>
-          </div>
-          <div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4 class="text-center"><?php echo getNoOfCustomers("");?></h4>
-            <p class="text-muted text-center">Number of customer accounts opened.</p>
-          </div>
-          <div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4 class="text-center"><?php echo getNoOfUnlistedItems();?></h4>
-            <p class="text-muted text-center">Number of products unlisted.</p>
-          </div>
-          <div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4 class="text-center"><?php echo getNoOfOutOfStockItems();?></h4>
-            <p class="text-muted text-center">Number of products out of stock</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+		<div class="page-header">
+			<h1>Statistics <small>At a glance..</small></h1>
+		</div>
+				<div class="row">
+					<div class="row placeholders">
+						<div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
+							<h4 class="text-center"><?php echo getNoOfSearchItems("");?></h4>
+							<p class="text-muted text-center">Number of products listed.</p>
+						</div>
+						<div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
+							<h4 class="text-center"><?php echo getNoOfCustomers("");?></h4>
+							<p class="text-muted text-center">Number of customer accounts opened.</p>
+						</div>
+						<div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
+							<h4 class="text-center"><?php echo getNoOfUnlistedItems();?></h4>
+							<p class="text-muted text-center">Number of products unlisted.</p>
+						</div>
+						<div class="col-xs-6 col-sm-3 placeholder"> <img src="http://placehold.it/200x150" class="img-responsive" alt="Generic placeholder thumbnail">
+							<h4 class="text-center"><?php echo getNoOfOutOfStockItems();?></h4>
+							<p class="text-muted text-center">Number of products out of stock</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php include ("includes/footer.php")?>
 </body>
 </html>

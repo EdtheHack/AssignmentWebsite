@@ -129,20 +129,16 @@ include ("nav.php");
 						</div>
 						
 		    <?php 	
-		    }
-		    	
- 
+				}
 		    }else{
 		    	echo "<script type=\"text/javascript\">document.location.href=\"view-users.php?name=A\";</script>";
 		    }
-		  
 		    ?>
-
-
 					</tbody>
 				</table>
 			</div>
 		</div>
-</div>
+	</div>
+	<?php include ("includes/footer.php")?>
 </body>
 </html>

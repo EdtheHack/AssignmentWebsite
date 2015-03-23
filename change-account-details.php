@@ -153,7 +153,7 @@ if ($_SESSION["loggedIn"] == true){
     var hash = window.location.hash;
     $('#myTab a[href="' + hash + '"]').tab('show');
 </script>
-				
+		<?php include ("includes/footer.php")?>
 	</body>
 </html>
 	

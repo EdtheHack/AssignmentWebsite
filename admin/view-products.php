@@ -181,9 +181,6 @@ include ("nav.php");
 							</div>
 						</div>
 						
-
-						
-					
 					<?php 
 							}
 							
@@ -192,26 +189,23 @@ include ("nav.php");
 				</table>
 			</div>
 		</div>
-			<div class="modal fade" id="cannotDel" tabindex="-1" role="dialog"
-				aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						<h4 class="modal-title" id="myModalLabel">You Cannot Delete This Product</h4>
-						</div>
-						<div class="modal-body">It is not possible to delete this product as the product has been previously ordered. However, you can modify this products listing visibility by modifying its settings.</div>
-						<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								</div>
+	<div class="modal fade" id="cannotDel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">You Cannot Delete This Product</h4>
 				</div>
+				<div class="modal-body">It is not possible to delete this product as the product has been previously ordered. However, you can modify this products listing visibility by modifying its settings.</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
 				</div>
 			</div>
-
-	
-</div>
+		</div>
+	</div>
+	<?php include ("includes/footer.php")?>
 </body>
 </html>
