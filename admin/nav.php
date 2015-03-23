@@ -53,7 +53,7 @@ $count = count($rows);
 
 						$user = unserialize($_SESSION["user"]);
 						
-						echo"<li><a href=\"view-basket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".$user->getOrder()->getAmountOfProducts()."</b></a></li>";
+						echo"<li><a href=\"../view-basket.php\"><i class=\"fa fa-shopping-cart fa-1x\"></i> Basket <b>".$user->getOrder()->getAmountOfProducts()."</b></a></li>";
 						
 						
 						//PHP INJECT HTML TO THE PAGE
