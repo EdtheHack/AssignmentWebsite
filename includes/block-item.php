@@ -17,9 +17,13 @@
 		</h4>
 		<p> <?php echo $des ?></p>
 		
-		<h5 class=""><?php echo "<strong> Our Price: &pound;".$salePrice."</strong><br>
-											RRP: <strike>&pound;".$product->getPrice() ."</strike><br>
-											You Save: <em>&pound;".$salePriceTmp." (".$product->getPercentage()."&#37;)</em><br>"?></h5> <!-- PLEASE IGNORE HTML ERRORS -->
+		<h5><?php if ($product->getPercentage() == 0){
+				echo "<strong> &pound;".$product->getPrice()."</strong>";
+			} else {
+				$salePriceTmp = number_format(($product->getPrice() * $product->getPercentage() / 100), 2, '.', '');
+				$salePrice =  number_format(($product->getPrice() - $salePriceTmp), 2, '.', '');
+				echo "<strike>&pound;".$product->getPrice()."</strike>  ".$product->getPercentage()."% off! <br> <strong> Our Price: &pound;".$salePrice."</strong> <br>";
+			} ?></h5>
 		<a href="view-product.php?<?php echo $product->getId(); ?>"><button type="submit" class="btn btn-default "><i class="fa fa-eye "></i> <b> View </b> </button></a>				
 	</div>
 </div>
