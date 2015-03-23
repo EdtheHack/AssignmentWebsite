@@ -118,7 +118,7 @@ include ("admin-nav.php");
 			}
 			
 			if(isset ($_POST['delete'])){
-				$order_id = $_POST['delete'];
+				echo $order_id = $_POST['delete'];
 				deleteOrder($order_id);
 			}
 			?>
