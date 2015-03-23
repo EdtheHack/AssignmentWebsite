@@ -113,14 +113,15 @@ include ("admin-nav.php");
 			</div>
 			<br>
 			<?php
-			
-			$count++;
-			}
-			
 			if(isset ($_POST['delete'])){
 				echo $order_id = $_POST['delete'];
 				deleteOrder($order_id);
 			}
+			
+			$count++;
+			}
+			
+
 			?>
 </div>
 </body>
