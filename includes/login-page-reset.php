@@ -1,5 +1,4 @@
 <?php
-
 require 'PHPMailer/PHPMailerAutoload.php';
 
 if(isset($_POST['sendMail'])){

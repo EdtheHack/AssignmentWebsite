@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_POST['attemptRegister'])){
 	$email = $_POST['emailRegister'];
 	$password = $_POST['passwordRegister'];
