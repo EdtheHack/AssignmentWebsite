@@ -40,21 +40,18 @@ include ("includes/nav.php");
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role="listbox">
 						<div class="item active">
-							<img src="banner/banner1.png" alt="Image of one of our recently added products." height="300" width="735">
-							<div class="carousel-caption">Slide 1</div>
+							<img src="banner/banner1.png" alt="Image slider 1." height="300" width="735">
 						</div>
 						<div class="item">
-							<img src="banner/banner2.png" alt="Image of one of our recently added products." height="300" width="735">
-							<div class="carousel-caption">Slide 2</div>
+							<img src="banner/banner2.png" alt="Image slider 2." height="300" width="735">
 						</div>
                         <div class="item">
-							<img src="banner/banner4.png" alt="Image of one of our recently added products." height="300" width="735">
-							<div class="carousel-caption">Slide 3</div>
+							<img src="banner/banner4.png" alt="Image slider 3." height="300" width="735">
 						</div>
 					</div>
 					
 					<!-- Controls -->
-					<a class="left carousel-control" href="#carousel-example-generic"
+<!--					<a class="left carousel-control" href="#carousel-example-generic"
 						role="button" data-slide="prev"> <span
 						class="glyphicon glyphicon-chevron-left" aria-hidden="true"> </span>
 						<span class="sr-only">Previous</span>
@@ -62,7 +59,7 @@ include ("includes/nav.php");
 						href="#carousel-example-generic" role="button" data-slide="next">
 						<span class="glyphicon glyphicon-chevron-right"
 						aria-hidden="true"></span> <span class="sr-only">Next</span>
-					</a>
+					</a> -->
 				</div>
 			</div>
 		</div>
