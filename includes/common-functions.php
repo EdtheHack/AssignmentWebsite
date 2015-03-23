@@ -268,8 +268,11 @@ function getSearchItems($searchItem, $pageIndex){  //COULD BE SMARTER
 		$rows = array();
 		$searchItem = '%'.$searchItem.'%';
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE (UPPER (name) LIKE UPPER (?) OR UPPER (description) LIKE UPPER (?)) AND NOT status=2 LIMIT ?, 5")) {
-		$stmt->bind_param ("ssi", $searchItem, $searchItem, $pageIndex);
+	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN product_categories ON product.product_id = product_categories.product_id 
+									WHERE (UPPER (product.name) LIKE UPPER (?) OR UPPER (product.description) LIKE UPPER (?)) 
+									OR product_categories.category_id=(SELECT category_id FROM categories WHERE UPPER (categories.name) LIKE UPPER (?)) 
+									AND NOT product.status=2 LIMIT ?, 5")) {
+		$stmt->bind_param ("sssi", $searchItem, $searchItem, $searchItem, $pageIndex);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
 	   	while($stmt->fetch()) {
@@ -290,8 +293,11 @@ function getNoOfSearchItems($searchItem){
 		$rows = array();
 		$searchItem = '%'.$searchItem.'%';
 	
-	if ($stmt = $mysqli->prepare ("SELECT * FROM product WHERE (UPPER (name) LIKE UPPER (?) OR UPPER (description) LIKE UPPER (?)) AND NOT status=2")) {
-		$stmt->bind_param ("ss", $searchItem, $searchItem);
+	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN product_categories ON product.product_id = product_categories.product_id 
+									WHERE (UPPER (product.name) LIKE UPPER (?) OR UPPER (product.description) LIKE UPPER (?)) 
+									OR product_categories.category_id=(SELECT category_id FROM categories WHERE UPPER (categories.name) LIKE UPPER (?)) 
+									AND NOT product.status=2 LIMIT ?, 5")) {
+		$stmt->bind_param ("sssi", $searchItem, $searchItem, $searchItem, $pageIndex);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
 	   	while($stmt->fetch()) {
