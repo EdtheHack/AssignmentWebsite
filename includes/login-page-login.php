@@ -20,7 +20,7 @@ if(isset($_POST['attemptLogin'])){
 			$_SESSION['user'] = serialize($user);
 			$_SESSION["loggedIn"] = true;
 			
-			if ($_SESSION['suggestReset'] == true){
+			if (isset($_SESSION['suggestReset']) && $_SESSION['suggestReset'] == true){
 				echo "<script type=\"text/javascript\">document.location.href=\"suggest-reset-password.php\";</script>";
 			} else {
 				echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
