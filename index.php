@@ -67,6 +67,6 @@ include ("includes/nav.php");
 			</div>
 		</div>
 	</div>
-	</div>
+	<? include ("includes/footer.php")?>
 </body>
 </html>
