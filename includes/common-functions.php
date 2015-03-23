@@ -80,7 +80,7 @@ function getOtherCustomersBought($orderId, $productId){  //Could be improved
 		$rows = array();
 	
 	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN order_contents ON product.product_id = order_contents.product_id   
-									WHERE order_contents.order_id=(SELECT order_id FROM order_contents WHERE NOT order_id=? AND product_id=?) AND NOT order_contents.product_id=? LIMIT 3" )) {
+									WHERE order_contents.order_id=(SELECT order_id FROM order_contents WHERE NOT order_id=? AND product_id=? LIMIT 1) AND NOT order_contents.product_id=? LIMIT 3" )) {
 		$stmt->bind_param ("iii", $orderId, $productId, $productId);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
