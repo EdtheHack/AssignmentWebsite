@@ -23,21 +23,22 @@ session_start ();
 include ("includes/nav.php");
 ?>
 <div class="container">
-	<?php include ("includes/just-added.php")?>
+<!--Include the biggest deals sidebar -->	
+<?php include ("includes/biggest-deals.php")?>
 	<div class="col-md-9">
 		<div class="row">
 			<div class="jumbotron">
 				<div id="carousel-example-generic" class="carousel slide"
 					data-ride="carousel">
 					
-					<!-- Indicators -->
+					<!-- Indicators for slider-->
 					<ol class="carousel-indicators">
 						<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
 						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
 					</ol>
 					
-					<!-- Wrapper for slides -->
+					<!-- Slider Images -->
 					<div class="carousel-inner" role="listbox">
 						<div class="item active">
 							<img src="banner/banner1.png" alt="Image slider 1." style="width:735px;height:515px">
@@ -57,6 +58,7 @@ include ("includes/nav.php");
 				<h3>Our Newest Products</h3>
 				<div class="row">
 					<br>
+<!--                    Include the bottom product bar-->
 					<?php 
 					$rows = getNewest ();
 					include ("includes/product-bar.php")?>
