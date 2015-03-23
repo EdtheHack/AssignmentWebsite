@@ -14,7 +14,7 @@ if (isset ($_POST['changeDetails'])) {
 			</div>";
 		
 		if(isset( $_GET['purchase'])){
-			echo "<script type=\"text/javascript\">document.location.href=\"confirmPurchase.php\";</script>";
+			echo "<script type=\"text/javascript\">document.location.href=\"confirm-purchase.php\";</script>";
 		}
 		
 	} else {
