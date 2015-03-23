@@ -1,5 +1,5 @@
 <?php
-	include 'includes/databaseValidation.php';	
+	include 'includes/user-validation.php';	
 	if (($_SESSION["loggedIn"] == true) && ($_SESSION["suggestReset"] == true)){
 	} else {
 		echo "<script>window.location.replace(index.php)</script>";

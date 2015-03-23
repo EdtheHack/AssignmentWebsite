@@ -1,5 +1,5 @@
 <?php
-include 'includes/databaseValidation.php';
+include 'includes/user-validation.php';
 
 if ($_SESSION["loggedIn"] == true){
 } else {
@@ -20,10 +20,8 @@ if ($_SESSION["loggedIn"] == true){
 	</head>
 <body>
 	<?php include ("includes/nav.php");?>
-	
 <div class="container">
 	<?php include ("includes/biggest-deals.php")?>
-	
 	<div class="col-md-9">
 		<div class="bs-example">
 		    <ul class="nav nav-tabs" id="myTab">
@@ -50,7 +48,7 @@ if ($_SESSION["loggedIn"] == true){
 									<input type="password" name="newPasswordCheck" class="form-control" placeholder="Confirm new password"  <?php if(!empty($_POST["passwordCheck"])){ echo " value='".$_POST["passwordCheck"]."'"; }?>>
 								</div>
 								<br>
-									<input type="submit" name="changePassword" class="btn btn-default" value="Save"> <input style="float: right;" type="submit" name="back" class="btn btn-default" value="Cancel"> 
+								<input type="submit" name="changePassword" class="btn btn-default" value="Save"> <input style="float: right;" type="submit" name="back" class="btn btn-default" value="Cancel"> 
 							</form>	
 							<br>
 							<?php 
@@ -121,17 +119,16 @@ if ($_SESSION["loggedIn"] == true){
 	
 		        		</div>
 		        	</div>
-		        		
-		        		<?php 
-		        		include ("includes/account-details.php");
-		        		
-		        		if (isset ($_POST['back'])) {
-		        			echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
-		        		}
-		        		?>
+					<?php 
+					include ("includes/account-details.php");
+					
+					if (isset ($_POST['back'])) {
+						echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
+					}
+					?>
 		     </div>
 		</div>
-</div>
+	</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 											 

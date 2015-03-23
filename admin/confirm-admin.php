@@ -1,6 +1,5 @@
 <?php
-include '../includes/databaseValidation.php';
-
+include '../includes/user-validation.php';
 include_once '../includes/common-functions.php';
 
 if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
@@ -28,14 +27,12 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
 <body>
-	<?php include ("nav.php");
-	?>
-	
-<div class="container">
-<div class="col-md-6 col-md-offset-3">
-<br>	
-	<h3>Just a sec! Looks like you're trying to access the admin pages. For security reasons, please confirm your password. </h3>
-	<br>
+	<?php include ("nav.php"); ?>	
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+		<br>	
+		<h3>Just a sec! Looks like you're trying to access the admin pages. For security reasons, please confirm your password. </h3>
+		<br>
 		<form method="POST" action="">
 			<br>
 			<div class="form-group">
@@ -46,25 +43,21 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 			<input type="submit" name="back" class="btn btn-default pull-left" value="Go Back"> 
 			<input type="submit" name="checkAdmin" class="btn btn-default pull-right" value="Submit">
 		</form>	
-			<?php 
-				if(isset($_POST["checkAdmin"])){  //checks if user submit a password
-						if (validateUser($user->getEmail(), $_POST["passwordCheck"]) == 1){
-							
-							$_SESSION["adminChecked"] = true;
-							
-							echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";
-							
-						} else {
-							echo "<div class=\"alert alert-danger\">
-					        		<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					        		<strong>Error!</strong> Pasword invalid!
-					    		</div>";
-						}						
-					}
-				?>
+		<?php 
+			if(isset($_POST["checkAdmin"])){  //checks if user submit a password
+				if (validateUser($user->getEmail(), $_POST["passwordCheck"]) == 1){
+					$_SESSION["adminChecked"] = true;
+					
+					echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>";	
+				} else {
+					echo "<div class=\"alert alert-danger\">
+							<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+							<strong>Error!</strong> Pasword invalid!
+						</div>";
+				}						
+			}
+		?>
 		</div>
-
-	
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 		<?php include ("../includes/footer.php")?>
 	</body>

@@ -1,12 +1,6 @@
 <?php 
-ini_set ( 'display_errors', 1 );
-ini_set ( 'display_startup_errors', 1 );
-error_reporting ( - 1 );
-
-	
 $rows = getAllCategories();
 $count = count($rows);
-
 ?>
 <nav role="navigation" class="navbar navbar-default">
 	<div class="container">
@@ -84,8 +78,7 @@ $count = count($rows);
 						
 					}
 					
-					?>
-				
+					?>			
 			</ul>
 		</div>
 	</div>

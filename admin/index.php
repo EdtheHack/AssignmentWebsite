@@ -1,8 +1,7 @@
 <?php
 session_start ();
   
-include '../includes/databaseValidation.php';
-
+include '../includes/user-validation.php';
 include ("../includes/common-functions.php");
 
 if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
@@ -35,21 +34,16 @@ if (($_SESSION["loggedIn"] == true) && checkAdmin() == 1){
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<?php
-include ("nav.php");
-?>
-<div class="container">
-  <div class="col-md-12">
-    <div class="row">
-      <div class="jumbotron">
-        <h2> Hi <?php echo $user->getName()?>. <small>  Add, edit, and remove products, plus much more.</small> </h2>
-        <p></p>
-      </div>
-    </div>
-
-<?php
-include ("admin-nav.php");
-?>
+	<?php include ("nav.php"); ?>
+	<div class="container">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="jumbotron">
+				<h2> Hi <?php echo $user->getName()?>. <small>  Add, edit, and remove products, plus much more.</small> </h2>
+				<p></p>
+			</div>
+		</div>
+	<?php include ("admin-nav.php"); ?>
     <div class="col-md-9">
 		<div class="page-header">
 			<h1>Statistics <small>At a glance..</small></h1>
