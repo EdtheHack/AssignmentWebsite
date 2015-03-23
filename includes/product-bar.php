@@ -4,7 +4,7 @@
 		
 		$cutOff = 75;
 		$des = $product->getDescription();
-		$des = (strlen($des) > $cutOff) ? substr($des,0,$cutOff).'...<a href="viewProduct.php?'.$product->getId().'">read more</a>' : $des;
+		$des = (strlen($des) > $cutOff) ? substr($des,0,$cutOff).'...<a href="view-product.php?'.$product->getId().'">read more</a>' : $des;
 ?> 
 	<div class="col-md-4">
 		<div class="thumbnail"> 
@@ -14,7 +14,7 @@
 				<p><?php echo $des ?></p>
 			</div>
 			<div> 
-				<span class="pull-right"><a href="view-product.php?<?php echo $product->getId(); ?>"> <button type="submit" class="btn btn-default"><i class="fa fa-eye"></i> <b> View </b></button></a></span>
+				<span class="pull-right"><a href="view-product.php?<?php echo $product->getId(); ?>"> <button type="submit" class="btn btn-default"><i class="fa fa-eye"></i> <b>View</b></button></a></span>
 			</div>
 			<h5><?php if ($product->getPercentage() == 0){
 				echo "<strong> &pound;".$product->getPrice()."</strong>";

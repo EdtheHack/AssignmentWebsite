@@ -32,14 +32,14 @@ $count = count($rows);
 						for($i = 0; $i < $count; $i ++) {							
 							$name = $rows[$i][1];		
 					?>
-						<li><a href="searchProducts.php?currentPage=1&category=<?php echo $name; ?>"><?php echo $name ?></a></li>
+						<li><a href="search-products.php?currentPage=1&category=<?php echo $name; ?>"><?php echo $name ?></a></li>
 					<?php
 						}
 					?>
 					</ul>
 				</li>
 			</ul>
-			<form method="POST" action="searchProducts.php?currentPage=1" class="navbar-form navbar-left">
+			<form method="POST" action="search-products.php?currentPage=1" class="navbar-form navbar-left">
 				<div class="form-group">
 					<input type="text" name="searchItem" class="form-control" placeholder="Search" <?php if(!empty($_SESSION["searchItem"])){ echo " value='".$_SESSION["searchItem"]."'"; }?>>
 				</div>
@@ -86,10 +86,10 @@ $count = count($rows);
 						$_SESSION["loggedIn"] = false;
 						unset($_SESSION);
 						session_destroy();
-						echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>"; //dirty stinking refresh 
+						echo "<script type=\"text/javascript\">document.location.href=\"index.php\";</script>"; //Refresh 
 					}
 				}else{
-					echo"<li><a href=\"login-page.php\"><i class=\"fa fa-sign-in\"></i> <b> Login </b></a></li>"; //if a user is not logged in show the login button
+					echo"<li><a href=\"login-page.php\"><i class=\"fa fa-sign-in\"></i> <b> Login </b></a></li>"; //if a user is not logged in, show the login button.
 				}
 			?>
 			</ul>

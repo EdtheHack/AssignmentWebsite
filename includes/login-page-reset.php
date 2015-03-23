@@ -24,14 +24,14 @@ if(isset($_POST['sendMail'])){
 				forgottenPassword($email, $password);
 					echo "<div class=\"alert alert-success\">
 				     		<a href=\"index.php\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-				      		<strong>Success!</strong> Your Password has now been reset, check your emails!
+				      		<strong>Success!</strong> Thanks. Your password has successfully been reset. Please check your emails.
 				   		</div>";
 			}
 		} else {
-			echo "Email does not exist";
+			echo "Sorry. We cannot find that email address on record. Please try again.";
 		}
 	} else {
-		echo "Email can not be null";
+		echo "Email can not be empty. Please try again.";
 	}
 }
 

@@ -1,12 +1,7 @@
 <?php	
 	
 include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
-//PLEASE DO NOT CHANGE THE ABOVE LINE, THESE ABSOLUTE FILE LOCATION IS NOT IDEAL I KNOW
-//BUT IT IS TH ENLY WAY TO ENSURE THAT EVERY FILE IS CAPABALE OF REACHING THIS AS AND INCLUDE DUE TO OUR FILE STRUCTURE
-
-//THANK YOU
-
-
+//The line above is the absolute file location. Not ideal, but is the only way to ensure that every file is capable of reaching it successfully.
 
 	class user{	   //User object
 		private $id;
@@ -81,7 +76,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/assignment2/includes/order.php');
 			} else {
 			echo "<div class=\"alert alert-danger\">
 					   		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
-					  		<strong>Error!</strong> Sorry! ".$attemptPurchase." does not have enough stock!!
+					  		<strong>Error!</strong> Sorry! ".$attemptPurchase." does not have enough stock.
 						</div>";
 			}
 		}
