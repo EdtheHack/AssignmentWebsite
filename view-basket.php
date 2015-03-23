@@ -44,7 +44,6 @@ if(!isset($_SESSION["user"])){  //checks if user is logged in
 		</div>
 	
 		<?php
-		$rows = array();
 		$products = $user->getOrder()->getProducts();
 		$count = 0;
 		$basketItem = true;
