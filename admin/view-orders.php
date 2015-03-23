@@ -99,7 +99,7 @@ include ("admin-nav.php");
 								order? This cannot be undone.</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								<a href="includes/admin-order-functions.php?delOrder=<?php echo $order[0]; ?>" class="btn btn-danger">Delete Order</a>
+								<a href="admin-includes/admin-order-functions.php?delOrder=<?php echo $order[0]; ?>" class="btn btn-danger">Delete Order</a>
 							</div>
 						</div>
 					</div>
