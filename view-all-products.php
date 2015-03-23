@@ -35,13 +35,13 @@ session_start ();
 				$count = 0;
 				foreach ($rows as $row) {
 					$product = new product ($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
-					if ($count == 3){ echo "<div class=\"row\">"; }
+					if ($count == 0){ echo "<div class=\"row\">"; }
 				?>
 				<div class="col-md-4">
 					<?php include ("includes/block-item.php"); ?> 
 				</div>
 				<?php
-					if ($count == 3){ echo "</div>"; }
+					if ($count == 2){ echo "</div>"; $count = -1; }
 					$count++;
 				} 
 				?>
