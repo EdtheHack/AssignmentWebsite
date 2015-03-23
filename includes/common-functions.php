@@ -296,8 +296,8 @@ function getNoOfSearchItems($searchItem){
 	if ($stmt = $mysqli->prepare ("SELECT product.* FROM `product` LEFT JOIN product_categories ON product.product_id = product_categories.product_id 
 									WHERE (UPPER (product.name) LIKE UPPER (?) OR UPPER (product.description) LIKE UPPER (?)) 
 									OR product_categories.category_id=(SELECT category_id FROM categories WHERE UPPER (categories.name) LIKE UPPER (?)) 
-									AND NOT product.status=2 LIMIT ?, 5")) {
-		$stmt->bind_param ("sssi", $searchItem, $searchItem, $searchItem, $pageIndex);
+									AND NOT product.status=2")) {
+		$stmt->bind_param ("sss", $searchItem, $searchItem, $searchItem);
 		$stmt->execute ();
 		$stmt->bind_result ( $col0,  $col1,  $col2,  $col3, $col4,  $col5,  $col6,  $col7,  $col8);
 	   	while($stmt->fetch()) {
